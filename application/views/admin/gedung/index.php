@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Penanggung Jawab</h1>
+                    <h1>Data Barang</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Penanggung Jawab</li>
+                        <li class="breadcrumb-item active">Data Barang</li>
                     </ol>
                 </div>
             </div>
@@ -26,9 +26,9 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                Daftar Data Penanggung Jawab
+                                Daftar Data Barang
                             </h3>
-                            <a href="<?= base_url('admin/penanggung_jawab/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <a href="<?= base_url('admin/aset/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -36,11 +36,20 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama </th>
-                                        <th>NIP</th>
-                                        <th>Hak Akses</th>
+                                        <th>Nama</th>
+                                        <th>Kode Barang</th>
+                                        <th>Register</th>
+                                        <th>Bertingkat</th>
+                                        <th>Beton</th>
+                                        <th>Luas</th>
+                                        <th>Lokasi</th>
+                                        <th>Tahun Peroleh</th>
+                                        <th>Kondisi</th>
+                                        <th>Status</th>
+                                        <th>Asal-Usul</th>
+                                        <th>Harga Barang</th>
                                         <th class="text-center">Aksi</th>
-                                    </tr>
+                                </thead>
                                 </thead>
                                 <tbody>
                                     <?php $i = 1;
@@ -48,16 +57,20 @@
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $brg['nama'] ?></td>
-                                            <td><?= $brg['nip'] ?></td>
-                                            <?php if ($brg['hak_akses'] == '1') { ?>
-                                                <td>Admin</td>
-                                            <?php } else { ?>
-                                                <td>Guru</td>
-                                            <?php } ?>
-
+                                            <td><?= $brg['kode_barang'] ?></td>
+                                            <td><?= $brg['register'] ?></td>
+                                            <td><?= $brg['tingkat'] ?></td>
+                                            <td><?= $brg['beton'] ?></td>
+                                            <td><?= $brg['luas'] ?></td>
+                                            <td><?= $brg['lokasi'] ?></td>
+                                            <td><?= $brg['tahun'] ?></td>
+                                            <td><?= $brg['kondisi'] ?></td>
+                                            <td><?= $brg['status'] ?></td>
+                                            <td><?= $brg['asal_usul'] ?></td>
+                                            <td><?= $brg['harga'] ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href= "<?= base_url(); ?>admin/penanggung_jawab/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/penanggung_jawab/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="<?= base_url(); ?>admin/aset/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/aset/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

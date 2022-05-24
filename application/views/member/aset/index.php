@@ -28,7 +28,6 @@
                             <h3 class="card-title">
                                 Daftar Data Barang
                             </h3>
-                            <a href="<?= base_url('aset/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -48,7 +47,6 @@
                                         <th>Harga Barang</th>
                                         <th>Lokasi</th>
                                         <th>Tanggal Masuk</th>
-                                        <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
                                 <tbody>
@@ -70,10 +68,6 @@
                                             <td><?= $brg['harga_brg'] ?></td>
                                             <td><?= $brg['lokasi'] ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>
-                                            <td style="width: 100px;" class="text-center">
-                                                <a href= "<?= base_url(); ?>aset/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>aset/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
-                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

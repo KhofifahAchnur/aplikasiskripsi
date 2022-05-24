@@ -5,9 +5,20 @@ class M_kondisi extends CI_model
 	public function lihat()
 	{
 		$this->db->select('history_kondisi.id, aset.nama_barang, 
-		aset.kode_barang, history_kondisi.kondisi, history_kondisi.tanggal');
+		aset.kode_barang, aset.register, history_kondisi.kondisi, history_kondisi.tanggal');
 		$this->db->from('history_kondisi');
 		$this->db->join('aset', 'aset.id = history_kondisi.aset_id ');
+		$this->db->order_by('history_kondisi.id', 'DESC');
+		return $this->db->get()->result_array();
+	}
+
+	public function lihatkondisibyid($id)
+	{
+		$this->db->select('history_kondisi.id, aset.nama_barang, 
+		aset.kode_barang, aset.register, history_kondisi.kondisi, history_kondisi.tanggal');
+		$this->db->from('history_kondisi');
+		$this->db->join('aset', 'aset.id = history_kondisi.aset_id ');
+		$this->db->where('history_kondisi.aset_id', $id);
 		$this->db->order_by('history_kondisi.id', 'DESC');
 		return $this->db->get()->result_array();
 	}

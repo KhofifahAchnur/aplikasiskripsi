@@ -55,28 +55,27 @@
 
 <body>
     <img src="<?= base_url() ?>adminlte/dist/img/logo.png" style="position: absolute; width: 125px; height: 130px;">
-    <br>
-    <br>
     <table style="width: 103%;">
+        <br>
+        <br>
         <tr>
             <td align="center">
                 <p>
                 <h2>SMP NEGERI 15 BANJARMASIN</h2>
-                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511 3301006   </p>
+                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511 3301006 </p>
             </td>
         </tr>
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA PERBAIKAN ASET</strong>
+        <strong>LAPORAN DATA ASET DI RUANGAN</strong>
     </p>
-    <table id="customers" class="table table-bordered">
+    <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
                 <th>No</th>
                 <th>Nama Barang</th>
                 <th>Kode Barang</th>
-                <th>Register</th>
                 <th>Kondisi</th>
                 <th>Lokasi</th>
                 <th>Tanggal Masuk</th>
@@ -86,13 +85,12 @@
             <?php $i = 1;
             foreach ($barang as $brg) : ?>
                 <tr>
-                    <td align="center"><?= $i++; ?></td>
-                    <td align="center"><?= $brg['nama_barang'] ?></td>
-                    <td align="center"><?= $brg['kode_barang'] ?></td>
-                    <td align="center"><?= $brg['register'] ?></td>
-                    <td align="center"><?= $brg['kondisi'] ?></td>
-                    <td align="center"><?= $brg['lokasi'] ?></td>
-                    <td align="center"><?= $brg['tanggal_masuk'] ?></td>
+                    <td><?= $i++; ?></td>
+                    <td><?= $brg['nama_barang'] ?></td>
+                    <td><?= $brg['kode_barang'] ?></td>
+                    <td><?= $brg['kondisi'] ?></td>
+                    <td><?= $brg['lokasi'] ?></td>
+                    <td><?= $brg['tanggal_masuk'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -101,26 +99,10 @@
         <tr>
         <tr>
             <td width="50%"></td>
-            <td align="center">Banjarmasin,<?php echo date('d/m/Y'); ?><br>Mengetahui</small><br><br><br><br>Hj. Netta Herawati<br>______<br><strong>Kepala Tata Usaha</strong></td>
+            <td align="center">Banjarmasin,<?php echo date('d/m/Y'); ?><br>Mengetahui</small><br><br><br><br>Hj. Netta Herawati<br>______________<br><strong>Kepala Tata Usaha</strong></td>
         </tr>
         </tr>
     </table>
-    <!-- <table>
-        <tr>
-            <td colspan="3">
-                <div style="float: right;">
-                    <div style="text-align: end;">
-                        <p>Hormat Kami</p>
-                        <p>Kepala SDN Handil Bakti</p>
-
-                        <p></p>
-                        <p class="me-5">SURYA ABDI, S.Pd</p>
-                        <p>NIP.19670505 198804 1 002</p>
-                    </div>
-                </div>
-            </td>
-        </tr>
-    </table> -->
 
 </body>
 

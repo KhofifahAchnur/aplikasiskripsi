@@ -33,6 +33,7 @@
                                         <th>No</th>
                                         <th>Nama Barang</th>
                                         <th>Kode Barang</th>
+                                        <th>Register</th>
                                         <th>Kondisi</th>
                                         <th>Lokasi</th>
                                         <th>Tanggal Masuk</th>
@@ -44,6 +45,7 @@
                                             <td><?= ++$index; ?></td>
                                             <td><?= $brg['nama_barang'] ?></td>
                                             <td><?= $brg['kode_barang'] ?></td>
+                                            <td><?= $brg['register'] ?></td>
                                             <td><?= $brg['kondisi'] ?></td>
                                             <td><?= $brg['lokasi'] ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>

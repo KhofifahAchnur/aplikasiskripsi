@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA MASTERASET</strong>
+        <strong>LAPORAN DATA MASTER ASET</strong>
     </p>
     <table id="customers" class="table table-bordered">
         <thead>

@@ -5,11 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>DATA RUANGAN</h1>
+                    <h1>Data Tanah</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/lokasi/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
+                        <li class="breadcrumb-item active">Data Tanah</li>
                     </ol>
                 </div>
             </div>
@@ -23,6 +24,12 @@
                 <div class="col-12">
                     <!-- /.card-header -->
                     <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                Daftar Data  Tanah
+                            </h3>
+                            <a href="<?= base_url('admin/tanah/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                        </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -31,9 +38,15 @@
                                         <th>No</th>
                                         <th>Nama Barang</th>
                                         <th>Kode Barang</th>
-                                        <th>Kondisi</th>
+                                        <th>Register</th>
+                                        <th>Luas</th>
+                                        <th>Tahun Peroleh</th>
                                         <th>Lokasi</th>
-                                        <th>Tanggal Masuk</th>
+                                        <th>Hak</th>
+                                        <th>Nomer</th>
+                                        <th>Asal-Usul</th>
+                                        <th>Harga Barang</th>
+                                        <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
                                 <tbody>
@@ -43,9 +56,18 @@
                                             <td><?= $i++; ?></td>
                                             <td><?= $brg['nama_barang'] ?></td>
                                             <td><?= $brg['kode_barang'] ?></td>
-                                            <td><?= $brg['kondisi'] ?></td>
+                                            <td><?= $brg['register'] ?></td>
+                                            <td><?= $brg['luas'] ?></td>
+                                            <td><?= $brg['tahun'] ?></td>
                                             <td><?= $brg['lokasi'] ?></td>
-                                            <td><?= $brg['tanggal_masuk'] ?></td>
+                                            <td><?= $brg['hak'] ?></td>
+                                            <td><?= $brg['nomer'] ?></td>
+                                            <td><?= $brg['asal_usul'] ?></td>
+                                            <td><?= $brg['harga'] ?></td>
+                                            <td style="width: 100px;" class="text-center">
+                                                <a href= "<?= base_url(); ?>admin/aset/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/aset/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

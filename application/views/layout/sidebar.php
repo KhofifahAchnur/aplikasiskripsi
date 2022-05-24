@@ -14,7 +14,7 @@
                 <!-- Add icons to the links using the .nav-icmon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                <hr color="white">
+                    <!-- <hr color="white"> -->
                     <a href="<?= base_url('admin/dashboard') ?>" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -30,29 +30,56 @@
                         </p>
                     </a>
                     <hr color="white">
-                <!-- <li class="nav-header">MASTER DATA</li>
-                <li class="nav-item">
-                    <a href="<?= base_url('admin/penanggung_jawab') ?>" class="nav-link">
+                    <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
-                            Data Penanggung Jawab
+                            Data Lokasi Aset
                         </p>
-                    </a> -->
-                <!-- <li class="nav-item">
-                    <a href="<?= base_url('admin/member') ?>" class="nav-link">
-                        <i class="fas fa-fw fa-user"></i>
-                        <p>
-                            Data Member
-                        </p>
-                    </a> -->
-                <!-- <hr color="white"> -->
+                    </a>
+                    <hr color="white">
+
                 <li class="nav-header">TRANSAKSI</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
                         <p>
-                            Transaksi
+                            Tanah
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/masteraset') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Data Master Aset
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/tanah') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Aset Baru</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Data Lokasi Aset
+                                </p>
+                            </a>
+                    </ul> -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-random"></i>
+                        <p>
+                            Peralatan & Mesin
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -74,7 +101,7 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -82,7 +109,103 @@
                                     Data Lokasi Aset
                                 </p>
                             </a>
+                    </ul> -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-random"></i>
+                        <p>
+                            Gedung & Bangunan
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/gedung') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Data Master Aset
+                                </p>
+                            </a>
+                        </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/gedung') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Aset Baru</p>
+                            </a>
+                        </li>
+                    </ul>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-random"></i>
+                        <p>
+                            Buku
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/masteraset') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Data Master Aset
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/aset') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Aset Baru</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Data Lokasi Aset
+                                </p>
+                            </a>
+                    </ul> -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-random"></i>
+                        <p>
+                            Jalan, Irigasi & Jaringan
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/masteraset') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Data Master Aset
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/aset') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Aset Baru</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Data Lokasi Aset
+                                </p>
+                            </a>
+                    </ul> -->
                     <hr color="white">
                 <li class="nav-header">DATA HISTORY</li>
                 <li class="nav-item">
@@ -93,14 +216,6 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/perbaikan') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Perawatan/Perbaikan Aset</p>
-                            </a>
-                        </li>
-                    </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/perpindahan') ?>" class="nav-link">
@@ -118,6 +233,57 @@
                         </li>
                     </ul>
                     <hr color="white">
+                <li class="nav-header">PEMELIHARAAN ASET</li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-random"></i>
+                        <p>
+                            Pemeliharaan Aset
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/perbaikan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Perbaikan Aset</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/perpindahan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Perawatan Aset</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <hr color="white">
+                    <a href="<?= base_url('admin/penanggung_jawab') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-address-book"></i>
+
+                        <p>
+                            Pengajuan Aset
+                        </p>
+                    </a>
+                    <hr color="white">
+                    <a href="<?= base_url('admin/penanggung_jawab') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-address-book"></i>
+
+                        <p>
+                            Peminjaman Aset
+                        </p>
+                    </a>
+                    <hr color="white">
+                    <a href="<?= base_url('admin/penanggung_jawab') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-address-book"></i>
+
+                        <p>
+                            Penghapusan Aset
+                        </p>
+                    </a>
+                    <hr color="white">
+
                 <li class="nav-header">LAPORAN</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">

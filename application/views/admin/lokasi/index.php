@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Barang</h1>
+                    <h1>Data Lokasi</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Barang</li>
+                        <li class="breadcrumb-item active">Data Lokasi Barang</li>
                     </ol>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                Daftar Data Barang
+                                Daftar Data Lokasi Barang
                             </h3>
                             <a href="<?= base_url('admin/lokasi/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
@@ -51,9 +51,10 @@
                                             </td>
                                             <td><?= $brg['nama'] ?></td>
 
-                                            <td style="width: 100px;" class="text-center">
-                                                <a href= "<?= base_url(); ?>admin/lokasi/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/lokasi/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                            <td style="width: 120px;" class="text-center">
+                                                <a href="<?= base_url(); ?>admin/lokasi/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/lokasi/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/lokasi/laporanruangan/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="print"><i class="fas fa-print"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -39,6 +39,7 @@ class Kondisi extends CI_Controller
 
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
         $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required');
+        $this->form_validation->set_rules('register', 'Register', 'required');
         $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
 
         if ($this->form_validation->run() == false) {

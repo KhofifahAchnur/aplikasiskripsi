@@ -4,12 +4,26 @@ class M_perpindahan extends CI_model
 {
     public function lihat()
     {
-        $this->db->select('history_perpindahan.id, aset.nama_barang, aset.kode_barang, lokasi.lokasi, penanggung_jawab.nama, 
+        $this->db->select('history_perpindahan.id, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, 
         history_perpindahan.tanggal');
         $this->db->from('history_perpindahan');
         $this->db->join('aset', 'aset.id = history_perpindahan.aset_id ');
         $this->db->join('lokasi', 'lokasi.id = history_perpindahan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = lokasi.penanggung_jawab_id');
+        $this->db->order_by('history_perpindahan.id', 'DESC');
+        return $this->db->get()->result_array();
+
+    }
+
+    public function lihatperpindahanbyid($id)
+    {
+        $this->db->select('history_perpindahan.id, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, 
+        history_perpindahan.tanggal');
+        $this->db->from('history_perpindahan');
+        $this->db->join('aset', 'aset.id = history_perpindahan.aset_id ');
+        $this->db->join('lokasi', 'lokasi.id = history_perpindahan.lokasi_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = lokasi.penanggung_jawab_id');
+        $this->db->where('history_perpindahan.aset_id', $id);
         $this->db->order_by('history_perpindahan.id', 'DESC');
         return $this->db->get()->result_array();
 

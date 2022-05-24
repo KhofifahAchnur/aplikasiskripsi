@@ -42,6 +42,11 @@
                                     <div class="form-text text-danger"><?= form_error('kode_barang'); ?></div>
                                 </div>
                                 <div class="form-group">
+                                    <label>Register</label>
+                                    <input readonly type="text" class="form-control" id="register" name="register" value="<?= $kondisi['register'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('register'); ?></div>
+                                </div>
+                                <div class="form-group">
                                     <label>Kondisi</label>
                                     <select name="kondisi" class="form-control" id="kondisi">
                                         <option value="<?= $kondisi['kondisi']; ?>"><?= $kondisi['kondisi']; ?></option>

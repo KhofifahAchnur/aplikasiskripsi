@@ -28,7 +28,11 @@
                             <h3 class="card-title">
                                 Daftar Data Barang
                             </h3>
-                            <a href="<?= base_url('aset/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <div class="col-sm-12">
+                                <ol class="breadcrumb float-sm-right">
+                                    <a href="<?= base_url('member/lokasi/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                                </ol>
+                            </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

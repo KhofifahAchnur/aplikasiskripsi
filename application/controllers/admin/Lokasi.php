@@ -126,4 +126,31 @@ class Lokasi extends CI_Controller
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
 
 }
+
+public function laporanruangan($id)
+    {
+        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+        $this->load->library('pdfgenerator');
+
+        $data['barang'] = $this->M_aset->lihatbylokasi($id);
+        $this->load->view('admin/ruangan/laporan', $data);
+
+        // title dari pdf
+        $this->data['title_pdf'] = 'Laporan Lokasi Aset';
+
+        // filename dari pdf ketika didownload
+        $file_pdf = 'laporan Lokasi Aset';
+        // setting paper
+        $paper = 'A4';
+        //orientasi paper potrait / landscape
+        $orientation = "landscape";
+
+        $html = $this->load->view('admin/ruangan/laporan', $this->data, true);
+
+        // run dompdf
+        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+
+}
+
+
 }

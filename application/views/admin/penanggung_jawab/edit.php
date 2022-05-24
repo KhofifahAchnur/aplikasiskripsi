@@ -55,7 +55,7 @@
                                     <select name="hak_akses" class="form-control" id="hak_akses">
                                         <option>- Pilih Hak Akses -</option>
                                         <option value="1"> Admin </option>
-                                        <option value="2"> Member </option>
+                                        <option value="2"> Guru </option>
                                     </select>
                                 </div>
                                 <div class="text-right">

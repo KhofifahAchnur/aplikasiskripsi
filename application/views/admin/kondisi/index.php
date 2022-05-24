@@ -31,6 +31,7 @@
                                         <th>No</th>
                                         <th>Nama Barang</th>
                                         <th>Kode Barang</th>
+                                        <th>Register</th>
                                         <th>Kondisi</th>
                                         <th>Tanggal Masuk</th>
                                 </thead>
@@ -42,6 +43,7 @@
                                             <td><?= $i++; ?></td>
                                             <td><?= $kds['nama_barang'] ?></td>
                                             <td><?= $kds['kode_barang'] ?></td>
+                                            <td><?= $kds['register'] ?></td>
                                             <td><?= $kds['kondisi'] ?></td>
                                             <td><?= $kds['tanggal'] ?></td>
                                         </tr>
