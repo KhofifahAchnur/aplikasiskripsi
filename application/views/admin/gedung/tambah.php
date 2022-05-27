@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Barang</h1>
+                    <h1>Data Gedung & Bangunan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -20,24 +20,24 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-18">
+                <div class="col-12">
                     <!-- /.card-header -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Tambah Data Barang</h3>
+                            <h3 class="card-title">Tambah Data Gedung & Bangunan</h3>
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Nama Barang</label>
-                                    <input type="text" class="form-control" id="nama_barang" placeholder="Masukkan Nama Barang" name="nama_barang">
-                                    <div class="form-text text-danger"><?= form_error('nama_barang'); ?></div>
+                                    <label>Nama Gedung</label>
+                                    <input type="text" class="form-control" id="nama_gedung" placeholder="Masukkan Nama Gedung" name="nama_gedung">
+                                    <div class="form-text text-danger"><?= form_error('nama_gedung'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Kode Barang</label>
-                                    <input type="text" class="form-control" id="kode_barang" placeholder="Masukkan Kode Barang" name="kode_barang">
-                                    <div class="form-text text-danger"><?= form_error('kode_barang'); ?></div>
+                                    <label>Kode Gedung</label>
+                                    <input type="text" class="form-control" id="kode_gedung" placeholder="Masukkan Kode Gedung" name="kode_gedung">
+                                    <div class="form-text text-danger"><?= form_error('kode_gedung'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Register</label>
@@ -45,19 +45,30 @@
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Merk</label>
-                                    <input type="text" class="form-control" id="merk" placeholder="Masukkan Merk" name="merk">
-                                    <div class="form-text text-danger"><?= form_error('merk'); ?></div>
+                                    <label>Bertingkat</label>
+                                    <select name="tingkat" class="form-control" id="tingkat">
+                                        <option>- Pilih Konstruksi -</option>
+                                        <option value="Bertingkat"> Bertingkat </option>
+                                        <option value="Tidak Bertingkat"> Tidak Bertingkat </option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ukuran</label>
-                                    <input type="text" class="form-control" id="ukuran" placeholder="Masukkan Ukuran" name="ukuran">
-                                    <div class="form-text text-danger"><?= form_error('ukuran'); ?></div>
+                                    <label>Beton</label>
+                                    <select name="beton" class="form-control" id="beton">
+                                        <option>- Pilih Konstruksi -</option>
+                                        <option value="Beton"> Beton </option>
+                                        <option value="Tidak Beton"> Tidak Beton </option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Bahan</label>
-                                    <input type="text" class="form-control" id="bahan" placeholder="Masukkan Bahan" name="bahan">
-                                    <div class="form-text text-danger"><?= form_error('bahan'); ?></div>
+                                    <label>Luas</label>
+                                    <input type="text" class="form-control" id="luas" placeholder="Masukkan Luas" name="luas">
+                                    <div class="form-text text-danger"><?= form_error('luas'); ?></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Lokasi</label>
+                                    <input type="text" class="form-control" id="lokasi" placeholder="Masukkan Lokasi" name="lokasi">
+                                    <div class="form-text text-danger"><?= form_error('lokasi'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Tahun Peroleh</label>
@@ -74,14 +85,19 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label>Status</label>
+                                    <input type="text" class="form-control" id="status" placeholder="Masukkan status Peroleh" name="status">
+                                    <div class="form-text text-danger"><?= form_error('status'); ?></div>
+                                </div>
+                                <div class="form-group">
                                     <label>Asal-Usul</label>
                                     <input type="text" class="form-control" id="asal_usul" placeholder="Masukkan Asal-usul" name="asal_usul">
                                     <div class="form-text text-danger"><?= form_error('asal_usul'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Harga Barang</label>
-                                    <input type="text" class="form-control" id="harga_brg" placeholder="Masukkan Harga Barang" name="harga_brg">
-                                    <div class="form-text text-danger"><?= form_error('harga_brg'); ?></div>
+                                    <input type="text" class="form-control" id="harga" placeholder="Masukkan Harga Barang" name="harga">
+                                    <div class="form-text text-danger"><?= form_error('harga'); ?></div>
                                 </div>
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-primary">Simpan</button>

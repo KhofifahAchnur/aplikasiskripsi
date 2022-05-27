@@ -36,8 +36,8 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Barang</th>
-                                        <th>Kode Barang</th>
+                                        <th>Nama Tanah</th>
+                                        <th>Kode Tanah</th>
                                         <th>Register</th>
                                         <th>Luas</th>
                                         <th>Tahun Peroleh</th>
@@ -51,11 +51,11 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1;
-                                    foreach ($barang as $brg) : ?>
+                                    foreach ($tanah as $brg) : ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
-                                            <td><?= $brg['nama_barang'] ?></td>
-                                            <td><?= $brg['kode_barang'] ?></td>
+                                            <td><?= $brg['nama_tanah'] ?></td>
+                                            <td><?= $brg['kode_tanah'] ?></td>
                                             <td><?= $brg['register'] ?></td>
                                             <td><?= $brg['luas'] ?></td>
                                             <td><?= $brg['tahun'] ?></td>
@@ -65,8 +65,8 @@
                                             <td><?= $brg['asal_usul'] ?></td>
                                             <td><?= $brg['harga'] ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href= "<?= base_url(); ?>admin/aset/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/aset/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href= "<?= base_url(); ?>admin/tanah/edit/<?= $brg['id_tanah']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/tanah/hapus/<?= $brg['id_tanah']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
