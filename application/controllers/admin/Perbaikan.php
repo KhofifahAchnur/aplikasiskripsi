@@ -7,7 +7,7 @@ class Perbaikan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_perbaikan');
-        $this->load->model('M_aset');
+        // $this->load->model('M_aset');
         if ($this->session->userdata('hak_akses') != '1') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
@@ -29,22 +29,20 @@ class Perbaikan extends CI_Controller
         $this->load->view('layout/footer');
     }
 
-    public function tambah($id)
+    public function tambah()
     {
-        $data['judul'] = 'Halaman Tambah Data';
-        $data['aset'] = $this->M_masteraset->getBrgById($id);
+        $data['judul'] = 'Halaman Data History';
+        $data['barang'] = $this->M_perbaikan->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
 
-        $this->form_validation->set_rules('tanggal_masuk', 'Tanggal Masuk', 'required');
-        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
-        $this->form_validation->set_rules('kode_barang', 'kode_barang', 'required');
-        $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
-        $this->form_validation->set_rules('kerusakan', 'Kerusakan', 'required');
-        $this->form_validation->set_rules('jenis_service', 'Jenis Service', 'required');
-        $this->form_validation->set_rules('biaya', 'Biaya', 'required');
-        
+        $this->form_validation->set_rules('nama_perbaikan', 'Nama Perbaikan', 'required');
+        $this->form_validation->set_rules('lokasi_aset', 'lokasi_aset', 'required');
+        $this->form_validation->set_rules('rusak', 'Kerusakan', 'Kequired');
+        $this->form_validation->set_rules('biaya_perbaikan', 'Biaya Perbaikan', 'Bequired');
+   
+
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
@@ -59,44 +57,42 @@ class Perbaikan extends CI_Controller
         }
     }
 
-   
-    public function brgberdasarkankondisi($id)
-    {
-        $data['judul'] = 'Halaman Data Barang';
-        $data['barang'] = $this->M_masteraset->lihatBykondisi()($id);
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/perbaikan/index', $data);
-        $this->load->view('layout/footer');
-    }
+    // public function brgberdasarkankondisi($id)
+    // {
+    //     $data['judul'] = 'Halaman Data Barang';
+    //     $data['barang'] = $this->M_masteraset->lihatBykondisi()($id);
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
 
-    public function laporan()
-    {
-        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
-        $this->load->library('pdfgenerator');
+    //     $this->load->view('layout/header', $data);
+    //     $this->load->view('layout/topbar');
+    //     $this->load->view('layout/sidebar');
+    //     $this->load->view('admin/perbaikan/index', $data);
+    //     $this->load->view('layout/footer');
+    // }
 
-        $data['barang'] = $this->M_perbaikan->lihat();
-        $this->load->view('admin/perbaikan/laporan', $data);
+    // public function laporan()
+    // {
+    //     // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+    //     $this->load->library('pdfgenerator');
 
-        // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Perbaikan Aset';
+    //     $data['barang'] = $this->M_perbaikan->lihat();
+    //     $this->load->view('admin/perbaikan/laporan', $data);
 
-        // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Perbaikan Aset';
-        // setting paper
-        $paper = 'A4';
-        //orientasi paper potrait / landscape
-        $orientation = "landscape";
+    //     // title dari pdf
+    //     $this->data['title_pdf'] = 'Laporan Perbaikan Aset';
 
-        $html = $this->load->view('admin/perbaikan/laporan', $this->data, true);
+    //     // filename dari pdf ketika didownload
+    //     $file_pdf = 'laporan Perbaikan Aset';
+    //     // setting paper
+    //     $paper = 'A4';
+    //     //orientasi paper potrait / landscape
+    //     $orientation = "landscape";
 
-        // run dompdf
-        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    //     $html = $this->load->view('admin/perbaikan/laporan', $this->data, true);
 
-}
-
+    //     // run dompdf
+    //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    // }
 }

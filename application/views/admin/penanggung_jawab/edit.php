@@ -53,9 +53,17 @@
                                 <div class="form-group">
                                     <label>Hak Akses</label>
                                     <select name="hak_akses" class="form-control" id="hak_akses">
-                                        <option>- Pilih Hak Akses -</option>
+                                    <option value="<?= $barang['hak_akses'] ?>">
+                                        <?php if ($barang['hak_akses'] == '1') {
+                                                echo "Admin";
+                                            } else if ($barang['hak_akses'] == '2') {
+                                                echo "Guru";
+                                            } else {
+                                                echo "Sapras";
+                                            } ?>
                                         <option value="1"> Admin </option>
                                         <option value="2"> Guru </option>
+                                        <option value="3"> Sapras </option>
                                     </select>
                                 </div>
                                 <div class="text-right">

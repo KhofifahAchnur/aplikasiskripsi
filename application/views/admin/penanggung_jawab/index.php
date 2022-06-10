@@ -51,12 +51,14 @@
                                             <td><?= $brg['nip'] ?></td>
                                             <?php if ($brg['hak_akses'] == '1') { ?>
                                                 <td>Admin</td>
-                                            <?php } else { ?>
+                                            <?php } else if ($brg['hak_akses'] == '2') { ?>
                                                 <td>Guru</td>
+                                            <?php } else  { ?>
+                                                <td>Sapras</td>
                                             <?php } ?>
 
                                             <td style="width: 100px;" class="text-center">
-                                                <a href= "<?= base_url(); ?>admin/penanggung_jawab/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/penanggung_jawab/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>admin/penanggung_jawab/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>

@@ -58,6 +58,7 @@
                                 <div class="text-center">
 
                                     <a href="<?= base_url('admin/perpindahan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Perpindahan</a>
+                                    <a href="<?= base_url('admin/perpindahan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Perpindahan</a>
                                 </div>
                             </div>
                         </form>

@@ -30,49 +30,35 @@
                         <form action = "" method = "post">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Tanggal Masuk</label>
-                                    <input type="date" class="form-control" id="tanggal_masuk" placeholder="Masukkan Tanggal Masuk" name="tanggal_masuk">
-                                    <div class="form-text text-danger"><?= form_error('tanggal_masuk'); ?></div>
+                                    <label>Nama</label>
+                                    <input type="text" class="form-control" id="nama_perbaikan" placeholder="Masukkan Kode Barang" name="nama_perbaikan">
+                                    <div class="form-text text-danger"><?= form_error('nama_perbaikan'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Nama Barang</label>
-                                    <select name="nama_barang" class="form-control" id="nama_barang">
-                                        <?php foreach ($aset as $index => $brg) : ?>
-                                            <option value="<?= $brg['id']; ?>"><?= $brg['nama_barang']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            <div class="form-group">
-                                    <label>Kode Barang</label>
-                                    <select name="kode_barang" class="form-control" id="kode_barang">
-                                        <?php foreach ($aset as $index => $brg) : ?>
-                                            <option value="<?= $brg['id']; ?>"><?= $brg['kode_barang']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Kondisi</label>
-                                    <select name="kondisi" class="form-control" id="kondisi">
-                                        <?php foreach ($aset as $index => $brg) : ?>
-                                            <option value="<?= $brg['id']; ?>"><?= $brg['kondisi']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <label>Lokasi</label>
+                                    <input type="text" class="form-control" id="lokasi_aset" placeholder="Masukkan Kode Barang" name="lokasi_aset">
+                                    <div class="form-text text-danger"><?= form_error('lokasi_aset'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Kerusakan</label>
-                                    <input type="text" class="form-control" id="kerusakan" placeholder="Masukkan Kode Barang" name="kerusakan">
-                                    <div class="form-text text-danger"><?= form_error('kerusakan'); ?></div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Jenis Service</label>
-                                    <input type="text" class="form-control" id="jenis_service" placeholder="Masukkan Kode Barang" name="jenis_service">
-                                    <div class="form-text text-danger"><?= form_error('jenis_service'); ?></div>
+                                    <input type="text" class="form-control" id="rusak" placeholder="Masukkan Kerusakan" name="rusak">
+                                    <div class="form-text text-danger"><?= form_error('rusak'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Biaya</label>
-                                    <input type="text" class="form-control" id="biaya" placeholder="Masukkan Kode Barang" name="biaya">
-                                    <div class="form-text text-danger"><?= form_error('biaya'); ?></div>
+                                    <input type="text" class="form-control" id="biaya_perbaikan" placeholder="Masukkan Kode Barang" name="biaya_perbaikan">
+                                    <div class="form-text text-danger"><?= form_error('biaya_perbaikan'); ?></div>
                                 </div>
+                                <!-- <div class="form-group">
+                                    <label>Tanggal Perbaikan</label>
+                                    <input type="text" class="form-control" id="tgl_perbaikan" placeholder="Masukkan Tanggal Perbaikan" name="tgl_perbaikan">
+                                    <div class="form-text text-danger"><?= form_error('tgl_perbaikan'); ?></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tanggal Selesai</label>
+                                    <input type="text" class="form-control" id="tgl_selesai" placeholder="Masukkan Tanggal Selesai" name="tgl_selesai">
+                                    <div class="form-text text-danger"><?= form_error('tgl_selesai'); ?></div>
+                                </div> -->
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>

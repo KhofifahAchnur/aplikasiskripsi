@@ -22,6 +22,7 @@ class M_gedung extends CI_model
             "status" => $this->input->post('status', true),
             "asal_usul" => $this->input->post('asal_usul', true),
             "harga" => $this->input->post('harga', true),
+            "tanggal_masuk" => date('Y-m-d')
         ];
 
         $this->db->insert('gedung', $data);

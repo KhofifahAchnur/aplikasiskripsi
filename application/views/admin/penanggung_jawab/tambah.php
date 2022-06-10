@@ -55,6 +55,7 @@
                                         <option>- Pilih Hak Akses -</option>
                                         <option value="1"> Admin </option>
                                         <option value="2"> Guru </option>
+                                        <option value="3"> Sapras </option>
                                     </select>
                                 </div>
                                 <div class="text-right">

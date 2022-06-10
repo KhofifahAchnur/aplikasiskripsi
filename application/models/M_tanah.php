@@ -20,6 +20,7 @@ class M_tanah extends CI_model
             "nomer" => $this->input->post('nomer', true),
             "asal_usul" => $this->input->post('asal_usul', true),
             "harga" => $this->input->post('harga', true),
+            "tanggal_masuk" => date('Y-m-d')
         ];
 
         $this->db->insert('tanah', $data);

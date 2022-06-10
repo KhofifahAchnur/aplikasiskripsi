@@ -30,11 +30,27 @@
                         </p>
                     </a>
                     <hr color="white">
+                    <a href="<?= base_url('admin/pengajuan/index') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-address-book"></i>
+
+                        <p>
+                            Pengajuan Aset
+                        </p>
+                    </a>
+                    <hr color="white">
                     <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
                             Data Lokasi Aset
+                        </p>
+                    </a>
+                    <hr color="white">
+                    <a href="<?= base_url('admin/penghapusan') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-address-book"></i>
+
+                        <p>
+                            Penghapusan Aset
                         </p>
                     </a>
                     <hr color="white">
@@ -164,7 +180,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/aset') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/buku') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Aset Baru</p>
                             </a>
@@ -199,7 +215,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/aset') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/jalan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Aset Baru</p>
                             </a>
@@ -240,6 +256,14 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/konfirmasi') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Konfirmasi Aset</p>
+                            </a>
+                        </li>
+                    </ul>
                     <hr color="white">
                 <li class="nav-header">PEMELIHARAAN ASET</li>
                 <li class="nav-item">
@@ -260,14 +284,22 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/perpindahan') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/perawatan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Perawatan Aset</p>
                             </a>
                         </li>
                     </ul>
                     <hr color="white">
-                    <a href="<?= base_url('admin/penanggung_jawab') ?>" class="nav-link">
+                    <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-address-book"></i>
+
+                        <p>
+                            Data Pengajuan
+                        </p>
+                    </a>
+                    <hr color="white">
+                    <a href="<?= base_url('admin/pengajuan/index') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
@@ -275,7 +307,7 @@
                         </p>
                     </a>
                     <hr color="white">
-                    <a href="<?= base_url('admin/penanggung_jawab') ?>" class="nav-link">
+                    <a href="<?= base_url('admin/peminjaman') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
@@ -283,7 +315,7 @@
                         </p>
                     </a>
                     <hr color="white">
-                    <a href="<?= base_url('admin/penanggung_jawab') ?>" class="nav-link">
+                    <a href="<?= base_url('admin/penghapusan') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
@@ -370,6 +402,14 @@
                             <a href="<?= base_url('admin/gedung/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Gedung</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/buku/laporan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Perpustakaan</p>
                             </a>
                         </li>
                     </ul>

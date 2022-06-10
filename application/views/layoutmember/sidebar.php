@@ -15,14 +15,14 @@
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <!-- <hr color="white"> -->
-                    <a href="<?= base_url('admin/dashboard') ?>" class="nav-link">
+                    <a href="<?= base_url('member/dashboard') ?>" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                     <hr color="white">
-                    <a href="<?= base_url('admin/penanggung_jawab') ?>" class="nav-link">
+                    <a href="<?= base_url('member/penanggung_jawab') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
@@ -30,7 +30,7 @@
                         </p>
                     </a>
                     <hr color="white">
-                    <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                    <a href="<?= base_url('member/lokasi/index') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
@@ -49,7 +49,7 @@
                         </p>
                     </a> -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= base_url('member/tanah') ?>" class="nav-link">
                         <!-- <i class="nav-icon fas fa-random"></i> -->
                         <p>
                             Tanah
@@ -58,7 +58,7 @@
                     </a>
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/masteraset') ?>" class="nav-link">
+                            <a href="<?= base_url('member/masteraset') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Data Master Aset
@@ -68,7 +68,7 @@
                     </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/tanah') ?>" class="nav-link">
+                            <a href="<?= base_url('member/tanah') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Aset Baru</p>
                             </a>
@@ -76,7 +76,7 @@
                     </ul>
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                            <a href="<?= base_url('member/lokasi/index') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Data Lokasi Aset
@@ -84,7 +84,7 @@
                             </a>
                     </ul> -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= base_url('member/aset') ?>" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
                         <p>
                             Peralatan & Mesin
@@ -93,7 +93,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/masteraset') ?>" class="nav-link">
+                            <a href="<?= base_url('member/masteraset') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Data Master Aset
@@ -103,7 +103,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/aset') ?>" class="nav-link">
+                            <a href="<?= base_url('member/aset') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Aset Baru</p>
                             </a>
@@ -111,7 +111,7 @@
                     </ul>
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                            <a href="<?= base_url('member/lokasi/index') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Data Lokasi Aset
@@ -119,7 +119,7 @@
                             </a>
                     </ul> -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= base_url('member/gedung') ?>" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
                         <p>
                             Gedung & Bangunan
@@ -128,7 +128,7 @@
                     </a>
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/gedung') ?>" class="nav-link">
+                            <a href="<?= base_url('member/gedung') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Data Master Aset
@@ -138,14 +138,14 @@
                     </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/gedung') ?>" class="nav-link">
+                            <a href="<?= base_url('member/gedung') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Aset Baru</p>
                             </a>
                         </li>
                     </ul>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= base_url('member/buku') ?>" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
                         <p>
                             Buku
@@ -154,7 +154,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/masteraset') ?>" class="nav-link">
+                            <a href="<?= base_url('member/buku') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Data Master Aset
@@ -164,7 +164,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/aset') ?>" class="nav-link">
+                            <a href="<?= base_url('member/buku') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Aset Baru</p>
                             </a>
@@ -172,7 +172,7 @@
                     </ul>
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                            <a href="<?= base_url('member/lokasi/index') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Data Lokasi Aset
@@ -180,7 +180,7 @@
                             </a>
                     </ul> -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= base_url('member/jalan') ?>" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
                         <p>
                             Jalan, Irigasi & Jaringan
@@ -189,7 +189,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/masteraset') ?>" class="nav-link">
+                            <a href="<?= base_url('member/jalan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Data Master Aset
@@ -199,7 +199,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/aset') ?>" class="nav-link">
+                            <a href="<?= base_url('member/jalan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Aset Baru</p>
                             </a>
@@ -207,7 +207,7 @@
                     </ul>
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                            <a href="<?= base_url('member/lokasi/index') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Data Lokasi Aset
@@ -226,7 +226,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/perpindahan') ?>" class="nav-link">
+                            <a href="<?= base_url('member/perpindahan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Perpindahan Aset</p>
                             </a>
@@ -234,7 +234,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/kondisi') ?>" class="nav-link">
+                            <a href="<?= base_url('member/kondisi') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kondisi Aset</p>
                             </a>
@@ -252,7 +252,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/perbaikan') ?>" class="nav-link">
+                            <a href="<?= base_url('member/pemeliharaan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Perbaikan Aset</p>
                             </a>
@@ -260,14 +260,14 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/perpindahan') ?>" class="nav-link">
+                            <a href="<?= base_url('member/perbaikan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Perawatan Aset</p>
                             </a>
                         </li>
                     </ul>
                     <hr color="white">
-                    <a href="<?= base_url('admin/penanggung_jawab') ?>" class="nav-link">
+                    <a href="<?= base_url('member/perawatan') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
@@ -275,7 +275,7 @@
                         </p>
                     </a>
                     <hr color="white">
-                    <a href="<?= base_url('admin/penanggung_jawab') ?>" class="nav-link">
+                    <a href="<?= base_url('member/pengajuan') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
@@ -283,7 +283,7 @@
                         </p>
                     </a>
                     <!-- <hr color="white">
-                    <a href="<?= base_url('admin/penanggung_jawab') ?>" class="nav-link">
+                    <a href="<?= base_url('member/peminjaman') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
@@ -292,8 +292,8 @@
                     </a> -->
                     <hr color="white">
 
-                <!-- <li class="nav-header">LAPORAN</li> -->
-                <!-- <li class="nav-item">
+                    <!-- <li class="nav-header">LAPORAN</li> -->
+                    <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-print"></i>
                         <p>
@@ -303,7 +303,7 @@
                     </a> -->
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/penanggung_jawab/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('member/penanggung_jawab/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Data Penanggung Jawab Aset</p>
                             </a>

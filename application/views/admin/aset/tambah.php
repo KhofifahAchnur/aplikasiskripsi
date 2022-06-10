@@ -20,7 +20,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-18">
+                <div class="col-12">
                     <!-- /.card-header -->
                     <div class="card card-primary">
                         <div class="card-header">
