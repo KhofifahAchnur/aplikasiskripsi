@@ -55,44 +55,52 @@
 
 <body>
     <img src="<?= base_url() ?>adminlte/dist/img/logo.png" style="position: absolute; width: 125px; height: 130px;">
-    <br>
-    <br>
     <table style="width: 103%;">
+        <br>
+        <br>
         <tr>
             <td align="center">
                 <p>
                 <h2>SMP NEGERI 15 BANJARMASIN</h2>
-                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511 3301006   </p>
+                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511-3301006</p>
             </td>
         </tr>
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA PERBAIKAN ASET</strong>
+        <strong>LAPORAN DATA ASET TANAH</strong>
     </p>
-    <table id="customers" class="table table-bordered">
+    <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
-                <th>No</th>
-                <th>Nama Barang</th>
-                <th>Kode Barang</th>
-                <th>Register</th>
-                <th>Kondisi</th>
-                <th>Lokasi</th>
-                <th>Tanggal Masuk</th>
+            <th>No</th>
+            <th>Nama Tanah</th>
+            <th>Kode Tanah</th>
+            <th>Register</th>
+            <th>Luas</th>
+            <th>Tahun Peroleh</th>
+            <th>Lokasi</th>
+            <th>Hak</th>
+            <th>Nomer</th>
+            <th>Asal-Usul</th>
+            <th>Harga Barang</th>
             </tr>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($barang as $brg) : ?>
+            foreach ($tanah as $brg) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
-                    <td align="center"><?= $brg['nama_barang'] ?></td>
-                    <td align="center"><?= $brg['kode_barang'] ?></td>
+                    <td align="center"><?= $brg['nama_tanah'] ?></td>
+                    <td align="center"><?= $brg['kode_tanah'] ?></td>
                     <td align="center"><?= $brg['register'] ?></td>
-                    <td align="center"><?= $brg['kondisi'] ?></td>
+                    <td align="center"><?= $brg['luas'] ?></td>
+                    <td align="center"><?= $brg['tahun'] ?></td>
                     <td align="center"><?= $brg['lokasi'] ?></td>
-                    <td align="center"><?= $brg['tanggal_masuk'] ?></td>
+                    <td align="center"><?= $brg['hak'] ?></td>
+                    <td align="center"><?= $brg['nomer'] ?></td>
+                    <td align="center"><?= $brg['asal_usul'] ?></td>
+                    <td align="center"><?= $brg['harga'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -105,22 +113,6 @@
         </tr>
         </tr>
     </table>
-    <!-- <table>
-        <tr>
-            <td colspan="3">
-                <div style="float: right;">
-                    <div style="text-align: end;">
-                        <p>Hormat Kami</p>
-                        <p>Kepala SDN Handil Bakti</p>
-
-                        <p></p>
-                        <p class="me-5">SURYA ABDI, S.Pd</p>
-                        <p>NIP.19670505 198804 1 002</p>
-                    </div>
-                </div>
-            </td>
-        </tr>
-    </table> -->
 
 </body>
 

@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA PERBAIKAN ASET</strong>
+        <strong>LAPORAN DATA MASTERASET</strong>
     </p>
     <table id="customers" class="table table-bordered">
         <thead>
@@ -77,20 +77,32 @@
                 <th>Nama Barang</th>
                 <th>Kode Barang</th>
                 <th>Register</th>
+                <th>Merk</th>
+                <th>Ukuran</th>
+                <th>Bahan</th>
+                <th>Tahun Peroleh</th>
                 <th>Kondisi</th>
+                <th>Asal-Usul</th>
+                <th>Harga Barang</th>
                 <th>Lokasi</th>
                 <th>Tanggal Masuk</th>
             </tr>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($barang as $brg) : ?>
+            foreach ($aset as $brg) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
                     <td align="center"><?= $brg['nama_barang'] ?></td>
                     <td align="center"><?= $brg['kode_barang'] ?></td>
                     <td align="center"><?= $brg['register'] ?></td>
+                    <td align="center"><?= $brg['merk'] ?></td>
+                    <td align="center"><?= $brg['ukuran'] ?></td>
+                    <td align="center"><?= $brg['bahan'] ?></td>
+                    <td align="center"><?= $brg['tahun'] ?></td>
                     <td align="center"><?= $brg['kondisi'] ?></td>
+                    <td align="center"><?= $brg['asal_usul'] ?></td>
+                    <td align="center"><?= $brg['harga_brg'] ?></td>
                     <td align="center"><?= $brg['lokasi'] ?></td>
                     <td align="center"><?= $brg['tanggal_masuk'] ?></td>
                 </tr>

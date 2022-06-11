@@ -42,18 +42,21 @@ class M_pengajuan extends CI_model
     public function edit_barang($id)
     {
         $data = [
+            "aset" => $this->input->post('aset', true),
+            "des" => $this->input->post('des', true),
             "lokasi" => $this->input->post('lokasi', true),
             "penanggung_jawab_id" => $this->input->post('nama', true),
+            "status" => $this->input->post('status', true),
         ];
 
         $this->db->where('id', $id);
-        $this->db->update('lokasi', $data);
+        $this->db->update('pengajuan', $data);
     }
 
     public function hapusData($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('lokasi');
+        $this->db->delete('pengajuan');
     }
 
     public function jumlah()

@@ -57,7 +57,7 @@ class Konfirmasi extends CI_Controller
             $this->M_konfirmasi->updatestatus($id);
             $this->M_konfirmasi->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/konfirmasi');
+            redirect('admin/pengajuan');
         }
     }
 

@@ -55,22 +55,22 @@
 
 <body>
     <img src="<?= base_url() ?>adminlte/dist/img/logo.png" style="position: absolute; width: 125px; height: 130px;">
-    <br>
-    <br>
     <table style="width: 103%;">
+    <br>
+    <br>
         <tr>
             <td align="center">
                 <p>
                 <h2>SMP NEGERI 15 BANJARMASIN</h2>
-                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511 3301006   </p>
+                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511 3301006 </p>
             </td>
         </tr>
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA PERBAIKAN ASET</strong>
+        <strong>LAPORAN DATA KONDISI ASET</strong>
     </p>
-    <table id="customers" class="table table-bordered">
+    <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
                 <th>No</th>
@@ -78,21 +78,18 @@
                 <th>Kode Barang</th>
                 <th>Register</th>
                 <th>Kondisi</th>
-                <th>Lokasi</th>
                 <th>Tanggal Masuk</th>
-            </tr>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($barang as $brg) : ?>
+            foreach ($kondisi as $kds) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
-                    <td align="center"><?= $brg['nama_barang'] ?></td>
-                    <td align="center"><?= $brg['kode_barang'] ?></td>
-                    <td align="center"><?= $brg['register'] ?></td>
-                    <td align="center"><?= $brg['kondisi'] ?></td>
-                    <td align="center"><?= $brg['lokasi'] ?></td>
-                    <td align="center"><?= $brg['tanggal_masuk'] ?></td>
+                    <td align="center"><?= $kds['nama_barang'] ?></td>
+                    <td align="center"><?= $kds['kode_barang'] ?></td>
+                    <td align="center"><?= $kds['register'] ?></td>
+                    <td align="center"><?= $kds['kondisi'] ?></td>
+                    <td align="center"><?= $kds['tanggal'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

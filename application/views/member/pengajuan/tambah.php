@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Lokasi Barang</h1>
+                    <h1>Data Pengajuan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -24,20 +24,19 @@
                     <!-- /.card-header -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Edit Data Lokasi Barang</h3>
+                            <h3 class="card-title">Tambah Data Pengajuan Aset</h3>
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
-                            <input type="hidden" name="id" value="<?= $pengajuan['id']; ?>">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Nama Aset</label>
-                                    <input type="text" class="form-control" id="aset" placeholder="Masukkan Nama Aset" name="aset" value="<?= $pengajuan['aset']; ?>">
+                                    <label>Nama</label>
+                                    <input type="text" class="form-control" id="aset" placeholder="Masukkan Nama Aset" name="aset">
                                     <div class="form-text text-danger"><?= form_error('aset'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Deskripsi</label>
-                                    <input type="text" class="form-control" id="des" placeholder="Masukkan Deskripsi" name="des" value="<?= $pengajuan['des']; ?>">
+                                    <input type="text" class="form-control" id="des" placeholder="Masukkan Nama Aset" name="deskripsi">
                                     <div class="form-text text-danger"><?= form_error('des'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -58,8 +57,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <select name="status" class="form-control" id="status">
-                                        <option value="<?= $pengajuan['status']; ?>"><?= $pengajuan['status']; ?></option>
+                                    <select name="kondisi" class="form-control" id="kondisi">
+                                        <option>- Pilih Status -</option>
                                         <option value="Diproses"> Diproses </option>
                                         <option value="Disetujui"> Disetujui </option>
                                         <option value="Tersedia"> Tersedia </option>
