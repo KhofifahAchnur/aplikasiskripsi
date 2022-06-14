@@ -36,7 +36,7 @@
                                         <th>Register</th>
                                         <th>Kondisi</th>
                                         <th>Lokasi</th>
-                                        <th>Tanggal Masuk</th>
+                                        <th>Tanggal </th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -8,11 +8,11 @@ class Penghapusan extends CI_Controller
         parent::__construct();
         $this->load->model('M_penghapusan');
         $this->load->model('M_aset');
-        if ($this->session->userdata('hak_akses') != '1') {
-            $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
-					</button> </div>');
-            redirect('auth');
-        }
+        // if ($this->session->userdata('hak_akses') != '1') {
+        //     $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
+		// 			</button> </div>');
+        //     redirect('auth');
+        // }
     }
 
     public function index()
@@ -24,8 +24,8 @@ class Penghapusan extends CI_Controller
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/penghapusan/index', $data);
+        $this->load->view('layoutsapras/sidebar');
+        $this->load->view('sapras/penghapusan/index', $data);
         $this->load->view('layout/footer');
     }
 }

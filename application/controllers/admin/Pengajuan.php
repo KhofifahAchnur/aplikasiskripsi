@@ -19,7 +19,7 @@ class Pengajuan extends CI_Controller
     public function index()
     {
         $data['judul'] = 'Halaman Data Barang';
-        $data['baru'] = $this->M_pengajuan->lihat();
+        $data['pengajuan'] = $this->M_pengajuan->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -34,7 +34,7 @@ class Pengajuan extends CI_Controller
     public function tambah()
     {
         $data['judul'] = 'Halaman Tambah Data';
-        $data['baru'] = $this->M_pengajuan->lihat();
+        $data['pengajuan'] = $this->M_pengajuan->lihat();
         $data['lokasi'] = $this->M_lokasi->lihat();
         $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -42,10 +42,11 @@ class Pengajuan extends CI_Controller
 
 
         $this->form_validation->set_rules('aset', 'Nama Aset', 'required');
-        $this->form_validation->set_rules('deskripsi', 'Deskripsi Aset', 'required');
+        $this->form_validation->set_rules('des', 'Deskripsi Aset', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi barang', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
-        $this->form_validation->set_rules('status', 'Status', 'required');
+        // $this->form_validation->set_rules('jenis', 'Jenis Pengajuan', 'required');
+        // $this->form_validation->set_rules('status', 'Status', 'required');
     
 
         if ($this->form_validation->run() == false) {

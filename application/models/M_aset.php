@@ -22,6 +22,8 @@ class M_aset extends CI_model
         return $this->db->get()->result_array();
     }
 
+    
+
     public function tampilaset()
     {
         $this->db->select('aset.nama_barang, aset.kode_barang, aset.kondisi');

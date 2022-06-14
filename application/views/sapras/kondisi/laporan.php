@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA MASTERASET</strong>
+        <strong>LAPORAN DATA KONDISI ASET</strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
@@ -76,6 +76,7 @@
                 <th>No</th>
                 <th>Nama Barang</th>
                 <th>Kode Barang</th>
+                <th>Register</th>
                 <th>Kondisi</th>
                 <th>Tanggal Masuk</th>
         </thead>
@@ -86,6 +87,7 @@
                     <td align="center"><?= $i++; ?></td>
                     <td align="center"><?= $kds['nama_barang'] ?></td>
                     <td align="center"><?= $kds['kode_barang'] ?></td>
+                    <td align="center"><?= $kds['register'] ?></td>
                     <td align="center"><?= $kds['kondisi'] ?></td>
                     <td align="center"><?= $kds['tanggal'] ?></td>
                 </tr>

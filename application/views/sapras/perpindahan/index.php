@@ -1,4 +1,3 @@
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -6,13 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Barang</h1>
+                    <h1>Data Perpindahan Barang</h1>
                 </div>
+                <? var_dump($barang);
+                die; ?>
                 <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        
-                    </ol>
-                    
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -22,11 +19,11 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-            <div class="col-lg-12">
-                        <!-- /.card-header -->
-                        <div class="card card-primary">
+                <div class="col-lg-12">
+                    <!-- /.card-header -->
+                    <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Perpindahan Kondisi</h3>
+                            <h3 class="card-title">Perpindahan Barang</h3>
                         </div>
 
                         <!-- /.card-header -->
@@ -37,6 +34,7 @@
                                         <th>No</th>
                                         <th>Nama Barang</th>
                                         <th>Kode Barang</th>
+                                        <th>Register</th>
                                         <th>lokasi</th>
                                         <th>Nama Penanggung Jawab</th>
                                         <th>Tanggal Perpindahan</th>
@@ -48,11 +46,12 @@
                                             <td><?= ++$index; ?></td>
                                             <td><?= $brg['nama_barang'] ?></td>
                                             <td><?= $brg['kode_barang'] ?></td>
+                                            <td><?= $brg['register'] ?></td>
                                             <td><?= $brg['lokasi'] ?></td>
                                             <td><?= $brg['nama'] ?></td>
                                             <td><?= $brg['tanggal'] ?></td>
-                                            
-                                           
+
+
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

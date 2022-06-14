@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('kondisi/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
 
                     </ol>
                 </div>
@@ -41,6 +41,11 @@
                                     <label>Kode Barang</label>
                                     <input readonly type="text" class="form-control" id="kode_barang" name="kode_barang" value="<?= $aset['kode_barang'] ?>">
                                     <div class="form-text text-danger"><?= form_error('kode_barang'); ?></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Register</label>
+                                    <input readonly type="text" class="form-control" id="register" name="register" value="<?= $aset['register'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
 
                                 <div class="form-group">

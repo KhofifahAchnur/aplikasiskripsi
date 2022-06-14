@@ -28,4 +28,28 @@ class Penghapusan extends CI_Controller
         $this->load->view('admin/penghapusan/index', $data);
         $this->load->view('layout/footer');
     }
+
+    public function laporan()
+    {
+        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+        $this->load->library('pdfgenerator');
+
+        $data['barang'] = $this->M_penghapusan->lihat();
+        $this->load->view('admin/penghapusan/laporan', $data);
+
+        // title dari pdf
+        $this->data['title_pdf'] = 'Laporan Penghapusan Aset';
+
+        // filename dari pdf ketika didownload
+        $file_pdf = 'Laporan Penghapusan Aset';
+        // setting paper
+        $paper = 'A4';
+        //orientasi paper potrait / landscape
+        $orientation = "landscape";
+
+        $html = $this->load->view('admin/penghapusan/laporan', $this->data, true);
+
+        // run dompdf
+        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    }
 }

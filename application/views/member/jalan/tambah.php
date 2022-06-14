@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/buku/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/jalan/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                         <form action="" method="post">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Nama Buku</label>
+                                    <label>Nama Aset</label>
                                     <input type="text" class="form-control" id="nama_aset" placeholder="Masukkan Nama" name="nama_aset">
                                     <div class="form-text text-danger"><?= form_error('nama_aset'); ?></div>
                                 </div>
@@ -79,7 +79,7 @@
                                     <div class="form-text text-danger"><?= form_error('asal_usul'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Harga Buku</label>
+                                    <label>Harga</label>
                                     <input type="text" class="form-control" id="harga" placeholder="Masukkan Harga Barang" name="harga">
                                     <div class="form-text text-danger"><?= form_error('harga'); ?></div>
                                 </div>

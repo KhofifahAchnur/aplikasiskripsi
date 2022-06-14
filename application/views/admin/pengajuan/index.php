@@ -40,6 +40,7 @@
                                         <th>Deskripsi</th>
                                         <th>Lokasi</th>
                                         <th>Penanggung Jawab</th>
+                                        <th>Jenis Pengajuan</th>
                                         <th>Status</th>
                                         <th>Tanggal Pengajuan</th>
                                         <th class="text-center">Aksi</th>
@@ -47,13 +48,14 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1;
-                                    foreach ($baru as $brg) : ?>
+                                    foreach ($pengajuan as $brg) : ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $brg['aset'] ?></td>
                                             <td><?= $brg['des'] ?></td>
                                             <td><?= $brg['lokasi'] ?></td>
                                             <td><?= $brg['nama'] ?></td>
+                                            <td><?= $brg['jenis'] ?></td>
                                             <td><?= $brg['status'] ?></td>
                                             <td><?= $brg['tanggal'] ?></td>
                                             <td style="width: 100px;" class="text-center">
@@ -64,6 +66,7 @@
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
+                                
                             </table>
                         </div>
                         <!-- /.card-body -->

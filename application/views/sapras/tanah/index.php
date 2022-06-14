@@ -46,6 +46,7 @@
                                         <th>Nomer</th>
                                         <th>Asal-Usul</th>
                                         <th>Harga Barang</th>
+                                        <th>Tanggal Peroleh</th>
                                         <!-- <th class="text-center">Aksi</th> -->
                                 </thead>
                                 </thead>
@@ -64,6 +65,7 @@
                                             <td><?= $brg['nomer'] ?></td>
                                             <td><?= $brg['asal_usul'] ?></td>
                                             <td><?= $brg['harga'] ?></td>
+                                            <td><?= $brg['tanggal_masuk'] ?></td>
                                             <!-- <td style="width: 100px;" class="text-center">
                                                 <a href= "<?= base_url(); ?>admin/tanah/edit/<?= $brg['id_tanah']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>admin/tanah/hapus/<?= $brg['id_tanah']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>

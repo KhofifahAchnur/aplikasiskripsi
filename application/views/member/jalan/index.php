@@ -65,7 +65,7 @@
                                             <td><?= $jln['status'] ?></td>
                                             <td><?= $jln['asal_usul'] ?></td>
                                             <td><?= $jln['harga'] ?></td>
-                                            <td><?= $jln['tanggal'] ?></td>
+                                            <td><?= $jln['tanggal_masuk'] ?></td>
                                             <!-- <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>admin/jalan/edit/<?= $jln['id_jalan']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>admin/jalan/hapus/<?= $jln['id_jalan']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>

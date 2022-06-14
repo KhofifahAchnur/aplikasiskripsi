@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Deskripsi</label>
-                                    <input type="text" class="form-control" id="des" placeholder="Masukkan Nama Aset" name="deskripsi">
+                                    <input type="text" class="form-control" id="des" placeholder="Masukkan Deskripsi Aset" name="des">
                                     <div class="form-text text-danger"><?= form_error('des'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -55,15 +55,23 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
+                                    <label>Jenis Pengajuan</label>
+                                    <select name="jenis" class="form-control" id="jenis">
+                                        <option>- Pilih Jenis Pengajuan -</option>
+                                        <option value="Pemeliharaan"> Pemeliharaan </option>
+                                        <option value="Aset Baru"> Aset Baru </option>
+                                    </select>
+                                </div> -->
+                                <!-- <div class="form-group">
                                     <label>Status</label>
-                                    <select name="kondisi" class="form-control" id="kondisi">
+                                    <select name="status" class="form-control" id="status">
                                         <option>- Pilih Status -</option>
                                         <option value="Diproses"> Diproses </option>
-                                        <option value="Disetujui"> Disetujui </option>
-                                        <option value="Tersedia"> Tersedia </option>
-                                    </select>
-                                </div>
+                                        <!-- <option value="Disetujui"> Disetujui </option>
+                                        <option value="Tersedia"> Tersedia </option> -->
+                                <!-- </select> -->
+                                <!-- </div> -->
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>

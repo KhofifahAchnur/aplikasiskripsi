@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Nama Barang</label>
-                                    <input type="text" class="form-control" id="nama_barang" placeholder="Masukkan Nama  Barang" name="nama_barang">
+                                    <input type="text" class="form-control" id="nama_barang" placeholder="Masukkan Nama Barang" name="nama_barang">
                                     <div class="form-text text-danger"><?= form_error('nama_barang'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -41,27 +41,27 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Register</label>
-                                    <input type="text" class="form-control" id="register" placeholder="Masukkan register Barang" name="register">
+                                    <input type="text" class="form-control" id="register" placeholder="Masukkan Kode Register" name="register">
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Merk</label>
-                                    <input type="text" class="form-control" id="merk" placeholder="Masukkan merk Barang" name="merk">
+                                    <input type="text" class="form-control" id="merk" placeholder="Masukkan Merk" name="merk">
                                     <div class="form-text text-danger"><?= form_error('merk'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Ukuran</label>
-                                    <input type="text" class="form-control" id="ukuran" placeholder="Masukkan Kode Barang" name="ukuran">
+                                    <input type="text" class="form-control" id="ukuran" placeholder="Masukkan Ukuran" name="ukuran">
                                     <div class="form-text text-danger"><?= form_error('ukuran'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Bahan</label>
-                                    <input type="text" class="form-control" id="bahan" placeholder="Masukkan bahan Barang" name="bahan">
+                                    <input type="text" class="form-control" id="bahan" placeholder="Masukkan Bahan" name="bahan">
                                     <div class="form-text text-danger"><?= form_error('bahan'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Tahun Peroleh</label>
-                                    <input type="text" class="form-control" id="tahun" placeholder="Masukkan tahun Barang" name="tahun">
+                                    <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun Peroleh" name="tahun">
                                     <div class="form-text text-danger"><?= form_error('tahun'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Asal-Usul</label>
-                                    <input type="text" class="form-control" id="asal_usul" placeholder="Masukkan asal-usul Barang" name="asal_usul">
+                                    <input type="text" class="form-control" id="asal_usul" placeholder="Masukkan Asal-usul" name="asal_usul">
                                     <div class="form-text text-danger"><?= form_error('asal_usul'); ?></div>
                                 </div>
                                 <div class="form-group">

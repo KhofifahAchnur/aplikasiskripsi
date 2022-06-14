@@ -29,6 +29,7 @@
                                 Daftar Data Barang
                             </h3>
                             <a href="<?= base_url('admin/aset/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

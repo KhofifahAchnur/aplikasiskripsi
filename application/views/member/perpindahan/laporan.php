@@ -76,7 +76,8 @@
                 <th>No</th>
                 <th>Nama Barang</th>
                 <th>Kode Barang</th>
-                <th>lokasi</th>
+                <th>Register</th>
+                <th>Lokasi</th>
                 <th>Nama Penanggung Jawab</th>
                 <th>Tanggal Perpindahan</th>
             </tr>
@@ -88,6 +89,7 @@
                     <td align="center"><?= $i++; ?></td>
                     <td align="center"><?= $brg['nama_barang'] ?></td>
                     <td align="center"><?= $brg['kode_barang'] ?></td>
+                    <td align="center"><?= $brg['register'] ?></td>
                     <td align="center"><?= $brg['lokasi'] ?></td>
                     <td align="center"><?= $brg['nama'] ?></td>
                     <td align="center"><?= $brg['tanggal'] ?></td>

@@ -7,20 +7,24 @@ class Aset extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_aset');
+        // if ($this->session->userdata('hak_akses') != '1') {
+        //     $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
+		// 			</button> </div>');
+        //     redirect('auth');
+        // }
     }
 
     public function index()
     {
         $data['judul'] = 'Halaman Data Barang';
         $data['barang'] = $this->M_aset->lihat();
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        
 
-        $this->load->view('layoutmember/header', $data);
-        $this->load->view('layoutmember/topbar');
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/topbar');
         $this->load->view('layoutmember/sidebar');
         $this->load->view('member/aset/index', $data);
-        $this->load->view('layoutmember/footer');
+        $this->load->view('layout/footer');
     }
 
     public function tambah()
@@ -41,11 +45,11 @@ class Aset extends CI_Controller
         $this->form_validation->set_rules('kondisi', 'merk', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layoutmember/header', $data);
-            $this->load->view('layoutmember/topbar');
+            $this->load->view('layout/header', $data);
+            $this->load->view('layout/topbar');
             $this->load->view('layoutmember/sidebar');
             $this->load->view('member/aset/tambah');
-            $this->load->view('layoutmember/footer');
+            $this->load->view('layout/footer');
         } else {
             $this->M_aset->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
@@ -76,7 +80,7 @@ class Aset extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
+            $this->load->view('layoutmember/sidebar');
             $this->load->view('member/aset/edit', $data);
             $this->load->view('layout/footer');
         } else {
@@ -99,22 +103,21 @@ class Aset extends CI_Controller
         $this->load->library('pdfgenerator');
 
         $data['barang'] = $this->M_aset->lihat();
-        $this->load->view('member/aset/laporan', $data);
+        $this->load->view('admin/aset/laporan', $data);
 
         // title dari pdf
-        $this->data['judul'] = 'Laporan Aset';
+        $this->data['title_pdf'] = 'Laporan Aset';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan outlet';
+        $file_pdf = 'laporan Aset';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('member/aset/laporan', $this->data, true);
+        $html = $this->load->view('admin/aset/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
-
-}
+    }
 }

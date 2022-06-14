@@ -21,10 +21,10 @@ class Dashboard extends CI_Controller
         $data['jumlah_penanggungjwb'] = $this->M_penanggung_jawab->jumlah();
         $data['jumlah_lokasi'] = $this->M_lokasi->jumlah();
 
-        $this->load->view('layoutmember/header', $data);
-        $this->load->view('layoutmember/topbar');
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/topbar');
         $this->load->view('layoutmember/sidebar');
         $this->load->view('layoutmember/index', $data);
-        $this->load->view('layoutmember/footer');
+        $this->load->view('layout/footer');
     }
 }

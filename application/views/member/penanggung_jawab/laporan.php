@@ -56,8 +56,8 @@
 <body>
     <img src="<?= base_url() ?>adminlte/dist/img/logo.png" style="position: absolute; width: 125px; height: 130px;">
     <table style="width: 103%;">
-    <br>
-    <br>
+        <br>
+        <br>
         <tr>
             <td align="center">
                 <p>
@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA MASTERASET</strong>
+        <strong>LAPORAN DATA PENANGGUNG JAWAB</strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
@@ -89,7 +89,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    <table width="50%" align="right" border="0" style="margin-top: 20px;">
+    <table width="20%" align="right" border="0" style="margin-top: 10px;">
         <tr>
         <tr>
             <td width="50%"></td>

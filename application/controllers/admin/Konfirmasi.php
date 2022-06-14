@@ -21,7 +21,7 @@ class Konfirmasi extends CI_Controller
     {
         $data['judul'] = 'Halaman Data Barang';
         $data['konfir'] = $this->M_konfirmasi->lihat();
-        $data['baru'] = $this->M_pengajuan->tampilstatus();
+        $data['pengajuan'] = $this->M_pengajuan->tampilstatus();
         // $data['lokasi'] = $this->M_lokasi->lihat();
         // $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -102,20 +102,20 @@ class Konfirmasi extends CI_Controller
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['kondisi'] = $this->M_kondisi->lihat();
-        $this->load->view('admin/kondisi/laporan', $data);
+        $data['konfir'] = $this->M_konfirmasi->lihat();
+        $this->load->view('admin/konfirmasi/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Kondisi Aset';
+        $this->data['title_pdf'] = 'Laporan Konfirmasi Aset Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Kondisi Aset';
+        $file_pdf = 'Laporan Konfirmasi Aset Mesin';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/kondisi/laporan', $this->data, true);
+        $html = $this->load->view('admin/konfirmasi/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

@@ -45,6 +45,7 @@
                                         <th>Tahun Peroleh</th>
                                         <th>Kondisi</th>
                                         <th>Harga Buku</th>
+                                        <th>Tanggal Peroleh</th>
                                         <!-- <th class="text-center">Aksi</th> -->
                                 </thead>
                                 </thead>
@@ -62,6 +63,7 @@
                                             <td><?= $brg['tahun'] ?></td>
                                             <td><?= $brg['kondisi'] ?></td>
                                             <td><?= $brg['harga'] ?></td>
+                                            <td><?= $brg['tanggal_masuk'] ?></td>
                                             <!-- <td style="width: 100px;" class="text-center">
                                                 <a href= "<?= base_url(); ?>admin/buku/edit/<?= $brg['id_buku']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>admin/buku/hapus/<?= $brg['id_buku']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>

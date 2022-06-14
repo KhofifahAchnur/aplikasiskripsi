@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('member/dashboard') ?>">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
                         <li class="breadcrumb-item active">Data Barang</li>
                     </ol>
                 </div>
@@ -28,6 +28,8 @@
                             <h3 class="card-title">
                                 Daftar Data Barang
                             </h3>
+                            <!-- <a href="<?= base_url('admin/aset/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
+                            
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -47,6 +49,7 @@
                                         <th>Harga Barang</th>
                                         <th>Lokasi</th>
                                         <th>Tanggal Masuk</th>
+                                        <!-- <th class="text-center">Aksi</th> -->
                                 </thead>
                                 </thead>
                                 <tbody>
@@ -68,6 +71,10 @@
                                             <td><?= $brg['harga_brg'] ?></td>
                                             <td><?= $brg['lokasi'] ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>
+                                            <!-- <td style="width: 100px;" class="text-center">
+                                                <a href= "<?= base_url(); ?>admin/aset/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/aset/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                            </td> -->
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

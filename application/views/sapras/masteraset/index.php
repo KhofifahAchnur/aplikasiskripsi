@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('member/dashboard') ?>">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
                         <li class="breadcrumb-item active">Data Aset</li>
                     </ol>
                 </div>
@@ -48,6 +48,7 @@
                                         <th>Harga Barang</th>
                                         <th>Lokasi</th>
                                         <th>Tanggal Masuk</th>
+                                        <!-- <th class="text-center">Aksi</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,6 +67,10 @@
                                             <td><?= $brg['harga_brg'] ?></td>
                                             <td><?= $brg['lokasi'] ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>
+                                            <!-- <td>
+                                            <!-- <a href="<?= base_url('admin/kondisi/tambah'); ?>" class="badge badge-pill badge-success">UBAH KONDISI</a> -->
+                                            <a href= "<?= base_url(); ?>admin/kondisi/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-success">UBAH KONDISI</a> 
+                                            </td> -->
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

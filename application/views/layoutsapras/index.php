@@ -33,7 +33,7 @@
                         <div class="icon">
                             <i class="far fa-folder-open"></i>
                         </div>
-                        <a href="<?= base_url('member/aset') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('admin/aset') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -47,7 +47,7 @@
                         <div class="icon">
                             <i class="far fa-folder-open"></i>
                         </div>
-                        <a href="<?= base_url('member/perpindahan') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('admin/perpindahan') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -61,7 +61,7 @@
                         <div class="icon">
                             <i class="far fa-folder-open"></i>
                         </div>
-                        <a href="<?= base_url('member/penanggung_jawab') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('admin/penanggung_jawab') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -75,7 +75,7 @@
                         <div class="icon">
                             <i class="far fa-folder-open"></i>
                         </div>
-                        <a href="<?= base_url('member/lokasi') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('admin/lokasi') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -96,4 +96,3 @@
     </section>
     <!-- /.content -->
 </div>
-

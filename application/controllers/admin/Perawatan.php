@@ -7,6 +7,7 @@ class Perawatan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_perawatan');
+        $this->load->model('M_aset');
         $this->load->model('M_lokasi');
         $this->load->model('M_penanggung_jawab');
         if ($this->session->userdata('hak_akses') != '1') {
@@ -31,19 +32,21 @@ class Perawatan extends CI_Controller
         $this->load->view('layout/footer');
     }
 
-    public function tambah()
+    public function tambah($id)
     {
         $data['judul'] = 'Halaman Tambah Data';
         // $data['barang'] = $this->M_aset->lihat();
         // $data['aset'] = $this->M_aset->tampilaset();
-        $data['rawat'] = $this->M_perawatan->lihat();
+        // $data['rawat'] = $this->M_perawatan->lihat();
+        $data['aset'] = $this->M_aset->getBrgById($id);
         $data['lokasi'] = $this->M_lokasi->lihat();
         $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->form_validation->set_rules('nama_rawat', 'Nama Aset', 'required');
-        $this->form_validation->set_rules('kode_rawat', 'Kode Aset', 'required');
+        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
+        $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required');
+        $this->form_validation->set_rules('register', 'Register', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
         $this->form_validation->set_rules('jenis', 'Jenis', 'required');

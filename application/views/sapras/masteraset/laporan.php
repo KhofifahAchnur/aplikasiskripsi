@@ -62,13 +62,13 @@
             <td align="center">
                 <p>
                 <h2>SMP NEGERI 15 BANJARMASIN</h2>
-                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511 3301006   </p>
+                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511 3301006 </p>
             </td>
         </tr>
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA MASTERASET</strong>
+        <strong>LAPORAN DATA MASTER ASET</strong>
     </p>
     <table id="customers" class="table table-bordered">
         <thead>

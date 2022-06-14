@@ -28,7 +28,7 @@
                             <h3 class="card-title">
                                 Daftar Data Pengajuan Aset Baru
                             </h3>
-                            <a href="<?= base_url('admin/pengajuan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <!-- <a href="<?= base_url('admin/pengajuan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -40,6 +40,7 @@
                                         <th>Deskripsi</th>
                                         <th>Lokasi</th>
                                         <th>Penanggung Jawab</th>
+                                        <th>Jenis Pengajuan</th>
                                         <th>Status</th>
                                         <th>Tanggal Pengajuan</th>
                                         <th class="text-center">Aksi</th>
@@ -47,23 +48,25 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1;
-                                    foreach ($baru as $brg) : ?>
+                                    foreach ($pengajuan as $brg) : ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $brg['aset'] ?></td>
                                             <td><?= $brg['des'] ?></td>
                                             <td><?= $brg['lokasi'] ?></td>
                                             <td><?= $brg['nama'] ?></td>
+                                            <td><?= $brg['jenis'] ?></td>
                                             <td><?= $brg['status'] ?></td>
                                             <td><?= $brg['tanggal'] ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/pengajuan/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/pengajuan/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <!-- <a href="<?= base_url(); ?>admin/pengajuan/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/pengajuan/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a> -->
                                                 <a href="<?= base_url(); ?>admin/konfirmasi/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-primary">UBAH KONFIRMASI</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
+                                
                             </table>
                         </div>
                         <!-- /.card-body -->

@@ -9,24 +9,30 @@ class History extends CI_Controller
         $this->load->model('M_aset');
         $this->load->model('M_perpindahan');
         $this->load->model('M_kondisi');
+        // if ($this->session->userdata('hak_akses') != '1') {
+        //     $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
+		// 			</button> </div>');
+        //     redirect('auth');
+        // }
     }
 
     public function index($id)
     {
+        
         $data['judul'] = 'Halaman Data History';
-        $data['kondisi'] = $this->M_kondisi->lihat();
+        $data['kondisi'] = $this->M_kondisi->lihatkondisibyid($id);
         $data['barang'] = $this->M_aset->getBrgById($id);
         // $data['barang'] = $this->M_aset->lihat();
-        $data['pindah'] = $this->M_perpindahan->lihat();
+        $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);
 
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layoutmember/header', $data);
-        $this->load->view('layoutmember/topbar');
-        $this->load->view('layoutmember/sidebar');
-        $this->load->view('member/history/index', $data);
-        $this->load->view('layoutmember/footer');
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/topbar');
+        $this->load->view('layoutsapras/sidebar');
+        $this->load->view('sapras/history/index', $data); 
+        $this->load->view('layout/footer');
     }
 
     public function tambah()
@@ -46,15 +52,15 @@ class History extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layoutmember/header', $data);
-            $this->load->view('layoutmember/topbar');
-            $this->load->view('layoutmember/sidebar');
-            $this->load->view('member/perpindahan/tambah', $data);
-            $this->load->view('layoutmember/footer');
+            $this->load->view('layout/header', $data);
+            $this->load->view('layout/topbar');
+            $this->load->view('layoutsapras/sidebar');
+            $this->load->view('sapras/perpindahan/tambah', $data);
+            $this->load->view('layout/footer');
         } else {
             $this->M_lokasi->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('member/history');
+            redirect('sapras/history');
         }
     }
 }

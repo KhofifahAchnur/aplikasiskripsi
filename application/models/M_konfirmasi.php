@@ -5,12 +5,13 @@ class M_konfirmasi extends CI_model
 	public function lihat()
 	{
 		$this->db->select('history_konfirmasi.id_konfir, pengajuan.aset, 
-		pengajuan.des, history_konfirmasi.status, history_konfirmasi.tgl_konfir');
+		pengajuan.des, pengajuan.jenis, history_konfirmasi.status, history_konfirmasi.tgl_konfir');
 		$this->db->from('history_konfirmasi');
 		$this->db->join('pengajuan', 'pengajuan.id = history_konfirmasi.pengajuan_id');
 		// $this->db->join('lokasi', 'lokasi.id = history_konfirmasi.lokasi_id');
         // $this->db->join('penanggung_jawab', 'penanggung_jawab.id = history_konfirmasi.penanggung_jawab_id');
 		$this->db->order_by('history_konfirmasi.id_konfir', 'DESC');
+		$this->db->where_in('jenis',array('Pemeliharaan'));
 		return $this->db->get()->result_array();
 	}
 

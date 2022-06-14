@@ -24,6 +24,7 @@
                         <div class="card-header">
                             <h3 class="card-title">History Konfirmasi Aset</h3>
                         </div>
+                        <!-- <a href="<?= base_url(); ?>admin/konfir/laporan/<?= $kfr['id_konfir']; ?>" class="btn-danger  btn-sm" title="print"><i class="fas fa-print"></i></a> -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
@@ -31,6 +32,7 @@
                                         <th>No</th>
                                         <th>Nama Aset</th>
                                         <th>Deskripsi</th>
+                                        <th>Jenis Pengajuan</th>
                                         <!-- <th>Lokasi</th>
                                         <th>Penanggung Jawab</th> -->
                                         <th>Status</th>
@@ -46,6 +48,7 @@
                                             <td><?= $kfr['des'] ?></td>
                                             <!-- <td><?= $kfr['lokasi'] ?></td>
                                             <td><?= $kfr['nama'] ?></td> -->
+                                            <td><?= $kfr['jenis'] ?></td>
                                             <td><?= $kfr['status'] ?></td>
                                             <td><?= $kfr['tgl_konfir'] ?></td>
                                         </tr>

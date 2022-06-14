@@ -7,6 +7,11 @@ class MasterAset extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_masteraset');
+        // if ($this->session->userdata('hak_akses') != '1') {
+        //     $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
+		// 			</button> </div>');
+        //     redirect('auth');
+        // }
     }
 
     public function index()
@@ -18,11 +23,11 @@ class MasterAset extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layoutmember/header', $data);
-        $this->load->view('layoutmember/topbar');
-        $this->load->view('layoutmember/sidebar');
-        $this->load->view('member/masteraset/index', $data);
-        $this->load->view('layoutmember/footer');
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/topbar');
+        $this->load->view('layoutsapras/sidebar');
+        $this->load->view('sapras/masteraset/index', $data);
+        $this->load->view('layout/footer');
     }
 
     public function gantikondisi($id)
@@ -35,7 +40,7 @@ class MasterAset extends CI_Controller
 
         $this->M_masteraset->edit_kondisi($id);
         $this->session->set_flashdata('flash', 'Berhasil');
-        redirect('member/masteraset');
+        redirect('sapras/masteraset');
     }
 
     public function laporan()
@@ -44,19 +49,19 @@ class MasterAset extends CI_Controller
         $this->load->library('pdfgenerator');
 
         $data['aset'] = $this->M_masteraset->lihat();
-        $this->load->view('masteraset/laporan', $data);
+        $this->load->view('sapras/masteraset/laporan', $data);
 
         // title dari pdf
-        $this->data['judul'] = 'Laporan Aset';
+        $this->data['title_pdf'] = 'Laporan Masteraset';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan outlet';
+        $file_pdf = 'laporan Masteraset';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('masteraset/laporan', $this->data, true);
+        $html = $this->load->view('admin/masteraset/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

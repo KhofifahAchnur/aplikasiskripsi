@@ -29,14 +29,14 @@
                             Data Penanggung Jawab
                         </p>
                     </a>
-                    <hr color="white">
+                    <!-- <hr color="white">
                     <a href="<?= base_url('admin/pengajuan/index') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
                             Pengajuan Aset
                         </p>
-                    </a>
+                    </a> -->
                     <hr color="white">
                     <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
@@ -54,7 +54,42 @@
                         </p>
                     </a>
                     <hr color="white">
-
+                    <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-address-book"></i>
+                        <p>
+                            Aset Baru
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/pbaru') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Pengajuan Aset Baru
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kbaru') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>History Konfirmasi</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Data Lokasi Aset
+                                </p>
+                            </a>
+                    </ul> -->
+                    <hr color="white">
                 <li class="nav-header">TRANSAKSI</li>
                 <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -66,7 +101,7 @@
                     </a> -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <!-- <i class="nav-icon fas fa-random"></i> -->
+                        <i class="nav-icon fas fa-random"></i>
                         <p>
                             Tanah
                             <i class="fas fa-angle-left right"></i>
@@ -86,7 +121,7 @@
                         <li class="nav-item">
                             <a href="<?= base_url('admin/tanah') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Aset Baru</p>
+                                <p>Aset</p>
                             </a>
                         </li>
                     </ul>
@@ -99,6 +134,7 @@
                                 </p>
                             </a>
                     </ul> -->
+                    <hr color="white">
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
@@ -121,19 +157,75 @@
                         <li class="nav-item">
                             <a href="<?= base_url('admin/aset') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Aset Baru</p>
+                                <p>Aset</p>
                             </a>
                         </li>
                     </ul>
-                    <!-- <ul class="nav nav-treeview">
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/perpindahan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
-                                    Data Lokasi Aset
+                                    History Perpindahan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kondisi') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Kondisi Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <!-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/perbaikan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Perbaikan Aset
                                 </p>
                             </a>
                     </ul> -->
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/perawatan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Pemeliharaan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/pengajuan/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Pengajuan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/konfirmasi') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Konfirmasi Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/peminjaman/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Peminjaman Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <hr color="white">
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
@@ -156,10 +248,47 @@
                         <li class="nav-item">
                             <a href="<?= base_url('admin/gedung') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Aset Baru</p>
+                                <p>Aset</p>
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/perawatan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Pemeliharaan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kondisi') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Kondisi Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/pengajuan/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Pengajuan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/konfirmasi') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Konfirmasi Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <hr color="white">
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
@@ -195,11 +324,12 @@
                                 </p>
                             </a>
                     </ul> -->
+                    <hr color="white">
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
                         <p>
-                            Jalan, Irigasi & Jaringan
+                            Jalan,Irigasi & Jaringan
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -230,8 +360,9 @@
                                 </p>
                             </a>
                     </ul> -->
-                    <hr color="white">
-                <li class="nav-header">DATA HISTORY</li>
+                    <!-- <hr color="white"> -->
+                    
+                <!-- <li class="nav-header">DATA HISTORY</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
@@ -256,6 +387,7 @@
                             </a>
                         </li>
                     </ul>
+
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/konfirmasi') ?>" class="nav-link">
@@ -263,8 +395,8 @@
                                 <p>Konfirmasi Aset</p>
                             </a>
                         </li>
-                    </ul>
-                    <hr color="white">
+                    </ul> -->
+                    <!-- <hr color="white">
                 <li class="nav-header">PEMELIHARAAN ASET</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -290,8 +422,8 @@
                             </a>
                         </li>
                     </ul>
-                    <hr color="white">
-                    <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                    <hr color="white"> -->
+                    <!-- <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
@@ -306,22 +438,22 @@
                             Pengajuan Aset
                         </p>
                     </a>
-                    <hr color="white">
-                    <a href="<?= base_url('admin/peminjaman') ?>" class="nav-link">
+                    <hr color="white"> -->
+                    <!-- <a href="<?= base_url('admin/peminjaman') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
                             Peminjaman Aset
                         </p>
-                    </a>
-                    <hr color="white">
+                    </a> -->
+                    <!-- <hr color="white">
                     <a href="<?= base_url('admin/penghapusan') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
                             Penghapusan Aset
                         </p>
-                    </a>
+                    </a> -->
                     <hr color="white">
 
                 <li class="nav-header">LAPORAN</li>
@@ -410,6 +542,24 @@
                             <a href="<?= base_url('admin/buku/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Perpustakaan</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- <hr color="white"> -->
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/penghapusan/laporan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Penghapusan</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- <hr color="white"> -->
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/konfirmasi/laporan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Konfirmasi</p>
                             </a>
                         </li>
                     </ul>
