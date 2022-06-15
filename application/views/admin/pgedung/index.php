@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Pengajuan Aset Baru</h1>
+                    <h1>Data Pengajuan Aset Gedung & Bangunan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Pengajuan Aset Baru</li>
+                        <li class="breadcrumb-item active">Data Pengajuan Aset Gedung & Bangunan</li>
                     </ol>
                 </div>
             </div>
@@ -26,9 +26,9 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                Daftar Data Pengajuan Aset Baru
+                                Daftar Data Pengajuan Aset Gedung & Bangunan
                             </h3>
-                            <a href="<?= base_url('admin/pbaru/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <a href="<?= base_url('admin/pgedung/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -38,7 +38,7 @@
                                         <th>No</th>
                                         <th>Nama Aset</th>
                                         <th>Deskripsi</th>
-                                        <th>Lokasi</th>
+                                        <!-- <th>Lokasi</th> -->
                                         <th>Penanggung Jawab</th>
                                         <th>Jenis Pengajuan</th>
                                         <th>Status</th>
@@ -48,20 +48,20 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1;
-                                    foreach ($pbaru as $brg) : ?>
+                                    foreach ($pgedung as $brg) : ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $brg['aset'] ?></td>
                                             <td><?= $brg['des'] ?></td>
-                                            <td><?= $brg['lokasi'] ?></td>
+                                            <!-- <td><?= $brg['lokasi'] ?></td> -->
                                             <td><?= $brg['nama'] ?></td>
                                             <td><?= $brg['jenis'] ?></td>
                                             <td><?= $brg['status'] ?></td>
                                             <td><?= $brg['tanggal'] ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/pbaru/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/pbaru/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
-                                                <a href="<?= base_url(); ?>admin/kbaru/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-primary">UBAH KONFIRMASI</a>
+                                                <a href="<?= base_url(); ?>admin/pgedung/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/pgedung/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="<?= base_url(); ?>admin/kgedung/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-primary">UBAH KONFIRMASI</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

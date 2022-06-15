@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Kbaru extends CI_Controller
+class Kgedung extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('M_kbaru');
-        $this->load->model('M_pbaru');
+        $this->load->model('M_kgedung');
+        $this->load->model('M_pgedung');
         // $this->load->model('M_lokasi');
         // $this->load->model('M_penanggung_jawab');
         if ($this->session->userdata('hak_akses') != '1') {
@@ -20,8 +20,8 @@ class Kbaru extends CI_Controller
     public function index()
     {
         $data['judul'] = 'Halaman Data Barang';
-        $data['kbaru'] = $this->M_kbaru->lihat();
-        $data['pbaru'] = $this->M_pbaru->tampilstatus();
+        $data['kgedung'] = $this->M_kgedung->lihat();
+        $data['pgedung'] = $this->M_pgedung->tampilstatus();
         // $data['lokasi'] = $this->M_lokasi->lihat();
         // $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -30,7 +30,7 @@ class Kbaru extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
-        $this->load->view('admin/kbaru/index', $data);
+        $this->load->view('admin/kgedung/index', $data);
         $this->load->view('layout/footer');
     }
 
@@ -39,7 +39,7 @@ class Kbaru extends CI_Controller
         $data['judul'] = 'Halaman Tambah Data';
         // $data['lokasi'] = $this->M_lokasi->lihat();
         // $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
-        $data['status'] = $this->M_pbaru->getStsById($id);
+        $data['status'] = $this->M_pgedung->getStsById($id);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -51,13 +51,13 @@ class Kbaru extends CI_Controller
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
             $this->load->view('layout/sidebar');
-            $this->load->view('admin/kbaru/tambah', $data);
+            $this->load->view('admin/kgedung/tambah', $data);
             $this->load->view('layout/footer');
         } else {
-            $this->M_kbaru->updatestatus($id);
-            $this->M_kbaru->proses_tambah();
+            $this->M_kgedung->updatestatus($id);
+            $this->M_kgedung->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/pbaru');
+            redirect('admin/pgedung');
         }
     }
 
@@ -92,7 +92,7 @@ class Kbaru extends CI_Controller
 
     public function hapus($id)
     {
-        $this->M_lokasi->hapusData($id);
+        $this->M_pgedung->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
         redirect('admin/lokasi');
     }
@@ -126,8 +126,8 @@ class Kbaru extends CI_Controller
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['kbaru'] = $this->M_kbaru->lihat();
-        $this->load->view('admin/kbaru/laporan', $data);
+        $data['kgedung'] = $this->M_kgedung->lihat();
+        $this->load->view('admin/kgedung/laporan', $data);
 
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan Konfirmasi Aset Baru';
@@ -139,7 +139,7 @@ class Kbaru extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/kbaru/laporan', $this->data, true);
+        $html = $this->load->view('admin/kgedung/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

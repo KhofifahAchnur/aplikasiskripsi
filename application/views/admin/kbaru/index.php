@@ -8,7 +8,8 @@
                     <h1>Konfirmasi Aset</h1>
                 </div>
                 <div class="col-sm-6">
-                    
+                    <ol class="breadcrumb float-sm-right">
+                        <a href="<?= base_url('admin/pbaru/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -18,9 +19,9 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-            <div class="col-lg-12">
-                        <!-- /.card-header -->
-                        <div class="card card-primary">
+                <div class="col-lg-12">
+                    <!-- /.card-header -->
+                    <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">History Konfirmasi Aset</h3>
                         </div>
@@ -55,9 +56,9 @@
                                 </tbody>
                             </table>
                         </div>
-                        </div>
-                        <!-- /.card-body -->
                     </div>
+                    <!-- /.card-body -->
+                </div>
                 <!-- /.card -->
             </div>
             <!-- /.col -->

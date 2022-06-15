@@ -57,6 +57,9 @@
                                     foreach ($gedung as $gdg) : ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
+                                            <td>
+                                                <a href="<?= base_url(); ?>admin/hgedung/index/<?= $gdg['id_gedung']; ?>"><i><?= $gdg['nama_gedung'] ?></i></a>
+                                            </td>
                                             <td><?= $gdg['nama_gedung'] ?></td>
                                             <td><?= $gdg['kode_gedung'] ?></td>
                                             <td><?= $gdg['register'] ?></td>

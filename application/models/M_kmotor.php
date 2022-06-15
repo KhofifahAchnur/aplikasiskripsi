@@ -1,6 +1,6 @@
 <?php
 
-class M_kbaru extends CI_model
+class M_kmotor extends CI_model
 {
 	public function lihat()
 	{
@@ -11,7 +11,7 @@ class M_kbaru extends CI_model
 		// $this->db->join('lokasi', 'lokasi.id = history_konfirmasi.lokasi_id');
         // $this->db->join('penanggung_jawab', 'penanggung_jawab.id = history_konfirmasi.penanggung_jawab_id');
 		$this->db->order_by('history_konfirmasi.id_konfir', 'DESC');
-		$this->db->where_in('jenis',array('Aset Baru'));
+		$this->db->where_in('jenis',array('Pemeliharaan Kendaraan'));
 		return $this->db->get()->result_array();
 	}
 
@@ -33,7 +33,7 @@ class M_kbaru extends CI_model
             // "lokasi_id" => $this->input->post('lokasi', true),
             // "penanggung_jawab_id" => $this->input->post('nama', true),
             "status" => $this->input->post('status', true),
-            "tgl_konfir" => date('d-m-Y')
+            "tgl_konfir" => date('Y-m-d')
 		];
 
 		$this->db->insert('history_konfirmasi', $data);

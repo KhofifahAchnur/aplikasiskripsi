@@ -79,6 +79,7 @@
                 <th>Jenis Pengajuan</th>
                 <th>Status</th>
                 <th>Tanggal Konfirmasi</th>
+            </tr>
         </thead>
         <tbody>
             <?php $i = 1;

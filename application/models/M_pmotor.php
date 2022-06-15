@@ -1,15 +1,15 @@
 <?php
 
-class M_pbaru extends CI_model
+class M_pmotor extends CI_model
 {
     public function lihat()
     {
-        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
         $this->db->from('pengajuan');
-        $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
+        // $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
         $this->db->order_by('pengajuan.id', 'DESC');
-        $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->where_in('jenis',array('Pemeliharaan Kendaraan'));
         return $this->db->get()->result_array();
     }
      
@@ -26,9 +26,9 @@ class M_pbaru extends CI_model
         $data = [
             "aset" => $this->input->post('aset', true),
             "des" => $this->input->post('des', true),
-            "lokasi_id" => $this->input->post('lokasi', true),
+            // "lokasi_id" => $this->input->post('lokasi', true),
             "penanggung_jawab_id" => $this->input->post('nama', true),
-            "jenis" => 'Aset Baru',
+            "jenis" => 'Pemeliharaan Kendaraan',
             "status" => 'Diproses',
             "tanggal" => date('Y-m-d')
         ];
@@ -46,7 +46,7 @@ class M_pbaru extends CI_model
         $data = [
             "aset" => $this->input->post('aset', true),
             "des" => $this->input->post('des', true),
-            "lokasi" => $this->input->post('lokasi', true),
+            // "lokasi" => $this->input->post('lokasi', true),
             "penanggung_jawab_id" => $this->input->post('nama', true),
             "status" => $this->input->post('status', true),
         ];
