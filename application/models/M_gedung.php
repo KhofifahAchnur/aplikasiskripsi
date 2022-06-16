@@ -28,7 +28,15 @@ class M_gedung extends CI_model
         $this->db->insert('gedung', $data);
     }
 
-    public function getBrgById($id)
+    public function tampilgedung()
+    {
+        $this->db->select('gedung.nama_gedung, gedung.kode_gedung, gedung.tingkat, gedung.beton, gedung.luas, gedung.kondisi');
+        $this->db->from('gedung');
+        $this->db->order_by('gedung.id', 'DESC');
+        return $this->db->get()->result_array();
+    }
+
+    public function getGdgById($id)
     {
         return $this->db->get_where('gedung', ['id_gedung' => $id])->row_array();
     }

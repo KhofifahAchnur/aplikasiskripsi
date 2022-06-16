@@ -1,6 +1,6 @@
 <?php
 
-class M_aset extends CI_model
+class M_motor extends CI_model
 {
     public function lihat()
     {
@@ -8,7 +8,7 @@ class M_aset extends CI_model
         $this->db->from('aset');
         $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
         $this->db->order_by('aset.id', 'DESC');
-        $this->db->where_in('lokasi',array('Gudang', 'Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS'));
+        $this->db->where_in('lokasi',array('SMPN 15 Banjarmasin'));
         return $this->db->get()->result_array();
     }
 
@@ -22,7 +22,6 @@ class M_aset extends CI_model
         return $this->db->get()->result_array();
     }
 
-
     public function tampilaset()
     {
         $this->db->select('aset.nama_barang, aset.kode_barang, aset.kondisi');
@@ -30,18 +29,6 @@ class M_aset extends CI_model
         $this->db->order_by('aset.id', 'DESC');
         return $this->db->get()->result_array();
     }
-    
-    // public function tampilkondisibaik()
-    // {
-    //     return $this
-    //         ->db
-    //         ->select('*')
-    //         ->order_by('id', 'DESC')
-    //         ->where('kondisi', 'Baik')
-    //         ->get('aset')
-    //         ->result_array();
-    // }
-
 
     public function proses_tambah()
     {
@@ -56,21 +43,20 @@ class M_aset extends CI_model
             "kondisi" => $this->input->post('kondisi', true),
             "asal_usul" => $this->input->post('asal_usul', true),
             "harga_brg" => $this->input->post('harga_brg', true),
-            "perpindahan_id" => '11',
+            "perpindahan_id" => '24',
             "tanggal_masuk" => date('Y-m-d')
-            
-           
+
         ];
 
         $this->db->insert('aset', $data);
     }
 
-    public function getBrgById($id)
+    public function getMtrById($id)
     {
         return $this->db->get_where('aset', ['id' => $id])->row_array();
     }
 
-    public function edit_barang($id)
+    public function edit_motor($id)
     {
         $data = [
             "nama_barang" => $this->input->post('nama_barang', true),
@@ -95,9 +81,4 @@ class M_aset extends CI_model
         $this->db->where('id', $id);
         $this->db->delete('aset');
     }
-
-//     public function jumlah()
-//     {
-//         return $this->db->get('aset')->num_rows();
-//     }
 }

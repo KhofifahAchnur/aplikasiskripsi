@@ -263,7 +263,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/kondisi') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/kondisi_gedung') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     History Kondisi Aset
@@ -309,7 +309,7 @@
                     </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/gedung') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/kendaraan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Aset</p>
                             </a>
@@ -652,6 +652,14 @@
                         </li>
                     </ul>
                     <hr color="white">
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/hmotor/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Konfirmasi Aset Baru <p>
+                            </a>
+                        </li>
+                    </ul>
                 <li class="nav-item">
                     <a href="<?= base_url('auth/logout'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>

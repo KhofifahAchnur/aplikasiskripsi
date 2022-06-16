@@ -8,7 +8,7 @@
                     <h1>Kondisi Barang</h1>
                 </div>
                 <div class="col-sm-6">
-                    
+
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -18,9 +18,9 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-            <div class="col-lg-12">
-                        <!-- /.card-header -->
-                        <div class="card card-primary">
+                <div class="col-lg-12">
+                    <!-- /.card-header -->
+                    <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">History Kondisi</h3>
                         </div>
@@ -29,33 +29,35 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Barang</th>
-                                        <th>Kode Barang</th>
-                                        <th>Register</th>
-                                        <!-- <th>Lokasi</th> -->
+                                        <th>Nama</th>
+                                        <th>Kode</th>
+                                        <th>Bertingkat</th>
+                                        <th>Beton</th>
+                                        <th>Luas</th>
                                         <th>Kondisi</th>
                                         <th>Tanggal Masuk</th>
                                 </thead>
                                 </thead>
                                 <tbody>
                                     <?php $i = 1;
-                                    foreach ($kondisi as $kds) : ?>
+                                    foreach ($kondisi_gedung as $kdg) : ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
-                                            <td><?= $kds['nama_barang'] ?></td>
-                                            <td><?= $kds['kode_barang'] ?></td>
-                                            <td><?= $kds['register'] ?></td>
-                                            <!-- <td><?= $kds['lokasi'] ?></td> -->
-                                            <td><?= $kds['kondisi'] ?></td>
-                                            <td><?= $kds['tanggal'] ?></td>
+                                            <td><?= $kdg['nama_gedung'] ?></td>
+                                            <td><?= $kdg['kode_gedung'] ?></td>
+                                            <td><?= $kdg['tingkat'] ?></td>
+                                            <td><?= $kdg['beton'] ?></td>
+                                            <td><?= $kdg['luas'] ?></td>
+                                            <td><?= $kdg['kondisi'] ?></td>
+                                            <td><?= $kdg['tanggal'] ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
-                        </div>
-                        <!-- /.card-body -->
                     </div>
+                    <!-- /.card-body -->
+                </div>
                 <!-- /.card -->
             </div>
             <!-- /.col -->
