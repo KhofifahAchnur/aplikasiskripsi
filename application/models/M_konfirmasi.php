@@ -11,7 +11,7 @@ class M_konfirmasi extends CI_model
 		// $this->db->join('lokasi', 'lokasi.id = history_konfirmasi.lokasi_id');
         // $this->db->join('penanggung_jawab', 'penanggung_jawab.id = history_konfirmasi.penanggung_jawab_id');
 		$this->db->order_by('history_konfirmasi.id_konfir', 'DESC');
-		$this->db->where_in('jenis',array('Pemeliharaan'));
+		$this->db->where_in('jenis',array('Pemeliharaan Mesin'));
 		return $this->db->get()->result_array();
 	}
 

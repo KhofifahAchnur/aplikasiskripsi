@@ -25,9 +25,10 @@
                     <!-- /.card-header -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">
+                        <a href="<?= base_url('admin/pbaru/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                            <!-- <h3 class="card-title">
                                 Daftar Data Pengajuan Aset Baru
-                            </h3>
+                            </h3> -->
                             <a href="<?= base_url('admin/pbaru/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->

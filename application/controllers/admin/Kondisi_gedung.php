@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Kondisi extends CI_Controller
+class Kondisi_gedung extends CI_Controller
 {
     public function __construct()
     {
@@ -20,7 +20,7 @@ class Kondisi extends CI_Controller
     {
         $data['judul'] = 'Halaman Data Barang';
         $data['kondisi_gedung'] = $this->M_kondisi_gedung->lihat();
-        $data['aset'] = $this->M_gedung->tampilgedung();
+        $data['kogedung'] = $this->M_gedung->tampilgedung();
         // $data['lokasi'] = $this->M_lokasi->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -57,7 +57,7 @@ class Kondisi extends CI_Controller
             $this->M_kondisi_gedung->updatekondisigedung($id);
             $this->M_kondisi_gedung->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/kondisi_gedung');
+            redirect('admin/gedung');
         }
     }
 

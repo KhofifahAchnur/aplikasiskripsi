@@ -7,8 +7,8 @@ class Hgedung extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_gedung');
-        $this->load->model('M_perawatan');
-        $this->load->model('M_kondisi');
+        $this->load->model('M_pemeliharaan');
+        $this->load->model('M_kondisi_gedung');
         // $this->load->model('M_perawata');
         if ($this->session->userdata('hak_akses') != '1') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
@@ -21,11 +21,11 @@ class Hgedung extends CI_Controller
     {
         
         $data['judul'] = 'Halaman Data History';
-        $data['kondisi'] = $this->M_kondisi->lihatkondisibyid($id);
-        $data['barang'] = $this->M_aset->getBrgById($id);
+        $data['kondisi_gedung'] = $this->M_kondisi_gedung->lihatkondisibyid($id);
+        $data['kgedung'] = $this->M_gedung->getGdgById($id);
         // $data['barang'] = $this->M_aset->lihat();
-        $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);
-        $data['rawat'] = $this->M_perawatan->lihatperawatanbyid($id);
+        // $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);
+        $data['pemeliharaan'] = $this->M_pemeliharaan->lihatpemeliharaanbyid($id);
 
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -33,7 +33,7 @@ class Hgedung extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
-        $this->load->view('admin/history/index', $data); 
+        $this->load->view('admin/hgedung/index', $data); 
         $this->load->view('layout/footer');
     }
 

@@ -254,7 +254,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/perawatan') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/pemeliharaan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     History Pemeliharaan Aset
@@ -618,7 +618,7 @@
                         </li>
                     </ul>
                     <!-- <hr color="white"> -->
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/konfirmasi/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -627,7 +627,7 @@
                         </li>
                     </ul>
                     <!-- <hr color="white"> -->
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/pengajuan/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -659,7 +659,7 @@
                                 <p>Laporan Konfirmasi Aset Baru <p>
                             </a>
                         </li>
-                    </ul>
+                    </ul>  -->
                 <li class="nav-item">
                     <a href="<?= base_url('auth/logout'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>

@@ -9,7 +9,7 @@ class M_pengajuan extends CI_model
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
         $this->db->order_by('pengajuan.id', 'DESC');
-        $this->db->where_in('jenis',array('Pemeliharaan'));
+        $this->db->where_in('jenis',array('Pemeliharaan Mesin'));
         return $this->db->get()->result_array();
     }
      
@@ -28,7 +28,7 @@ class M_pengajuan extends CI_model
             "des" => $this->input->post('des', true),
             "lokasi_id" => $this->input->post('lokasi', true),
             "penanggung_jawab_id" => $this->input->post('nama', true),
-            "jenis" => 'Pemeliharaan',
+            "jenis" => 'Pemeliharaan Mesin',
             "status" => 'Diproses',
             "tanggal" => date('Y-m-d')
         ];
@@ -46,7 +46,7 @@ class M_pengajuan extends CI_model
         $data = [
             "aset" => $this->input->post('aset', true),
             "des" => $this->input->post('des', true),
-            "lokasi" => $this->input->post('lokasi', true),
+            "lokasi_id" => $this->input->post('lokasi', true),
             "penanggung_jawab_id" => $this->input->post('nama', true),
             "status" => $this->input->post('status', true),
         ];

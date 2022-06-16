@@ -32,7 +32,7 @@ class M_gedung extends CI_model
     {
         $this->db->select('gedung.nama_gedung, gedung.kode_gedung, gedung.tingkat, gedung.beton, gedung.luas, gedung.kondisi');
         $this->db->from('gedung');
-        $this->db->order_by('gedung.id', 'DESC');
+        $this->db->order_by('gedung.id_gedung', 'DESC');
         return $this->db->get()->result_array();
     }
 
