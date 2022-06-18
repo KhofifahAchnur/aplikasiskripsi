@@ -19,7 +19,7 @@ class Kbaru extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Data Konfirmasi Pengajuan Aset Baru';
         $data['kbaru'] = $this->M_kbaru->lihat();
         $data['pbaru'] = $this->M_pbaru->tampilstatus();
         // $data['lokasi'] = $this->M_lokasi->lihat();
@@ -36,7 +36,7 @@ class Kbaru extends CI_Controller
 
     public function tambah($id)
     {
-        $data['judul'] = 'Halaman Tambah Data';
+        $data['judul'] = 'Halaman Tambah Data Konfirmasi Pengajuan Aset Baru';
         // $data['lokasi'] = $this->M_lokasi->lihat();
         // $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['status'] = $this->M_pbaru->getStsById($id);
@@ -130,10 +130,10 @@ class Kbaru extends CI_Controller
         $this->load->view('admin/kbaru/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Konfirmasi Aset Baru';
+        $this->data['title_pdf'] = 'Laporan Konfirmasi  Pengajuan Aset Baru';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'Laporan Konfirmasi Aset Baru';
+        $file_pdf = 'Laporan Konfirmasi Pengajuan Aset Baru';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

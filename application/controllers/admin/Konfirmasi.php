@@ -19,7 +19,7 @@ class Konfirmasi extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Data Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
         $data['konfir'] = $this->M_konfirmasi->lihat();
         $data['pengajuan'] = $this->M_pengajuan->tampilstatus();
         // $data['lokasi'] = $this->M_lokasi->lihat();
@@ -36,7 +36,7 @@ class Konfirmasi extends CI_Controller
 
     public function tambah($id)
     {
-        $data['judul'] = 'Halaman Tambah Data';
+        $data['judul'] = 'Halaman Tambah Data Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
         // $data['lokasi'] = $this->M_lokasi->lihat();
         // $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['status'] = $this->M_pengajuan->getStsById($id);
@@ -106,10 +106,10 @@ class Konfirmasi extends CI_Controller
         $this->load->view('admin/konfirmasi/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Konfirmasi Aset Mesin';
+        $this->data['title_pdf'] = 'Laporan Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'Laporan Konfirmasi Aset Mesin';
+        $file_pdf = 'Laporan Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

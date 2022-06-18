@@ -62,54 +62,48 @@
             <td align="center">
                 <p>
                 <h2>SMP NEGERI 15 BANJARMASIN</h2>
-                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511-3301006</p>
+                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511 3301006 </p>
             </td>
         </tr>
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA ASET GEDUNG & BANGUNAN</strong>
+        <strong>LAPORAN DATA PEMELIHARAAN ASET GEDUNG & BANGUNAN</strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama</th>
-                <th>Kode</th>
+                <th>Nama Barang</th>
+                <th>Kode Barang</th>
                 <th>Register</th>
-                <th>Bertingkat</th>
-                <th>Beton</th>
-                <th>Luas</th>
                 <th>Lokasi</th>
-                <th>Tahun Peroleh</th>
-                <th>Kondisi</th>
-                <th>Status</th>
-                <th>Asal-Usul</th>
-                <th>Harga Barang</th>
+                <th>Penanggung Jawab</th>
+                <th>Jenis Pemeliharaan</th>
+                <th>Biaya</th>
+                <th>Tanggal Pemeliharaan</th>
+                <th>Tanggal Selesai </th>
             </tr>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($gedung as $gdg) : ?>
+            foreach ($pemeliharaan as $pln) : ?>
                 <tr>
-                    <td><?= $i++; ?></td>
-                    <td align="center"><?= $gdg['nama_gedung'] ?></td>
-                    <td align="center"><?= $gdg['kode_gedung'] ?></td>
-                    <td align="center"><?= $gdg['register'] ?></td>
-                    <td align="center"><?= $gdg['tingkat'] ?></td>
-                    <td align="center"><?= $gdg['beton'] ?></td>
-                    <td align="center"><?= $gdg['luas'] ?></td>
-                    <td align="center"><?= $gdg['lokasi'] ?></td>
-                    <td align="center"><?= $gdg['tahun'] ?></td>
-                    <td align="center"><?= $gdg['kondisi'] ?></td>
-                    <td align="center"><?= $gdg['status'] ?></td>
-                    <td align="center"><?= $gdg['asal_usul'] ?></td>
-                    <td align="center"><?= $gdg['harga'] ?></td>
+                    <td align="center"><?= $i++; ?></td>
+                    <td align="center"><?= $pln['nama_gedung'] ?></td>
+                    <td align="center"><?= $pln['kode_gedung'] ?></td>
+                    <td align="center"><?= $pln['register'] ?></td>
+                    <td align="center"><?= $pln['lokasi'] ?></td>
+                    <td align="center"><?= $pln['nama'] ?></td>
+                    <td align="center"><?= $pln['jenis'] ?></td>
+                    <td align="center"><?= $pln['biaya'] ?></td>
+                    <td align="center"><?= $pln['tgl_pemeliharaan'] ?></td>
+                    <td align="center"><?= $pln['tgl_selesai'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <table width="50%" align="right" border="0" style="margin-top: 20px;">
+    <table width="20%" align="right" border="0" style="margin-top: 10px;">
         <tr>
         <tr>
             <td width="50%"></td>

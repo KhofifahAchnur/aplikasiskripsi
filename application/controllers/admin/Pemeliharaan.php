@@ -19,7 +19,7 @@ class Pemeliharaan extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Data Pemeliharaan Aset Gedung & Bangunan';
         $data['pemeliharaan'] = $this->M_pemeliharaan->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -71,20 +71,20 @@ class Pemeliharaan extends CI_Controller
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['barang'] = $this->M_perpindahan->lihat();
-        $this->load->view('admin/perpindahan/laporan', $data);
+        $data['pemeliharaan'] = $this->M_pemeliharaan->lihat();
+        $this->load->view('admin/pemeliharaan/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Perpindahan Aset';
+        $this->data['title_pdf'] = 'Laporan Pemeliharaan Aset Gedung & Bangunan';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Perpindahan Aset';
+        $file_pdf = 'laporan Pemeliharaan Aset Gedung & Bangunan';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/perpindahan/laporan', $this->data, true);
+        $html = $this->load->view('admin/pemeliharaan/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

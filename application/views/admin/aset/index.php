@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Barang</li>
+                        <li class="breadcrumb-item active">Data Aset Peratan & Mesin</li>
                     </ol>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                Daftar Data Barang
+                                Daftar Data Aset Peratan & Mesin
                             </h3>
                             <a href="<?= base_url('admin/aset/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                             

@@ -18,7 +18,7 @@ class Lokasi extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Data Lokasi Aset';
         $data['barang'] = $this->M_lokasi->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -33,7 +33,7 @@ class Lokasi extends CI_Controller
 
     public function tambah()
     {
-        $data['judul'] = 'Halaman Tambah Data';
+        $data['judul'] = 'Halaman Tambah Data Lokasi Aset';
         $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -59,7 +59,7 @@ class Lokasi extends CI_Controller
 
     public function edit($id)
     {
-        $data['judul'] = 'Halaman Edit Data';
+        $data['judul'] = 'Halaman Edit Data Lokasi Aset';
         $data['lokasi'] = $this->M_lokasi->getBrgById($id);
         $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>

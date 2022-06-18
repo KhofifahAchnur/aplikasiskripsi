@@ -19,7 +19,7 @@ class Perpindahan extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Data Perpindahan Aset Peralatan & Mesin';
         $data['barang'] = $this->M_perpindahan->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -34,7 +34,7 @@ class Perpindahan extends CI_Controller
 
     public function tambah($id)
     {
-        $data['judul'] = 'Halaman Tambah Data';
+        $data['judul'] = 'Halaman Tambah Data Perpindahan Aset Peralatan & Mesin';
         // $data['barang'] = $this->M_aset->lihat();
         // $data['aset'] = $this->M_aset->tampilaset();
         $data['aset'] = $this->M_aset->getBrgById($id);
@@ -71,10 +71,10 @@ class Perpindahan extends CI_Controller
         $this->load->view('admin/perpindahan/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Perpindahan Aset';
+        $this->data['title_pdf'] = 'Laporan Perpindahan Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Perpindahan Aset';
+        $file_pdf = 'Laporan Perpindahan Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

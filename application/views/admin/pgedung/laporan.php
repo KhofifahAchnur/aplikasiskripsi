@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA KONDISI ASET</strong>
+        <strong>LAPORAN DATA PENGAJUAN PEMELIHARAAN ASET GEDUNG & BANGUNAN</strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
@@ -76,7 +76,6 @@
                 <th>No</th>
                 <th>Nama Aset</th>
                 <th>Deskripsi</th>
-                <th>Lokasi</th>
                 <th>Penanggung Jawab</th>
                 <th>Jenis Pengajuan</th>
                 <th>Status</th>
@@ -85,16 +84,15 @@
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($pbaru as $brg) : ?>
+            foreach ($pgedung as $brg) : ?>
                 <tr>
-                    <td><?= $i++; ?></td>
-                    <td><?= $brg['aset'] ?></td>
-                    <td><?= $brg['des'] ?></td>
-                    <td><?= $brg['lokasi'] ?></td>
-                    <td><?= $brg['nama'] ?></td>
-                    <td><?= $brg['jenis'] ?></td>
-                    <td><?= $brg['status'] ?></td>
-                    <td><?= $brg['tanggal'] ?></td>
+                    <td align="center"><?= $i++; ?></td>
+                    <td align="center"><?= $brg['aset'] ?></td>
+                    <td align="center"><?= $brg['des'] ?></td>
+                    <td align="center"><?= $brg['nama'] ?></td>
+                    <td align="center"><?= $brg['jenis'] ?></td>
+                    <td align="center"><?= $brg['status'] ?></td>
+                    <td align="center"><?= $brg['tanggal'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Penanggung Jawab</li>
+                        <!-- <a href="<?= base_url('admin/perpindahan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                     </ol>
                 </div>
             </div>
@@ -25,10 +25,11 @@
                     <!-- /.card-header -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">
+                            <!-- <h3 class="card-title">
                                 Daftar Data Penanggung Jawab
-                            </h3>
+                            </h3> -->
                             <a href="<?= base_url('admin/penanggung_jawab/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <a href="<?= base_url('admin/penanggung_jawab/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -53,7 +54,7 @@
                                                 <td>Admin</td>
                                             <?php } else if ($brg['hak_akses'] == '2') { ?>
                                                 <td>Guru</td>
-                                            <?php } else  { ?>
+                                            <?php } else { ?>
                                                 <td>Sapras</td>
                                             <?php } ?>
 

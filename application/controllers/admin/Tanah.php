@@ -17,7 +17,7 @@ class Tanah extends CI_Controller
     public function index()
     {
 
-        $data['judul'] = 'Halaman Data History';
+        $data['judul'] = 'Halaman Data Aset Tanah';
         $data['tanah'] = $this->M_tanah->lihat();
         // $data['barang'] = $this->M_aset->getBrgById($id);
         // // $data['barang'] = $this->M_aset->lihat();
@@ -35,7 +35,7 @@ class Tanah extends CI_Controller
 
     public function tambah()
     {
-        $data['judul'] = 'Halaman Tambah Data Penanggung Jawab';
+        $data['judul'] = 'Halaman Tambah Data Aset Tanah';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -66,7 +66,7 @@ class Tanah extends CI_Controller
 
     public function edit($id)
     {
-        $data['judul'] = 'Halaman Edit Data Penanggung Jawab';
+        $data['judul'] = 'Halaman Edit Data Aset Tanah';
         $data['tanah'] = $this->M_tanah->getBrgById($id);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -111,10 +111,10 @@ class Tanah extends CI_Controller
         $this->load->view('admin/tanah/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Tanah Aset';
+        $this->data['title_pdf'] = 'Laporan Aset Tanah';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Tanah Aset';
+        $file_pdf = 'Laporan Aset Tanah';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

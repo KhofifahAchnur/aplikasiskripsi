@@ -18,7 +18,7 @@ class Kondisi extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Data Kondisi Aset Peralatan & Mesin';
         $data['kondisi'] = $this->M_kondisi->lihat();
         $data['aset'] = $this->M_aset->tampilaset();
         // $data['lokasi'] = $this->M_lokasi->lihat();
@@ -105,10 +105,10 @@ class Kondisi extends CI_Controller
         $this->load->view('admin/kondisi/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Kondisi Aset';
+        $this->data['title_pdf'] = 'Laporan Kondisi Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Kondisi Aset';
+        $file_pdf = 'laporan Kondisi Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

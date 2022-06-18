@@ -56,8 +56,8 @@
 <body>
     <img src="<?= base_url() ?>adminlte/dist/img/logo.png" style="position: absolute; width: 125px; height: 130px;">
     <table style="width: 103%;">
-    <br>
-    <br>
+        <br>
+        <br>
         <tr>
             <td align="center">
                 <p>
@@ -68,28 +68,32 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA KONDISI ASET</strong>
+        <strong>LAPORAN DATA KONDISI ASET GEDUNG & BANGUNAN</strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama Barang</th>
-                <th>Kode Barang</th>
-                <th>Register</th>
+                <th>Nama</th>
+                <th>Kode</th>
+                <th>Bertingkat</th>
+                <th>Beton</th>
+                <th>Luas</th>
                 <th>Kondisi</th>
                 <th>Tanggal Masuk</th>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($kondisi as $kds) : ?>
+            foreach ($kondisi_gedung as $kdg) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
-                    <td align="center"><?= $kds['nama_barang'] ?></td>
-                    <td align="center"><?= $kds['kode_barang'] ?></td>
-                    <td align="center"><?= $kds['register'] ?></td>
-                    <td align="center"><?= $kds['kondisi'] ?></td>
-                    <td align="center"><?= $kds['tanggal'] ?></td>
+                    <td align="center"><?= $kdg['nama_gedung'] ?></td>
+                    <td align="center"><?= $kdg['kode_gedung'] ?></td>
+                    <td align="center"><?= $kdg['tingkat'] ?></td>
+                    <td align="center"><?= $kdg['beton'] ?></td>
+                    <td align="center"><?= $kdg['luas'] ?></td>
+                    <td align="center"><?= $kdg['kondisi'] ?></td>
+                    <td align="center"><?= $kdg['tanggal'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

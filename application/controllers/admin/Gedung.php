@@ -17,7 +17,7 @@ class Gedung extends CI_Controller
     public function index()
     {
 
-        $data['judul'] = 'Halaman Data History';
+        $data['judul'] = 'Halaman Data Aset Gedung & Bangunan';
         $data['gedung'] = $this->M_gedung->lihat();
         // $data['barang'] = $this->M_aset->getBrgById($id);
         // // $data['barang'] = $this->M_aset->lihat();
@@ -35,7 +35,7 @@ class Gedung extends CI_Controller
 
     public function tambah()
     {
-        $data['judul'] = 'Halaman Tambah Data Penanggung Jawab';
+        $data['judul'] = 'Halaman Tambah Data Aset Gedung & Bangunan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -68,7 +68,7 @@ class Gedung extends CI_Controller
 
     public function edit($id)
     {
-        $data['judul'] = 'Halaman Edit Data Penanggung Jawab';
+        $data['judul'] = 'Halaman Edit Data Data Aset Gedung & Bangunan';
         $data['gedung'] = $this->M_gedung->getBrgById($id);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -115,10 +115,10 @@ class Gedung extends CI_Controller
         $this->load->view('admin/gedung/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Gedung Aset';
+        $this->data['title_pdf'] = 'Laporan Aset Gedung & Bangunan';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Gedung Aset';
+        $file_pdf = 'Laporan Aset Gedung & Bangunan';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

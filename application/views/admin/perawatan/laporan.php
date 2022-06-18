@@ -68,43 +68,37 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA ASET GEDUNG & BANGUNAN</strong>
+        <strong>LAPORAN DATA PEMELIHARAAN ASET PERALATAN & MESIN</strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama</th>
-                <th>Kode</th>
+                <th>Nama Barang</th>
+                <th>Kode Barang</th>
                 <th>Register</th>
-                <th>Bertingkat</th>
-                <th>Beton</th>
-                <th>Luas</th>
                 <th>Lokasi</th>
-                <th>Tahun Peroleh</th>
-                <th>Kondisi</th>
-                <th>Status</th>
-                <th>Asal-Usul</th>
-                <th>Harga Barang</th>
-            </tr>
+                <th>Penanggung Jawab</th>
+                <th>Jenis Pemeliharaan</th>
+                <th>Biaya</th>
+                <th>Tanggal Perawatan</th>
+                <th>Tanggal Selesai </th>
+        </thead>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($gedung as $gdg) : ?>
+            foreach ($rawat as $rwt) : ?>
                 <tr>
-                    <td><?= $i++; ?></td>
-                    <td align="center"><?= $gdg['nama_gedung'] ?></td>
-                    <td align="center"><?= $gdg['kode_gedung'] ?></td>
-                    <td align="center"><?= $gdg['register'] ?></td>
-                    <td align="center"><?= $gdg['tingkat'] ?></td>
-                    <td align="center"><?= $gdg['beton'] ?></td>
-                    <td align="center"><?= $gdg['luas'] ?></td>
-                    <td align="center"><?= $gdg['lokasi'] ?></td>
-                    <td align="center"><?= $gdg['tahun'] ?></td>
-                    <td align="center"><?= $gdg['kondisi'] ?></td>
-                    <td align="center"><?= $gdg['status'] ?></td>
-                    <td align="center"><?= $gdg['asal_usul'] ?></td>
-                    <td align="center"><?= $gdg['harga'] ?></td>
+                    <td align="center"><?= $i++; ?></td>
+                    <td align="center"><?= $rwt['nama_barang'] ?></td>
+                    <td align="center"><?= $rwt['kode_barang'] ?></td>
+                    <td align="center"><?= $rwt['register'] ?></td>
+                    <td align="center"><?= $rwt['lokasi'] ?></td>
+                    <td align="center"><?= $rwt['nama'] ?></td>
+                    <td align="center"><?= $rwt['jenis'] ?></td>
+                    <td align="center"><?= $rwt['biaya'] ?></td>
+                    <td align="center"><?= $rwt['tgl_rawat'] ?></td>
+                    <td align="center"><?= $rwt['tgl_selesai'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

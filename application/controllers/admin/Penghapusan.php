@@ -17,7 +17,7 @@ class Penghapusan extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Penghapusan Barang';
+        $data['judul'] = 'Halaman Data Penghapusan Aset Peralatan & Mesin';
         $data['barang'] = $this->M_penghapusan->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -38,10 +38,10 @@ class Penghapusan extends CI_Controller
         $this->load->view('admin/penghapusan/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Penghapusan Aset';
+        $this->data['title_pdf'] = 'Laporan Penghapusan Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'Laporan Penghapusan Aset';
+        $file_pdf = 'Laporan Penghapusan Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

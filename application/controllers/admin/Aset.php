@@ -16,7 +16,7 @@ class Aset extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Aset Peralatan & Mesin';
         $data['barang'] = $this->M_aset->lihat();
         
 
@@ -29,7 +29,7 @@ class Aset extends CI_Controller
 
     public function tambah()
     {
-        $data['judul'] = 'Halaman Tambah Data';
+        $data['judul'] = 'Halaman Tambah Data Aset Peratan & Mesin';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -60,7 +60,7 @@ class Aset extends CI_Controller
 
     public function edit($id)
     {
-        $data['judul'] = 'Halaman Edit Data';
+        $data['judul'] = 'Halaman Edit Data Aset Peratan & Mesin';
         $data['barang'] = $this->M_aset->getBrgById($id);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -106,10 +106,10 @@ class Aset extends CI_Controller
         $this->load->view('admin/aset/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Aset';
+        $this->data['title_pdf'] = 'Laporan Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Aset';
+        $file_pdf = 'laporan Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

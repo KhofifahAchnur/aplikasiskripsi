@@ -19,7 +19,7 @@ class Kgedung extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Data Konfirmasi Pengajuan Pemeliharaan Aset Gedung & Bangunan';
         $data['kgedung'] = $this->M_kgedung->lihat();
         $data['pgedung'] = $this->M_pgedung->tampilstatus();
         // $data['lokasi'] = $this->M_lokasi->lihat();
@@ -36,7 +36,7 @@ class Kgedung extends CI_Controller
 
     public function tambah($id)
     {
-        $data['judul'] = 'Halaman Tambah Data';
+        $data['judul'] = 'Halaman Tambah Data Konfirmasi Pengajuan Pemeliharaan Aset Gedung & Bangunan';
         // $data['lokasi'] = $this->M_lokasi->lihat();
         // $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['status'] = $this->M_pgedung->getStsById($id);
@@ -130,10 +130,10 @@ class Kgedung extends CI_Controller
         $this->load->view('admin/kgedung/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Konfirmasi Aset Baru';
+        $this->data['title_pdf'] = 'Laporan Konfirmasi Pengajuan Pemeliharaan Aset Gedung & Bangunan';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'Laporan Konfirmasi Aset Baru';
+        $file_pdf = 'Laporan Konfirmasi Pengajuan Pemeliharaan Aset Gedung & Bangunan';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

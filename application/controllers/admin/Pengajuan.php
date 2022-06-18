@@ -18,7 +18,7 @@ class Pengajuan extends CI_Controller
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Data Pengajuan Pemeliharaan Aset Peralatan & Mesin';
         $data['pengajuan'] = $this->M_pengajuan->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -33,7 +33,7 @@ class Pengajuan extends CI_Controller
 
     public function tambah()
     {
-        $data['judul'] = 'Halaman Tambah Data';
+        $data['judul'] = 'Halaman Tambah Data Pengajuan Pemeliharaan Aset Peralatan & Mesin';
         $data['pengajuan'] = $this->M_pengajuan->lihat();
         $data['lokasi'] = $this->M_lokasi->lihat();
         $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
@@ -65,7 +65,7 @@ class Pengajuan extends CI_Controller
 
     public function edit($id)
     {
-        $data['judul'] = 'Halaman Edit Data';
+        $data['judul'] = 'Halaman Edit Data Pengajuan Pemeliharaan Aset Peralatan & Mesin';
         $data['pengajuan'] = $this->M_pengajuan->getStsById($id);
         $data['lokasi'] = $this->M_lokasi->lihat();
         $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();

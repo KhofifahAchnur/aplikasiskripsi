@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Pemeliharaan Aset</h1>
+                    <h1>Data Pemeliharaan Aset Peralatan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Pemeliharaan Aset</li>
+                        <li class="breadcrumb-item active">Data Pemeliharaan Aset Peralatan & Mesin</li>
                     </ol>
                 </div>
             </div>
@@ -28,7 +28,8 @@
                             <h3 class="card-title">
                                 Daftar Data Pemeliharaan Aset
                             </h3>
-                            <!-- <a href="<?= base_url('admin/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
+                            <!-- <a href="<?= base_url('admin/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->\
+                            <a href="<?= base_url('admin/perawatan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

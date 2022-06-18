@@ -62,13 +62,13 @@
             <td align="center">
                 <p>
                 <h2>SMP NEGERI 15 BANJARMASIN</h2>
-                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511-3301006</p>
+                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511 3301006 </p>
             </td>
         </tr>
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA ASET GEDUNG & BANGUNAN</strong>
+        <strong>LAPORAN DATA ASET JALAN, IRIGASI & JARINGAN </strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
@@ -77,34 +77,31 @@
                 <th>Nama</th>
                 <th>Kode</th>
                 <th>Register</th>
-                <th>Bertingkat</th>
-                <th>Beton</th>
+                <th>Konstruksi</th>
                 <th>Luas</th>
                 <th>Lokasi</th>
-                <th>Tahun Peroleh</th>
                 <th>Kondisi</th>
                 <th>Status</th>
                 <th>Asal-Usul</th>
                 <th>Harga Barang</th>
-            </tr>
+                <th>Tanggal Peroleh</th>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($gedung as $gdg) : ?>
+            foreach ($jalan as $jln) : ?>
                 <tr>
-                    <td><?= $i++; ?></td>
-                    <td align="center"><?= $gdg['nama_gedung'] ?></td>
-                    <td align="center"><?= $gdg['kode_gedung'] ?></td>
-                    <td align="center"><?= $gdg['register'] ?></td>
-                    <td align="center"><?= $gdg['tingkat'] ?></td>
-                    <td align="center"><?= $gdg['beton'] ?></td>
-                    <td align="center"><?= $gdg['luas'] ?></td>
-                    <td align="center"><?= $gdg['lokasi'] ?></td>
-                    <td align="center"><?= $gdg['tahun'] ?></td>
-                    <td align="center"><?= $gdg['kondisi'] ?></td>
-                    <td align="center"><?= $gdg['status'] ?></td>
-                    <td align="center"><?= $gdg['asal_usul'] ?></td>
-                    <td align="center"><?= $gdg['harga'] ?></td>
+                    <td align="center"><?= $i++; ?></td>
+                    <td align="center"><?= $jln['nama_aset'] ?></td>
+                    <td align="center"><?= $jln['kode_aset'] ?></td>
+                    <td align="center"><?= $jln['register'] ?></td>
+                    <td align="center"><?= $jln['konstruksi'] ?></td>
+                    <td align="center"><?= $jln['luas'] ?></td>
+                    <td align="center"><?= $jln['lokasi'] ?></td>
+                    <td align="center"><?= $jln['kondisi'] ?></td>
+                    <td align="center"><?= $jln['status'] ?></td>
+                    <td align="center"><?= $jln['asal_usul'] ?></td>
+                    <td align="center"><?= $jln['harga'] ?></td>
+                    <td align="center"><?= $jln['tanggal_masuk'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -117,6 +114,22 @@
         </tr>
         </tr>
     </table>
+    <!-- <table>
+        <tr>
+            <td colspan="3">
+                <div style="float: right;">
+                    <div style="text-align: end;">
+                        <p>Hormat Kami</p>
+                        <p>Kepala SDN Handil Bakti</p>
+
+                        <p></p>
+                        <p class="me-5">SURYA ABDI, S.Pd</p>
+                        <p>NIP.19670505 198804 1 002</p>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table> -->
 
 </body>
 

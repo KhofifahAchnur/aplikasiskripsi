@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA PENGHAPUSAN ASET</strong>
+        <strong>LAPORAN DATA PENGHAPUSAN ASET PERALATAN & MESIN</strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
@@ -87,12 +87,12 @@
             foreach ($barang as $brg) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
-                    <td><?= $brg['nama_barang'] ?></td>
-                    <td><?= $brg['kode_barang'] ?></td>
-                    <td><?= $brg['register'] ?></td>
-                    <td><?= $brg['kondisi'] ?></td>
-                    <td><?= $brg['lokasi'] ?></td>
-                    <td><?= $brg['tanggal_masuk'] ?></td>
+                    <td align="center"><?= $brg['nama_barang'] ?></td>
+                    <td align="center"><?= $brg['kode_barang'] ?></td>
+                    <td align="center"><?= $brg['register'] ?></td>
+                    <td align="center"><?= $brg['kondisi'] ?></td>
+                    <td align="center"><?= $brg['lokasi'] ?></td>
+                    <td align="center"><?= $brg['tanggal_masuk'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

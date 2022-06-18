@@ -5,11 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Konfirmasi Aset Gedung & Bangunan</h1>
+                    <h1>Data Konfirmasi Pengajuan Pemeliharaan Aset Gedung & Bangunan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/pgedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/pgedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a> ||
+                        <a href="<?= base_url('admin/kgedung/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -23,7 +24,7 @@
                     <!-- /.card-header -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">History Konfirmasi Aset Gedung & Bangunan</h3>
+                            <h3 class="card-title">Data Konfirmasi Pengajuan Pemeliharaan Aset Gedung & Bangunan</h3>
                         </div>
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">

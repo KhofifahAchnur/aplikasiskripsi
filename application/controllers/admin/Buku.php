@@ -17,7 +17,7 @@ class Buku extends CI_Controller
     public function index()
     {
 
-        $data['judul'] = 'Halaman Data History';
+        $data['judul'] = 'Halaman Data Aset Perpustakaan';
         $data['buku'] = $this->M_buku->lihat();
         // $data['barang'] = $this->M_aset->getBrgById($id);
         // // $data['barang'] = $this->M_aset->lihat();
@@ -35,7 +35,7 @@ class Buku extends CI_Controller
 
     public function tambah()
     {
-        $data['judul'] = 'Halaman Tambah Data Penanggung Jawab';
+        $data['judul'] = 'Halaman Tambah Data Aset Perpustakaan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -65,7 +65,7 @@ class Buku extends CI_Controller
 
     public function edit($id)
     {
-        $data['judul'] = 'Halaman Edit Data Perpustakaan';
+        $data['judul'] = 'Halaman Edit Data Aset Perpustakaan';
         $data['buku'] = $this->M_buku->getBrgById($id);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -109,10 +109,10 @@ class Buku extends CI_Controller
         $this->load->view('admin/buku/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Buku Aset';
+        $this->data['title_pdf'] = 'Laporan Aset Perpustakaan';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Buku Aset';
+        $file_pdf = 'laporan Aset Perpustakaan';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

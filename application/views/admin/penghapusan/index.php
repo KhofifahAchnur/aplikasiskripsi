@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Penghapusan Aset</h1>
+                    <h1>Data Penghapusan Aset Peralatan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                 </div>
@@ -22,7 +22,7 @@
                         <!-- /.card-header -->
                         <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title"> Proses Penghapusan Aset</h3>
+                            <h3 class="card-title"> Proses Data Penghapusan Aset Peralatan & Mesin</h3>
                         </div>
 
                         <!-- /.card-header -->

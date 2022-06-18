@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA KONDISI ASET</strong>
+        <strong>LAPORAN DATA KONFIRMASI PENGAJUAN PEMELIHARAAN ASET GEDUNG & BANGUNAN</strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
@@ -83,7 +83,7 @@
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($kbaru as $kfr) : ?>
+            foreach ($kgedung as $kfr) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
                     <td align="center"><?= $kfr['aset'] ?></td>

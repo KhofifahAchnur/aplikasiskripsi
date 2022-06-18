@@ -5,12 +5,15 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Perpindahan Barang</h1>
+                    <h1>Data Perpindahan Aset Peralatan & Mesin</h1>
                 </div>
-                <? var_dump($barang);
-                die; ?>
+                <!-- <? var_dump($barang);
+                die; ?> -->
                 <div class="col-sm-6">
-                </div>
+                <ol class="breadcrumb float-sm-right">
+                <a href="<?= base_url('admin/perpindahan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                </ol>
+            </div>
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -23,7 +26,7 @@
                     <!-- /.card-header -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Perpindahan Barang</h3>
+                            <h3 class="card-title">Perpindahan Aset Peralatan & Mesin</h3>
                         </div>
 
                         <!-- /.card-header -->

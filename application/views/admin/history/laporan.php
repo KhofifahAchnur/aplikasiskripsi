@@ -68,43 +68,61 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA ASET GEDUNG & BANGUNAN</strong>
+        <strong>LAPORAN DATA HISTORY </strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama</th>
-                <th>Kode</th>
+                <th>Nama Barang</th>
+                <th>Kode Barang</th>
                 <th>Register</th>
-                <th>Bertingkat</th>
-                <th>Beton</th>
-                <th>Luas</th>
-                <th>Lokasi</th>
-                <th>Tahun Peroleh</th>
+                <th>Merk</th>
                 <th>Kondisi</th>
-                <th>Status</th>
-                <th>Asal-Usul</th>
-                <th>Harga Barang</th>
             </tr>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($gedung as $gdg) : ?>
+            foreach ($aset as $brg) : ?>
                 <tr>
-                    <td><?= $i++; ?></td>
-                    <td align="center"><?= $gdg['nama_gedung'] ?></td>
-                    <td align="center"><?= $gdg['kode_gedung'] ?></td>
-                    <td align="center"><?= $gdg['register'] ?></td>
-                    <td align="center"><?= $gdg['tingkat'] ?></td>
-                    <td align="center"><?= $gdg['beton'] ?></td>
-                    <td align="center"><?= $gdg['luas'] ?></td>
-                    <td align="center"><?= $gdg['lokasi'] ?></td>
-                    <td align="center"><?= $gdg['tahun'] ?></td>
-                    <td align="center"><?= $gdg['kondisi'] ?></td>
-                    <td align="center"><?= $gdg['status'] ?></td>
-                    <td align="center"><?= $gdg['asal_usul'] ?></td>
-                    <td align="center"><?= $gdg['harga'] ?></td>
+                    <td align="center"><?= $i++; ?></td>
+                    <td align="center"><?= $brg['nama_barang'] ?></td>
+                    <td align="center"><?= $brg['kode_barang'] ?></td>
+                    <td align="center"><?= $brg['register'] ?></td>
+                    <td align="center"><?= $brg['merk'] ?></td>
+                    <td align="center"><?= $brg['kondisi'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <hr class="line-title">
+    <p align="center">
+        <strong>LAPORAN DATA HISTORY </strong>
+    </p>
+    <table id="customers" class="table table-bordered" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Barang</th>
+                <th>Kode Barang</th>
+                <th>Register</th>
+                <th>Lokasi</th>
+                <th>Nama Penanggung Jawab</th>
+                <th>Tanggal Perpindahan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $i = 1;
+            foreach ($barang as $brg) : ?>
+                <tr>
+                    <td align="center"><?= $i++; ?></td>
+                    <td align="center"><?= $brg['nama_barang'] ?></td>
+                    <td align="center"><?= $brg['kode_barang'] ?></td>
+                    <td align="center"><?= $brg['register'] ?></td>
+                    <td align="center"><?= $brg['lokasi'] ?></td>
+                    <td align="center"><?= $brg['nama'] ?></td>
+                    <td align="center"><?= $brg['tanggal'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

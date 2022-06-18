@@ -17,7 +17,7 @@ class Jalan extends CI_Controller
     public function index()
     {
 
-        $data['judul'] = 'Halaman Data History';
+        $data['judul'] = 'Halaman Data Aset Jalan , Irigasi & Jaringan';
         $data['jalan'] = $this->M_jalan->lihat();
         // $data['barang'] = $this->M_aset->getBrgById($id);
         // // $data['barang'] = $this->M_aset->lihat();
@@ -35,7 +35,7 @@ class Jalan extends CI_Controller
 
     public function tambah()
     {
-        $data['judul'] = 'Halaman Tambah Data Jalan';
+        $data['judul'] = 'Halaman Tambah Data Aset Jalan , Irigasi & Jaringan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -68,7 +68,7 @@ class Jalan extends CI_Controller
 
     public function edit($id)
     {
-        $data['judul'] = 'Halaman Edit Data Jalan';
+        $data['judul'] = 'Halaman Edit Data Aset Jalan , Irigasi & Jaringan';
         $data['jalan'] = $this->M_jalan->getBrgById($id);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -110,20 +110,20 @@ class Jalan extends CI_Controller
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['gedung'] = $this->M_gedung->lihat();
-        $this->load->view('admin/gedung/laporan', $data);
+        $data['jalan'] = $this->M_jalan->lihat();
+        $this->load->view('admin/jalan/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Gedung Aset';
+        $this->data['title_pdf'] = 'Laporan Aset Jalan , Irigasi & Jaringan';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Gedung Aset';
+        $file_pdf = 'Laporan Aset Jalan , Irigasi & Jaringan';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/gedung/laporan', $this->data, true);
+        $html = $this->load->view('admin/jalan/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

@@ -528,19 +528,19 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/penanggung_jawab/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Data Penanggung Jawab Aset</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/masteraset/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Laporan Data Master aset</p>
+                                <p>Laporan Aset Peralatan & Mesin</p>
                             </a>
                         </li>
                     </ul>
@@ -552,14 +552,14 @@
                             </a>
                         </li>
                     </ul> -->
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/lokasi/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Data Lokasi Aset</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/perbaikan/laporan') ?>" class="nav-link">
@@ -568,27 +568,27 @@
                             </a>
                         </li>
                     </ul> -->
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/perpindahan/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Perpindahan Aset</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
+                    </ul> -->
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/kondisi/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Kondisi</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/tanah/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Laporan Tanah</p>
+                                <p>Laporan Aset Tanah</p>
                             </a>
                         </li>
                     </ul>
@@ -596,7 +596,7 @@
                         <li class="nav-item">
                             <a href="<?= base_url('admin/gedung/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Laporan Gedung</p>
+                                <p>Laporan Aset Gedung</p>
                             </a>
                         </li>
                     </ul>
@@ -604,7 +604,15 @@
                         <li class="nav-item">
                             <a href="<?= base_url('admin/buku/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Laporan Perpustakaan</p>
+                                <p>Laporan Aset Perpustakaan</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/jalan/laporan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan  Aset Jalan , Irigasi & Jaringan</p>
                             </a>
                         </li>
                     </ul>

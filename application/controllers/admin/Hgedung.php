@@ -20,7 +20,7 @@ class Hgedung extends CI_Controller
     public function index($id)
     {
         
-        $data['judul'] = 'Halaman Data History';
+        $data['judul'] = 'Halaman Data History Aset Gedung & Bangunan';
         $data['kondisi_gedung'] = $this->M_kondisi_gedung->lihatkondisibyid($id);
         $data['kgedung'] = $this->M_gedung->getGdgById($id);
         // $data['barang'] = $this->M_aset->lihat();
