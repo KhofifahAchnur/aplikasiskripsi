@@ -35,18 +35,16 @@ class Perawatan extends CI_Controller
     public function tambah($id)
     {
         $data['judul'] = 'Halaman Tambah Data Pemeliharaan Aset Peralatan & Mesin';
-        // $data['barang'] = $this->M_aset->lihat();
-        // $data['aset'] = $this->M_aset->tampilaset();
-        // $data['rawat'] = $this->M_perawatan->lihat();
         $data['aset'] = $this->M_aset->getBrgById($id);
-        $data['lokasi'] = $this->M_lokasi->lihat();
-        $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
+        $data['lokasi'] = $this->M_lokasi->getBrgById($data['aset']['perpindahan_id']);
+        $data['nama'] = $this->M_penanggung_jawab->getBrgById($data['lokasi']['penanggung_jawab_id']);
+        // var_dump( $data['nama']); die;
+        // $data['lokasi'] = $this->M_lokasi->lihat();
+        // $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
-        $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required');
-        $this->form_validation->set_rules('register', 'Register', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
         $this->form_validation->set_rules('jenis', 'Jenis', 'required');
@@ -69,15 +67,14 @@ class Perawatan extends CI_Controller
     public function edit($id)
     {
         $data['judul'] = 'Halaman Edit Data  Pemeliharaan Aset Peralatan & Mesin';
-        $data['aset'] = $this->M_aset->getBrgById($id);
-        $data['lokasi'] = $this->M_lokasi->lihat();
-        $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
+        $data['rawat'] = $this->M_perawatan->getRwtById($id);
+        $data['aset'] = $this->M_aset->getBrgById($data['rawat']['aset_id']);
+        $data['lokasi'] = $this->M_lokasi->getBrgById($data['rawat']['lokasi_id']);
+        $data['nama'] = $this->M_penanggung_jawab->getBrgById($data['rawat']['penanggung_jawab_id']);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
-        $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required');
-        $this->form_validation->set_rules('register', 'Register', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
         $this->form_validation->set_rules('jenis', 'Jenis', 'required');
@@ -94,6 +91,13 @@ class Perawatan extends CI_Controller
             $this->session->set_flashdata('flash', 'Ditambahkan');
             redirect('admin/perawatan');
         }
+    }
+
+    public function hapus($id)
+    {
+        $this->M_perawatan->hapusData($id);
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('admin/perawatan');
     }
 
     public function laporan()

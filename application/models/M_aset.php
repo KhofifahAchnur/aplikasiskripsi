@@ -8,6 +8,16 @@ class M_aset extends CI_model
         $this->db->from('aset');
         $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
         $this->db->order_by('aset.id', 'DESC');
+        $this->db->where_in('lokasi',array('Gudang', 'Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'SMPN 15 Banjarmasin'));
+        return $this->db->get()->result_array();
+    }
+
+    public function lihataset($id)
+    {
+        $this->db->select('aset.id, lokasi.lokasi, aset.nama_barang, aset.kode_barang, aset.register, aset.merk, aset.ukuran, aset.bahan, aset.tahun, aset.kondisi, aset.asal_usul, aset.harga_brg, aset.tanggal_masuk');
+        $this->db->from('aset');
+        $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
+        $this->db->order_by('aset.id', 'DESC');
         $this->db->where_in('lokasi',array('Gudang', 'Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS'));
         return $this->db->get()->result_array();
     }
@@ -22,6 +32,7 @@ class M_aset extends CI_model
         return $this->db->get()->result_array();
     }
 
+   
 
     public function tampilaset()
     {
@@ -70,6 +81,14 @@ class M_aset extends CI_model
         return $this->db->get_where('aset', ['id' => $id])->row_array();
     }
 
+    public function getBrgByIdCetak($id) {
+        return $this->db->get_where('aset', ['id' => $id])->result_array();
+    }
+
+    public function getBrg() {
+        return $this->db->get('aset')->result_array();
+    }
+
     public function edit_barang($id)
     {
         $data = [
@@ -94,6 +113,23 @@ class M_aset extends CI_model
     {
         $this->db->where('id', $id);
         $this->db->delete('aset');
+    }
+
+    public function kode()
+    {
+        $this->db->select('RIGHT(aset.kode_barang,2) as kode_barang', FALSE);
+        $this->db->order_by('kode_barang', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('aset');
+        if ($query->num_rows() <> 0) {
+            $data = $query->row();
+            $kode = intval($data->kode_barang) + 1;
+        } else {
+            $kode = 1;
+        }
+        $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);
+        $kodetampil = "2.2.5." . $batas;
+        return $kodetampil;
     }
 
 //     public function jumlah()

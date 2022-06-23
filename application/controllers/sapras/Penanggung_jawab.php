@@ -7,11 +7,11 @@ class Penanggung_jawab extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_penanggung_jawab');
-        // if ($this->session->userdata('hak_akses') != '1') {
-        //     $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
-		// 			</button> </div>');
-        //     redirect('auth');
-        // }
+        if ($this->session->userdata('hak_akses') != '1') {
+            $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
+					</button> </div>');
+            redirect('auth');
+        }
     }
 
     public function index()
@@ -23,8 +23,8 @@ class Penanggung_jawab extends CI_Controller
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
-        $this->load->view('layoutsapras/sidebar');
-        $this->load->view('sapras/penanggung_jawab/index', $data);
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/penanggung_jawab/index', $data);
         $this->load->view('layout/footer');
     }
 
@@ -44,13 +44,13 @@ class Penanggung_jawab extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
-            $this->load->view('layoutsapras/sidebar');
-            $this->load->view('sapras/penanggung_jawab/tambah');
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/penanggung_jawab/tambah');
             $this->load->view('layout/footer');
         } else {
             $this->M_penanggung_jawab->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('sapras/penanggung_jawab');
+            redirect('admin/penanggung_jawab');
         }
     }
 
@@ -68,13 +68,13 @@ class Penanggung_jawab extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
-            $this->load->view('layoutsapras/sidebar');
-            $this->load->view('sapras/penanggung_jawab/edit', $data);
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/penanggung_jawab/edit', $data);
             $this->load->view('layout/footer');
         } else {
             $this->M_penanggung_jawab->edit_barang($id);
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('sapras/penanggung_jawab');
+            redirect('admin/penanggung_jawab');
         }
     }
 
@@ -82,7 +82,7 @@ class Penanggung_jawab extends CI_Controller
     {
         $this->M_penanggung_jawab->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('sapras/penanggung_jawab');
+        redirect('admin/penanggung_jawab');
     }
 
     public function laporan()

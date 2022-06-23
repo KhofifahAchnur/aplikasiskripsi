@@ -19,7 +19,7 @@ class History extends CI_Controller
 
     public function index($id)
     {
-        
+
         $data['judul'] = 'Halaman Data History Aset Peralatan & Mesin';
         $data['kondisi'] = $this->M_kondisi->lihatkondisibyid($id);
         $data['barang'] = $this->M_aset->getBrgById($id);
@@ -33,7 +33,7 @@ class History extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
-        $this->load->view('admin/history/index', $data); 
+        $this->load->view('admin/history/index', $data);
         $this->load->view('layout/footer');
     }
 
@@ -71,10 +71,11 @@ class History extends CI_Controller
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['barang'] = $this->M_aset->getBrgById($id);
-        $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);
-        // $data['rawat'] = $this->M_perawatan->lihatperawatanbyid($id);
-        // $data['kondisi'] = $this->M_kondisi->lihatkondisibyid($id);
+        
+        $data['barang'] = $this->M_aset->getBrgByIdCetak($id);
+        $data['barang2'] = $this->M_perpindahan->lihatperpindahanbyid($id);
+        $data['rawat'] = $this->M_perawatan->lihatperawatanbyid($id);
+        $data['kondisi'] = $this->M_kondisi->lihatkondisibyid($id);
         $this->load->view('admin/history/laporan', $data);
 
         // title dari pdf
@@ -91,6 +92,5 @@ class History extends CI_Controller
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
-
-}
+    }
 }

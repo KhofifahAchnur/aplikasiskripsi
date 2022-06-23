@@ -30,13 +30,13 @@
                         <form action="" method="post">
                             <div class="card-body">
                             <div class="form-group">
-                                    <label>Nama gedung</label>
+                                    <label>Nama Gedung</label>
                                     <input hidden type="text" class="form-control" id="nama_gedung" name="nama_gedung" value="<?= $gedung['id_gedung'] ?>">
                                     <input readonly type="text" class="form-control" id="" name="" value="<?= $gedung['nama_gedung'] ?>">
                                     <div class="form-text text-danger"><?= form_error('nama_gedung'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Kode gedung</label>
+                                    <label>Kode Gedung</label>
                                     <input readonly type="text" class="form-control" id="kode_gedung" name="kode_gedung" value="<?= $gedung['kode_gedung'] ?>">
                                     <div class="form-text text-danger"><?= form_error('kode_gedung'); ?></div>
                                 </div>
@@ -46,18 +46,14 @@
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
                                 <!-- <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <input readonly type="text" class="form-control" id="perpindahan_id" name="perpindahan_id" value="<?= $gedung['perpindahan_id'] ?>">
-                                    <div class="form-text text-danger"><?= form_error('perpindahan_id'); ?></div>
-                                </div> -->
-                                <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <select name="lokasi" class="form-control" id="lokasi">
-                                        <?php foreach ($lokasi as $index => $lk) : ?>
-                                            <option value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
+                                    <label>Kode Gedung</label>
+                                    <select name="kode_gedung" class="form-control select2" style="width: 100%;">
+                                        <option selected="selected">--Silahkan Pilih Kode Produk--</option>
+                                        <?php foreach ($gedung as $index => $gdg) : ?>
+                                            <option value="<?= $gdg['id_gedung']; ?>"><?= $gdg['kode_gedung']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Penanggung Jawab</label>
                                     <select name="nama" class="form-control" id="nama">
@@ -68,12 +64,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Pemeliharaan</label>
-                                    <input type="text" class="form-control" id="jenis" placeholder="Masukkan Jenis Perawatan" name="jenis">
+                                    <input type="text" class="form-control" id="jenis" placeholder="Masukkan Jenis Pemeliharaan" name="jenis">
                                     <div class="form-text text-danger"><?= form_error('jenis'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Biaya</label>
-                                    <input type="text" class="form-control" id="biaya" placeholder="Masukkan Biaya Perawatan" name="biaya">
+                                    <input type="text" class="form-control" id="biaya" placeholder="Masukkan Biaya Pemeliharaan" name="biaya">
                                     <div class="form-text text-danger"><?= form_error('biaya'); ?></div>
                                 </div>
                                 <div class="form-group">

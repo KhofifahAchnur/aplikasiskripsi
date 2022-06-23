@@ -38,6 +38,11 @@ class Buku extends CI_Controller
         $data['judul'] = 'Halaman Tambah Data Aset Perpustakaan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        $data['kode'] = $this->M_buku->kode();
+
+        $this->form_validation->set_rules('kode_buku', 'Kode GWP', 'required|is_unique[buku.kode_buku]', [
+            'is_unique' => 'Kode Buku ini sudah ada!'
+        ]);
 
         $this->form_validation->set_rules('nama_buku', 'Nama Buku', 'required');
         $this->form_validation->set_rules('kode_buku', 'Kode Buku', 'required');
@@ -100,12 +105,38 @@ class Buku extends CI_Controller
         redirect('admin/buku');
     }
 
+    public function filter()
+    {
+        $tgl_awal = $this->input->get('tgl_awal');
+        $tgl_akhir = $this->input->get('tgl_akhir');
+
+        $data['judul'] = 'Filter Laporan';
+        // $data['aset'] = $this->M_masteraset->lihat();
+        $data['buku'] = $this->M_buku->databytanggal($tgl_awal, $tgl_akhir);
+        $data['tgl_awal'] = $tgl_awal;
+        $data['tgl_akhir'] = $tgl_akhir;
+        // $data['aset'] = $this->M_masteraset->lihat();
+
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/topbar');
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/buku/filter');
+        $this->load->view('layout/footer');
+    }
+
     public function laporan()
     {
+        $tgl_awalcetak = $this->input->get('tgl_awalcetak');
+        $tgl_akhircetak = $this->input->get('tgl_akhircetak');
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['buku'] = $this->M_buku->lihat();
+        $data['buku'] = $this->M_buku->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+        $data['tgl_awal'] = $tgl_awalcetak;
+        $data['tgl_akhir'] = $tgl_akhircetak;
         $this->load->view('admin/buku/laporan', $data);
 
         // title dari pdf

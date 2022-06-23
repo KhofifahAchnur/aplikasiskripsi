@@ -38,6 +38,7 @@ class Tanah extends CI_Controller
         $data['judul'] = 'Halaman Tambah Data Aset Tanah';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        $data['kode'] = $this->M_tanah->kode();
 
         $this->form_validation->set_rules('nama_tanah', 'Nama Barang', 'required');
         $this->form_validation->set_rules('kode_tanah', 'Kode Tanah', 'required');
@@ -102,12 +103,40 @@ class Tanah extends CI_Controller
         redirect('admin/tanah');
     }
 
+    public function filter()
+    {
+        $tgl_awal = $this->input->get('tgl_awal');
+        $tgl_akhir = $this->input->get('tgl_akhir');
+
+        $data['judul'] = 'Filter Laporan';
+        // $data['aset'] = $this->M_masteraset->lihat();
+        $data['tanah'] = $this->M_tanah->databytanggal($tgl_awal, $tgl_akhir);
+        $data['tgl_awal'] = $tgl_awal;
+        $data['tgl_akhir'] = $tgl_akhir;
+        // $data['aset'] = $this->M_masteraset->lihat();
+
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/topbar');
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/tanah/filter');
+        $this->load->view('layout/footer');
+    }
+
     public function laporan()
     {
+        $tgl_awalcetak = $this->input->get('tgl_awalcetak');
+        $tgl_akhircetak = $this->input->get('tgl_akhircetak');
+
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['tanah'] = $this->M_tanah->lihat();
+        $data['tanah'] = $this->M_tanah->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+        $data['tgl_awal'] = $tgl_awalcetak;
+        $data['tgl_akhir'] = $tgl_akhircetak;
+
         $this->load->view('admin/tanah/laporan', $data);
 
         // title dari pdf
@@ -124,6 +153,5 @@ class Tanah extends CI_Controller
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
-
-}
+    }
 }

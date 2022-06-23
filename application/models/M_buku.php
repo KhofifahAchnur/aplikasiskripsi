@@ -52,8 +52,38 @@ class M_buku extends CI_model
     {
         $this->db->where('id_buku', $id);
         $this->db->delete('buku');
-   
-        
-}
+    }
 
+    public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
+    {
+        $this->db->from('buku');
+        $this->db->where("tanggal_masuk >=", "$tgl_awalcetak");
+        $this->db->where("tanggal_masuk <=", "$tgl_akhircetak");
+        return $this->db->get()->result_array();
+    }
+
+    public function databytanggal($tgl_awal, $tgl_akhir)
+    {
+        $this->db->from('buku');
+        $this->db->where("tanggal_masuk >=", "$tgl_awal");
+        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
+
+    public function kode()
+    {
+        $this->db->select('RIGHT(buku.kode_buku,2) as kode_buku', FALSE);
+        $this->db->order_by('kode_buku', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('buku');
+        if ($query->num_rows() <> 0) {
+            $data = $query->row();
+            $kode = intval($data->kode_buku) + 1;
+        } else {
+            $kode = 1;
+        }
+        $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);
+        $kodetampil = "2.4.9." . $batas;
+        return $kodetampil;
+    }
 }

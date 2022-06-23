@@ -9,31 +9,31 @@ class Lokasi extends CI_Controller
         $this->load->model('M_lokasi');
         $this->load->model('M_penanggung_jawab');
         $this->load->model('M_aset');
-        // if ($this->session->userdata('hak_akses') != '1') {
-        //     $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
-		// 			</button> </div>');
-        //     redirect('auth');
-        // }
+        if ($this->session->userdata('hak_akses') != '1') {
+            $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
+					</button> </div>');
+            redirect('auth');
+        }
     }
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Data Lokasi Aset';
         $data['barang'] = $this->M_lokasi->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
-        $this->load->view('layoutmember/sidebar');
-        $this->load->view('member/lokasi/index', $data);
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/lokasi/index', $data);
         $this->load->view('layout/footer');
     }
 
 
     public function tambah()
     {
-        $data['judul'] = 'Halaman Tambah Data';
+        $data['judul'] = 'Halaman Tambah Data Lokasi Aset';
         $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -46,20 +46,20 @@ class Lokasi extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
-            $this->load->view('layoutmember/sidebar');
-            $this->load->view('member/lokasi/tambah', $data);
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/lokasi/tambah', $data);
             $this->load->view('layout/footer');
         } else {
             $this->M_lokasi->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('member/lokasi');
+            redirect('admin/lokasi');
         }
     }
 
 
     public function edit($id)
     {
-        $data['judul'] = 'Halaman Edit Data';
+        $data['judul'] = 'Halaman Edit Data Lokasi Aset';
         $data['lokasi'] = $this->M_lokasi->getBrgById($id);
         $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -71,13 +71,13 @@ class Lokasi extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
-            $this->load->view('layoutmember/sidebar');
-            $this->load->view('member/lokasi/edit', $data);
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/lokasi/edit', $data);
             $this->load->view('layout/footer');
         } else {
             $this->M_lokasi->edit_barang($id);
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('member/lokasi');
+            redirect('admin/lokasi');
         }
     }
 
@@ -85,7 +85,7 @@ class Lokasi extends CI_Controller
     {
         $this->M_lokasi->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('member/lokasi');
+        redirect('admin/lokasi');
     }
 
     public function brgberdasarkanlks($id)
@@ -97,8 +97,8 @@ class Lokasi extends CI_Controller
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
-        $this->load->view('layoutmember/sidebar');
-        $this->load->view('adminmember/ruangan/index', $data);
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/ruangan/index', $data);
         $this->load->view('layout/footer');
     }
 

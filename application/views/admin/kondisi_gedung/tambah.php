@@ -82,6 +82,7 @@
                                         <option value="Kurang Baik"> Kurang Baik </option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-primary">Simpan</button>

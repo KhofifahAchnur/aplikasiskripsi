@@ -7,34 +7,38 @@ class Aset extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_aset');
-        // if ($this->session->userdata('hak_akses') != '1') {
-        //     $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
-		// 			</button> </div>');
-        //     redirect('auth');
-        // }
+        if ($this->session->userdata('hak_akses') != '1') {
+            $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
+					</button> </div>');
+            redirect('auth');
+        }
     }
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Aset Peralatan & Mesin';
         $data['barang'] = $this->M_aset->lihat();
         
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
-        $this->load->view('layoutmember/sidebar');
-        $this->load->view('member/aset/index', $data);
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/aset/index', $data);
         $this->load->view('layout/footer');
     }
 
     public function tambah()
     {
-        $data['judul'] = 'Halaman Tambah Data';
+        $data['judul'] = 'Halaman Tambah Data Aset Peratan & Mesin';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        $data['kode'] = $this->M_aset->kode();
+
+        $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required|is_unique[aset.kode_barang]', [
+            'is_unique' => 'Kode Aset  ini sudah ada!'
+        ]);
 
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
-        $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required');
         $this->form_validation->set_rules('register', 'register', 'required');
         $this->form_validation->set_rules('merk', 'merk', 'required');
         $this->form_validation->set_rules('ukuran', 'Nama Barang', 'required');
@@ -47,20 +51,20 @@ class Aset extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
-            $this->load->view('layoutmember/sidebar');
-            $this->load->view('member/aset/tambah');
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/aset/tambah');
             $this->load->view('layout/footer');
         } else {
             $this->M_aset->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('member/aset');
+            redirect('admin/aset');
         }
     }
 
 
     public function edit($id)
     {
-        $data['judul'] = 'Halaman Edit Data';
+        $data['judul'] = 'Halaman Edit Data Aset Peratan & Mesin';
         $data['barang'] = $this->M_aset->getBrgById($id);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -80,13 +84,13 @@ class Aset extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
-            $this->load->view('layoutmember/sidebar');
-            $this->load->view('member/aset/edit', $data);
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/aset/edit', $data);
             $this->load->view('layout/footer');
         } else {
             $this->M_aset->edit_barang($id);
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('member/aset');
+            redirect('admin/aset');
         }
     }
 
@@ -94,7 +98,7 @@ class Aset extends CI_Controller
     {
         $this->M_aset->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('member/aset');
+        redirect('admin/aset');
     }
 
     public function laporan()
@@ -106,10 +110,10 @@ class Aset extends CI_Controller
         $this->load->view('admin/aset/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Aset';
+        $this->data['title_pdf'] = 'Laporan Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Aset';
+        $file_pdf = 'laporan Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

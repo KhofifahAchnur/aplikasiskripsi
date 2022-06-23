@@ -64,7 +64,7 @@
                                             <td><?= $brg['hak'] ?></td>
                                             <td><?= $brg['nomer'] ?></td>
                                             <td><?= $brg['asal_usul'] ?></td>
-                                            <td><?= $brg['harga'] ?></td>
+                                            <td><?= "Rp." . number_format($brg['harga'], 2, ",", "."); ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href= "<?= base_url(); ?>admin/tanah/edit/<?= $brg['id_tanah']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |

@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kode Barang</label>
-                                    <input type="text" class="form-control" id="kode_tanah" placeholder="Masukkan Kode Tanah" name="kode_tanah">
+                                    <input type="text" class="form-control" id="kode_tanah" placeholder="Masukkan Kode Tanah" name="kode_tanah" value="<?= $kode ?>" readonly>
                                     <div class="form-text text-danger"><?= form_error('kode_tanah'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -48,11 +48,6 @@
                                     <label>Luas</label>
                                     <input type="text" class="form-control" id="luas" placeholder="Masukkan Luas Tanah" name="luas">
                                     <div class="form-text text-danger"><?= form_error('luas'); ?></div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <input type="text" class="form-control" id="lokasi" placeholder="Masukkan Lokasi" name="lokasi">
-                                    <div class="form-text text-danger"><?= form_error('lokasi'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Tahun Peroleh</label>

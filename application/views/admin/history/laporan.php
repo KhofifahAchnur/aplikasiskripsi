@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA HISTORY </strong>
+        <strong>LAPORAN IDENTITAS ASET PERALATAN & MESIN </strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
@@ -83,7 +83,7 @@
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($aset as $brg) : ?>
+            foreach ($barang as $brg) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
                     <td align="center"><?= $brg['nama_barang'] ?></td>
@@ -96,9 +96,9 @@
         </tbody>
     </table>
 
-    <hr class="line-title">
+    <!-- <hr class="line-title"> -->
     <p align="center">
-        <strong>LAPORAN DATA HISTORY </strong>
+        <strong>LAPORAN PERPINDAHAN ASET PERALATAN & MESIN </strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
@@ -114,7 +114,7 @@
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($barang as $brg) : ?>
+            foreach ($barang2 as $brg) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
                     <td align="center"><?= $brg['nama_barang'] ?></td>
@@ -127,6 +127,74 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+
+    <p align="center">
+        <strong>LAPORAN PEMELIHARAAN ASET PERALATAN & MESIN</strong>
+    </p>
+    <table id="customers" class="table table-bordered" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Barang</th>
+                <th>Kode Barang</th>
+                <th>Register</th>
+                <th>Lokasi</th>
+                <th>Penanggung Jawab</th>
+                <th>Jenis Pemeliharaan</th>
+                <th>Biaya</th>
+                <th>Tanggal Perawatan</th>
+                <th>Tanggal Selesai </th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $i = 1;
+            foreach ($rawat as $rwt) : ?>
+                <tr>
+                    <td align="center"><?= $i++; ?></td>
+                    <td align="center"><?= $rwt['nama_barang'] ?></td>
+                    <td align="center"><?= $rwt['kode_barang'] ?></td>
+                    <td align="center"><?= $rwt['register'] ?></td>
+                    <td align="center"><?= $rwt['lokasi'] ?></td>
+                    <td align="center"><?= $rwt['nama'] ?></td>
+                    <td align="center"><?= $rwt['jenis'] ?></td>
+                    <td align="center"><?= $rwt['biaya'] ?></td>
+                    <td align="center"><?= $rwt['tgl_rawat'] ?></td>
+                    <td align="center"><?= $rwt['tgl_selesai'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <p align="center">
+        <strong>LAPORAN DATA KONDISI </strong>
+    </p>
+    <table id="customers" class="table table-bordered" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Barang</th>
+                <th>Kode Barang</th>
+                <th>Register</th>
+                <th>Kondisi</th>
+                <th>Tanggal Masuk</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $i = 1;
+            foreach ($kondisi as $kds) : ?>
+                <tr>
+                    <td align="center"><?= $i++; ?></td>
+                    <td align="center"><?= $kds['nama_barang'] ?></td>
+                    <td align="center"><?= $kds['kode_barang'] ?></td>
+                    <td align="center"><?= $kds['register'] ?></td>
+                    <td align="center"><?= $kds['kondisi'] ?></td>
+                    <td align="center"><?= $kds['tanggal'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+
     <table width="50%" align="right" border="0" style="margin-top: 20px;">
         <tr>
         <tr>

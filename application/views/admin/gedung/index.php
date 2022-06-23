@@ -49,7 +49,7 @@
                                         <th>Kondisi</th>
                                         <th>Status</th>
                                         <th>Asal-Usul</th>
-                                        <th>Harga Barang</th>
+                                        <th>Harga Gedung</th>
                                         <th>Tanggal Masuk</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
@@ -73,7 +73,7 @@
                                             <td><?= $gdg['kondisi'] ?></td>
                                             <td><?= $gdg['status'] ?></td>
                                             <td><?= $gdg['asal_usul'] ?></td>
-                                            <td><?= $gdg['harga'] ?></td>
+                                            <td><?= "Rp." . number_format($gdg['harga'], 2, ",", "."); ?></td>
                                             <td><?= $gdg['tanggal_masuk'] ?></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>admin/gedung/edit/<?= $gdg['id_gedung']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |

@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kode Barang</label>
-                                    <input type="text" class="form-control" id="kode_barang" placeholder="Masukkan Kode Barang" name="kode_barang">
+                                    <input type="text" class="form-control" id="kode_barang" placeholder="Masukkan Kode Barang" name="kode_barang" value="<?= $kode ?>" readonly>
                                     <div class="form-text text-danger"><?= form_error('kode_barang'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -72,6 +72,7 @@
                                         <option value="Kurang Baik"> Kurang Baik </option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Asal-Usul</label>

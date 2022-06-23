@@ -21,10 +21,10 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => 
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layoutsapras/header', $data);
+        $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
-        $this->load->view('layoutsapras/sidebar', $data);
-        $this->load->view('layoutsapras/index', $data);
+        $this->load->view('layout/sidebar', $data);
+        $this->load->view('layout/index', $data);
         $this->load->view('layout/footer');
 
     }

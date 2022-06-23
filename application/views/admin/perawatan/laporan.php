@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA PEMELIHARAAN ASET PERALATAN & MESIN</strong>
+        <strong>LAPORAN PEMELIHARAAN ASET PERALATAN & MESIN</strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>

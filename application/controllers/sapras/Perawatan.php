@@ -10,16 +10,16 @@ class Perawatan extends CI_Controller
         $this->load->model('M_aset');
         $this->load->model('M_lokasi');
         $this->load->model('M_penanggung_jawab');
-        // if ($this->session->userdata('hak_akses') != '1') {
-        //     $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
-		// 			</button> </div>');
-        //     redirect('auth');
-        // }
+        if ($this->session->userdata('hak_akses') != '1') {
+            $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
+					</button> </div>');
+            redirect('auth');
+        }
     }
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Data Pemeliharaan Aset Peralatan & Mesin';
         $data['rawat'] = $this->M_perawatan->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -27,26 +27,24 @@ class Perawatan extends CI_Controller
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
-        $this->load->view('layoutsapras/sidebar');
-        $this->load->view('sapras/perawatan/index', $data);
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/perawatan/index', $data);
         $this->load->view('layout/footer');
     }
 
     public function tambah($id)
     {
-        $data['judul'] = 'Halaman Tambah Data';
-        // $data['barang'] = $this->M_aset->lihat();
-        // $data['aset'] = $this->M_aset->tampilaset();
-        // $data['rawat'] = $this->M_perawatan->lihat();
+        $data['judul'] = 'Halaman Tambah Data Pemeliharaan Aset Peralatan & Mesin';
         $data['aset'] = $this->M_aset->getBrgById($id);
-        $data['lokasi'] = $this->M_lokasi->lihat();
-        $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
+        $data['lokasi'] = $this->M_lokasi->getBrgById($data['aset']['perpindahan_id']);
+        $data['nama'] = $this->M_penanggung_jawab->getBrgById($data['lokasi']['penanggung_jawab_id']);
+        // var_dump( $data['nama']); die;
+        // $data['lokasi'] = $this->M_lokasi->lihat();
+        // $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
-        $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required');
-        $this->form_validation->set_rules('register', 'Register', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
         $this->form_validation->set_rules('jenis', 'Jenis', 'required');
@@ -55,15 +53,51 @@ class Perawatan extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
-            $this->load->view('layoutsapras/sidebar');
-            $this->load->view('sapras/perawatan/tambah', $data);
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/perawatan/tambah', $data);
             $this->load->view('layout/footer');
         } else {
             // $this->M_perpindahan->tambahlokasi($id);
             $this->M_perawatan->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('sapras/perawatan');
+            redirect('admin/perawatan');
         }
+    }
+
+    public function edit($id)
+    {
+        $data['judul'] = 'Halaman Edit Data  Pemeliharaan Aset Peralatan & Mesin';
+        $data['rawat'] = $this->M_perawatan->getRwtById($id);
+        $data['aset'] = $this->M_aset->getBrgById($data['rawat']['aset_id']);
+        $data['lokasi'] = $this->M_lokasi->getBrgById($data['rawat']['lokasi_id']);
+        $data['nama'] = $this->M_penanggung_jawab->getBrgById($data['rawat']['penanggung_jawab_id']);
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
+        $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
+        $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
+        $this->form_validation->set_rules('jenis', 'Jenis', 'required');
+        $this->form_validation->set_rules('biaya', 'Biaya', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('layout/header', $data);
+            $this->load->view('layout/topbar');
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/perawatan/edit', $data);
+            $this->load->view('layout/footer');
+        } else {
+            $this->M_perawatan->edit_barang($id);
+            $this->session->set_flashdata('flash', 'Ditambahkan');
+            redirect('admin/perawatan');
+        }
+    }
+
+    public function hapus($id)
+    {
+        $this->M_perawatan->hapusData($id);
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('admin/perawatan');
     }
 
     public function laporan()
@@ -71,20 +105,20 @@ class Perawatan extends CI_Controller
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['barang'] = $this->M_perpindahan->lihat();
-        $this->load->view('admin/perpindahan/laporan', $data);
+        $data['rawat'] = $this->M_perawatan->lihat();
+        $this->load->view('admin/perawatan/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Perpindahan Aset';
+        $this->data['title_pdf'] = 'Laporan Pemeliharaan Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Perpindahan Aset';
+        $file_pdf = 'laporan Pemeliharaan Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/perpindahan/laporan', $this->data, true);
+        $html = $this->load->view('admin/perawatan/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

@@ -49,6 +49,7 @@
                                         <option value="Disetujui"> Disetujui </option>
                                         <option value="Tersedia"> Tersedia </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('status'); ?></div>
                                 </div>
                                     <div class="text-right">
                                         <button type="submit" class="btn btn-primary">Simpan</button>

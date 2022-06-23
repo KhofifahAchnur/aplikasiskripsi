@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA KONFIRMASI PENGAJUAN ASET BARU</strong>
+        <strong>LAPORAN KONFIRMASI PENGAJUAN ASET BARU</strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>

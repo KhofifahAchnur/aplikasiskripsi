@@ -32,9 +32,13 @@ class Aset extends CI_Controller
         $data['judul'] = 'Halaman Tambah Data Aset Peratan & Mesin';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        $data['kode'] = $this->M_aset->kode();
+
+        $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required|is_unique[aset.kode_barang]', [
+            'is_unique' => 'Kode Aset  ini sudah ada!'
+        ]);
 
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
-        $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required');
         $this->form_validation->set_rules('register', 'register', 'required');
         $this->form_validation->set_rules('merk', 'merk', 'required');
         $this->form_validation->set_rules('ukuran', 'Nama Barang', 'required');

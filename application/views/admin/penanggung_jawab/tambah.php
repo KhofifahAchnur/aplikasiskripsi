@@ -57,6 +57,7 @@
                                         <option value="2"> Guru </option>
                                         <option value="3"> Sapras </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('hak_akses'); ?></div>
                                 </div>
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-primary">Simpan</button>

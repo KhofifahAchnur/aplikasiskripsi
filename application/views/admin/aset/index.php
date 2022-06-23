@@ -68,7 +68,8 @@
                                             <td><?= $brg['tahun'] ?></td>
                                             <td><?= $brg['kondisi'] ?></td>
                                             <td><?= $brg['asal_usul'] ?></td>
-                                            <td><?= $brg['harga_brg'] ?></td>
+                                            <!-- <td><?= $brg['harga_brg'] ?></td> -->
+                                            <td><?= "Rp." . number_format($brg['harga_brg'], 2, ",", "."); ?></td>
                                             <td><?= $brg['lokasi'] ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>
                                             <td style="width: 100px;" class="text-center">

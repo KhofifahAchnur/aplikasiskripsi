@@ -68,8 +68,9 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA PERPUSTAKAAN</strong>
+        <strong>LAPORAN ASET PERPUSTAKAAN</strong>
     </p>
+    <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>

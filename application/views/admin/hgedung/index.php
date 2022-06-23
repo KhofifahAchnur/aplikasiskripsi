@@ -9,7 +9,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/gedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a> |
+                        <a href="<?= base_url('admin/hgedung/laporan/') . $gedung['id_gedung'] ?>" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                     </ol>
                 </div>
             </div>
@@ -31,34 +32,34 @@
                             <!-- <input type="hidden" name="id" value="<?= $barang['id']; ?>"> -->
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Nama Barang</label>
-                                    <input readonly type="text" class="form-control" id="nama_gedung" placeholder="Masukkan Kode gedung" name="nama_gedung" value="<?= $kgedung['nama_gedung']; ?>">
+                                    <label>Nama Gedung</label>
+                                    <input readonly type="text" class="form-control" id="nama_gedung" placeholder="Masukkan Kode gedung" name="nama_gedung" value="<?= $gedung['nama_gedung']; ?>">
                                     <div class="form-text text-danger"><?= form_error('nama_gedung'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Kode Barang</label>
-                                    <input readonly type="text" class="form-control" id="kode_gedung" placeholder="Masukkan Kode gedung" name="kode_gedung" value="<?= $kgedung['kode_gedung']; ?>">
+                                    <label>Kode Gedung</label>
+                                    <input readonly type="text" class="form-control" id="kode_gedung" placeholder="Masukkan Kode gedung" name="kode_gedung" value="<?= $gedung['kode_gedung']; ?>">
                                     <div class="form-text text-danger"><?= form_error('kode_gedung'); ?></div>
                                 </div>
                                 <!-- <div class="form-group">
                                     <label>Register</label>
-                                    <input readonly type="text" class="form-control" id="register" placeholder="Masukkan Kode Barang" name="register" value="<?= $kgedung['register']; ?>">
+                                    <input readonly type="text" class="form-control" id="register" placeholder="Masukkan Kode Barang" name="register" value="<?= $gedung['register']; ?>">
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div> -->
                                 <div class="form-group">
                                     <label>Bertingkat</label>
-                                    <input readonly type="text" class="form-control" id="tingkat" placeholder="Masukkan Kode gedung" name="tingkat" value="<?= $kgedung['tingkat']; ?>">
+                                    <input readonly type="text" class="form-control" id="tingkat" placeholder="Masukkan Kode gedung" name="tingkat" value="<?= $gedung['tingkat']; ?>">
                                     <div class="form-text text-danger"><?= form_error('tingkat'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Beton</label>
-                                    <input readonly type="text" class="form-control" id="beton" placeholder="Masukkan Kode gedung" name="beton" value="<?= $kgedung['beton']; ?>">
+                                    <input readonly type="text" class="form-control" id="beton" placeholder="Masukkan Kode gedung" name="beton" value="<?= $gedung['beton']; ?>">
                                     <div class="form-text text-danger"><?= form_error('beton'); ?></div>
                                 </div>
                                 <div class="text-center">
 
                                     <!-- <a href="<?= base_url('admin/perpindahan/tambah/') . $kgedung['id_gedung'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Perpindahan</a> -->
-                                    <a href="<?= base_url('admin/pemeliharaan/tambah/') . $kgedung['id_gedung'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Pemeliharaan</a>
+                                    <a href="<?= base_url('admin/pemeliharaan/tambah/') . $gedung['id_gedung'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Pemeliharaan</a>
                                 </div>
                             </div>
                         </form>
@@ -84,8 +85,8 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Barang</th>
-                            <th>Kode Barang</th>
+                            <th>Nama Gedung</th>
+                            <th>Kode Gedung</th>
                             <th>Register</th>
                             <th>Lokasi</th>
                             <th>Penanggung Jawab</th>

@@ -62,7 +62,7 @@
                                             <td><?= $brg['asal_usul'] ?></td>
                                             <td><?= $brg['tahun'] ?></td>
                                             <td><?= $brg['kondisi'] ?></td>
-                                            <td><?= $brg['harga'] ?></td>
+                                            <td><?= "Rp." . number_format($brg['harga'], 2, ",", "."); ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href= "<?= base_url(); ?>admin/buku/edit/<?= $brg['id_buku']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |

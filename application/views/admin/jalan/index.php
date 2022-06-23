@@ -41,11 +41,11 @@
                                         <th>Register</th>
                                         <th>Konstruksi</th>
                                         <th>Luas</th>
-                                        <th>Lokasi</th>
+                                        <th>Tahun</th>
                                         <th>Kondisi</th>
                                         <th>Status</th>
                                         <th>Asal-Usul</th>
-                                        <th>Harga Barang</th>
+                                        <th>Harga</th>
                                         <th>Tanggal Peroleh</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
@@ -60,11 +60,11 @@
                                             <td><?= $jln['register'] ?></td>
                                             <td><?= $jln['konstruksi'] ?></td>
                                             <td><?= $jln['luas'] ?></td>
-                                            <td><?= $jln['lokasi'] ?></td>
+                                            <td><?= $jln['tahun'] ?></td>
                                             <td><?= $jln['kondisi'] ?></td>
                                             <td><?= $jln['status'] ?></td>
                                             <td><?= $jln['asal_usul'] ?></td>
-                                            <td><?= $jln['harga'] ?></td>
+                                            <td><?= "Rp." . number_format($jln['harga'], 2, ",", "."); ?></td>
                                             <td><?= $jln['tanggal_masuk'] ?></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>admin/jalan/edit/<?= $jln['id_jalan']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |

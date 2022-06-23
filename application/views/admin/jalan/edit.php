@@ -56,9 +56,9 @@
                                     <div class="form-text text-danger"><?= form_error('luas'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <input type="text" class="form-control" id="lokasi" placeholder="Masukkan Lokasi jalan" name="lokasi" value="<?= $jalan['lokasi']; ?>">
-                                    <div class="form-text text-danger"><?= form_error('lokasi'); ?></div>
+                                    <label>Tahun</label>
+                                    <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun jalan" name="tahun" value="<?= $jalan['tahun']; ?>">
+                                    <div class="form-text text-danger"><?= form_error('tahun'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Kondisi</label>
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Harga</label>
-                                    <input type="text" class="form-control" id="harga" placeholder="Masukkan Harga jalan" name="harga" value="<?= $jalan['harga']; ?>">
+                                    <input type="text" class="form-control" id="harga" placeholder="Masukkan Harga" name="harga" value="<?= $jalan['harga']; ?>">
                                     <div class="form-text text-danger"><?= form_error('harga'); ?></div>
                                 </div>
                                 

@@ -41,6 +41,12 @@ class M_gedung extends CI_model
         return $this->db->get_where('gedung', ['id_gedung' => $id])->row_array();
     }
 
+    public function getBrgByIdCetak($id)
+    {
+        return $this->db->get_where('gedung', ['id_gedung' => $id])->result_array();
+    }
+
+
     public function edit_gedung($id)
     {
         $data = [
@@ -66,8 +72,38 @@ class M_gedung extends CI_model
     {
         $this->db->where('id_gedung', $id);
         $this->db->delete('gedung');
-   
-        
-}
+    }
 
+    public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
+    {
+        $this->db->from('gedung');
+        $this->db->where("tanggal_masuk >=", "$tgl_awalcetak");
+        $this->db->where("tanggal_masuk <=", "$tgl_akhircetak");
+        return $this->db->get()->result_array();
+    }
+
+    public function databytanggal($tgl_awal, $tgl_akhir)
+    {
+        $this->db->from('gedung');
+        $this->db->where("tanggal_masuk >=", "$tgl_awal");
+        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
+
+    public function kode()
+    {
+        $this->db->select('RIGHT(gedung.kode_gedung,2) as kode_gedung', FALSE);
+        $this->db->order_by('kode_gedung', 'DESC');
+        $this->db->limit(1);
+        $query = $this->db->get('gedung');
+        if ($query->num_rows() <> 0) {
+            $data = $query->row();
+            $kode = intval($data->kode_gedung) + 1;
+        } else {
+            $kode = 1;
+        }
+        $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);
+        $kodetampil = "2.8.6." . $batas;
+        return $kodetampil;
+    }
 }

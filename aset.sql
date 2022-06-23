@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jun 2022 pada 07.49
+-- Waktu pembuatan: 21 Jun 2022 pada 07.30
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -48,23 +48,16 @@ CREATE TABLE `aset` (
 --
 
 INSERT INTO `aset` (`id`, `perpindahan_id`, `nama_barang`, `kode_barang`, `register`, `merk`, `ukuran`, `bahan`, `tahun`, `kondisi`, `asal_usul`, `harga_brg`, `tanggal_masuk`) VALUES
-(5, 18, 'AC ', '2.6.2.4.3', '2', 'Sharp', '-', 'Plastik', '2022', 'Baik', 'Pembelian', '3,500,000,00', '2022-01-27'),
-(9, 19, 'Lemari Kaca', '2.6.1.4.12', '1', 'Maspion', '-', 'Kaca', '2022', 'Baik', 'Pembelian', '950.000', '2022-01-27'),
-(13, 19, 'AC Split', '2.6.2.4.4', '1', 'Sharp', '-', 'Electronik', '2022', 'Kurang Baik', 'Hibah', '3,500,000,00', '2022-01-30'),
-(16, 14, 'Kipas Angin ', '2.6.2.4.6', '1', 'Miyako/-', '-', 'Plastik dan besi', '2022', 'Baik', 'Hibah', '300.000', '2022-02-10'),
-(17, 19, 'Kipas Angin ', '2.6.2.4.6', '2', 'Maspion', '-', 'Plastik', '2022', 'Baik', 'Pembelian', '450.000', '2022-02-10'),
-(18, 18, 'Jam Elektronik', '2.6.2.2.3', '1', 'Maspion', '-', 'Besi, Plastik & Kaca', '2022', 'Baik', 'Pembelian', '100.000', '2022-02-10'),
-(19, 22, 'Jam Elektronik', '2.6.2.2.3', '2', 'Nagoya', '-', 'Plastik', '2022', 'Baik', 'Pembelian', '45.000', '2022-02-10'),
-(20, 20, 'Jam Elektronik', '2.6.2.2.3', '3', 'Mirando', '-', 'Plastik dan Kaca', '2022', 'Kurang Baik', 'Pembelian', '45.000', '2022-02-10'),
-(21, 22, 'Scanner', '2.6.3.5.4', '1', 'Canon', '-', 'Plastik dan Kaca', '2022', 'Baik', 'Pembelian', '1.800.000,00', '2022-02-15'),
-(22, 19, 'Scanner', '2.6.3.5.4', '2', 'Canon', '-', 'Plastik dan Kaca', '2022', 'Baik', 'Pembelian', '875.000', '2022-02-15'),
-(23, 14, 'Sound System', '2.6.2.6.8', '1', 'Baretone ', '-', 'Plstik dan Besi', '2022', 'Kurang Baik', 'Pembelian', '3.100.000,00', '2022-02-15'),
-(24, 20, 'Sound System', '2.6.2.6.8', '2', 'Baretone ', '-', 'Plastik dan Besi', '2022', 'Baik', 'Pembelian', '3.100.000,00', '2022-02-15'),
-(25, 11, 'Kursi Tamu', '2.6.2.1.28', '1', 'Jepara', '-', 'Kayu', '2022', 'Baik', 'Pembelian', '2.000.000,00', '2022-02-17'),
-(26, 20, 'Kursi Tamu', '2.6.2.1.28', '2', 'Jepara', '-', 'Kayu', '2022', 'Baik', 'Pembelian', '2.000.000,00', '2022-02-17'),
-(28, 20, 'LCD', '2.9.8.6', '1', 'Maspion', '-', 'Electronik', '2022', 'Baik', 'Pembelian', '2.000.000,00', '2022-02-21'),
-(29, 18, 'AC coba', '2.9.8.6', '56789567', 'Maspion', 'hui', 'Electronik', '2017', 'Rusak Berat', 'w', '6789', '2022-06-09'),
-(30, 18, 'AC', '2.9.8.6', '56789567', 'Maspion', '-', 'Electronik', '2012', 'Baik', 'ui', '40.000', '2022-06-10');
+(1, 20, 'AC Split', '2.2.5.001', '1', 'Sharp/-', '-', 'Electronik', '2012', 'Baik', 'Pembelian', '3950000', '2022-06-20'),
+(2, 14, 'AC Unit', '2.2.5.002', '1', 'Sharp/-', '-', 'Plastik', '2008', 'Baik', 'Pembelian', '3500000', '2022-06-20'),
+(3, 11, 'AC Unit', '2.2.5.003', '2', 'Sharp/-', '-', 'Plastik', '2011', 'Baik', 'Pembelian', '3500000', '2022-06-20'),
+(4, 11, 'AC Unit', '2.2.5.004', '3', 'Sharp/-', '-', 'Besi', '2013', 'Baik', 'Hibah', '4500000', '2022-06-20'),
+(5, 20, 'CPU', '2.2.5.005', '1', '-', '-', 'Besi', '2013', 'Baik', 'Pembelian', '3000000', '2022-06-20'),
+(6, 19, 'Jam Elektronik', '2.2.5.006', '1', 'Maspion/-', '-', 'Besi, Plastik & Kaca', '2010', 'Baik', 'Pembelian', '100000', '2022-06-20'),
+(7, 19, 'Jam Elektronik', '2.2.5.007', '2', 'Mirando/-', '-', 'Plastik dan Kaca', '2009', 'Baik', 'Pembelian', '45000', '2022-06-20'),
+(8, 22, 'Kipas Angin ', '2.2.5.008', '1', 'Maspion/-', '-', 'Plastik', '2011', 'Baik', 'Pembelian', '450000', '2022-06-20'),
+(9, 11, 'Kipas Angin ', '2.2.5.009', '2', 'Sanyo/-', '-', 'Plastik', '2008', 'Baik', 'Hibah', '400000', '2022-06-20'),
+(10, 18, 'Scanner', '2.2.5.010', '1', 'Canon', '-', 'Plastik dan Kaca', '2008', 'Baik', 'Pembelian', '875000', '2022-06-21');
 
 -- --------------------------------------------------------
 
@@ -91,7 +84,18 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id_buku`, `nama_buku`, `kode_buku`, `register`, `judul`, `spesifikasi`, `asal_usul`, `tahun`, `kondisi`, `harga`, `tanggal_masuk`) VALUES
-(0, 'lolo', 'n', '56789567', 'Rumah sakit', 'k', 'ui', '2018', 'Baik', '1111111111111000000000000', '0000-00-00');
+(1, 'Agama Islam', '2.4.9.001', '1', 'Mutiara Akhlak dalam pendidikan Agama Islam kelas VII SMP/MTs/Drs Soepardjo., Ngadiyanto', '-', 'Pembelian', '2009', 'Baik', '34600', '2022-06-20'),
+(2, 'Agama Islam', '2.4.9.002', '2', 'Mutiara Akhlak dalam pendidikan Agama Islam kelas VII SMP/MTs/Drs Soepardjo., Ngadiyanto', '-', 'Pembelian', '2009', 'Baik', '34600', '2022-06-20'),
+(3, 'Agama Islam', '2.4.9.003', '3', 'Mutiara Akhlak dalam Pendidikan Agama Islam kelas IX SMP & MTs/H. Soepardjo., Ngadiyanto, S.Ag', '-', 'Pembelian', '2009', 'Baik', '32000', '2022-06-20'),
+(4, 'Biologi, Antopologi', '2.4.9.004', '1', 'Sains Biologi 1 kelas VII untuk SMP/MTs/Daroji., Haryati', '-', 'Pembelian', '2009', 'Baik', '30700', '2022-06-20'),
+(5, 'Biologi, Antopologi', '2.4.9.005', '2', 'Sains Biologi 1 kelas VII untuk SMP/MTs/Daroji., Haryati', '-', 'Pembelian', '2009', 'Baik', '30700', '2022-06-20'),
+(6, 'Biologi, Antopologi', '2.4.9.006', '3', 'IPA Biologi kelas VII/Sri Lestari, S.Si., Wigati Hadi Omegawati, S.Si., Rohana Kusumawati, S.Si', '-', 'Hibah', '2011', 'Baik', '22500', '2022-06-20'),
+(7, 'Biologi, Antopologi', '2.4.9.007', '4', 'IPA Biologi Eksplorasi Kelas VIII/Sri Lestari, S.Si., Wigati Hadi Omegawati, S.Si., Rohana Kusumawati, S.Si', '-', 'Hibah', '2011', 'Baik', '22500', '2022-06-20'),
+(8, 'Buku Geografi, Biografi , Sejarah Lain-lain', '2.4.9.008', '1', 'Platinum Pembelajaran IPS Terpadu untuk kelas VII SMP dan MTs/Sardiman., Endang Mulyani., Dyah Respati Suryo', '-', 'Pembelian', '2010', 'Baik', '24000', '2022-06-20'),
+(9, 'Buku Geografi, Biografi , Sejarah Lain-lain', '2.4.9.009', '2', 'Platinum Pembelajaran IPS Terpadu untuk kelas VII SMP dan MTs/Sardiman., Endang Mulyani., Dyah Respati Suryo', '-', 'Pembelian', '2010', 'Baik', '24000', '2022-06-20'),
+(10, 'Buku Geografi, Biografi , Sejarah Lain-lain', '2.4.9.010', '3', 'Platinum Pembelajaran IPS Terpadu untuk kelas VIII SMP dan MTs/Sardiman., Muhsinatun Siasah., Endang Mulyani., Dyah Respati Suryo', '-', 'Pembelian', '2010', 'Baik', '25000', '2022-06-20'),
+(11, 'Buku Matematika & Pengetahuan Alam Lain-lain', '2.4.9.011', '1', 'Belajar IPA kelas VIII SMP/MTs /Saeful Karim., Ida Kurniawati., Yuli Nurul Fauziah., Wahyu Sopandi', '-', 'Hibah', '2009', 'Baik', '20622', '2022-06-21'),
+(12, 'Buku Matematika & Pengetahuan Alam Lain-lain', '2.4.9.012', '2', 'Belajar IPA kelas VIII SMP/MTs /Saeful Karim., Ida Kurniawati., Yuli Nurul Fauziah., Wahyu Sopandi', '-', 'Hibah', '2009', 'Baik', '20622', '2022-06-21');
 
 -- --------------------------------------------------------
 
@@ -121,8 +125,14 @@ CREATE TABLE `gedung` (
 --
 
 INSERT INTO `gedung` (`id_gedung`, `nama_gedung`, `kode_gedung`, `register`, `tingkat`, `beton`, `luas`, `lokasi`, `tahun`, `kondisi`, `status`, `asal_usul`, `harga`, `tanggal_masuk`) VALUES
-(3, 'tos', '09087', '56789567', 'Bertingkat', 'Beton', 'w', 'Ruang A', '2021', 'Rusak Berat', 'bb', 'b', '0000', '0000-00-00'),
-(5, 'wahy', '8990', '56789567', 'Bertingkat', 'Tidak Beton', 'w', 'Ruang A', '2021', 'Baik', 'bb', 'ui', '22222', '0000-00-00');
+(7, 'Bangunan Gedung Laboratorium Semi Permanen', '2.8.6.001', '1', 'Tidak Bertingkat', 'Beton', '126', 'jl. kuin utara Rt. 4 No. 6 kecamatan Banjarmasin Utara, Kota Banjarmasin', '2000', 'Kurang Baik', 'Hak Pakai', 'Pembelian', '58000000', '2022-06-20'),
+(8, 'Bangunan Gedung Tempat Ibadah Semi Permanen', '2.8.6.002', '1', 'Tidak Bertingkat', 'Beton', '69', 'Jl. kuin utara Rt. 4 No. 6 kecamatan Banjarmasin Utara, Kota Banjarmasin', '1996', 'Baik', 'Hak Pakai', 'Pembelian', '13300000', '2022-06-20'),
+(9, 'Bangunan Gedung Tempat Pendidikan Semi Permanen', '2.8.6.003', '1', 'Tidak Bertingkat', 'Beton', '126', 'Jl. kuin utara Rt. 4 No. 6 kecamatan Banjarmasin Utara, Kota Banjarmasin', '1994', 'Baik', 'Hak Pakai', 'Pembelian', '46400000', '2022-06-20'),
+(10, 'Bangunan Gedung Tempat Pendidikan Semi Permanen', '2.8.6.004', '2', 'Tidak Bertingkat', 'Beton', '252', 'Jl. kuin utara Rt. 4 No. 6 kecamatan Banjarmasin Utara, Kota Banjarmasin', '1995', 'Baik', 'Hak Pakai', 'Pembelian', '38600000', '2022-06-20'),
+(11, 'Bangunan Gedung Tempat Pendidikan Semi Permanen', '2.8.6.005', '3', 'Bertingkat', 'Beton', '252', 'Jl. kuin utara Rt. 4 No. 6 kecamatan Banjarmasin Utara, Kota Banjarmasin', '1997', 'Baik', 'Hak Pakai', 'Pembelian', '58000000', '2022-06-20'),
+(12, 'Bangunan Kamar Mandi', '2.8.6.006', '1', 'Tidak Bertingkat', 'Beton', '21', 'Jl. kuin utara Rt. 4 No. 6 kecamatan Banjarmasin Utara, Kota Banjarmasin', '1987', 'Baik', 'Hak Pakai', 'Pembelian', '3100000', '2022-06-20'),
+(13, 'Bangunan Kamar Mandi', '2.8.6.007', '2', 'Tidak Bertingkat', 'Beton', '21', 'Jl. kuin utara Rt. 4 No. 6 kecamatan Banjarmasin Utara, Kota Banjarmasin', '1988', 'Baik', 'Hak Pakai', 'Pembelian', '3500000', '2022-06-20'),
+(14, 'Bangunan Kamar Mandi', '2.8.6.008', '3', 'Tidak Bertingkat', 'Beton', '21', 'Jl. kuin utara Rt. 4 No. 6 kecamatan Banjarmasin Utara, Kota Banjarmasin', '1988', 'Baik', 'Hak Pakai', 'Pembelian', '3500000', '2022-06-20');
 
 -- --------------------------------------------------------
 
@@ -162,19 +172,7 @@ CREATE TABLE `history_kondisi` (
 --
 
 INSERT INTO `history_kondisi` (`id`, `aset_id`, `tanggal`, `kondisi`) VALUES
-(63, 5, '2022-02-10', 'Kurang Baik'),
-(64, 17, '2022-02-12', 'Kurang Baik'),
-(65, 22, '2022-02-15', 'Kurang Baik'),
-(66, 23, '2022-02-15', 'Kurang Baik'),
-(67, 5, '2022-02-17', 'Baik'),
-(68, 17, '2022-02-17', 'Baik'),
-(69, 22, '2022-02-17', 'Baik'),
-(70, 20, '2022-02-17', 'Kurang Baik'),
-(71, 13, '2022-02-17', 'Kurang Baik'),
-(72, 29, '2022-06-09', 'Baik'),
-(73, 29, '2022-06-10', 'Rusak Berat'),
-(74, 30, '2022-06-10', 'Kurang Baik'),
-(75, 30, '2022-06-10', 'Baik');
+(1, 1, '2022-06-20', 'Kurang Baik');
 
 -- --------------------------------------------------------
 
@@ -188,20 +186,6 @@ CREATE TABLE `history_konfirmasi` (
   `status` varchar(255) NOT NULL,
   `tgl_konfir` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `history_konfirmasi`
---
-
-INSERT INTO `history_konfirmasi` (`id_konfir`, `pengajuan_id`, `status`, `tgl_konfir`) VALUES
-(1, 1, 'Baik', '2022-06-10'),
-(2, 1, 'Baik', '2022-06-10'),
-(3, 3, 'Disetujui', '2022-06-10'),
-(4, 3, 'Diproses', '2022-06-11'),
-(5, 3, 'Tersedia', '2022-06-11'),
-(6, 3, 'Tersedia', '2022-06-11'),
-(7, 1, 'Disetujui', '2022-06-12'),
-(8, 7, 'Disetujui', '2022-06-12');
 
 -- --------------------------------------------------------
 
@@ -241,7 +225,21 @@ INSERT INTO `history_perpindahan` (`id`, `aset_id`, `lokasi_id`, `tanggal`) VALU
 (118, 29, 20, '2022-06-09'),
 (119, 29, 11, '2022-06-09'),
 (120, 29, 18, '2022-06-09'),
-(121, 30, 18, '2022-06-10');
+(121, 30, 18, '2022-06-10'),
+(122, 31, 19, '2022-06-13'),
+(123, 32, 18, '2022-06-19'),
+(124, 35, 20, '2022-06-19'),
+(125, 35, 14, '2022-06-19'),
+(126, 35, 22, '2022-06-19'),
+(127, 35, 24, '2022-06-19'),
+(128, 1, 19, '2022-06-20'),
+(129, 1, 20, '2022-06-21'),
+(130, 2, 14, '2022-06-21'),
+(131, 5, 20, '2022-06-21'),
+(132, 6, 19, '2022-06-21'),
+(133, 7, 19, '2022-06-21'),
+(134, 8, 22, '2022-06-21'),
+(135, 10, 18, '2022-06-21');
 
 -- --------------------------------------------------------
 
@@ -256,7 +254,7 @@ CREATE TABLE `jalan` (
   `register` varchar(255) NOT NULL,
   `konstruksi` varchar(255) NOT NULL,
   `luas` varchar(255) NOT NULL,
-  `lokasi` varchar(255) NOT NULL,
+  `tahun` varchar(128) NOT NULL,
   `kondisi` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `asal_usul` varchar(255) NOT NULL,
@@ -268,8 +266,30 @@ CREATE TABLE `jalan` (
 -- Dumping data untuk tabel `jalan`
 --
 
-INSERT INTO `jalan` (`id_jalan`, `nama_aset`, `kode_aset`, `register`, `konstruksi`, `luas`, `lokasi`, `kondisi`, `status`, `asal_usul`, `harga`, `tanggal_masuk`) VALUES
-(5, 'm', 'm', 'n', 's', 'ihgvh', 'hjh', 'Kurang Baik', 'bb', 'b', 'n', '2022-06-08');
+INSERT INTO `jalan` (`id_jalan`, `nama_aset`, `kode_aset`, `register`, `konstruksi`, `luas`, `tahun`, `kondisi`, `status`, `asal_usul`, `harga`, `tanggal_masuk`) VALUES
+(1, 'Jaringan Distribusi Tegangan 1 s/d 20 KVA', '2.6.8.001', '1', '-', '300', '2011', 'Baik', 'Hak Pakai', 'Pembelian', '4500000', '2022-06-20'),
+(2, 'Jaringan Sambungan Kerumah Kapasitas Sedang', '2.6.8.002', '1', 'Beton', '82', '1988', 'Baik', 'Hak Pakai', 'Pembelian', '750000', '2022-06-20'),
+(3, 'Jaringan Telepon Di atas Tanah Kapasitas Sedang', '2.6.8.003', '1', 'Beton', '-', '1990', 'Baik', 'Hak Pakai', 'Pembelian', '500000', '2022-06-20');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kondisi_gedung`
+--
+
+CREATE TABLE `kondisi_gedung` (
+  `id` int(11) NOT NULL,
+  `gedung_id` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `kondisi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `kondisi_gedung`
+--
+
+INSERT INTO `kondisi_gedung` (`id`, `gedung_id`, `tanggal`, `kondisi`) VALUES
+(1, 7, '2022-06-20', 'Kurang Baik');
 
 -- --------------------------------------------------------
 
@@ -293,7 +313,24 @@ INSERT INTO `lokasi` (`id`, `lokasi`, `penanggung_jawab_id`) VALUES
 (18, 'Ruang Lab Komputer', 6),
 (19, 'Ruang Lab Bahasa', 7),
 (20, 'Ruang Lab IPA', 8),
-(22, 'Ruang BK', 12);
+(22, 'Ruang BK', 12),
+(24, 'SMPN 15 Banjarmasin', 13);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pemeliharaan`
+--
+
+CREATE TABLE `pemeliharaan` (
+  `id_pemeliharaan` int(11) NOT NULL,
+  `gedung_id` int(11) NOT NULL,
+  `penanggung_jawab_id` int(11) NOT NULL,
+  `jenis` varchar(255) NOT NULL,
+  `biaya` varchar(255) NOT NULL,
+  `tgl_pemeliharaan` date NOT NULL,
+  `tgl_selesai` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -304,9 +341,9 @@ INSERT INTO `lokasi` (`id`, `lokasi`, `penanggung_jawab_id`) VALUES
 CREATE TABLE `peminjaman` (
   `id_pinjam` int(11) NOT NULL,
   `aset_id` int(11) NOT NULL,
-  `perpindahan_id` int(11) NOT NULL,
+  `lokasi_id` int(11) NOT NULL,
   `keperluan` varchar(255) NOT NULL,
-  `penanggung_jawab` varchar(255) NOT NULL,
+  `penanggung_jawab_id` int(255) NOT NULL,
   `tgl_pinjam` varchar(255) NOT NULL,
   `tgl_kembali` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -338,7 +375,9 @@ INSERT INTO `penanggung_jawab` (`id`, `nama`, `nip`, `username`, `password`, `ha
 (9, 'Dra. Hj. ST. RAHIMAH', '196202161986032000', 'Rahimah', '674f3c2c1a8a6f90461e8a66fb5550ba', 2),
 (12, 'Dra. Hj. Rasuna', '196605311995122000', 'Rasuna', '674f3c2c1a8a6f90461e8a66fb5550ba', 2),
 (13, 'Hj Netta Herawati', '-', 'admin', '81dc9bdb52d04dc20036dbd8313ed055', 1),
-(15, 'tes', '0987654345678', 'll', 'd15e51c405ed3023e1f278a175f25e0f', 2);
+(15, 'tes', '0987654345678', 'll', 'd15e51c405ed3023e1f278a175f25e0f', 2),
+(16, 'Hj . ST Rahimah', '0987654345678', 'sapras', '674f3c2c1a8a6f90461e8a66fb5550ba', 3),
+(17, 'Makhruddin', '0987654345678', 'Makhruddin', '674f3c2c1a8a6f90461e8a66fb5550ba', 2);
 
 -- --------------------------------------------------------
 
@@ -352,6 +391,7 @@ CREATE TABLE `pengajuan` (
   `des` varchar(128) NOT NULL,
   `lokasi_id` int(11) NOT NULL,
   `penanggung_jawab_id` int(11) NOT NULL,
+  `jenis` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -360,12 +400,9 @@ CREATE TABLE `pengajuan` (
 -- Dumping data untuk tabel `pengajuan`
 --
 
-INSERT INTO `pengajuan` (`id`, `aset`, `des`, `lokasi_id`, `penanggung_jawab_id`, `status`, `tanggal`) VALUES
-(1, 'w', 'w', 20, 6, 'Disetujui', '0000-00-00'),
-(4, 'm', 'nununu', 20, 6, 'Diproses', '2022-06-12'),
-(5, 'mmm', 'nununu', 20, 6, 'Disetujui', '2022-06-12'),
-(6, 'kursi', 'jati', 19, 7, 'Diproses', '2022-06-12'),
-(7, 'kursi 2', 'nununu', 20, 6, 'Disetujui', '2022-06-12');
+INSERT INTO `pengajuan` (`id`, `aset`, `des`, `lokasi_id`, `penanggung_jawab_id`, `jenis`, `status`, `tanggal`) VALUES
+(1, 'Bangunan Gedung Laboratorium Semi Permanen', 'Lantai Lab banyak yang rusak', 0, 6, 'Pemeliharaan Bangunan', 'Diproses', '2022-06-20'),
+(2, 'AC', 'Penambahan AC diruangan BK', 22, 12, 'Aset Baru', 'Diproses', '2022-06-20');
 
 -- --------------------------------------------------------
 
@@ -390,8 +427,7 @@ CREATE TABLE `penghapusan` (
 
 CREATE TABLE `perawatan` (
   `id_rawat` int(11) NOT NULL,
-  `nama_rawat` varchar(255) NOT NULL,
-  `kode_rawat` varchar(255) NOT NULL,
+  `aset_id` int(255) NOT NULL,
   `lokasi_id` int(11) NOT NULL,
   `penanggung_jawab_id` int(11) NOT NULL,
   `jenis` varchar(255) NOT NULL,
@@ -399,38 +435,6 @@ CREATE TABLE `perawatan` (
   `tgl_rawat` date NOT NULL,
   `tgl_selesai` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `perawatan`
---
-
-INSERT INTO `perawatan` (`id_rawat`, `nama_rawat`, `kode_rawat`, `lokasi_id`, `penanggung_jawab_id`, `jenis`, `biaya`, `tgl_rawat`, `tgl_selesai`) VALUES
-(1, 'm', 'm', 20, 6, 'klll', 'l', '2022-06-10', '2022-06-10'),
-(2, 'm', 'm', 20, 6, 'klll', 'fhjkl;/', '2022-06-12', '2022-06-12'),
-(3, 'm', 'm', 20, 6, 'klll', 'h', '2022-06-12', '2022-06-12');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `perbaikan`
---
-
-CREATE TABLE `perbaikan` (
-  `id_perbaikan` int(11) NOT NULL,
-  `nama_perbaikan` varchar(255) NOT NULL,
-  `lokasi_aset` varchar(11) NOT NULL,
-  `rusak` varchar(255) NOT NULL,
-  `biaya_perbaikan` varchar(255) NOT NULL,
-  `tgl_perbaikan` date NOT NULL,
-  `tgl_selesai` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `perbaikan`
---
-
-INSERT INTO `perbaikan` (`id_perbaikan`, `nama_perbaikan`, `lokasi_aset`, `rusak`, `biaya_perbaikan`, `tgl_perbaikan`, `tgl_selesai`) VALUES
-(1, 'n', ' j', 'n', 'm', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -458,11 +462,7 @@ CREATE TABLE `tanah` (
 --
 
 INSERT INTO `tanah` (`id_tanah`, `nama_tanah`, `kode_tanah`, `register`, `luas`, `tahun`, `lokasi`, `hak`, `nomer`, `asal_usul`, `harga`, `tanggal_masuk`) VALUES
-(3, 'AC', '09087', '56789567', 'w', '2012', 'Ruang A', 'w', 'w', 'Pembelian', 'w', '0000-00-00'),
-(4, 'AC', '2.9.8.6', '56789567', 'w', '2017', 'Ruang A', 'w', 'w', 'b', 'n', '0000-00-00'),
-(5, 'AC', '2.9.8.6', '56789567', 'w', '2012', 'Ruang OSIS', 'w', 'w', 'Pembelian', 'n', '0000-00-00'),
-(6, 'AC', '2.9.8.6', '56789567', 'w', '2018', 'Ruang A', 'w', 'w', 'ui', 'mmmm', '0000-00-00'),
-(7, 'z', '2.9.8.6', '56789567', 'w', '2012', 'Ruang A', 'w', 'w', 'w', '22222', '0000-00-00');
+(1, 'Tanah Bangunan Pendidikan dan Latihan (Sekolah)', '2.3.7.001', '1', '16168', '1984', 'Jl. kuin utara Rt. 4 No. 6 kecamatan Banjarmasin Utara, Kota Banjarmasin', 'Hak Pakai', '3/2/1994', 'Pembelian', '1035800000', '2022-06-20');
 
 -- --------------------------------------------------------
 
@@ -503,6 +503,12 @@ ALTER TABLE `aset`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `buku`
+--
+ALTER TABLE `buku`
+  ADD PRIMARY KEY (`id_buku`);
+
+--
 -- Indeks untuk tabel `gedung`
 --
 ALTER TABLE `gedung`
@@ -537,6 +543,12 @@ ALTER TABLE `history_perpindahan`
 --
 ALTER TABLE `jalan`
   ADD PRIMARY KEY (`id_jalan`);
+
+--
+-- Indeks untuk tabel `kondisi_gedung`
+--
+ALTER TABLE `kondisi_gedung`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `lokasi`
@@ -575,12 +587,6 @@ ALTER TABLE `perawatan`
   ADD PRIMARY KEY (`id_rawat`);
 
 --
--- Indeks untuk tabel `perbaikan`
---
-ALTER TABLE `perbaikan`
-  ADD PRIMARY KEY (`id_perbaikan`);
-
---
 -- Indeks untuk tabel `tanah`
 --
 ALTER TABLE `tanah`
@@ -600,13 +606,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `aset`
 --
 ALTER TABLE `aset`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT untuk tabel `buku`
+--
+ALTER TABLE `buku`
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `gedung`
 --
 ALTER TABLE `gedung`
-  MODIFY `id_gedung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_gedung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `hak_akses`
@@ -618,31 +630,37 @@ ALTER TABLE `hak_akses`
 -- AUTO_INCREMENT untuk tabel `history_kondisi`
 --
 ALTER TABLE `history_kondisi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `history_konfirmasi`
 --
 ALTER TABLE `history_konfirmasi`
-  MODIFY `id_konfir` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_konfir` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `history_perpindahan`
 --
 ALTER TABLE `history_perpindahan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT untuk tabel `jalan`
 --
 ALTER TABLE `jalan`
-  MODIFY `id_jalan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_jalan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `kondisi_gedung`
+--
+ALTER TABLE `kondisi_gedung`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `lokasi`
 --
 ALTER TABLE `lokasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `peminjaman`
@@ -654,13 +672,13 @@ ALTER TABLE `peminjaman`
 -- AUTO_INCREMENT untuk tabel `penanggung_jawab`
 --
 ALTER TABLE `penanggung_jawab`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `penghapusan`
@@ -672,19 +690,13 @@ ALTER TABLE `penghapusan`
 -- AUTO_INCREMENT untuk tabel `perawatan`
 --
 ALTER TABLE `perawatan`
-  MODIFY `id_rawat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT untuk tabel `perbaikan`
---
-ALTER TABLE `perbaikan`
-  MODIFY `id_perbaikan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_rawat` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tanah`
 --
 ALTER TABLE `tanah`
-  MODIFY `id_tanah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_tanah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

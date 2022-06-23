@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/kondisi/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/masteraset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -60,6 +60,7 @@
                                         <option value="Kurang Baik"> Kurang Baik </option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>
                                     <div class="text-right">
                                         <button type="submit" class="btn btn-primary">Simpan</button>

@@ -7,17 +7,17 @@ class Buku extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_buku');
-        // if ($this->session->userdata('hak_akses') != '1') {
-        //     $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
-		// 			</button> </div>');
-        //     redirect('auth');
-        // }
+        if ($this->session->userdata('hak_akses') != '1') {
+            $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
+					</button> </div>');
+            redirect('auth');
+        }
     }
 
     public function index()
     {
 
-        $data['judul'] = 'Halaman Data History';
+        $data['judul'] = 'Halaman Data Aset Perpustakaan';
         $data['buku'] = $this->M_buku->lihat();
         // $data['barang'] = $this->M_aset->getBrgById($id);
         // // $data['barang'] = $this->M_aset->lihat();
@@ -28,16 +28,21 @@ class Buku extends CI_Controller
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
-        $this->load->view('layoutmember/sidebar');
-        $this->load->view('member/buku/index', $data);
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/buku/index', $data);
         $this->load->view('layout/footer');
     }
 
     public function tambah()
     {
-        $data['judul'] = 'Halaman Tambah Data Penanggung Jawab';
+        $data['judul'] = 'Halaman Tambah Data Aset Perpustakaan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        $data['kode'] = $this->M_buku->kode();
+
+        $this->form_validation->set_rules('kode_buku', 'Kode GWP', 'required|is_unique[buku.kode_buku]', [
+            'is_unique' => 'Kode Buku ini sudah ada!'
+        ]);
 
         $this->form_validation->set_rules('nama_buku', 'Nama Buku', 'required');
         $this->form_validation->set_rules('kode_buku', 'Kode Buku', 'required');
@@ -53,19 +58,19 @@ class Buku extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
-            $this->load->view('layoutmember/sidebar');
-            $this->load->view('member/buku/tambah');
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/buku/tambah');
             $this->load->view('layout/footer');
         } else {
             $this->M_buku->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('member/buku');
+            redirect('admin/buku');
         }
     }
 
     public function edit($id)
     {
-        $data['judul'] = 'Halaman Edit Data Perpustakaan';
+        $data['judul'] = 'Halaman Edit Data Aset Perpustakaan';
         $data['buku'] = $this->M_buku->getBrgById($id);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -83,13 +88,13 @@ class Buku extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
-            $this->load->view('layoutmember/sidebar');
-            $this->load->view('member/buku/edit', $data);
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/buku/edit', $data);
             $this->load->view('layout/footer');
         } else {
             $this->M_buku->edit_buku($id);
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('member/buku');
+            redirect('admin/buku');
         }
     }
 
@@ -97,22 +102,48 @@ class Buku extends CI_Controller
     {
         $this->M_buku->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('member/buku');
+        redirect('admin/buku');
+    }
+
+    public function filter()
+    {
+        $tgl_awal = $this->input->get('tgl_awal');
+        $tgl_akhir = $this->input->get('tgl_akhir');
+
+        $data['judul'] = 'Filter Laporan';
+        // $data['aset'] = $this->M_masteraset->lihat();
+        $data['buku'] = $this->M_buku->databytanggal($tgl_awal, $tgl_akhir);
+        $data['tgl_awal'] = $tgl_awal;
+        $data['tgl_akhir'] = $tgl_akhir;
+        // $data['aset'] = $this->M_masteraset->lihat();
+
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/topbar');
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/buku/filter');
+        $this->load->view('layout/footer');
     }
 
     public function laporan()
     {
+        $tgl_awalcetak = $this->input->get('tgl_awalcetak');
+        $tgl_akhircetak = $this->input->get('tgl_akhircetak');
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['buku'] = $this->M_buku->lihat();
+        $data['buku'] = $this->M_buku->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+        $data['tgl_awal'] = $tgl_awalcetak;
+        $data['tgl_akhir'] = $tgl_akhircetak;
         $this->load->view('admin/buku/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Buku Aset';
+        $this->data['title_pdf'] = 'Laporan Aset Perpustakaan';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Buku Aset';
+        $file_pdf = 'laporan Aset Perpustakaan';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

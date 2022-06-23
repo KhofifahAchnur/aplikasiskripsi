@@ -68,8 +68,9 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA ASET JALAN, IRIGASI & JARINGAN </strong>
+        <strong>LAPORAN ASET JALAN, IRIGASI & JARINGAN </strong>
     </p>
+    <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
@@ -79,7 +80,7 @@
                 <th>Register</th>
                 <th>Konstruksi</th>
                 <th>Luas</th>
-                <th>Lokasi</th>
+                <th>Tahun</th>
                 <th>Kondisi</th>
                 <th>Status</th>
                 <th>Asal-Usul</th>
@@ -96,7 +97,7 @@
                     <td align="center"><?= $jln['register'] ?></td>
                     <td align="center"><?= $jln['konstruksi'] ?></td>
                     <td align="center"><?= $jln['luas'] ?></td>
-                    <td align="center"><?= $jln['lokasi'] ?></td>
+                    <td align="center"><?= $jln['tahun'] ?></td>
                     <td align="center"><?= $jln['kondisi'] ?></td>
                     <td align="center"><?= $jln['status'] ?></td>
                     <td align="center"><?= $jln['asal_usul'] ?></td>

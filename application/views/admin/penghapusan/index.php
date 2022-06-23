@@ -1,4 +1,3 @@
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -18,9 +17,9 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-            <div class="col-lg-12">
-                        <!-- /.card-header -->
-                        <div class="card card-primary">
+                <div class="col-lg-12">
+                    <!-- /.card-header -->
+                    <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title"> Proses Data Penghapusan Aset Peralatan & Mesin</h3>
                         </div>
@@ -28,7 +27,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-hover table-striped">
-                            <thead>
+                                <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Barang</th>
@@ -51,7 +50,7 @@
                                             <td><?= $brg['tanggal_masuk'] ?></td>
                                         </tr>
                                     <?php endforeach; ?>
-                                </tbody> 
+                                </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->

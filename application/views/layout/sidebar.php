@@ -54,7 +54,7 @@
                         </p>
                     </a>
                     <hr color="white">
-                    <li class="nav-item">
+                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
                         <p>
@@ -197,7 +197,7 @@
                                 </p>
                             </a>
                     </ul>
-                    
+
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/pengajuan/index') ?>" class="nav-link">
@@ -289,7 +289,7 @@
                             </a>
                     </ul>
                     <hr color="white">
-                    <li class="nav-item">
+                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
                         <p>
@@ -360,7 +360,7 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/masteraset') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -369,7 +369,7 @@
                                 </p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/buku') ?>" class="nav-link">
@@ -424,8 +424,8 @@
                             </a>
                     </ul> -->
                     <!-- <hr color="white"> -->
-                    
-                <!-- <li class="nav-header">DATA HISTORY</li>
+
+                    <!-- <li class="nav-header">DATA HISTORY</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
@@ -538,7 +538,7 @@
                     </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/masteraset/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/masteraset/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Aset Peralatan & Mesin</p>
                             </a>
@@ -586,7 +586,7 @@
                     </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/tanah/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/tanah/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Aset Tanah</p>
                             </a>
@@ -594,7 +594,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/gedung/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/gedung/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Aset Gedung</p>
                             </a>
@@ -602,7 +602,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/buku/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/buku/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Aset Perpustakaan</p>
                             </a>
@@ -610,16 +610,16 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/jalan/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/jalan/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Laporan  Aset Jalan , Irigasi & Jaringan</p>
+                                <p>Laporan Aset Jalan , Irigasi & Jaringan</p>
                             </a>
                         </li>
                     </ul>
                     <!-- <hr color="white"> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/penghapusan/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/penghapusan/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Penghapusan</p>
                             </a>

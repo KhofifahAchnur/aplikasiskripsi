@@ -10,16 +10,16 @@ class Konfirmasi extends CI_Controller
         $this->load->model('M_pengajuan');
         // $this->load->model('M_lokasi');
         // $this->load->model('M_penanggung_jawab');
-        // if ($this->session->userdata('hak_akses') != '1') {
-        //     $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
-		// 			</button> </div>');
-        //     redirect('auth');
-        // }
+        if ($this->session->userdata('hak_akses') != '1') {
+            $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
+					</button> </div>');
+            redirect('auth');
+        }
     }
 
     public function index()
     {
-        $data['judul'] = 'Halaman Data Barang';
+        $data['judul'] = 'Halaman Data Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
         $data['konfir'] = $this->M_konfirmasi->lihat();
         $data['pengajuan'] = $this->M_pengajuan->tampilstatus();
         // $data['lokasi'] = $this->M_lokasi->lihat();
@@ -29,14 +29,14 @@ class Konfirmasi extends CI_Controller
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
-        $this->load->view('layoutmember/sidebar');
-        $this->load->view('member/konfirmasi/index', $data);
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/konfirmasi/index', $data);
         $this->load->view('layout/footer');
     }
 
     public function tambah($id)
     {
-        $data['judul'] = 'Halaman Tambah Data';
+        $data['judul'] = 'Halaman Tambah Data Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
         // $data['lokasi'] = $this->M_lokasi->lihat();
         // $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['status'] = $this->M_pengajuan->getStsById($id);
@@ -50,14 +50,14 @@ class Konfirmasi extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
-            $this->load->view('layoutmember/sidebar');
-            $this->load->view('member/konfirmasi/tambah', $data);
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/konfirmasi/tambah', $data);
             $this->load->view('layout/footer');
         } else {
             $this->M_konfirmasi->updatestatus($id);
             $this->M_konfirmasi->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('member/pengajuan');
+            redirect('admin/pengajuan');
         }
     }
 
@@ -94,7 +94,7 @@ class Konfirmasi extends CI_Controller
     {
         $this->M_lokasi->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('member/lokasi');
+        redirect('admin/lokasi');
     }
 
     public function laporan()
@@ -102,20 +102,20 @@ class Konfirmasi extends CI_Controller
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['kondisi'] = $this->M_kondisi->lihat();
-        $this->load->view('admin/kondisi/laporan', $data);
+        $data['konfir'] = $this->M_konfirmasi->lihat();
+        $this->load->view('admin/konfirmasi/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Kondisi Aset';
+        $this->data['title_pdf'] = 'Laporan Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Kondisi Aset';
+        $file_pdf = 'Laporan Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/kondisi/laporan', $this->data, true);
+        $html = $this->load->view('admin/konfirmasi/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

@@ -55,7 +55,7 @@
                                             <td style="width: 120px;" class="text-center">
                                                 <a href="<?= base_url(); ?>admin/lokasi/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>admin/lokasi/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/lokasi/laporanruangan/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="print"><i class="fas fa-print"></i></a>
+                                                <a href="<?= base_url(); ?>admin/lokasi/laporanruangan/<?= $brg['id']; ?>" class="btn-primary  btn-sm" title="print"><i class="fas fa-print"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

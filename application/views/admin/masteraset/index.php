@@ -32,49 +32,52 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama Barang</th>
-                                        <th>Kode Barang</th>
-                                        <th>Register Barang</th>
-                                        <th>Merk</th>
-                                        <th>Ukuran</th>
-                                        <th>Bahan</th>
-                                        <th>Tahun Peroleh</th>
-                                        <th>Kondisi</th>
-                                        <th>Asal-Usul</th>
-                                        <th>Harga Barang</th>
-                                        <th>Lokasi</th>
-                                        <th>Tanggal Masuk</th>
-                                        <th class="text-center">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($aset as $index => $brg) : ?>
+                            <div class="table-responsive">
+                                <table id="example1" class="table table-hover table-striped">
+                                    <thead>
                                         <tr>
-                                            <td><?= ++$index; ?></td>
-                                            <td><?= $brg['nama_barang'] ?></td>
-                                            <td><?= $brg['kode_barang'] ?></td>
-                                            <td><?= $brg['register'] ?></td>
-                                            <td><?= $brg['merk'] ?></td>
-                                            <td><?= $brg['ukuran'] ?></td>
-                                            <td><?= $brg['bahan'] ?></td>
-                                            <td><?= $brg['tahun'] ?></td>
-                                            <td><?= $brg['kondisi'] ?></td>
-                                            <td><?= $brg['asal_usul'] ?></td>
-                                            <td><?= $brg['harga_brg'] ?></td>
-                                            <td><?= $brg['lokasi'] ?></td>
-                                            <td><?= $brg['tanggal_masuk'] ?></td>
-                                            <td>
-                                            <!-- <a href="<?= base_url('admin/kondisi/tambah'); ?>" class="badge badge-pill badge-success">UBAH KONDISI</a> -->
-                                            <a href= "<?= base_url(); ?>admin/kondisi/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-success">UBAH KONDISI</a> 
-                                            </td>
+                                            <th>No</th>
+                                            <th>Nama Barang</th>
+                                            <th>Kode Barang</th>
+                                            <th>Register Barang</th>
+                                            <th>Merk</th>
+                                            <th>Ukuran</th>
+                                            <th>Bahan</th>
+                                            <th>Tahun Peroleh</th>
+                                            <th>Kondisi</th>
+                                            <th>Asal-Usul</th>
+                                            <th>Harga Barang</th>
+                                            <th>Lokasi</th>
+                                            <th>Tanggal Masuk</th>
+                                            <th class="text-center">Aksi</th>
                                         </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($aset as $index => $brg) : ?>
+                                            <tr>
+                                                <td><?= ++$index; ?></td>
+                                                <td><?= $brg['nama_barang'] ?></td>
+                                                <td><?= $brg['kode_barang'] ?></td>
+                                                <td><?= $brg['register'] ?></td>
+                                                <td><?= $brg['merk'] ?></td>
+                                                <td><?= $brg['ukuran'] ?></td>
+                                                <td><?= $brg['bahan'] ?></td>
+                                                <td><?= $brg['tahun'] ?></td>
+                                                <td><?= $brg['kondisi'] ?></td>
+                                                <td><?= $brg['asal_usul'] ?></td>
+                                                <td><?= $brg['harga_brg'] ?></td>
+                                                <td><?= $brg['lokasi'] ?></td>
+                                                <td><?= $brg['tanggal_masuk'] ?></td>
+                                                <td>
+                                                    <!-- <a href="<?= base_url('admin/kondisi/tambah'); ?>" class="badge badge-pill badge-success">UBAH KONDISI</a> -->
+                                                    <a href="<?= base_url(); ?>admin/kondisi/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-success">UBAH KONDISI</a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
                         <!-- /.card-body -->
                     </div>
