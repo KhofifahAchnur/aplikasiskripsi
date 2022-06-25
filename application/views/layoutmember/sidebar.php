@@ -54,7 +54,42 @@
                         </p>
                     </a> -->
                     <hr color="white">
-
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-address-book"></i>
+                        <p>
+                            Aset Baru
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/pbaru') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Pengajuan Aset Baru
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/kbaru') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>History Konfirmasi</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/lokasi/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Data Lokasi Aset
+                                </p>
+                            </a>
+                    </ul> -->
+                    <hr color="white">
                 <li class="nav-header">TRANSAKSI</li>
                 <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -126,7 +161,7 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('member/perpindahan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -143,7 +178,7 @@
                                     History Kondisi Aset
                                 </p>
                             </a>
-                    </ul>
+                    </ul> -->
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('member/perbaikan') ?>" class="nav-link">
@@ -162,6 +197,7 @@
                                 </p>
                             </a>
                     </ul>
+
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('member/pengajuan/index') ?>" class="nav-link">
@@ -216,6 +252,105 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/pemeliharaan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Pemeliharaan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <!-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/kondisi_gedung') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Kondisi Aset
+                                </p>
+                            </a>
+                    </ul> -->
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/pgedung/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Pengajuan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/kgedung') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Konfirmasi Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <!-- <hr color="white"> -->
+                <!-- <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-random"></i>
+                        <p>
+                            Kendaraan
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/gedung') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Data Master Aset
+                                </p>
+                            </a>
+                        </li>
+                    </ul> -->
+                    <!-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/kendaraan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Aset</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/perawatan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Pemeliharaan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/kondisi') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Kondisi Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/pmotor/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Pengajuan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/kmotor') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Konfirmasi Aset
+                                </p>
+                            </a>
+                    </ul> -->
                     <hr color="white">
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -225,7 +360,7 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('member/masteraset') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -234,7 +369,7 @@
                                 </p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('member/buku') ?>" class="nav-link">
@@ -261,7 +396,7 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('member/masteraset') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -270,7 +405,7 @@
                                 </p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('member/jalan') ?>" class="nav-link">
@@ -288,8 +423,9 @@
                                 </p>
                             </a>
                     </ul> -->
-                    <hr color="white">
-                <!-- <li class="nav-header">DATA HISTORY</li>
+                    <!-- <hr color="white"> -->
+
+                    <!-- <li class="nav-header">DATA HISTORY</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
@@ -383,7 +519,7 @@
                     </a> -->
                     <!-- <hr color="white"> -->
 
-                <li class="nav-header">LAPORAN</li>
+                <!-- <li class="nav-header">LAPORAN</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-print"></i>
@@ -392,22 +528,22 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <<ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('member/penanggung_jawab/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Data Penanggung Jawab Aset</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
+                    </ul> -->
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('member/masteraset/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('member/masteraset/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Laporan Data Master aset</p>
+                                <p>Laporan Aset Peralatan & Mesin</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('member/aset/laporan') ?>" class="nav-link">
@@ -416,62 +552,122 @@
                             </a>
                         </li>
                     </ul> -->
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('member/lokasi/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Data Lokasi Aset</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/perbaikan/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('member/perbaikan/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Perbaikan Aset</p>
                             </a>
                         </li>
                     </ul> -->
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/perpindahan/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('member/perpindahan/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Perpindahan Aset</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
+                    </ul> -->
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/kondisi/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('member/kondisi/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Kondisi</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
+                    </ul> -->
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/tanah/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('member/tanah/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Laporan Tanah</p>
+                                <p>Laporan Aset Tanah</p>
                             </a>
                         </li>
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/gedung/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('member/gedung/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Laporan Gedung</p>
+                                <p>Laporan Aset Gedung</p>
                             </a>
                         </li>
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/buku/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('member/buku/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Laporan Perpustakaan</p>
+                                <p>Laporan Aset Perpustakaan</p>
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/jalan/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Aset Jalan , Irigasi & Jaringan</p>
+                            </a>
+                        </li>
+                    </ul>
+                     <hr color="white"> -->
+                    <!-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/penghapusan/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Penghapusan</p>
+                            </a>
+                        </li>
+                    </ul> --> -->
+                    <!-- <hr color="white"> -->
+                    <!-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/konfirmasi/laporan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Konfirmasi</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <hr color="white"> -->
+                    <!-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/pengajuan/laporan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Pengajuan <p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/pbaru/laporan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Pengajuan Aset Baru <p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/kbaru/laporan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Konfirmasi Aset Baru <p>
+                            </a>
+                        </li>
+                    </ul>
+                    <hr color="white">
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/hmotor/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Konfirmasi Aset Baru <p>
+                            </a>
+                        </li>
+                    </ul>  --> -->
                     <hr color="white">
                 <li class="nav-item">
                     <a href="<?= base_url('auth/logout'); ?>" class="nav-link">

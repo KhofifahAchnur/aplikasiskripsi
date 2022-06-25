@@ -7,7 +7,7 @@ class Penanggung_jawab extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_penanggung_jawab');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '3') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -21,11 +21,11 @@ class Penanggung_jawab extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/penanggung_jawab/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutsapras/header', $data);
+        $this->load->view('layoutsapras/topbar');
+        $this->load->view('layoutsapras/sidebar');
+        $this->load->view('sapras/penanggung_jawab/index', $data);
+        $this->load->view('layoutsapras/footer');
     }
 
     public function tambah()
@@ -42,15 +42,15 @@ class Penanggung_jawab extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/penanggung_jawab/tambah');
-            $this->load->view('layout/footer');
+            $this->load->view('layoutsapras/header', $data);
+            $this->load->view('layoutsapras/topbar');
+            $this->load->view('layoutsapras/sidebar');
+            $this->load->view('sapras/penanggung_jawab/tambah');
+            $this->load->view('layoutsapras/footer');
         } else {
             $this->M_penanggung_jawab->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/penanggung_jawab');
+            redirect('sapras/penanggung_jawab');
         }
     }
 
@@ -66,15 +66,15 @@ class Penanggung_jawab extends CI_Controller
         $this->form_validation->set_rules('nip', 'NIP', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/penanggung_jawab/edit', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutsapras/header', $data);
+            $this->load->view('layoutsapras/topbar');
+            $this->load->view('layoutsapras/sidebar');
+            $this->load->view('sapras/penanggung_jawab/edit', $data);
+            $this->load->view('layoutsapras/footer');
         } else {
             $this->M_penanggung_jawab->edit_barang($id);
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/penanggung_jawab');
+            redirect('sapras/penanggung_jawab');
         }
     }
 
@@ -82,7 +82,7 @@ class Penanggung_jawab extends CI_Controller
     {
         $this->M_penanggung_jawab->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/penanggung_jawab');
+        redirect('sapras/penanggung_jawab');
     }
 
     public function laporan()
@@ -91,7 +91,7 @@ class Penanggung_jawab extends CI_Controller
         $this->load->library('pdfgenerator');
 
         $data['barang'] = $this->M_penanggung_jawab->lihat();
-        $this->load->view('admin/penanggung_jawab/laporan', $data);
+        $this->load->view('sapras/penanggung_jawab/laporan', $data);
 
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan Penanggung Jawab';
@@ -103,7 +103,7 @@ class Penanggung_jawab extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/penanggung_jawab/laporan', $this->data, true);
+        $html = $this->load->view('sapras/penanggung_jawab/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

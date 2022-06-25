@@ -9,7 +9,7 @@ class Pengajuan extends CI_Controller
         $this->load->model('M_pengajuan');
         $this->load->model('M_lokasi');
         $this->load->model('M_penanggung_jawab');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '3') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -23,11 +23,11 @@ class Pengajuan extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/pengajuan/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutsapras/header', $data);
+        $this->load->view('layoutsapras/topbar');
+        $this->load->view('layoutsapras/sidebar');
+        $this->load->view('sapras/pengajuan/index', $data);
+        $this->load->view('layoutsapras/footer');
     }
 
 
@@ -50,15 +50,15 @@ class Pengajuan extends CI_Controller
     
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/pengajuan/tambah', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutsapras/header', $data);
+            $this->load->view('layoutsapras/topbar');
+            $this->load->view('layoutsapras/sidebar');
+            $this->load->view('sapras/pengajuan/tambah', $data);
+            $this->load->view('layoutsapras/footer');
         } else {
             $this->M_pengajuan->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/pengajuan');
+            redirect('sapras/pengajuan');
         }
     }
 
@@ -79,15 +79,15 @@ class Pengajuan extends CI_Controller
         $this->form_validation->set_rules('status', 'Status', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/pengajuan/edit', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutsapras/header', $data);
+            $this->load->view('layoutsapras/topbar');
+            $this->load->view('layoutsapras/sidebar');
+            $this->load->view('sapras/pengajuan/edit', $data);
+            $this->load->view('layoutsapras/footer');
         } else {
             $this->M_pengajuan->edit_barang($id);
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/pengajuan');
+            redirect('sapras/pengajuan');
         }
     }
 
@@ -95,7 +95,7 @@ class Pengajuan extends CI_Controller
     {
         $this->M_pengajuan->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/pengajuan');
+        redirect('sapras/pengajuan');
     }
 
     public function brgberdasarkanlks($id)
@@ -105,11 +105,11 @@ class Pengajuan extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
+        $this->load->view('layoutsapras/header', $data);
+        $this->load->view('layoutsapras/topbar');
+        $this->load->view('layoutsapras/sidebar');
         $this->load->view('admin/ruangan/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutsapras/footer');
     }
 
 //     public function laporan()

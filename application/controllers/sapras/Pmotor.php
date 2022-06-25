@@ -9,7 +9,7 @@ class Pmotor extends CI_Controller
         $this->load->model('M_pmotor');
         // $this->load->model('M_lokasi');
         $this->load->model('M_penanggung_jawab');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '3') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -23,11 +23,11 @@ class Pmotor extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/pmotor/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutsapras/header', $data);
+        $this->load->view('layoutsapras/topbar');
+        $this->load->view('layoutsapras/sidebar');
+        $this->load->view('sapras/pmotor/index', $data);
+        $this->load->view('layoutsapras/footer');
     }
 
 
@@ -50,15 +50,15 @@ class Pmotor extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/pmotor/tambah', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutsapras/header', $data);
+            $this->load->view('layoutsapras/topbar');
+            $this->load->view('layoutsapras/sidebar');
+            $this->load->view('sapras/pmotor/tambah', $data);
+            $this->load->view('layoutsapras/footer');
         } else {
             $this->M_pmotor->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/pmotor');
+            redirect('sapras/pmotor');
         }
     }
 
@@ -79,15 +79,15 @@ class Pmotor extends CI_Controller
         $this->form_validation->set_rules('status', 'Status', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/pmotor/edit', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutsapras/header', $data);
+            $this->load->view('layoutsapras/topbar');
+            $this->load->view('layoutsapras/sidebar');
+            $this->load->view('sapras/pmotor/edit', $data);
+            $this->load->view('layoutsapras/footer');
         } else {
             $this->M_pmotor->edit_barang($id);
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/pmotor');
+            redirect('sapras/pmotor');
         }
     }
 
@@ -95,7 +95,7 @@ class Pmotor extends CI_Controller
     {
         $this->M_pmotor->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/pmotor');
+        redirect('sapras/pmotor');
     }
 
     public function brgberdasarkanlks($id)
@@ -105,11 +105,11 @@ class Pmotor extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/ruangan/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutsapras/header', $data);
+        $this->load->view('layoutsapras/topbar');
+        $this->load->view('layoutsapras/sidebar');
+        $this->load->view('sapras/ruangan/index', $data);
+        $this->load->view('layoutsapras/footer');
     }
 
     // public function laporan()
@@ -118,7 +118,7 @@ class Pmotor extends CI_Controller
     //     $this->load->library('pdfgenerator');
 
     //     $data['barang'] = $this->M_lokasi->lihat();
-    //     $this->load->view('admin/lokasi/laporan', $data);
+    //     $this->load->view('sapras/lokasi/laporan', $data);
 
     //     // title dari pdf
     //     $this->data['title_pdf'] = 'Laporan Lokasi Aset';
@@ -130,7 +130,7 @@ class Pmotor extends CI_Controller
     //     //orientasi paper potrait / landscape
     //     $orientation = "landscape";
 
-    //     $html = $this->load->view('admin/lokasi/laporan', $this->data, true);
+    //     $html = $this->load->view('sapras/lokasi/laporan', $this->data, true);
 
     //     // run dompdf
     //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
@@ -142,7 +142,7 @@ class Pmotor extends CI_Controller
     //     $this->load->library('pdfgenerator');
 
     //     $data['barang'] = $this->M_aset->lihatbylokasi($id);
-    //     $this->load->view('admin/ruangan/laporan', $data);
+    //     $this->load->view('sapras/ruangan/laporan', $data);
 
     //     // title dari pdf
     //     $this->data['title_pdf'] = 'Laporan Lokasi Aset';
@@ -154,7 +154,7 @@ class Pmotor extends CI_Controller
     //     //orientasi paper potrait / landscape
     //     $orientation = "landscape";
 
-    //     $html = $this->load->view('admin/ruangan/laporan', $this->data, true);
+    //     $html = $this->load->view('sapras/ruangan/laporan', $this->data, true);
 
     //     // run dompdf
     //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
@@ -166,7 +166,7 @@ class Pmotor extends CI_Controller
         $this->load->library('pdfgenerator');
 
         $data['pmotor'] = $this->M_pmotor->lihat();
-        $this->load->view('admin/pmotor/laporan', $data);
+        $this->load->view('sapras/pmotor/laporan', $data);
 
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan Pengajuan Aset Baru';
@@ -178,7 +178,7 @@ class Pmotor extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/pmotor/laporan', $this->data, true);
+        $html = $this->load->view('sapras/pmotor/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

@@ -10,7 +10,7 @@ class History extends CI_Controller
         $this->load->model('M_perpindahan');
         $this->load->model('M_kondisi');
         $this->load->model('M_perawatan');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '2') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -30,11 +30,11 @@ class History extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/history/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutmember/header', $data);
+        $this->load->view('layoutmember/topbar');
+        $this->load->view('layoutmember/sidebar');
+        $this->load->view('member/history/index', $data);
+        $this->load->view('layoutmember/footer');
     }
 
     public function tambah()
@@ -54,15 +54,15 @@ class History extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/perpindahan/tambah', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutmember/header', $data);
+            $this->load->view('layoutmember/topbar');
+            $this->load->view('layoutmember/sidebar');
+            $this->load->view('member/perpindahan/tambah', $data);
+            $this->load->view('layoutmember/footer');
         } else {
             $this->M_lokasi->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/history');
+            redirect('member/history');
         }
     }
 
@@ -76,7 +76,7 @@ class History extends CI_Controller
         $data['barang2'] = $this->M_perpindahan->lihatperpindahanbyid($id);
         $data['rawat'] = $this->M_perawatan->lihatperawatanbyid($id);
         $data['kondisi'] = $this->M_kondisi->lihatkondisibyid($id);
-        $this->load->view('admin/history/laporan', $data);
+        $this->load->view('member/history/laporan', $data);
 
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan history Aset';
@@ -88,7 +88,7 @@ class History extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/history/laporan', $this->data, true);
+        $html = $this->load->view('member/history/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

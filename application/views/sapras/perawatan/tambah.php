@@ -5,11 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Perawatan</h1>
+                    <h1>Data Pemeliharaan Aset Peralatan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('sapras/perawatan/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -24,19 +24,19 @@
                     <!-- /.card-header -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Tambah Data Perawatan Aset</h3>
+                            <h3 class="card-title">Tambah Data Pemeliharaan Aset Peralatan & Mesin</h3>
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
                             <div class="card-body">
                             <div class="form-group">
-                                    <label>Nama Barang</label>
+                                    <label>Nama barang</label>
                                     <input hidden type="text" class="form-control" id="nama_barang" name="nama_barang" value="<?= $aset['id'] ?>">
                                     <input readonly type="text" class="form-control" id="" name="" value="<?= $aset['nama_barang'] ?>">
                                     <div class="form-text text-danger"><?= form_error('nama_barang'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Kode Barang</label>
+                                    <label>Kode barang</label>
                                     <input readonly type="text" class="form-control" id="kode_barang" name="kode_barang" value="<?= $aset['kode_barang'] ?>">
                                     <div class="form-text text-danger"><?= form_error('kode_barang'); ?></div>
                                 </div>
@@ -45,27 +45,20 @@
                                     <input readonly type="text" class="form-control" id="register" name="register" value="<?= $aset['register'] ?>">
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
-                                <div class="form-group">
+                             <div class="form-group">
                                     <label>Lokasi</label>
-                                    <input readonly type="text" class="form-control" id="perpindahan_id" name="perpindahan_id" value="<?= $aset['perpindahan_id'] ?>">
-                                    <div class="form-text text-danger"><?= form_error('perpindahan_id'); ?></div>
+                                    <input hidden type="text" class="form-control" id="lokasi" name="lokasi" value="<?= $lokasi['id'] ?>">
+                                    <input readonly type="text" class="form-control" id="" name="" value="<?= $lokasi['lokasi'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('lokasi'); ?></div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <select name="lokasi" class="form-control" id="lokasi">
-                                        <?php foreach ($lokasi as $index => $lk) : ?>
-                                            <option value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>Penanggung Jawab</label>
-                                    <select name="nama" class="form-control" id="nama">
-                                        <?php foreach ($penanggung_jawab as $index => $pj) : ?>
-                                            <option value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <input hidden type="text" class="form-control" id="nama" name="nama" value="<?= $nama['id'] ?>">
+                                    <input readonly type="text" class="form-control" id="" name="" value="<?= $nama['nama'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('nama'); ?></div>
                                 </div>
+                                
                                 <div class="form-group">
                                     <label>Jenis Perawatan</label>
                                     <input type="text" class="form-control" id="jenis" placeholder="Masukkan Jenis Perawatan" name="jenis">

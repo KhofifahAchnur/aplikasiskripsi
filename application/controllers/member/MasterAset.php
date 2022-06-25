@@ -7,7 +7,7 @@ class MasterAset extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_masteraset');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '2') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -23,11 +23,11 @@ class MasterAset extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/masteraset/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutmember/header', $data);
+        $this->load->view('layoutmember/topbar');
+        $this->load->view('layoutmember/sidebar');
+        $this->load->view('member/masteraset/index', $data);
+        $this->load->view('layoutmember/footer');
     }
 
     public function filter()
@@ -45,11 +45,11 @@ class MasterAset extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/masteraset/filter');
-        $this->load->view('layout/footer');
+        $this->load->view('layoutmember/header', $data);
+        $this->load->view('layoutmember/topbar');
+        $this->load->view('layoutmember/sidebar');
+        $this->load->view('member/masteraset/filter');
+        $this->load->view('layoutmember/footer');
     }
 
     public function gantikondisi($id)
@@ -62,7 +62,7 @@ class MasterAset extends CI_Controller
 
         $this->M_masteraset->edit_kondisi($id);
         $this->session->set_flashdata('flash', 'Berhasil');
-        redirect('admin/masteraset');
+        redirect('member/masteraset');
     }
 
     public function laporan()
@@ -78,7 +78,7 @@ class MasterAset extends CI_Controller
         $data['tgl_akhir'] = $tgl_akhircetak;
 
         // die($tgl_awal);
-        $this->load->view('admin/masteraset/laporan', $data);
+        $this->load->view('member/masteraset/laporan', $data);
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan Masteraset';
 
@@ -89,7 +89,7 @@ class MasterAset extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/masteraset/laporan', $this->data, true);
+        $html = $this->load->view('member/masteraset/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

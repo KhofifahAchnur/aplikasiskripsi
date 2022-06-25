@@ -68,8 +68,11 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA MASTER ASET</strong>
+        <strong>LAPORAN MASTER ASET PERALATAN & MESIN</strong>
     </p>
+    <?php if ($this->session->userdata('hak_akses') == 1) : ?>
+        <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
+    <?php endif ?>
     <table id="customers" class="table table-bordered">
         <thead>
             <tr>

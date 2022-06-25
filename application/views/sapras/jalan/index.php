@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Jalan Irigasi & Jaringan</h1>
+                    <h1>Data Aset Jalan , Irigasi & Jaringan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Jalan Irigasi & Jaringan</li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('sapras/dashboard') ?>">Home</a></li>
+                        <li class="breadcrumb-item active">Data Aset Jalan , Irigasi & Jaringan</li>
                     </ol>
                 </div>
             </div>
@@ -26,9 +26,9 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                Daftar Data Jalan Irigasi & Jaringan
+                                Daftar Data Aset Jalan , Irigasi & Jaringan
                             </h3>
-                            <!-- <a href="<?= base_url('admin/jalan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
+                            <a href="<?= base_url('sapras/jalan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -41,13 +41,13 @@
                                         <th>Register</th>
                                         <th>Konstruksi</th>
                                         <th>Luas</th>
-                                        <th>Lokasi</th>
+                                        <th>Tahun</th>
                                         <th>Kondisi</th>
                                         <th>Status</th>
                                         <th>Asal-Usul</th>
-                                        <th>Harga Barang</th>
+                                        <th>Harga</th>
                                         <th>Tanggal Peroleh</th>
-                                        <!-- <th class="text-center">Aksi</th> -->
+                                        <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
                                 <tbody>
@@ -60,16 +60,16 @@
                                             <td><?= $jln['register'] ?></td>
                                             <td><?= $jln['konstruksi'] ?></td>
                                             <td><?= $jln['luas'] ?></td>
-                                            <td><?= $jln['lokasi'] ?></td>
+                                            <td><?= $jln['tahun'] ?></td>
                                             <td><?= $jln['kondisi'] ?></td>
                                             <td><?= $jln['status'] ?></td>
                                             <td><?= $jln['asal_usul'] ?></td>
-                                            <td><?= $jln['harga'] ?></td>
+                                            <td><?= "Rp." . number_format($jln['harga'], 2, ",", "."); ?></td>
                                             <td><?= $jln['tanggal_masuk'] ?></td>
-                                            <!-- <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/jalan/edit/<?= $jln['id_jalan']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/jalan/hapus/<?= $jln['id_jalan']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
-                                            </td> -->
+                                            <td style="width: 100px;" class="text-center">
+                                                <a href="<?= base_url(); ?>sapras/jalan/edit/<?= $jln['id_jalan']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>sapras/jalan/hapus/<?= $jln['id_jalan']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

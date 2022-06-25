@@ -33,7 +33,7 @@ class M_kbaru extends CI_model
             // "lokasi_id" => $this->input->post('lokasi', true),
             // "penanggung_jawab_id" => $this->input->post('nama', true),
             "status" => $this->input->post('status', true),
-            "tgl_konfir" => date('d-m-Y')
+            "tgl_konfir" => date('Y-m-d')
 		];
 
 		$this->db->insert('history_konfirmasi', $data);

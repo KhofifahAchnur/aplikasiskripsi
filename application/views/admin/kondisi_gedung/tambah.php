@@ -30,7 +30,7 @@
                         <form action="" method="post">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Nama Barang</label>
+                                    <label>Nama Gedung</label>
                                     <input hidden type="text" class="form-control" id="nama_gedung" name="nama_gedung" value="<?= $kondisi_gedung['id_gedung'] ?>">
                                     <input readonly type="text" class="form-control" id="" name="" value="<?= $kondisi_gedung['nama_gedung'] ?>">
                                     <div class="form-text text-danger"><?= form_error('nama_gedung'); ?></div>
@@ -42,12 +42,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Bertingkat</label>
-                                    <input readonly type="text" class="form-control" id="kode_gedung" name="tingkat" value="<?= $kondisi_gedung['tingkat'] ?>">
+                                    <input readonly type="text" class="form-control" id="tingkat" name="tingkat" value="<?= $kondisi_gedung['tingkat'] ?>">
                                     <div class="form-text text-danger"><?= form_error('tingkat'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Beton</label>
-                                    <input readonly type="text" class="form-control" id="kode_gedung" name="beton" value="<?= $kondisi_gedung['beton'] ?>">
+                                    <input readonly type="text" class="form-control" id="beton" name="beton" value="<?= $kondisi_gedung['beton'] ?>">
                                     <div class="form-text text-danger"><?= form_error('beton'); ?></div>
                                 </div>
                                 <div class="form-group">

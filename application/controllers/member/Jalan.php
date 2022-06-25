@@ -7,7 +7,7 @@ class Jalan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_jalan');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '2') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -26,11 +26,11 @@ class Jalan extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/jalan/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutmember/header', $data);
+        $this->load->view('layoutmember/topbar');
+        $this->load->view('layoutmember/sidebar');
+        $this->load->view('member/jalan/index', $data);
+        $this->load->view('layoutmember/footer');
     }
 
     public function tambah()
@@ -55,15 +55,15 @@ class Jalan extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/jalan/tambah');
-            $this->load->view('layout/footer');
+            $this->load->view('layoutmember/header', $data);
+            $this->load->view('layoutmember/topbar');
+            $this->load->view('layoutmember/sidebar');
+            $this->load->view('member/jalan/tambah');
+            $this->load->view('layoutmember/footer');
         } else {
             $this->M_jalan->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/jalan');
+            redirect('member/jalan');
         }
     }
 
@@ -87,15 +87,15 @@ class Jalan extends CI_Controller
         // $this->form_validation->set_rules('tanggal', 'Tanggal Peroleh', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/jalan/edit', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutmember/header', $data);
+            $this->load->view('layoutmember/topbar');
+            $this->load->view('layoutmember/sidebar');
+            $this->load->view('member/jalan/edit', $data);
+            $this->load->view('layoutmember/footer');
         } else {
             $this->M_jalan->edit_jalan($id);
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/jalan');
+            redirect('member/jalan');
         }
     }
 
@@ -103,7 +103,7 @@ class Jalan extends CI_Controller
     {
         $this->M_jalan->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/jalan');
+        redirect('member/jalan');
     }
 
     public function filter()
@@ -121,11 +121,11 @@ class Jalan extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/jalan/filter');
-        $this->load->view('layout/footer');
+        $this->load->view('layoutmember/header', $data);
+        $this->load->view('layoutmember/topbar');
+        $this->load->view('layoutmember/sidebar');
+        $this->load->view('member/jalan/filter');
+        $this->load->view('layoutmember/footer');
     }
 
     public function laporan()
@@ -138,7 +138,7 @@ class Jalan extends CI_Controller
         $data['jalan'] = $this->M_jalan->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
         $data['tgl_awal'] = $tgl_awalcetak;
         $data['tgl_akhir'] = $tgl_akhircetak;
-        $this->load->view('admin/jalan/laporan', $data);
+        $this->load->view('member/jalan/laporan', $data);
 
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan Aset Jalan , Irigasi & Jaringan';
@@ -150,7 +150,7 @@ class Jalan extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/jalan/laporan', $this->data, true);
+        $html = $this->load->view('member/jalan/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

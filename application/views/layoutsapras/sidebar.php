@@ -30,13 +30,13 @@
                         </p>
                     </a> -->
                     <!-- <hr color="white">
-                    <a href="<?= base_url('sapras/pengajuan/index') ?>" class="nav-link">
+                     <a href="<?= base_url('sapras/pengajuan/index') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
                         <p>
                             Pengajuan Aset
                         </p>
-                    </a> -->
+                    </a>  -->
                     <hr color="white">
                     <a href="<?= base_url('sapras/lokasi/index') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
@@ -54,7 +54,42 @@
                         </p>
                     </a>
                     <hr color="white">
-
+                    <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-address-book"></i>
+                        <p>
+                            Aset Baru
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('sapras/pbaru') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Pengajuan Aset Baru
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('sapras/kbaru') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>History Konfirmasi</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Data Lokasi Aset
+                                </p>
+                            </a>
+                    </ul> -->
+                    <hr color="white">
                 <li class="nav-header">TRANSAKSI</li>
                 <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -261,7 +296,7 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('sapras/masteraset') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -270,7 +305,7 @@
                                 </p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('sapras/jalan') ?>" class="nav-link">
@@ -383,7 +418,7 @@
                     </a> -->
                     <!-- <hr color="white"> -->
 
-                <li class="nav-header">LAPORAN</li>
+                <!-- <li class="nav-header">LAPORAN</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-print"></i>
@@ -407,7 +442,7 @@
                                 <p>Laporan Data Master aset</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('sapras/aset/laporan') ?>" class="nav-link">
@@ -416,25 +451,25 @@
                             </a>
                         </li>
                     </ul> -->
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/lokasi/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('sapras/lokasi/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Data Lokasi Aset</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/perbaikan/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('sapras/perbaikan/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Perbaikan Aset</p>
                             </a>
                         </li>
                     </ul> -->
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/perpindahan/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('sapras/perpindahan/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Perpindahan Aset</p>
                             </a>
@@ -442,7 +477,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/kondisi/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('sapras/kondisi/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Kondisi</p>
                             </a>
@@ -450,7 +485,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/tanah/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('sapras/tanah/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Tanah</p>
                             </a>
@@ -458,7 +493,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/gedung/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('sapras/gedung/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Gedung</p>
                             </a>
@@ -466,13 +501,13 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/buku/laporan') ?>" class="nav-link">
+                            <a href="<?= base_url('sapras/buku/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Perpustakaan</p>
                             </a>
                         </li>
-                    </ul>
-                    <hr color="white">
+                    </ul> -->
+                    <!-- <hr color="white"> -->
                 <li class="nav-item">
                     <a href="<?= base_url('auth/logout'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>

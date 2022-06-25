@@ -5,11 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Jalan Irigasi & Jaringan</h1>
+                    <h1>Data Aset Jalan , Irigasi & Jaringan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/jalan/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('sapras/jalan/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kode aset</label>
-                                    <input type="text" class="form-control" id="kode_aset" placeholder="Masukkan Kode" name="kode_aset">
+                                    <input type="text" class="form-control" id="kode_aset" placeholder="Masukkan Kode" name="kode_aset" value="<?= $kode ?>" readonly>
                                     <div class="form-text text-danger"><?= form_error('kode_aset'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -55,9 +55,9 @@
                                     <div class="form-text text-danger"><?= form_error('luas'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <input type="text" class="form-control" id="lokasi" placeholder="Masukkan Lokasi" name="lokasi">
-                                    <div class="form-text text-danger"><?= form_error('lokasi'); ?></div>
+                                    <label>Tahun</label>
+                                    <input type="text" class="form-control" id="tahun" placeholder="Masukkan tahun" name="tahun">
+                                    <div class="form-text text-danger"><?= form_error('tahun'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Kondisi</label>
@@ -67,6 +67,7 @@
                                         <option value="Kurang Baik"> Kurang Baik </option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
@@ -80,7 +81,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Harga</label>
-                                    <input type="text" class="form-control" id="harga" placeholder="Masukkan Harga Barang" name="harga">
+                                    <input type="text" class="form-control" id="harga" placeholder="Masukkan Harga" name="harga">
                                     <div class="form-text text-danger"><?= form_error('harga'); ?></div>
                                 </div>
                                 <div class="text-right">

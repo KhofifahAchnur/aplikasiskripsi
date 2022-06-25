@@ -42,17 +42,22 @@ class M_peminjaman extends CI_model
     public function edit_barang($id)
     {
         $data = [
-            "aset_id" => $this->input->post('kode_barang', true),
+            "aset_id" => $this->input->post('nama_barang', true),
             "lokasi_id" => $this->input->post('lokasi', true),
             "keperluan" => $this->input->post('keperluan', true),
             "penanggung_jawab_id" => $this->input->post('nama', true),
+            "tgl_pinjam" => $this->input->post('tgl_pinjam', true),
             "tgl_kembali" => $this->input->post('tgl_kembali', true)
         ];
 
-        $this->db->where('id_rawat', $id);
-        $this->db->update('perawatan', $data);
+        $this->db->where('id_pinjam', $id);
+        $this->db->update('peminjaman', $data);
     }
 
+    public function getpeminjamanById($id)
+    {
+        return $this->db->get_where('peminjaman', ['id_pinjam' => $id])->row_array();
+    }
 
     public function tambahlokasi($id)
     {

@@ -68,31 +68,32 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA ASET GEDUNG & BANGUNAN</strong>
+        <strong>LAPORAN ASET GEDUNG & BANGUNAN</strong>
     </p>
+    <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Kode</th>
-            <th>Register</th>
-            <th>Bertingkat</th>
-            <th>Beton</th>
-            <th>Luas</th>
-            <th>Lokasi</th>
-            <th>Tahun Peroleh</th>
-            <th>Kondisi</th>
-            <th>Status</th>
-            <th>Asal-Usul</th>
-            <th>Harga Barang</th>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Kode</th>
+                <th>Register</th>
+                <th>Bertingkat</th>
+                <th>Beton</th>
+                <th>Luas</th>
+                <th>Lokasi</th>
+                <th>Tahun Peroleh</th>
+                <th>Kondisi</th>
+                <th>Status</th>
+                <th>Asal-Usul</th>
+                <th>Harga Barang</th>
             </tr>
         </thead>
         <tbody>
             <?php $i = 1;
             foreach ($gedung as $gdg) : ?>
                 <tr>
-                    <td align="center"><?= $i++; ?></td>
+                    <td><?= $i++; ?></td>
                     <td align="center"><?= $gdg['nama_gedung'] ?></td>
                     <td align="center"><?= $gdg['kode_gedung'] ?></td>
                     <td align="center"><?= $gdg['register'] ?></td>

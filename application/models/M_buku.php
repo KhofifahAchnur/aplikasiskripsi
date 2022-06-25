@@ -25,9 +25,22 @@ class M_buku extends CI_model
         $this->db->insert('buku', $data);
     }
 
+    public function tampilbuku()
+    {
+        $this->db->select('buku.nama_buku, buku.kode_buku, buku.register, buku.judul, buku.kondisi');
+        $this->db->from('buku');
+        $this->db->order_by('buku.id_buku', 'DESC');
+        return $this->db->get()->result_array();
+    }
+
     public function getBrgById($id)
     {
         return $this->db->get_where('buku', ['id_buku' => $id])->row_array();
+    }
+
+    public function getBrgByIdCetak($id)
+    {
+        return $this->db->get_where('buku', ['id_buku' => $id])->result_array();
     }
 
     public function edit_buku($id)

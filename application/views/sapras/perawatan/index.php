@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Pemeliharaan Aset</h1>
+                    <h1>Data Pemeliharaan Aset Peralatan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Pemeliharaan Aset</li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('sapras/dashboard') ?>">Home</a></li>
+                        <li class="breadcrumb-item active">Data Pemeliharaan Aset Peralatan & Mesin</li>
                     </ol>
                 </div>
             </div>
@@ -25,10 +25,11 @@
                     <!-- /.card-header -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">
+                            <!-- <h3 class="card-title">
                                 Daftar Data Pemeliharaan Aset
-                            </h3>
-                            <!-- <a href="<?= base_url('admin/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
+                            </h3> -->
+                            <!-- <a href="<?= base_url('sapras/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <a href="<?= base_url('sapras/perawatan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -56,15 +57,15 @@
                                             <td><?= $rwt['nama_barang'] ?></td>
                                             <td><?= $rwt['kode_barang'] ?></td>
                                             <td><?= $rwt['register'] ?></td>
-                                            <td><?= $rwt['perpindahan_id'] ?></td>
+                                            <td><?= $rwt['lokasi'] ?></td>
                                             <td><?= $rwt['nama'] ?></td>
                                             <td><?= $rwt['jenis'] ?></td>
                                             <td><?= $rwt['biaya'] ?></td>
                                             <td><?= $rwt['tgl_rawat'] ?></td>
                                             <td><?= $rwt['tgl_selesai'] ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/perawatan/edit/<?= $rwt['id_rawat']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/perawatan/hapus/<?= $rwt['id_rawat']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="<?= base_url(); ?>sapras/perawatan/edit/<?= $rwt['id_rawat']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>sapras/perawatan/hapus/<?= $rwt['id_rawat']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

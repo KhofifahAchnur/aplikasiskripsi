@@ -5,11 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Barang</h1>
+                    <h1>Data Aset Peratan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('sapras/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     <!-- /.card-header -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Tambah Data Barang</h3>
+                            <h3 class="card-title">Tambah Data Aset Peratan & Mesin</h3>
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kode Barang</label>
-                                    <input type="text" class="form-control" id="kode_barang" placeholder="Masukkan Kode Barang" name="kode_barang">
+                                    <input type="text" class="form-control" id="kode_barang" placeholder="Masukkan Kode Barang" name="kode_barang" value="<?= $kode ?>" readonly>
                                     <div class="form-text text-danger"><?= form_error('kode_barang'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -72,6 +72,7 @@
                                         <option value="Kurang Baik"> Kurang Baik </option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Asal-Usul</label>

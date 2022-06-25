@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA PENANGGUNG JAWAB</strong>
+        <strong>LAPORAN PENANGGUNG JAWAB ASET</strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>

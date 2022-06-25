@@ -10,7 +10,7 @@ class Perpindahan extends CI_Controller
         $this->load->model('M_aset');
         $this->load->model('M_lokasi');
         $this->load->model('M_penanggung_jawab');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '2') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -25,11 +25,11 @@ class Perpindahan extends CI_Controller
         $this->session->userdata('email')])->row_array();
         
         
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/perpindahan/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutmember/header', $data);
+        $this->load->view('layoutmember/topbar');
+        $this->load->view('layoutmember/sidebar');
+        $this->load->view('member/perpindahan/index', $data);
+        $this->load->view('layoutmember/footer');
     }
 
     public function tambah($id)
@@ -49,16 +49,16 @@ class Perpindahan extends CI_Controller
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/perpindahan/tambah', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutmember/header', $data);
+            $this->load->view('layoutmember/topbar');
+            $this->load->view('layoutmember/sidebar');
+            $this->load->view('member/perpindahan/tambah', $data);
+            $this->load->view('layoutmember/footer');
         } else {
             $this->M_perpindahan->tambahlokasi($id);
             $this->M_perpindahan->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/aset');
+            redirect('member/aset');
         }
     }
 
@@ -68,7 +68,7 @@ class Perpindahan extends CI_Controller
         $this->load->library('pdfgenerator');
 
         $data['barang'] = $this->M_perpindahan->lihat();
-        $this->load->view('admin/perpindahan/laporan', $data);
+        $this->load->view('member/perpindahan/laporan', $data);
 
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan Perpindahan Aset Peralatan & Mesin';
@@ -80,7 +80,7 @@ class Perpindahan extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/perpindahan/laporan', $this->data, true);
+        $html = $this->load->view('member/perpindahan/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

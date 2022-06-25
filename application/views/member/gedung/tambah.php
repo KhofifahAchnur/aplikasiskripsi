@@ -5,11 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Gedung & Bangunan</h1>
+                    <h1>Data Aset Gedung & Bangunan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('member/gedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     <!-- /.card-header -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Tambah Data Gedung & Bangunan</h3>
+                            <h3 class="card-title">Tambah Data Aset Gedung & Bangunan</h3>
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kode Gedung</label>
-                                    <input type="text" class="form-control" id="kode_gedung" placeholder="Masukkan Kode Gedung" name="kode_gedung">
+                                    <input type="text" class="form-control" id="kode_gedung" placeholder="Masukkan Kode Gedung" name="kode_gedung" value="<?= $kode ?>" readonly>
                                     <div class="form-text text-danger"><?= form_error('kode_gedung'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -51,6 +51,7 @@
                                         <option value="Bertingkat"> Bertingkat </option>
                                         <option value="Tidak Bertingkat"> Tidak Bertingkat </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('tingkat'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Beton</label>
@@ -59,6 +60,7 @@
                                         <option value="Beton"> Beton </option>
                                         <option value="Tidak Beton"> Tidak Beton </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('beton'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Luas</label>
@@ -83,6 +85,7 @@
                                         <option value="Kurang Baik"> Kurang Baik </option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
@@ -95,8 +98,8 @@
                                     <div class="form-text text-danger"><?= form_error('asal_usul'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Harga Barang</label>
-                                    <input type="text" class="form-control" id="harga" placeholder="Masukkan Harga Barang" name="harga">
+                                    <label>Harga Gedung</label>
+                                    <input type="text" class="form-control" id="harga" placeholder="Masukkan Harga Gedung" name="harga">
                                     <div class="form-text text-danger"><?= form_error('harga'); ?></div>
                                 </div>
                                 <div class="text-right">

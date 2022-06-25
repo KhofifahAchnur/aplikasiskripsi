@@ -28,16 +28,16 @@
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
-                            <input type="hidden" name="id" value="<?= $pengajuan['id']; ?>">
+                            <input type="hidden" name="id" value="<?= $pbaru['id']; ?>">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Nama Aset</label>
-                                    <input type="text" class="form-control" id="aset" placeholder="Masukkan Nama Aset" name="aset" value="<?= $pengajuan['aset']; ?>">
+                                    <input type="text" class="form-control" id="aset" placeholder="Masukkan Nama Aset" name="aset" value="<?= $pbaru['aset']; ?>">
                                     <div class="form-text text-danger"><?= form_error('aset'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Deskripsi</label>
-                                    <input type="text" class="form-control" id="des" placeholder="Masukkan Deskripsi" name="des" value="<?= $pengajuan['des']; ?>">
+                                    <input type="text" class="form-control" id="des" placeholder="Masukkan Deskripsi" name="des" value="<?= $pbaru['des']; ?>">
                                     <div class="form-text text-danger"><?= form_error('des'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -59,7 +59,7 @@
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select name="status" class="form-control" id="status">
-                                        <option value="<?= $pengajuan['status']; ?>"><?= $pengajuan['status']; ?></option>
+                                        <option value="<?= $pbaru['status']; ?>"><?= $pbaru['status']; ?></option>
                                         <option value="Diproses"> Diproses </option>
                                         <option value="Disetujui"> Disetujui </option>
                                         <option value="Tersedia"> Tersedia </option>

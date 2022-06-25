@@ -5,11 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Tanah</h1>
+                    <h1>Data Aset Tanah</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/tanah/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('sapras/tanah/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     <!-- /.card-header -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Tambah Data Tanah</h3>
+                            <h3 class="card-title">Tambah Data Aset Tanah</h3>
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kode Barang</label>
-                                    <input type="text" class="form-control" id="kode_tanah" placeholder="Masukkan Kode Tanah" name="kode_tanah">
+                                    <input type="text" class="form-control" id="kode_tanah" placeholder="Masukkan Kode Tanah" name="kode_tanah" value="<?= $kode ?>" readonly>
                                     <div class="form-text text-danger"><?= form_error('kode_tanah'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -48,11 +48,6 @@
                                     <label>Luas</label>
                                     <input type="text" class="form-control" id="luas" placeholder="Masukkan Luas Tanah" name="luas">
                                     <div class="form-text text-danger"><?= form_error('luas'); ?></div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <input type="text" class="form-control" id="lokasi" placeholder="Masukkan Lokasi" name="lokasi">
-                                    <div class="form-text text-danger"><?= form_error('lokasi'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Tahun Peroleh</label>

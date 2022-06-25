@@ -6,6 +6,11 @@ class M_penanggung_jawab extends CI_model
     {
         return $this->db->get('penanggung_jawab')->result_array();
     }
+
+    public function lihatby()
+    {
+        return $this->db->get('penanggung_jawab')->result_array();
+    }
     
     public function proses_tambah()
     {

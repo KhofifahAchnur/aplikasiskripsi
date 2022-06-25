@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Lokasi</h1>
+                    <h1>Data Lokasi Aset</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Lokasi Barang</li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('member/dashboard') ?>">Home</a></li>
+                        <li class="breadcrumb-item active">Data Lokasi Aset</li>
                     </ol>
                 </div>
             </div>
@@ -25,10 +25,11 @@
                     <!-- /.card-header -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">
+                            <!-- <h3 class="card-title">
                                 Daftar Data Lokasi Barang
-                            </h3>
-                            <!-- <a href="<?= base_url('admin/lokasi/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
+                            </h3> -->
+                            <!-- <a href="<?= base_url('member/lokasi/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <a href="<?= base_url('member/penanggung_jawab/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -47,15 +48,15 @@
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td>
-                                                <a href="<?= base_url(); ?>admin/lokasi/brgberdasarkanlks/<?= $brg['id']; ?>"><i><?= $brg['lokasi'] ?></i></a>
+                                                <a href="<?= base_url(); ?>member/lokasi/brgberdasarkanlks/<?= $brg['id']; ?>"><i><?= $brg['lokasi'] ?></i></a>
                                             </td>
                                             <td><?= $brg['nama'] ?></td>
 
-                                            <!-- <td style="width: 120px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/lokasi/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/lokasi/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/lokasi/laporanruangan/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="print"><i class="fas fa-print"></i></a>
-                                            </td> -->
+                                            <td style="width: 120px;" class="text-center">
+                                                <!-- <a href="<?= base_url(); ?>member/lokasi/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>member/lokasi/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a> | -->
+                                                <!-- <a href="<?= base_url(); ?>member/lokasi/laporanruangan/<?= $brg['id']; ?>" class="btn-primary  btn-sm" title="print"><i class="fas fa-print"></i></a> -->
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

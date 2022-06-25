@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/kondisi/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/masteraset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -46,6 +46,12 @@
                                     <input readonly type="text" class="form-control" id="register" name="register" value="<?= $kondisi['register'] ?>">
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
+                                <!-- <div class="form-group">
+                                    <label>Lokasi</label>
+                                    <input readonly type="text" class="form-control" id="perpindahan_id" name="perpindahan_id" value="<?= $kondisi['perpindahan_id'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('register'); ?></div>
+                                </div> -->
+                                
                                 <div class="form-group">
                                     <label>Kondisi</label>
                                     <select name="kondisi" class="form-control" id="kondisi">
@@ -54,6 +60,7 @@
                                         <option value="Kurang Baik"> Kurang Baik </option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>
                                     <div class="text-right">
                                         <button type="submit" class="btn btn-primary">Simpan</button>

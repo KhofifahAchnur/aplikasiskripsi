@@ -8,7 +8,7 @@ class Perbaikan extends CI_Controller
         parent::__construct();
         $this->load->model('M_perbaikan');
         // $this->load->model('M_aset');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '2') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -22,11 +22,11 @@ class Perbaikan extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/perbaikan/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutmember/header', $data);
+        $this->load->view('layoutmember/topbar');
+        $this->load->view('layoutmember/sidebar');
+        $this->load->view('member/perbaikan/index', $data);
+        $this->load->view('layoutmember/footer');
     }
 
     public function tambah()
@@ -45,15 +45,15 @@ class Perbaikan extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/perbaikan/tambah');
-            $this->load->view('layout/footer');
+            $this->load->view('layoutmember/header', $data);
+            $this->load->view('layoutmember/topbar');
+            $this->load->view('layoutmember/sidebar');
+            $this->load->view('member/perbaikan/tambah');
+            $this->load->view('layoutmember/footer');
         } else {
             $this->M_perbaikan->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/perbaikan');
+            redirect('member/perbaikan');
         }
     }
 
@@ -65,11 +65,11 @@ class Perbaikan extends CI_Controller
     //     $data['user'] = $this->db->get_where('user', ['email' =>
     //     $this->session->userdata('email')])->row_array();
 
-    //     $this->load->view('layout/header', $data);
-    //     $this->load->view('layout/topbar');
-    //     $this->load->view('layout/sidebar');
-    //     $this->load->view('admin/perbaikan/index', $data);
-    //     $this->load->view('layout/footer');
+    //     $this->load->view('layoutmember/header', $data);
+    //     $this->load->view('layoutmember/topbar');
+    //     $this->load->view('layoutmember/sidebar');
+    //     $this->load->view('member/perbaikan/index', $data);
+    //     $this->load->view('layoutmember/footer');
     // }
 
     // public function laporan()
@@ -78,7 +78,7 @@ class Perbaikan extends CI_Controller
     //     $this->load->library('pdfgenerator');
 
     //     $data['barang'] = $this->M_perbaikan->lihat();
-    //     $this->load->view('admin/perbaikan/laporan', $data);
+    //     $this->load->view('member/perbaikan/laporan', $data);
 
     //     // title dari pdf
     //     $this->data['title_pdf'] = 'Laporan Perbaikan Aset';
@@ -90,7 +90,7 @@ class Perbaikan extends CI_Controller
     //     //orientasi paper potrait / landscape
     //     $orientation = "landscape";
 
-    //     $html = $this->load->view('admin/perbaikan/laporan', $this->data, true);
+    //     $html = $this->load->view('member/perbaikan/laporan', $this->data, true);
 
     //     // run dompdf
     //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

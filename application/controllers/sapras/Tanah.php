@@ -7,7 +7,7 @@ class Tanah extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_tanah');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '3') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -26,11 +26,11 @@ class Tanah extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/tanah/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutsapras/header', $data);
+        $this->load->view('layoutsapras/topbar');
+        $this->load->view('layoutsapras/sidebar');
+        $this->load->view('sapras/tanah/index', $data);
+        $this->load->view('layoutsapras/footer');
     }
 
     public function tambah()
@@ -53,15 +53,15 @@ class Tanah extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/tanah/tambah');
-            $this->load->view('layout/footer');
+            $this->load->view('layoutsapras/header', $data);
+            $this->load->view('layoutsapras/topbar');
+            $this->load->view('layoutsapras/sidebar');
+            $this->load->view('sapras/tanah/tambah');
+            $this->load->view('layoutsapras/footer');
         } else {
             $this->M_tanah->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/tanah');
+            redirect('sapras/tanah');
         }
     }
 
@@ -84,15 +84,15 @@ class Tanah extends CI_Controller
         $this->form_validation->set_rules('harga', 'Harga', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/tanah/edit', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutsapras/header', $data);
+            $this->load->view('layoutsapras/topbar');
+            $this->load->view('layoutsapras/sidebar');
+            $this->load->view('sapras/tanah/edit', $data);
+            $this->load->view('layoutsapras/footer');
         } else {
             $this->M_tanah->edit_tanah($id);
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/tanah');
+            redirect('sapras/tanah');
         }
     }
 
@@ -100,7 +100,7 @@ class Tanah extends CI_Controller
     {
         $this->M_tanah->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/tanah');
+        redirect('sapras/tanah');
     }
 
     public function filter()
@@ -118,11 +118,11 @@ class Tanah extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/tanah/filter');
-        $this->load->view('layout/footer');
+        $this->load->view('layoutsapras/header', $data);
+        $this->load->view('layoutsapras/topbar');
+        $this->load->view('layoutsapras/sidebar');
+        $this->load->view('sapras/tanah/filter');
+        $this->load->view('layoutsapras/footer');
     }
 
     public function laporan()
@@ -137,7 +137,7 @@ class Tanah extends CI_Controller
         $data['tgl_awal'] = $tgl_awalcetak;
         $data['tgl_akhir'] = $tgl_akhircetak;
 
-        $this->load->view('admin/tanah/laporan', $data);
+        $this->load->view('sapras/tanah/laporan', $data);
 
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan Aset Tanah';
@@ -149,7 +149,7 @@ class Tanah extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/tanah/laporan', $this->data, true);
+        $html = $this->load->view('sapras/tanah/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

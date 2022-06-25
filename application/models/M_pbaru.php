@@ -12,6 +12,18 @@ class M_pbaru extends CI_model
         $this->db->where_in('jenis',array('Aset Baru'));
         return $this->db->get()->result_array();
     }
+
+    public function lihatbynama($id)
+    {
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
+        $this->db->from('pengajuan');
+        $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
+        $this->db->order_by('pengajuan.id', 'DESC');
+        $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->where('penanggung_jawab.id', $id);
+        return $this->db->get()->row_array();
+    }
      
 
     public function tampilstatus()

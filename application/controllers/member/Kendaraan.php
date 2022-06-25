@@ -7,7 +7,7 @@ class Kendaraan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_kendaraan');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '2') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -20,11 +20,11 @@ class Kendaraan extends CI_Controller
         $data['motor'] = $this->M_kendaraan->lihat();
         
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/kendaraan/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutmember/header', $data);
+        $this->load->view('layoutmember/topbar');
+        $this->load->view('layoutmember/sidebar');
+        $this->load->view('member/kendaraan/index', $data);
+        $this->load->view('layoutmember/footer');
     }
 
     public function tambah()
@@ -45,15 +45,15 @@ class Kendaraan extends CI_Controller
         $this->form_validation->set_rules('kondisi', 'merk', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/kendaraan/tambah');
-            $this->load->view('layout/footer');
+            $this->load->view('layoutmember/header', $data);
+            $this->load->view('layoutmember/topbar');
+            $this->load->view('layoutmember/sidebar');
+            $this->load->view('member/kendaraan/tambah');
+            $this->load->view('layoutmember/footer');
         } else {
             $this->M_kendaraan->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/kendaraan');
+            redirect('member/kendaraan');
         }
     }
 
@@ -77,15 +77,15 @@ class Kendaraan extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/kendaraan/edit', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutmember/header', $data);
+            $this->load->view('layoutmember/topbar');
+            $this->load->view('layoutmember/sidebar');
+            $this->load->view('member/kendaraan/edit', $data);
+            $this->load->view('layoutmember/footer');
         } else {
             $this->M_kendaraan->edit_motor($id);
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/kendaraan');
+            redirect('member/kendaraan');
         }
     }
 
@@ -93,7 +93,7 @@ class Kendaraan extends CI_Controller
     {
         $this->M_kendaraan->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/kendaraan');
+        redirect('member/kendaraan');
     }
 
     public function laporan()
@@ -102,7 +102,7 @@ class Kendaraan extends CI_Controller
         $this->load->library('pdfgenerator');
 
         $data['motor'] = $this->M_kendaraan->lihat();
-        $this->load->view('admin/kendaraan/laporan', $data);
+        $this->load->view('member/kendaraan/laporan', $data);
 
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan kendaraan';
@@ -114,7 +114,7 @@ class Kendaraan extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/kendaraan/laporan', $this->data, true);
+        $html = $this->load->view('member/kendaraan/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

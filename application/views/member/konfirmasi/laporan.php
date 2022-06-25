@@ -56,8 +56,8 @@
 <body>
     <img src="<?= base_url() ?>adminlte/dist/img/logo.png" style="position: absolute; width: 125px; height: 130px;">
     <table style="width: 103%;">
-    <br>
-    <br>
+        <br>
+        <br>
         <tr>
             <td align="center">
                 <p>
@@ -68,28 +68,29 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA KONDISI ASET</strong>
+        <strong>LAPORAN KONFIRMASI PENGAJUAN ASET PERALATAN & MESIN</strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama Barang</th>
-                <th>Kode Barang</th>
-                <th>Register</th>
-                <th>Kondisi</th>
-                <th>Tanggal Masuk</th>
+                <th>Nama Aset</th>
+                <th>Deskripsi</th>
+                <th>Jenis Pengajuan</th>
+                <th>Status</th>
+                <th>Tanggal Konfirmasi</th>
+            </tr>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($kondisi as $kds) : ?>
+            foreach ($konfir as $kfr) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
-                    <td align="center"><?= $kds['nama_barang'] ?></td>
-                    <td align="center"><?= $kds['kode_barang'] ?></td>
-                    <td align="center"><?= $kds['register'] ?></td>
-                    <td align="center"><?= $kds['kondisi'] ?></td>
-                    <td align="center"><?= $kds['tanggal'] ?></td>
+                    <td align="center"><?= $kfr['aset'] ?></td>
+                    <td align="center"><?= $kfr['des'] ?></td>
+                    <td align="center"><?= $kfr['jenis'] ?></td>
+                    <td align="center"><?= $kfr['status'] ?></td>
+                    <td align="center"><?= $kfr['tgl_konfir'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

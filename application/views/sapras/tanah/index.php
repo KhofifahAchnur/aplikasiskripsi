@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Tanah</h1>
+                    <h1>Data Aset Tanah</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Tanah</li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('sapras/dashboard') ?>">Home</a></li>
+                        <li class="breadcrumb-item active">Data Aset Tanah</li>
                     </ol>
                 </div>
             </div>
@@ -26,9 +26,9 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                Daftar Data  Tanah
+                                Daftar Data Aset Tanah
                             </h3>
-                            <!-- <a href="<?= base_url('admin/tanah/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
+                            <!-- <a href="<?= base_url('sapras/tanah/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -64,11 +64,11 @@
                                             <td><?= $brg['hak'] ?></td>
                                             <td><?= $brg['nomer'] ?></td>
                                             <td><?= $brg['asal_usul'] ?></td>
-                                            <td><?= $brg['harga'] ?></td>
+                                            <td><?= "Rp." . number_format($brg['harga'], 2, ",", "."); ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>
                                             <!-- <td style="width: 100px;" class="text-center">
-                                                <a href= "<?= base_url(); ?>admin/tanah/edit/<?= $brg['id_tanah']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/tanah/hapus/<?= $brg['id_tanah']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href= "<?= base_url(); ?>sapras/tanah/edit/<?= $brg['id_tanah']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>sapras/tanah/hapus/<?= $brg['id_tanah']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td> -->
                                         </tr>
                                     <?php endforeach; ?>

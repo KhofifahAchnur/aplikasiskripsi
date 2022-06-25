@@ -5,11 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Pengajuan</h1>
+                    <h1>Data Pengajuan Pemeliharaan Aset Peralatan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/pengajuan/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('member/pengajuan/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     <!-- /.card-header -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Tambah Data Pengajuan Aset</h3>
+                            <h3 class="card-title">Tambah Pengajuan Pemeliharaan Aset Peralatan & Mesin</h3>
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
@@ -55,14 +55,14 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Jenis Pengajuan</label>
                                     <select name="jenis" class="form-control" id="jenis">
                                         <option>- Pilih Jenis Pengajuan -</option>
                                         <option value="Pemeliharaan"> Pemeliharaan </option>
                                         <option value="Aset Baru"> Aset Baru </option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <!-- <div class="form-group">
                                     <label>Status</label>
                                     <select name="status" class="form-control" id="status">

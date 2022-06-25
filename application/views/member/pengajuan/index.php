@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Pengajuan Aset Baru</h1>
+                    <h1>Data Pengajuan Pemeliharaan Aset Peralatan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Pengajuan Aset Baru</li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('member/dashboard') ?>">Home</a></li>
+                        <li class="breadcrumb-item active">Data Pengajuan Pemeliharaan Aset Peralatan & Mesin</li>
                     </ol>
                 </div>
             </div>
@@ -25,10 +25,8 @@
                     <!-- /.card-header -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">
-                                Daftar Data Pengajuan Aset Baru
-                            </h3>
-                            <!-- <a href="<?= base_url('admin/pengajuan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
+                        <!-- <a href="<?= base_url('member/pengajuan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
+                            <a href="<?= base_url('member/pengajuan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -59,9 +57,9 @@
                                             <td><?= $brg['status'] ?></td>
                                             <td><?= $brg['tanggal'] ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/pengajuan/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/pengajuan/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
-                                                <!-- <a href="<?= base_url(); ?>admin/konfirmasi/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-primary">UBAH KONFIRMASI</a> -->
+                                                <a href="<?= base_url(); ?>member/pengajuan/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>member/pengajuan/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <!-- <a href="<?= base_url(); ?>member/konfirmasi/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-primary">UBAH KONFIRMASI</a> -->
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

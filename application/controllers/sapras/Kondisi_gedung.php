@@ -9,7 +9,7 @@ class Kondisi_gedung extends CI_Controller
         $this->load->model('M_kondisi_gedung');
         $this->load->model('M_gedung');
         // $this->load->model('M_lokasi');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '3') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -25,11 +25,11 @@ class Kondisi_gedung extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/kondisi_gedung/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutsapras/header', $data);
+        $this->load->view('layoutsapras/topbar');
+        $this->load->view('layoutsapras/sidebar');
+        $this->load->view('sapras/kondisi_gedung/index', $data);
+        $this->load->view('layoutsapras/footer');
     }
 
     public function tambah($id)
@@ -48,16 +48,16 @@ class Kondisi_gedung extends CI_Controller
         $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/kondisi_gedung/tambah', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutsapras/header', $data);
+            $this->load->view('layoutsapras/topbar');
+            $this->load->view('layoutsapras/sidebar');
+            $this->load->view('sapras/kondisi_gedung/tambah', $data);
+            $this->load->view('layoutsapras/footer');
         } else {
             $this->M_kondisi_gedung->updatekondisigedung($id);
             $this->M_kondisi_gedung->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/gedung');
+            redirect('sapras/gedung');
         }
     }
 
@@ -75,11 +75,11 @@ class Kondisi_gedung extends CI_Controller
     //     $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
 
     //     if ($this->form_validation->run() == false) {
-    //         $this->load->view('layout/header', $data);
-    //         $this->load->view('layout/topbar');
-    //         $this->load->view('layout/sidebar');
+    //         $this->load->view('layoutsapras/header', $data);
+    //         $this->load->view('layoutsapras/topbar');
+    //         $this->load->view('layoutsapras/sidebar');
     //         $this->load->view('kondisi/tambah', $data);
-    //         $this->load->view('layout/footer');
+    //         $this->load->view('layoutsapras/footer');
     //     } else {
     //         $this->M_kondisi->updatekondisi($id);
     //         $this->session->set_flashdata('flash', 'Ditambahkan');
@@ -94,7 +94,7 @@ class Kondisi_gedung extends CI_Controller
     {
         $this->M_lokasi->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/lokasi');
+        redirect('sapras/lokasi');
     }
 
     public function laporan()
@@ -103,7 +103,7 @@ class Kondisi_gedung extends CI_Controller
         $this->load->library('pdfgenerator');
 
         $data['kondisi_gedung'] = $this->M_kondisi_gedung->lihat();
-        $this->load->view('admin/kondisi_gedung/laporan', $data);
+        $this->load->view('sapras/kondisi_gedung/laporan', $data);
 
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan Kondisi Aset Gedung & Bangunan';
@@ -115,7 +115,7 @@ class Kondisi_gedung extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/kondisi_gedung/laporan', $this->data, true);
+        $html = $this->load->view('sapras/kondisi_gedung/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

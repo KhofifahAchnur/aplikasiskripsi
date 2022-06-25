@@ -289,14 +289,14 @@
                             </a>
                     </ul>
                     <hr color="white">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
                         <p>
                             Kendaraan
                             <i class="fas fa-angle-left right"></i>
                         </p>
-                    </a>
+                    </a> -->
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/gedung') ?>" class="nav-link">
@@ -307,7 +307,7 @@
                             </a>
                         </li>
                     </ul> -->
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/kendaraan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -350,8 +350,8 @@
                                     History Konfirmasi Aset
                                 </p>
                             </a>
-                    </ul>
-                    <hr color="white">
+                    </ul> -->
+                    <!-- <hr color="white"> -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
@@ -378,6 +378,15 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kondisi_buku') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Kondisi Aset
+                                </p>
+                            </a>
+                    </ul>
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/lokasi/index') ?>" class="nav-link">
@@ -396,7 +405,7 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/masteraset') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -405,7 +414,7 @@
                                 </p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/jalan') ?>" class="nav-link">

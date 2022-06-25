@@ -10,7 +10,7 @@ class Kmotor extends CI_Controller
         $this->load->model('M_pmotor');
         // $this->load->model('M_lokasi');
         // $this->load->model('M_penanggung_jawab');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '3') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -27,11 +27,11 @@ class Kmotor extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/kmotor/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutsapras/header', $data);
+        $this->load->view('layoutsapras/topbar');
+        $this->load->view('layoutsapras/sidebar');
+        $this->load->view('sapras/kmotor/index', $data);
+        $this->load->view('layoutsapras/footer');
     }
 
     public function tambah($id)
@@ -48,16 +48,16 @@ class Kmotor extends CI_Controller
         $this->form_validation->set_rules('status', 'Status', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/kmotor/tambah', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutsapras/header', $data);
+            $this->load->view('layoutsapras/topbar');
+            $this->load->view('layoutsapras/sidebar');
+            $this->load->view('sapras/kmotor/tambah', $data);
+            $this->load->view('layoutsapras/footer');
         } else {
             $this->M_kmotor->updatestatus($id);
             $this->M_kmotor->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/pmotor');
+            redirect('sapras/pmotor');
         }
     }
 
@@ -75,11 +75,11 @@ class Kmotor extends CI_Controller
     //     $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
 
     //     if ($this->form_validation->run() == false) {
-    //         $this->load->view('layout/header', $data);
-    //         $this->load->view('layout/topbar');
-    //         $this->load->view('layout/sidebar');
+    //         $this->load->view('layoutsapras/header', $data);
+    //         $this->load->view('layoutsapras/topbar');
+    //         $this->load->view('layoutsapras/sidebar');
     //         $this->load->view('kondisi/tambah', $data);
-    //         $this->load->view('layout/footer');
+    //         $this->load->view('layoutsapras/footer');
     //     } else {
     //         $this->M_kondisi->updatekondisi($id);
     //         $this->session->set_flashdata('flash', 'Ditambahkan');
@@ -94,7 +94,7 @@ class Kmotor extends CI_Controller
     {
         $this->M_lokasi->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/lokasi');
+        redirect('sapras/lokasi');
     }
 
     // public function laporan()
@@ -103,7 +103,7 @@ class Kmotor extends CI_Controller
     //     $this->load->library('pdfgenerator');
 
     //     $data['kondisi'] = $this->M_kondisi->lihat();
-    //     $this->load->view('admin/kondisi/laporan', $data);
+    //     $this->load->view('sapras/kondisi/laporan', $data);
 
     //     // title dari pdf
     //     $this->data['title_pdf'] = 'Laporan Kondisi Aset';
@@ -115,7 +115,7 @@ class Kmotor extends CI_Controller
     //     //orientasi paper potrait / landscape
     //     $orientation = "landscape";
 
-    //     $html = $this->load->view('admin/kondisi/laporan', $this->data, true);
+    //     $html = $this->load->view('sapras/kondisi/laporan', $this->data, true);
 
     //     // run dompdf
     //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
@@ -127,7 +127,7 @@ class Kmotor extends CI_Controller
         $this->load->library('pdfgenerator');
 
         $data['kmotor'] = $this->M_kmotor->lihat();
-        $this->load->view('admin/kmotor/laporan', $data);
+        $this->load->view('sapras/kmotor/laporan', $data);
 
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan Konfirmasi Aset Baru';
@@ -139,7 +139,7 @@ class Kmotor extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/kmotor/laporan', $this->data, true);
+        $html = $this->load->view('sapras/kmotor/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

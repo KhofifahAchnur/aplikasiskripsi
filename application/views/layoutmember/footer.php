@@ -1,11 +1,10 @@
 <!-- /.content-wrapper -->
-<!-- <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
+<footer class="main-footer">
+    <strong>Copyright &copy; <a href="#"> KHOFIFAH ACHNUR 2022 </a></strong>
     <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0-rc
+        <b>
     </div>
-</footer> -->
+</footer>
 
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
@@ -15,7 +14,7 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="<?= base_url('adminlte/'); ?>plugins/jquery/jquery.min.js"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= base_url('adminlte/'); ?>plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -47,12 +46,6 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url('adminlte/'); ?>dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
-<!-- <script src="<?= base_url('adminlte/'); ?>dist/js/demo.js"></script> -->
-
-<!-- jQuery -->
-<script src="<?= base_url('adminlte/'); ?>plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= base_url('adminlte/'); ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
 <script src="<?= base_url('adminlte/'); ?>plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url('adminlte/'); ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -66,14 +59,22 @@
 <script src="<?= base_url('adminlte/'); ?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="<?= base_url('adminlte/'); ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?= base_url('adminlte/'); ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= base_url('adminlte/'); ?>dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<!-- <script src="<?= base_url('adminlte/'); ?>dist/js/demo.js"></script> -->
 <!-- Page specific script -->
 
+<!-- Select2 -->
+<script src="<?= base_url('adminlte/'); ?>plugins/select2/js/select2.full.min.js"></script>
+<!-- 
+<script src="<?= base_url('adminlte/'); ?>plugins/daterangepicker-master/daterangepicker.js"></script>
+<script src="<?= base_url('adminlte/'); ?>plugins/daterangepicker-master/moment.min"></script> -->
+
+<script src="<?= base_url(); ?>/assets/js/custom.js"></script>
+<script src="<?= base_url(); ?>/assets/vendor/moment/moment.min.js"></script>
+<script src="<?= base_url(); ?>/assets/vendor/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <script>
     $(function() {
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
         $("#example1").DataTable()
     });
 </script>

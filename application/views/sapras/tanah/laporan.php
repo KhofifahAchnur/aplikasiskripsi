@@ -68,22 +68,23 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN DATA ASET TANAH</strong>
+        <strong>LAPORAN ASET TANAH</strong>
     </p>
+    <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
-            <th>No</th>
-            <th>Nama Tanah</th>
-            <th>Kode Tanah</th>
-            <th>Register</th>
-            <th>Luas</th>
-            <th>Tahun Peroleh</th>
-            <th>Lokasi</th>
-            <th>Hak</th>
-            <th>Nomer</th>
-            <th>Asal-Usul</th>
-            <th>Harga Barang</th>
+                <th>No</th>
+                <th>Nama Tanah</th>
+                <th>Kode Tanah</th>
+                <th>Register</th>
+                <th>Luas</th>
+                <th>Tahun Peroleh</th>
+                <th>Lokasi</th>
+                <th>Hak</th>
+                <th>Nomer</th>
+                <th>Asal-Usul</th>
+                <th>Harga Barang</th>
             </tr>
         </thead>
         <tbody>

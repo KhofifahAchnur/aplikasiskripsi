@@ -9,7 +9,7 @@ class Pgedung extends CI_Controller
         $this->load->model('M_pgedung');
         // $this->load->model('M_lokasi');
         $this->load->model('M_penanggung_jawab');
-        if ($this->session->userdata('hak_akses') != '1') {
+        if ($this->session->userdata('hak_akses') != '2') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
             redirect('auth');
@@ -23,11 +23,11 @@ class Pgedung extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/pgedung/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutmember/header', $data);
+        $this->load->view('layoutmember/topbar');
+        $this->load->view('layoutmember/sidebar');
+        $this->load->view('member/pgedung/index', $data);
+        $this->load->view('layoutmember/footer');
     }
 
 
@@ -50,15 +50,15 @@ class Pgedung extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/pgedung/tambah', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutmember/header', $data);
+            $this->load->view('layoutmember/topbar');
+            $this->load->view('layoutmember/sidebar');
+            $this->load->view('member/pgedung/tambah', $data);
+            $this->load->view('layoutmember/footer');
         } else {
             $this->M_pgedung->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/pgedung');
+            redirect('member/pgedung');
         }
     }
 
@@ -79,15 +79,15 @@ class Pgedung extends CI_Controller
         $this->form_validation->set_rules('status', 'Status', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('layout/header', $data);
-            $this->load->view('layout/topbar');
-            $this->load->view('layout/sidebar');
-            $this->load->view('admin/pgedung/edit', $data);
-            $this->load->view('layout/footer');
+            $this->load->view('layoutmember/header', $data);
+            $this->load->view('layoutmember/topbar');
+            $this->load->view('layoutmember/sidebar');
+            $this->load->view('member/pgedung/edit', $data);
+            $this->load->view('layoutmember/footer');
         } else {
             $this->M_pgedung->edit_barang($id);
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/pgedung');
+            redirect('member/pgedung');
         }
     }
 
@@ -95,7 +95,7 @@ class Pgedung extends CI_Controller
     {
         $this->M_pgedung->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/pgedung');
+        redirect('member/pgedung');
     }
 
     public function brgberdasarkanlks($id)
@@ -105,11 +105,11 @@ class Pgedung extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/topbar');
-        $this->load->view('layout/sidebar');
-        $this->load->view('admin/ruangan/index', $data);
-        $this->load->view('layout/footer');
+        $this->load->view('layoutmember/header', $data);
+        $this->load->view('layoutmember/topbar');
+        $this->load->view('layoutmember/sidebar');
+        $this->load->view('member/ruangan/index', $data);
+        $this->load->view('layoutmember/footer');
     }
 
     // public function laporan()
@@ -118,7 +118,7 @@ class Pgedung extends CI_Controller
     //     $this->load->library('pdfgenerator');
 
     //     $data['barang'] = $this->M_lokasi->lihat();
-    //     $this->load->view('admin/lokasi/laporan', $data);
+    //     $this->load->view('member/lokasi/laporan', $data);
 
     //     // title dari pdf
     //     $this->data['title_pdf'] = 'Laporan Lokasi Aset';
@@ -130,7 +130,7 @@ class Pgedung extends CI_Controller
     //     //orientasi paper potrait / landscape
     //     $orientation = "landscape";
 
-    //     $html = $this->load->view('admin/lokasi/laporan', $this->data, true);
+    //     $html = $this->load->view('member/lokasi/laporan', $this->data, true);
 
     //     // run dompdf
     //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
@@ -142,7 +142,7 @@ class Pgedung extends CI_Controller
     //     $this->load->library('pdfgenerator');
 
     //     $data['barang'] = $this->M_aset->lihatbylokasi($id);
-    //     $this->load->view('admin/ruangan/laporan', $data);
+    //     $this->load->view('member/ruangan/laporan', $data);
 
     //     // title dari pdf
     //     $this->data['title_pdf'] = 'Laporan Lokasi Aset';
@@ -154,7 +154,7 @@ class Pgedung extends CI_Controller
     //     //orientasi paper potrait / landscape
     //     $orientation = "landscape";
 
-    //     $html = $this->load->view('admin/ruangan/laporan', $this->data, true);
+    //     $html = $this->load->view('member/ruangan/laporan', $this->data, true);
 
     //     // run dompdf
     //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
@@ -166,7 +166,7 @@ class Pgedung extends CI_Controller
         $this->load->library('pdfgenerator');
 
         $data['pgedung'] = $this->M_pgedung->lihat();
-        $this->load->view('admin/pgedung/laporan', $data);
+        $this->load->view('member/pgedung/laporan', $data);
 
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan Pengajuan Pemeliharaan Aset Gedung & Bangunan';
@@ -178,7 +178,7 @@ class Pgedung extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('admin/pgedung/laporan', $this->data, true);
+        $html = $this->load->view('member/pgedung/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
