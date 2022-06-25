@@ -28,7 +28,7 @@
                             <h3 class="card-title">
                                 Daftar Data Aset Gedung & Bangunan
                             </h3>
-                            <a href="<?= base_url('sapras/gedung/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <!-- <a href="<?= base_url('sapras/gedung/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
                            
                             
                         </div>
@@ -51,7 +51,7 @@
                                         <th>Asal-Usul</th>
                                         <th>Harga Gedung</th>
                                         <th>Tanggal Masuk</th>
-                                        <th class="text-center">Aksi</th>
+                                        <!-- <th class="text-center">Aksi</th> -->
                                 </thead>
                                 </thead>
                                 <tbody>
@@ -75,11 +75,11 @@
                                             <td><?= $gdg['asal_usul'] ?></td>
                                             <td><?= "Rp." . number_format($gdg['harga'], 2, ",", "."); ?></td>
                                             <td><?= $gdg['tanggal_masuk'] ?></td>
-                                            <td style="width: 100px;" class="text-center">
+                                            <!-- <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>sapras/gedung/edit/<?= $gdg['id_gedung']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>sapras/gedung/hapus/<?= $gdg['id_gedung']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                                 <a href= "<?= base_url(); ?>sapras/kondisi_gedung/tambah/<?= $gdg['id_gedung']; ?>" class="badge badge-pill badge-success">UBAH KONDISI</a> 
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

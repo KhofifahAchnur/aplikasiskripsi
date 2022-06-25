@@ -166,7 +166,7 @@
     </table>
 
     <p align="center">
-        <strong>LAPORAN DATA KONDISI </strong>
+        <strong>LAPORAN DATA KONDISI ASET PERALATAN & MESIN </strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
@@ -189,6 +189,41 @@
                     <td align="center"><?= $kds['register'] ?></td>
                     <td align="center"><?= $kds['kondisi'] ?></td>
                     <td align="center"><?= $kds['tanggal'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <p align="center">
+        <strong>LAPORAN DATA PEMINJAMAN ASET PERALATAN & MESIN </strong>
+    </p>
+    <table id="customers" class="table table-bordered" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Barang</th>
+                <th>Kode Barang</th>
+                <th>Register</th>
+                <th>Lokasi</th>
+                <th>Keperluan</th>
+                <th>Penanggung Jawab</th>
+                <th>Tanggal Peminjaman</th>
+                <th>Tanggal Kembali </th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $i = 1;
+            foreach ($pinjam as $pjm) : ?>
+                <tr>
+                    <td align="center"><?= $i++; ?></td>
+                    <td align="center"><?= $pjm['nama_barang'] ?></td>
+                    <td align="center"><?= $pjm['kode_barang'] ?></td>
+                    <td align="center"><?= $pjm['register'] ?></td>
+                    <td align="center"><?= $pjm['lokasi'] ?></td>
+                    <td align="center"><?= $pjm['keperluan'] ?></td>
+                    <td align="center"><?= $pjm['nama'] ?></td>
+                    <td align="center"><?= $pjm['tgl_pinjam'] ?></td>
+                    <td align="center"><?= $pjm['tgl_kembali'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

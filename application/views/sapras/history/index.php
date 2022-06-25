@@ -9,8 +9,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('sapras/aset/index') ?>" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>||
-                        <!-- <a href="<?= base_url('sapras/history/laporan/') . $barang['id'] ?>" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
+                        <a href="<?= base_url('member/aset/index') ?>" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>||
+                        <!-- <a href="<?= base_url('member/history/laporan/') . $barang['id'] ?>" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                     </ol>
                 </div>
             </div>
@@ -58,9 +58,9 @@
                                 </div>
                                 <div class="text-center">
 
-                                    <!-- <a href="<?= base_url('sapras/perpindahan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Perpindahan</a>
-                                    <a href="<?= base_url('sapras/perawatan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Pemeliharaan</a>
-                                    <a href="<?= base_url('sapras/peminjaman/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Peminjaman</a> -->
+                                    <!-- <a href="<?= base_url('member/perpindahan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Perpindahan</a> -->
+                                    <!-- <a href="<?= base_url('member/perawatan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Pemeliharaan</a>
+                                    <a href="<?= base_url('member/peminjaman/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Peminjaman</a> -->
                                 </div>
                             </div>
                         </form>
@@ -177,6 +177,46 @@
                                 <td><?= $kds['register'] ?></td>
                                 <td><?= $kds['kondisi'] ?></td>
                                 <td><?= $kds['tanggal'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">History Peminjaman Aset Peralatan & Mesin</h3>
+            </div>
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Barang</th>
+                            <th>Kode Barang</th>
+                            <th>Register</th>
+                            <th>Lokasi</th>
+                            <th>Keperluan</th>
+                            <th>Penanggung Jawab</th>
+                            <th>Tanggal Peminjaman</th>
+                            <th>Tanggal Kembali </th>
+                    </thead>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1;
+                        foreach ($pinjam as $pjm) : ?>
+                            <tr>
+                                <td><?= $i++; ?></td>
+                                <td><?= $pjm['nama_barang'] ?></td>
+                                <td><?= $pjm['kode_barang'] ?></td>
+                                <td><?= $pjm['register'] ?></td>
+                                <td><?= $pjm['lokasi'] ?></td>
+                                <td><?= $pjm['keperluan'] ?></td>
+                                <td><?= $pjm['nama'] ?></td>
+                                <td><?= $pjm['tgl_pinjam'] ?></td>
+                                <td><?= $pjm['tgl_kembali'] ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

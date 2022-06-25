@@ -251,6 +251,42 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('sapras/pemeliharaan') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Pemeliharaan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('sapras/kondisi_gedung') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Kondisi Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('sapras/pgedung/index') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Pengajuan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('sapras/kgedung') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Konfirmasi Aset
+                                </p>
+                            </a>
+                    </ul>
                     <hr color="white">
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -260,7 +296,7 @@
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('sapras/masteraset') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -269,14 +305,23 @@
                                 </p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('sapras/buku') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Aset Baru</p>
+                                <p>Aset</p>
                             </a>
                         </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('sapras/kondisi_buku') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Kondisi Aset
+                                </p>
+                            </a>
                     </ul>
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -310,7 +355,7 @@
                         <li class="nav-item">
                             <a href="<?= base_url('sapras/jalan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Aset Baru</p>
+                                <p>Aset</p>
                             </a>
                         </li>
                     </ul>

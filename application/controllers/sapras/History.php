@@ -10,6 +10,7 @@ class History extends CI_Controller
         $this->load->model('M_perpindahan');
         $this->load->model('M_kondisi');
         $this->load->model('M_perawatan');
+        $this->load->model('M_peminjaman');
         if ($this->session->userdata('hak_akses') != '3') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
@@ -26,6 +27,7 @@ class History extends CI_Controller
         // $data['barang'] = $this->M_aset->lihat();
         $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);
         $data['rawat'] = $this->M_perawatan->lihatperawatanbyid($id);
+        $data['pinjam'] = $this->M_peminjaman->lihatpeminjamanbyid($id);
 
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -76,6 +78,7 @@ class History extends CI_Controller
         $data['barang2'] = $this->M_perpindahan->lihatperpindahanbyid($id);
         $data['rawat'] = $this->M_perawatan->lihatperawatanbyid($id);
         $data['kondisi'] = $this->M_kondisi->lihatkondisibyid($id);
+        $data['pinjam'] = $this->M_peminjaman->lihatpeminjamanbyid($id);
         $this->load->view('sapras/history/laporan', $data);
 
         // title dari pdf

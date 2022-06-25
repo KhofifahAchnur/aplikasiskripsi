@@ -28,7 +28,7 @@
                             <h3 class="card-title">
                                 Daftar Data Aset Jalan , Irigasi & Jaringan
                             </h3>
-                            <a href="<?= base_url('sapras/jalan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <!-- <a href="<?= base_url('sapras/jalan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -47,7 +47,7 @@
                                         <th>Asal-Usul</th>
                                         <th>Harga</th>
                                         <th>Tanggal Peroleh</th>
-                                        <th class="text-center">Aksi</th>
+                                        <!-- <th class="text-center">Aksi</th> -->
                                 </thead>
                                 </thead>
                                 <tbody>
@@ -66,10 +66,10 @@
                                             <td><?= $jln['asal_usul'] ?></td>
                                             <td><?= "Rp." . number_format($jln['harga'], 2, ",", "."); ?></td>
                                             <td><?= $jln['tanggal_masuk'] ?></td>
-                                            <td style="width: 100px;" class="text-center">
+                                            <!-- <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>sapras/jalan/edit/<?= $jln['id_jalan']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>sapras/jalan/hapus/<?= $jln['id_jalan']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

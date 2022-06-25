@@ -55,70 +55,80 @@
 
 <body>
     <img src="<?= base_url() ?>adminlte/dist/img/logo.png" style="position: absolute; width: 125px; height: 130px;">
-    <br>
-    <br>
     <table style="width: 103%;">
+        <br>
+        <br>
         <tr>
             <td align="center">
                 <p>
                 <h2>SMP NEGERI 15 BANJARMASIN</h2>
-                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511 3301006 </p>
+                Alamat : Jl. Kuin Uatara No. 6 RT. 04 RW. 01 Kota Banjarmasin Kecamatan Banjarmasin Utara-70127 No Telpon: 0511-3301006</p>
             </td>
         </tr>
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN MASTER ASET PERALATAN & MESIN</strong>
+        <strong>LAPORAN IDENTITAS ASET PERPUSTAKAAN </strong>
     </p>
-    <?php if ($this->session->userdata('hak_akses') == 1) : ?>
-        <?php if ($tgl_awal) : ?>
-            <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
-            <?php if ($nama) : ?>
-                <p>Filter By Nama Barang : <?= $nama; ?></p>
-            <?php endif ?>
-        <?php else : ?>
-            <p>Tanggal : Semua Data</p>
-        <?php endif ?>
-    <?php endif ?>
-    <table id="customers" class="table table-bordered">
+    <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama Barang</th>
-                <th>Kode Barang</th>
+                <th>Nama Gedung</th>
+                <th>Kode Gedung</th>
                 <th>Register</th>
-                <th>Merk</th>
-                <th>Ukuran</th>
-                <th>Bahan</th>
-                <th>Tahun Peroleh</th>
+                <th>Judul</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $i = 1;
+            foreach ($buku as $brg) : ?>
+                <tr>
+                    <td align="center"><?= $i++; ?></td>
+                    <td align="center"><?= $brg['nama_buku'] ?></td>
+                    <td align="center"><?= $brg['kode_buku'] ?></td>
+                    <td align="center"><?= $brg['register'] ?></td>
+                    <td align="center"><?= $brg['judul'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+
+
+
+    <p align="center">
+        <strong>LAPORAN DATA KONDISI </strong>
+    </p>
+    <table id="customers" class="table table-bordered" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Buku</th>
+                <th>Kode Buku</th>
+                <th>Register</th>
+                <th>Judul</th>
                 <th>Kondisi</th>
-                <th>Asal-Usul</th>
-                <th>Harga Barang</th>
-                <th>Lokasi</th>
                 <th>Tanggal Masuk</th>
             </tr>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($aset as $brg) : ?>
+            foreach ($kondisi_buku as $brg) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
-                    <td align="center"><?= $brg['nama_barang'] ?></td>
-                    <td align="center"><?= $brg['kode_barang'] ?></td>
+                    <td align="center"><?= $brg['nama_buku'] ?></td>
+                    <td align="center"><?= $brg['kode_buku'] ?></td>
                     <td align="center"><?= $brg['register'] ?></td>
-                    <td align="center"><?= $brg['merk'] ?></td>
-                    <td align="center"><?= $brg['ukuran'] ?></td>
-                    <td align="center"><?= $brg['bahan'] ?></td>
-                    <td align="center"><?= $brg['tahun'] ?></td>
+                    <td align="center"><?= $brg['judul'] ?></td>
                     <td align="center"><?= $brg['kondisi'] ?></td>
-                    <td align="center"><?= $brg['asal_usul'] ?></td>
-                    <td align="center"><?= $brg['harga_brg'] ?></td>
-                    <td align="center"><?= $brg['lokasi'] ?></td>
-                    <td align="center"><?= $brg['tanggal_masuk'] ?></td>
+                    <td align="center"><?= $brg['tanggal'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+
+
     <table width="50%" align="right" border="0" style="margin-top: 20px;">
         <tr>
         <tr>
@@ -127,22 +137,6 @@
         </tr>
         </tr>
     </table>
-    <!-- <table>
-        <tr>
-            <td colspan="3">
-                <div style="float: right;">
-                    <div style="text-align: end;">
-                        <p>Hormat Kami</p>
-                        <p>Kepala SDN Handil Bakti</p>
-
-                        <p></p>
-                        <p class="me-5">SURYA ABDI, S.Pd</p>
-                        <p>NIP.19670505 198804 1 002</p>
-                    </div>
-                </div>
-            </td>
-        </tr>
-    </table> -->
 
 </body>
 

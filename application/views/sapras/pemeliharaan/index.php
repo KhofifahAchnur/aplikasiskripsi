@@ -46,7 +46,7 @@
                                         <th>Biaya</th>
                                         <th>Tanggal Pemeliharaan</th>
                                         <th>Tanggal Selesai </th>
-                                        <th class="text-center">Aksi</th>
+                                        <!-- <th class="text-center">Aksi</th> -->
                                 </thead>
                                 </thead>
                                 <tbody>
@@ -63,10 +63,10 @@
                                             <td><?= $pln['biaya'] ?></td>
                                             <td><?= $pln['tgl_pemeliharaan'] ?></td>
                                             <td><?= $pln['tgl_selesai'] ?></td>
-                                            <td style="width: 100px;" class="text-center">
+                                            <!-- <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>sapras/pemeliharaan/edit/<?= $pln['id_pemeliharaan']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>sapras/pemeliharaan/hapus/<?= $pln['id_pemeliharaan']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

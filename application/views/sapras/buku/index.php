@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('sapras/dashboard') ?>">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('member/dashboard') ?>">Home</a></li>
                         <li class="breadcrumb-item active">Data Data Aset Perpustakaan</li>
                     </ol>
                 </div>
@@ -28,7 +28,7 @@
                             <h3 class="card-title">
                                 Daftar Data Aset Perpustakaan
                             </h3>
-                            <a href="<?= base_url('sapras/buku/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <!-- <a href="<?= base_url('member/buku/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -46,7 +46,7 @@
                                         <th>Kondisi</th>
                                         <th>Harga Buku</th>
                                         <th>Tanggal Peroleh</th>
-                                        <th class="text-center">Aksi</th>
+                                        <!-- <th class="text-center">Aksi</th> -->
                                 </thead>
                                 </thead>
                                 <tbody>
@@ -54,7 +54,10 @@
                                     foreach ($buku as $brg) : ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
-                                            <td><?= $brg['nama_buku'] ?></td>
+                                            <td>
+                                                <a href="<?= base_url(); ?>sapras/hbuku/index/<?= $brg['id_buku']; ?>"><i><?= $brg['nama_buku'] ?></i></a>
+                                            </td>
+                                            <!-- <td><?= $brg['nama_buku'] ?></td> -->
                                             <td><?= $brg['kode_buku'] ?></td>
                                             <td><?= $brg['register'] ?></td>
                                             <td><?= $brg['judul'] ?></td>
@@ -64,10 +67,11 @@
                                             <td><?= $brg['kondisi'] ?></td>
                                             <td><?= "Rp." . number_format($brg['harga'], 2, ",", "."); ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>
-                                            <td style="width: 100px;" class="text-center">
-                                                <a href= "<?= base_url(); ?>sapras/buku/edit/<?= $brg['id_buku']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>sapras/buku/hapus/<?= $brg['id_buku']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
-                                            </td>
+                                            <!-- <td style="width: 100px;" class="text-center">
+                                                <a href= "<?= base_url(); ?>member/buku/edit/<?= $brg['id_buku']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>member/buku/hapus/<?= $brg['id_buku']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href= "<?= base_url(); ?>member/kondisi_buku/tambah/<?= $brg['id_buku']; ?>" class="badge badge-pill badge-success">UBAH KONDISI</a>
+                                            </td> -->
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

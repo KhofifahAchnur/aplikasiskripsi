@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <a href="<?= base_url('sapras/gedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a> |
-                        <a href="<?= base_url('sapras/hgedung/laporan/') . $gedung['id_gedung'] ?>" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                        <!-- <a href="<?= base_url('sapras/hgedung/laporan/') . $gedung['id_gedung'] ?>" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                     </ol>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                                 <div class="text-center">
 
                                     <!-- <a href="<?= base_url('sapras/perpindahan/tambah/') . $kgedung['id_gedung'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Perpindahan</a> -->
-                                    <a href="<?= base_url('sapras/pemeliharaan/tambah/') . $gedung['id_gedung'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Pemeliharaan</a>
+                                    <!-- <a href="<?= base_url('sapras/pemeliharaan/tambah/') . $gedung['id_gedung'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Pemeliharaan</a> -->
                                 </div>
                             </div>
                         </form>

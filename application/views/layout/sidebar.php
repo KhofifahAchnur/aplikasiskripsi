@@ -374,7 +374,7 @@
                         <li class="nav-item">
                             <a href="<?= base_url('admin/buku') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Aset Baru</p>
+                                <p>Aset</p>
                             </a>
                         </li>
                     </ul>
@@ -419,7 +419,7 @@
                         <li class="nav-item">
                             <a href="<?= base_url('admin/jalan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Aset Baru</p>
+                                <p>Aset</p>
                             </a>
                         </li>
                     </ul>
@@ -634,7 +634,7 @@
                             </a>
                         </li>
                     </ul>
-                    <!-- <hr color="white"> -->
+                    <hr color="white">
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/konfirmasi/laporan') ?>" class="nav-link">

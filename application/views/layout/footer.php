@@ -73,7 +73,13 @@
 <script>
     $(function() {
         //Initialize Select2 Elements
-        $('.select2').select2()
+        $('.select2').select2({
+            // dropdownParent: $('#modaledit'),
+            placeholder: 'Pilih Nama Aset',
+            allowClear: true,
+            width: '100%',
+            theme: 'default'
+        })
 
         $("#example1").DataTable()
     });

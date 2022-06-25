@@ -374,9 +374,18 @@
                         <li class="nav-item">
                             <a href="<?= base_url('member/buku') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Aset Baru</p>
+                                <p>Aset</p>
                             </a>
                         </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('member/kondisi_buku') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Kondisi Aset
+                                </p>
+                            </a>
                     </ul>
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -410,7 +419,7 @@
                         <li class="nav-item">
                             <a href="<?= base_url('member/jalan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Aset Baru</p>
+                                <p>Aset</p>
                             </a>
                         </li>
                     </ul>

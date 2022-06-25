@@ -1,16 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class History extends CI_Controller
+class Hbuku extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('M_aset');
-        $this->load->model('M_perpindahan');
-        $this->load->model('M_kondisi');
-        $this->load->model('M_perawatan');
-        $this->load->model('M_peminjaman');
+        $this->load->model('M_buku');
+        $this->load->model('M_kondisi_buku');
         if ($this->session->userdata('hak_akses') != '2') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
@@ -21,13 +18,12 @@ class History extends CI_Controller
     public function index($id)
     {
 
-        $data['judul'] = 'Halaman Data History Aset Peralatan & Mesin';
-        $data['kondisi'] = $this->M_kondisi->lihatkondisibyid($id);
-        $data['barang'] = $this->M_aset->getBrgById($id);
+        $data['judul'] = 'Halaman Data History Aset perpustakaan';
+        $data['kondisi_buku'] = $this->M_kondisi_buku->lihatkondisibyid($id);
+        $data['buku'] = $this->M_buku->getBrgById($id);
         // $data['barang'] = $this->M_aset->lihat();
-        $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);
-        $data['rawat'] = $this->M_perawatan->lihatperawatanbyid($id);
-        $data['pinjam'] = $this->M_peminjaman->lihatpeminjamanbyid($id);
+        // $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);
+        // $data['pemeliharaan'] = $this->M_pemeliharaan->lihatpemeliharaanbyid($id);
 
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -35,7 +31,7 @@ class History extends CI_Controller
         $this->load->view('layoutmember/header', $data);
         $this->load->view('layoutmember/topbar');
         $this->load->view('layoutmember/sidebar');
-        $this->load->view('member/history/index', $data);
+        $this->load->view('member/hbuku/index', $data);
         $this->load->view('layoutmember/footer');
     }
 
@@ -73,13 +69,10 @@ class History extends CI_Controller
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        
-        $data['barang'] = $this->M_aset->getBrgByIdCetak($id);
-        $data['barang2'] = $this->M_perpindahan->lihatperpindahanbyid($id);
-        $data['rawat'] = $this->M_perawatan->lihatperawatanbyid($id);
-        $data['kondisi'] = $this->M_kondisi->lihatkondisibyid($id);
-        $data['pinjam'] = $this->M_peminjaman->lihatpeminjamanbyid($id);
-        $this->load->view('member/history/laporan', $data);
+        $data['kondisi_buku'] = $this->M_kondisi_buku->lihatkondisibyid($id);
+        $data['buku'] = $this->M_buku->getBrgByIdCetak($id);
+        // $data['pemeliharaan'] = $this->M_pemeliharaan->lihatpemeliharaanbyid($id);
+        $this->load->view('member/hbuku/laporan', $data);
 
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan history Aset';
@@ -91,7 +84,7 @@ class History extends CI_Controller
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
-        $html = $this->load->view('member/history/laporan', $this->data, true);
+        $html = $this->load->view('member/hbuku/laporan', $this->data, true);
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

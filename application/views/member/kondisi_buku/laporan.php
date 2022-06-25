@@ -55,9 +55,9 @@
 
 <body>
     <img src="<?= base_url() ?>adminlte/dist/img/logo.png" style="position: absolute; width: 125px; height: 130px;">
-    <br>
-    <br>
     <table style="width: 103%;">
+        <br>
+        <br>
         <tr>
             <td align="center">
                 <p>
@@ -68,53 +68,30 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN MASTER ASET PERALATAN & MESIN</strong>
+        <strong>LAPORAN KONDISI ASET PERPUSTAKAAN</strong>
     </p>
-    <?php if ($this->session->userdata('hak_akses') == 1) : ?>
-        <?php if ($tgl_awal) : ?>
-            <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
-            <?php if ($nama) : ?>
-                <p>Filter By Nama Barang : <?= $nama; ?></p>
-            <?php endif ?>
-        <?php else : ?>
-            <p>Tanggal : Semua Data</p>
-        <?php endif ?>
-    <?php endif ?>
-    <table id="customers" class="table table-bordered">
+    <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Nama Barang</th>
-                <th>Kode Barang</th>
+                <th>Nama</th>
+                <th>Kode</th>
                 <th>Register</th>
-                <th>Merk</th>
-                <th>Ukuran</th>
-                <th>Bahan</th>
-                <th>Tahun Peroleh</th>
+                <th>Judul</th>
                 <th>Kondisi</th>
-                <th>Asal-Usul</th>
-                <th>Harga Barang</th>
-                <th>Lokasi</th>
                 <th>Tanggal Masuk</th>
-            </tr>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($aset as $brg) : ?>
+            foreach ($kondisi_buku as $kdb) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
-                    <td align="center"><?= $brg['nama_barang'] ?></td>
-                    <td align="center"><?= $brg['kode_barang'] ?></td>
-                    <td align="center"><?= $brg['register'] ?></td>
-                    <td align="center"><?= $brg['merk'] ?></td>
-                    <td align="center"><?= $brg['ukuran'] ?></td>
-                    <td align="center"><?= $brg['bahan'] ?></td>
-                    <td align="center"><?= $brg['tahun'] ?></td>
-                    <td align="center"><?= $brg['kondisi'] ?></td>
-                    <td align="center"><?= $brg['asal_usul'] ?></td>
-                    <td align="center"><?= $brg['harga_brg'] ?></td>
-                    <td align="center"><?= $brg['lokasi'] ?></td>
-                    <td align="center"><?= $brg['tanggal_masuk'] ?></td>
+                    <td align="center"><?= $kdb['nama_buku'] ?></td>
+                    <td align="center"><?= $kdb['kode_buku'] ?></td>
+                    <td align="center"><?= $kdb['register'] ?></td>
+                    <td align="center"><?= $kdb['judul'] ?></td>
+                    <td align="center"><?= $kdb['kondisi'] ?></td>
+                    <td align="center"><?= $kdb['tanggal'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
