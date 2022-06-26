@@ -94,7 +94,7 @@
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($barang as $brg) : ?>
+            foreach ($nama_barang as $brg) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
                     <td align="center"><?= $brg['nama_barang'] ?></td>

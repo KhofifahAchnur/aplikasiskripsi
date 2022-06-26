@@ -71,23 +71,23 @@ class M_perpindahan extends CI_model
         return $this->db->get('history_perpindahan')->num_rows();
     }
 
-    public function barang()
+    public function nama_barang()
     {
-        $this->db->select('barang');
+        $this->db->select('nama_barang');
         $this->db->from('history_perpindahan');
         $this->db->join('aset', 'aset.id = history_perpindahan.aset_id ');
-        $this->db->group_by('barang');
+        $this->db->group_by('nama_barang');
         return $this->db->get()->result_array();
     }
 
     public function nama_tanggal($tgl_awal, $tgl_akhir)
     {
-        $this->db->select('barang');
+        $this->db->select('nama_barang');
         $this->db->from('history_perpindahan');
         $this->db->join('aset', 'aset.id = history_perpindahan.aset_id ');
         $this->db->where("tanggal>=", "$tgl_awal");
         $this->db->where("tanggal<=", "$tgl_akhir");
-        $this->db->group_by('barang');
+        $this->db->group_by('nama_barang');
         return $this->db->get()->result_array();
     }
 
@@ -119,7 +119,7 @@ class M_perpindahan extends CI_model
         return $this->db->get()->result_array();
     }
 
-    public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $barang)
+    public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_barang)
     {
         $this->db->select('history_perpindahan.id, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, 
         history_perpindahan.tanggal');
@@ -128,13 +128,13 @@ class M_perpindahan extends CI_model
         $this->db->join('lokasi', 'lokasi.id = history_perpindahan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = lokasi.penanggung_jawab_id');
         $this->db->order_by('history_perpindahan.id', 'DESC');
-        $this->db->where("history_perpindahan.nama_barang", "$barang");
+        $this->db->where("history_perpindahan.aset_id", "$nama_barang");
         $this->db->where("tanggal>=", "$tgl_awalcetak");
         $this->db->where("tanggal<=", "$tgl_akhircetak");
         return $this->db->get()->result_array();
     }
 
-    public function databynama($tgl_awal, $tgl_akhir, $barang)
+    public function databynama($tgl_awal, $tgl_akhir, $nama_barang)
     {
         $this->db->select('history_perpindahan.id, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, 
         history_perpindahan.tanggal');
@@ -143,7 +143,7 @@ class M_perpindahan extends CI_model
         $this->db->join('lokasi', 'lokasi.id = history_perpindahan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = lokasi.penanggung_jawab_id');
         $this->db->order_by('history_perpindahan.id', 'DESC');
-        $this->db->where("history_perpindahan.nama_barang", "$barang");
+        $this->db->where("history_perpindahan.aset_id", "$nama_barang");
         $this->db->where("tanggal>=", "$tgl_awal");
         $this->db->where("tanggal<=", "$tgl_akhir");
         return $this->db->get()->result_array();

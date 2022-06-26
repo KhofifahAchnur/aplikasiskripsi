@@ -48,6 +48,14 @@ class M_buku extends CI_model
         return $this->db->get_where('buku', ['id_buku' => $id])->row_array();
     }
 
+    public function tampilbuku()
+    {
+        $this->db->select('*');
+        $this->db->from('buku');
+        $this->db->order_by('buku.id_buku', 'DESC');
+        return $this->db->get()->result_array();
+    }
+
     public function edit_buku($id)
     {
         $data = [

@@ -63,8 +63,8 @@ class M_kondisi extends CI_model
         $this->db->select('nama_barang');
 		$this->db->from('history_kondisi');
 		$this->db->join('aset', 'aset.id = history_kondisi.aset_id ');
-		$this->db->where("tanggal_masuk >=", "$tgl_awal");
-        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
+		$this->db->where("tanggal >=", "$tgl_awal");
+        $this->db->where("tanggal <=", "$tgl_akhir");
         $this->db->group_by('nama_barang');
         return $this->db->get()->result_array();
     }
@@ -76,10 +76,49 @@ class M_kondisi extends CI_model
 		$this->db->from('history_kondisi');
 		$this->db->join('aset', 'aset.id = history_kondisi.aset_id ');
 		$this->db->order_by('history_kondisi.id', 'DESC');
-		$this->db->where("tanggal_masuk >=", "$tgl_awal");
-        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
+		$this->db->where("tanggal >=", "$tgl_awalcetak");
+        $this->db->where("tanggal <=", "$tgl_akhircetak");
         $this->db->group_by('nama_barang');
         return $this->db->get()->result_array();
+    }
+
+	public function databytanggal($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('history_kondisi.id, aset.nama_barang, 
+		aset.kode_barang, aset.register, history_kondisi.kondisi, history_kondisi.tanggal');
+		$this->db->from('history_kondisi');
+		$this->db->join('aset', 'aset.id = history_kondisi.aset_id ');
+		$this->db->order_by('history_kondisi.id', 'DESC');
+        $this->db->where("tanggal >=", "$tgl_awal");
+        $this->db->where("tanggal <=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
+    
+    public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_barang)
+    {
+        $this->db->select('history_kondisi.id, aset.nama_barang, 
+		aset.kode_barang, aset.register, history_kondisi.kondisi, history_kondisi.tanggal');
+		$this->db->from('history_kondisi');
+		$this->db->join('aset', 'aset.id = history_kondisi.aset_id ');
+		$this->db->order_by('history_kondisi.id', 'DESC');
+        $this->db->where("aset.nama_barang", "$nama_barang");
+        $this->db->where("tanggal >=", "$tgl_awalcetak");
+        $this->db->where("tanggal <=", "$tgl_akhircetak");
+        return $this->db->get()->result_array();
+    }
+
+    public function databynama($tgl_awal, $tgl_akhir, $nama_barang)
+    {
+		$this->db->select('history_kondisi.id, aset.nama_barang, 
+		aset.kode_barang, aset.register, history_kondisi.kondisi, history_kondisi.tanggal');
+		$this->db->from('history_kondisi');
+		$this->db->join('aset', 'aset.id = history_kondisi.aset_id ');
+		$this->db->order_by('history_kondisi.id', 'DESC');
+        $this->db->where("aset.nama_barang", "$nama_barang");
+        $this->db->where("tanggal >=", "$tgl_awal");
+        $this->db->where("tanggal <=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+        // die($this->db->get()->result_array());
     }
 	// public function jumlah()
 	// {

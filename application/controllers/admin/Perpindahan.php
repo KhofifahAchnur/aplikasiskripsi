@@ -67,7 +67,7 @@ class Perpindahan extends CI_Controller
         // Mendapatkan nilai input
         $tgl_awal = $this->input->get('tgl_awal');
         $tgl_akhir = $this->input->get('tgl_akhir');
-        $barang = $this->input->get('barang');
+        $nama_barang = $this->input->get('nama_barang');
 
         $data['judul'] = 'Filter Laporan';
 
@@ -75,25 +75,25 @@ class Perpindahan extends CI_Controller
         if (isset($_GET['filter'])) {
 
             // Data Filter Berdasarkan Tanggal & Nama
-            if (isset($_GET['barang'])) {
-                $data['barang'] = $this->M_perpindahan->databynama($tgl_awal, $tgl_akhir, $barang);
+            if (isset($_GET['nama_barang'])) {
+                $data['barang'] = $this->M_perpindahan->databynama($tgl_awal, $tgl_akhir, $nama_barang);
                 $data['tgl_awal'] = $tgl_awal;
                 $data['tgl_akhir'] = $tgl_akhir;
-                $data['nm_barang'] = $barang;
-                $data['barang'] = $this->M_perpindahan->nama_tanggal($tgl_awal, $tgl_akhir, $barang);
+                $data['nm_barang'] = $nama_barang;
+                $data['nama_barang'] = $this->M_perpindahan->nama_tanggal($tgl_awal, $tgl_akhir, $nama_barang);
             } else {
 
                 // Data Filter Berdasarkan Tanggal
                 $data['barang'] = $this->M_perpindahan->databytanggal($tgl_awal, $tgl_akhir);
                 $data['tgl_awal'] = $tgl_awal;
                 $data['tgl_akhir'] = $tgl_akhir;
-                $data['barang'] = $this->M_perpindahan->nama_tanggal($tgl_awal, $tgl_akhir);
+                $data['nama_barang'] = $this->M_perpindahan->nama_tanggal($tgl_awal, $tgl_akhir);
             }
         } else {
 
             // Proses Semua data tanpa filter
-            $data['barang'] = $this->M_perpindahan->barang();
-            $data['barang'] = $this->M_perpindahan->lihat();
+            $data['nama_barang'] = $this->M_perpindahan->nama_barang();
+            $data['nama_barang'] = $this->M_perpindahan->lihat();
         }
 
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -111,7 +111,7 @@ class Perpindahan extends CI_Controller
         // Mendapatkan nilai input
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
-        $barang = $this->input->get('barang');
+        $nama_barang = $this->input->get('nama_barang');
 
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
@@ -120,11 +120,11 @@ class Perpindahan extends CI_Controller
         if ($tgl_awalcetak) {
 
             // Cetak Filter Berdasarkan Tanggal & Nama
-            if ($barang) {
-                $data['barang'] = $this->M_perpindahan->filterbynama($tgl_awalcetak, $tgl_akhircetak, $barang);
+            if ($nama_barang) {
+                $data['barang'] = $this->M_perpindahan->filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_barang);
                 $data['tgl_awal'] = $tgl_awalcetak;
                 $data['tgl_akhir'] = $tgl_akhircetak;
-                $data['barang'] = $barang;
+                $data['nama_barang'] = $nama_barang;
             } else {
 
                 // Cetak Filter Berdasarkan Tanggal
@@ -162,7 +162,7 @@ class Perpindahan extends CI_Controller
 //         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
 //         $this->load->library('pdfgenerator');
 
-//         $data['barang'] = $this->M_perpindahan->lihat();
+//         $data['nama_barang'] = $this->M_perpindahan->lihat();
 //         $this->load->view('admin/perpindahan/laporan', $data);
 
 //         // title dari pdf

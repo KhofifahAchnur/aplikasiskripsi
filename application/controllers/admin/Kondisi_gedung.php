@@ -97,19 +97,84 @@ class Kondisi_gedung extends CI_Controller
         redirect('admin/lokasi');
     }
 
+    public function filter()
+    {
+        // Mendapatkan nilai input
+        $tgl_awal = $this->input->get('tgl_awal');
+        $tgl_akhir = $this->input->get('tgl_akhir');
+        $nama_gedung = $this->input->get('nama_gedung');
+
+        $data['judul'] = 'Filter Laporan';
+
+        // Proses Filter
+        if (isset($_GET['filter'])) {
+
+            // Data Filter Berdasarkan Tanggal & Nama
+            if (isset($_GET['nama_gedung'])) {
+                $data['kondisi_gedung'] = $this->M_kondisi_gedung->databynama($tgl_awal, $tgl_akhir, $nama_gedung);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['nm_gedung'] = $nama_gedung;
+                $data['nama_gedung'] = $this->M_kondisi_gedung->nama_tanggal($tgl_awal, $tgl_akhir, $nama_gedung);
+            } else {
+
+                // Data Filter Berdasarkan Tanggal
+                $data['kondisi_gedung'] = $this->M_kondisi_gedung->databytanggal($tgl_awal, $tgl_akhir);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['nama_gedung'] = $this->M_kondisi_gedung->nama_tanggal($tgl_awal, $tgl_akhir);
+            }
+        } else {
+
+            // Proses Semua data tanpa filter
+            $data['nama_gedung'] = $this->M_kondisi_gedung->nama_gedung();
+            $data['kondisi_gedung'] = $this->M_kondisi_gedung->lihat();
+        }
+
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/topbar');
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/kondisi_gedung/filter');
+        $this->load->view('layout/footer');
+    }
+
     public function laporan()
     {
+        $tgl_awalcetak = $this->input->get('tgl_awalcetak');
+        $tgl_akhircetak = $this->input->get('tgl_akhircetak');
+        $nama_gedung = $this->input->get('nama_gedung');
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
+        if ($tgl_awalcetak) {
 
-        $data['kondisi_gedung'] = $this->M_kondisi_gedung->lihat();
+            if ($nama_gedung) {
+                $data['kondisi_gedung'] = $this->M_kondisi_gedung->filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_gedung);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['nama_gedung'] = $nama_gedung;
+            } else {
+
+            $data['kondisi_gedung'] = $this->M_kondisi_gedung->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+            $data['tgl_awal'] = $tgl_awalcetak;
+            $data['tgl_akhir'] = $tgl_akhircetak;
+            $data['nama_gedung'] = $nama_gedung;
+            }
+        } else {
+            $data['kondisi_gedung'] = $this->M_kondisi_gedung->lihat();
+            $data['tgl_awal'] = null;
+            $data['tgl_akhir'] = null;
+            $data['nama_gedung'] = null;
+        }
         $this->load->view('admin/kondisi_gedung/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Kondisi Aset Gedung & Bangunan';
+        $this->data['title_pdf'] = 'Laporan Kondisi_gedung Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'Kondisi Aset Gedung & Bangunan';
+        $file_pdf = 'Laporan Kondisi_gedung Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape
@@ -120,4 +185,28 @@ class Kondisi_gedung extends CI_Controller
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     }
+
+    // public function laporan()
+    // {
+    //     // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+    //     $this->load->library('pdfgenerator');
+
+    //     $data['kondisi_gedung'] = $this->M_kondisi_gedung->lihat();
+    //     $this->load->view('admin/kondisi_gedung/laporan', $data);
+
+    //     // title dari pdf
+    //     $this->data['title_pdf'] = 'Laporan Kondisi Aset Gedung & Bangunan';
+
+    //     // filename dari pdf ketika didownload
+    //     $file_pdf = 'Kondisi Aset Gedung & Bangunan';
+    //     // setting paper
+    //     $paper = 'A4';
+    //     //orientasi paper potrait / landscape
+    //     $orientation = "landscape";
+
+    //     $html = $this->load->view('admin/kondisi_gedung/laporan', $this->data, true);
+
+    //     // run dompdf
+    //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    // }
 }

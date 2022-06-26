@@ -33,7 +33,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <!-- Input Filter -->
-                            <form action="<?= base_url(); ?>/admin/Perpindahan/filter">
+                            <form action="<?= base_url(); ?>/admin/Kondisi_gedung/filter">
 
                                 <!-- Filter Berdasarkan Tanggal -->
                                 <div class="row">
@@ -50,23 +50,23 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                
 
                                 <!-- Filter Berdasarkan Nama -->
                                 <div class="form-group row">
                                     <label for="" class="col-sm-3">Filter By Nama</label>
                                     <div class="col-sm-3">
-                                        <select name="nama_barang" id="nama_barang" class="form-control select2">
+                                        <select name="nama_gedung" id="nama_gedung" class="form-control select2">
                                             <option value="" selected disabled></option>
-                                            <?php foreach ($nama_barang as $a) : ?>
-                                                <option value="<?= $a['nama_barang']; ?>" <?= (@$_GET['nama_barang'] == $a['nama_barang']) ? 'Selected' : ''; ?>><?= $a['nama_barang']; ?></option>
+                                            <?php foreach ($nama_gedung as $a) : ?>
+                                                <option value="<?= $a['nama_gedung']; ?>" <?= (@$_GET['nama_gedung'] == $a['nama_gedung']) ? 'Selected' : ''; ?>><?= $a['nama_gedung ']; ?></option>
                                             <?php endforeach ?>
                                         </select>
                                     </div>
                                 </div>
                                 <button type="submit" name="filter" value="true" class="btn btn-primary">TAMPILKAN</button>
                                 <?php if (isset($_GET['filter'])) : ?>
-                                    <a href="<?= base_url('admin/perpindahan/filter'); ?>" class="btn btn-default">RESET</a>
+                                    <a href="<?= base_url('admin/kondisi_gedung/filter'); ?>" class="btn btn-default">RESET</a>
                                 <?php endif; ?>
                             </form>
                             <!-- End Input Filter -->
@@ -77,18 +77,18 @@
                                 <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
 
                                 <!-- Cetak Filter Tanggal & Nama -->
-                                <?php if (isset($_GET['nama_barang'])) : ?>
-                                    <form action="<?= base_url('admin/Perpindahan/laporan'); ?>" target="_blank">
-                                        <p>Nama Barang : <?= $nm_barang; ?></p>
+                                <?php if (isset($_GET['nama_gedung'])) : ?>
+                                    <form action="<?= base_url('admin/Kondisi_gedung/laporan'); ?>" target="_blank">
+                                        <p>Nama Barang : <?= $nm_gedung; ?></p>
                                         <input type="hidden" id="tgl_awalcetak" name="tgl_awalcetak" value="<?= @$_GET['tgl_awal'] ?>">
                                         <input type="hidden" id="tgl_akhircetak" name="tgl_akhircetak" value="<?= @$_GET['tgl_akhir'] ?>">
-                                        <input type="hidden" id="nama_barang" name="nama_barang" value="<?= @$_GET['nama_barang'] ?>">
+                                        <input type="hidden" id="nama_gedung" name="nama_gedung" value="<?= @$_GET['nama_gedung'] ?>">
                                         <button type="submit" value="true" class="btn btn-success">Cetak</button>
                                     </form>
                                 <?php else : ?>
 
                                     <!-- Cetak Filter Tanggal -->
-                                    <form action="<?= base_url('admin/Perpindahan/laporan'); ?>" target="_blank">
+                                    <form action="<?= base_url('admin/Kondisi_gedung/laporan'); ?>" target="_blank">
                                         <input type="hidden" id="tgl_awalcetak" name="tgl_awalcetak" value="<?= @$_GET['tgl_awal'] ?>">
                                         <input type="hidden" id="tgl_akhircetak" name="tgl_akhircetak" value="<?= @$_GET['tgl_akhir'] ?>">
                                         <button type="submit" value="true" class="btn btn-success">Cetak</button>
@@ -98,7 +98,7 @@
 
                                 <!-- Cetak Semua Data -->
                                 <p>Cetak Semua Data</p>
-                                <form action="<?= base_url('admin/Perpindahan/laporan'); ?>" target="_blank">
+                                <form action="<?= base_url('admin/Kondisi_gedung/laporan'); ?>" target="_blank">
                                     <button type="submit" value="true" class="btn btn-success">Cetak</button>
                                 </form>
                             <?php endif ?>
@@ -109,30 +109,30 @@
                                 <table id="example1" class="table table-hover table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Nama Barang</th>
-                                            <th>Kode Barang</th>
-                                            <th>Register</th>
-                                            <th>lokasi</th>
-                                            <th>Nama Penanggung Jawab</th>
-                                            <th>Tanggal Perpindahan</th>
-                                        </tr>
+                                    <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Kode</th>
+                                        <th>Bertingkat</th>
+                                        <th>Beton</th>
+                                        <th>Luas</th>
+                                        <th>Kondisi</th>
+                                        <th>Tanggal Masuk</th>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($nama_barang as $index => $brg) : ?>
-                                            <tr>
-                                                <td><?= ++$index; ?></td>
-                                                <td><?= $brg['nama_barang'] ?></td>
-                                                <td><?= $brg['kode_barang'] ?></td>
-                                                <td><?= $brg['register'] ?></td>
-                                                <td><?= $brg['lokasi'] ?></td>
-                                                <td><?= $brg['nama'] ?></td>
-                                                <td><?= $brg['tanggal'] ?></td>
-
-
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
+                                    <?php $i = 1;
+                                    foreach ($kondisi_gedung as $kdg) : ?>
+                                        <tr>
+                                            <td><?= $i++; ?></td>
+                                            <td><?= $kdg['nama_gedung'] ?></td>
+                                            <td><?= $kdg['kode_gedung'] ?></td>
+                                            <td><?= $kdg['tingkat'] ?></td>
+                                            <td><?= $kdg['beton'] ?></td>
+                                            <td><?= $kdg['luas'] ?></td>
+                                            <td><?= $kdg['kondisi'] ?></td>
+                                            <td><?= $kdg['tanggal'] ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
                                 </table>
                             </div>
                         </div>
