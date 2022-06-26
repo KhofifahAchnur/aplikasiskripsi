@@ -29,7 +29,7 @@
                                 Daftar Data Pemeliharaan Aset
                             </h3> -->
                             <a href="<?= base_url('admin/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
-                            <a href="<?= base_url('admin/perawatan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                            <a href="<?= base_url('admin/perawatan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

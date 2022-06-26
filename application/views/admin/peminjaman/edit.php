@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="form-group">
                                 <label>Penanggung Jawab</label>
-                                    <select name="lokasi" class="form-control" id="nama">
+                                    <select name="nama" class="form-control" id="nama">
                                         <?php foreach($penanggung_jawab as $index => $pj): ?>
                                         <option value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
                                         <?php endforeach; ?>

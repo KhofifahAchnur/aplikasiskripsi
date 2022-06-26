@@ -100,19 +100,93 @@ class Perawatan extends CI_Controller
         redirect('admin/perawatan');
     }
 
+    public function filter()
+    {
+        // Mendapatkan nilai input
+        $tgl_awal = $this->input->get('tgl_awal');
+        $tgl_akhir = $this->input->get('tgl_akhir');
+        $nama_barang = $this->input->get('nama_barang');
+
+        $data['judul'] = 'Filter Laporan';
+
+        // Proses Filter
+        if (isset($_GET['filter'])) {
+
+            // Data Filter Berdasarkan Tanggal & Nama
+            if (isset($_GET['nama_barang'])) {
+                $data['rawat'] = $this->M_perawatan->databynama($tgl_awal, $tgl_akhir, $nama_barang);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['nm_barang'] = $nama_barang;
+                $data['nama_barang'] = $this->M_perawatan->nama_tanggal($tgl_awal, $tgl_akhir, $nama_barang);
+            } else {
+
+                // Data Filter Berdasarkan Tanggal
+                // die($data['rawat'] = $this->M_perawatan->databytanggal($tgl_awal, $tgl_akhir));
+                $data['rawat'] = $this->M_perawatan->databytanggal($tgl_awal, $tgl_akhir);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['nama_barang'] = $this->M_perawatan->nama_tanggal($tgl_awal, $tgl_akhir);
+            }
+        } else {
+
+            // Proses Semua data tanpa filter
+            $data['nama_barang'] = $this->M_perawatan->nama_barang();
+            $data['rawat'] = $this->M_perawatan->lihat();
+        }
+
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/topbar');
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/perawatan/filter');
+        $this->load->view('layout/footer');
+    }
+
     public function laporan()
     {
+        // Mendapatkan nilai input
+        $tgl_awalcetak = $this->input->get('tgl_awalcetak');
+        $tgl_akhircetak = $this->input->get('tgl_akhircetak');
+        $nama_barang = $this->input->get('nama_barang');
+
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['rawat'] = $this->M_perawatan->lihat();
-        $this->load->view('admin/perawatan/laporan', $data);
+        // Proses Cetak Filter
+        if ($tgl_awalcetak) {
 
+            // Cetak Filter Berdasarkan Tanggal & Nama
+            if ($nama_barang) {
+                $data['rawat'] = $this->M_perawatan->filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_barang);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['nama_barang'] = $nama_barang;
+            } else {
+
+                // Cetak Filter Berdasarkan Tanggal
+                $data['rawat'] = $this->M_perawatan->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['nama_barang'] = $nama_barang;
+            }
+        } else {
+            // Cetak Semua Data
+            $data['rawat'] = $this->M_perawatan->lihat();
+            $data['tgl_awal'] = null;
+            $data['tgl_akhir'] = null;
+            $data['nama_barang'] = null;
+        }
+
+        // die($tgl_awal);
+        $this->load->view('admin/perawatan/laporan', $data);
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Pemeliharaan Aset Peralatan & Mesin';
+        $this->data['title_pdf'] = 'Laporan perawatan';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Pemeliharaan Aset Peralatan & Mesin';
+        $file_pdf = 'laporan perawatan';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape
@@ -123,4 +197,28 @@ class Perawatan extends CI_Controller
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     }
+
+    // public function laporan()
+    // {
+    //     // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+    //     $this->load->library('pdfgenerator');
+
+    //     $data['rawat'] = $this->M_perawatan->lihat();
+    //     $this->load->view('admin/perawatan/laporan', $data);
+
+    //     // title dari pdf
+    //     $this->data['title_pdf'] = 'Laporan Pemeliharaan Aset Peralatan & Mesin';
+
+    //     // filename dari pdf ketika didownload
+    //     $file_pdf = 'laporan Pemeliharaan Aset Peralatan & Mesin';
+    //     // setting paper
+    //     $paper = 'A4';
+    //     //orientasi paper potrait / landscape
+    //     $orientation = "landscape";
+
+    //     $html = $this->load->view('admin/perawatan/laporan', $this->data, true);
+
+    //     // run dompdf
+    //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    // }
 }

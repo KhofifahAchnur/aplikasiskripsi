@@ -7,6 +7,24 @@ class M_buku extends CI_model
         return $this->db->get('buku')->result_array();
     }
 
+    public function nama_buku()
+    {
+        $this->db->select('nama_buku');
+        $this->db->from('buku');
+        $this->db->group_by('nama_buku');
+        return $this->db->get()->result_array();
+    }
+
+    public function nama_tanggal($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('nama_buku');
+        $this->db->from('buku');
+        $this->db->where("tanggal_masuk >=", "$tgl_awal");
+        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
+        $this->db->group_by('nama_buku');
+        return $this->db->get()->result_array();
+    }
+
     public function proses_tambah()
     {
         $data = [
@@ -25,22 +43,9 @@ class M_buku extends CI_model
         $this->db->insert('buku', $data);
     }
 
-    public function tampilbuku()
-    {
-        $this->db->select('buku.nama_buku, buku.kode_buku, buku.register, buku.judul, buku.kondisi');
-        $this->db->from('buku');
-        $this->db->order_by('buku.id_buku', 'DESC');
-        return $this->db->get()->result_array();
-    }
-
     public function getBrgById($id)
     {
         return $this->db->get_where('buku', ['id_buku' => $id])->row_array();
-    }
-
-    public function getBrgByIdCetak($id)
-    {
-        return $this->db->get_where('buku', ['id_buku' => $id])->result_array();
     }
 
     public function edit_buku($id)
@@ -78,6 +83,24 @@ class M_buku extends CI_model
     public function databytanggal($tgl_awal, $tgl_akhir)
     {
         $this->db->from('buku');
+        $this->db->where("tanggal_masuk >=", "$tgl_awal");
+        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
+
+    public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama)
+    {
+        $this->db->from('buku');
+        $this->db->where("buku.nama_buku", "$nama");
+        $this->db->where("tanggal_masuk >=", "$tgl_awalcetak");
+        $this->db->where("tanggal_masuk <=", "$tgl_akhircetak");
+        return $this->db->get()->result_array();
+    }
+
+    public function databynama($tgl_awal, $tgl_akhir, $nama)
+    {
+        $this->db->from('buku');
+        $this->db->where("buku.nama_buku", "$nama");
         $this->db->where("tanggal_masuk >=", "$tgl_awal");
         $this->db->where("tanggal_masuk <=", "$tgl_akhir");
         return $this->db->get()->result_array();

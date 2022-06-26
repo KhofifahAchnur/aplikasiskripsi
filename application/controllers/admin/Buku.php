@@ -109,12 +109,27 @@ class Buku extends CI_Controller
     {
         $tgl_awal = $this->input->get('tgl_awal');
         $tgl_akhir = $this->input->get('tgl_akhir');
+        $nama = $this->input->get('nama');
 
+        // die($nama);
         $data['judul'] = 'Filter Laporan';
-        // $data['aset'] = $this->M_masteraset->lihat();
-        $data['buku'] = $this->M_buku->databytanggal($tgl_awal, $tgl_akhir);
-        $data['tgl_awal'] = $tgl_awal;
-        $data['tgl_akhir'] = $tgl_akhir;
+        if (isset($_GET['filter'])) {
+            if (isset($_GET['nama'])) {
+                $data['buku'] = $this->M_buku->databynama($tgl_awal, $tgl_akhir, $nama);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['nm_buku'] = $nama;
+                $data['nama'] = $this->M_buku->nama_tanggal($tgl_awal, $tgl_akhir, $nama);
+            } else {
+                $data['buku'] = $this->M_buku->databytanggal($tgl_awal, $tgl_akhir);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['nama'] = $this->M_buku->nama_tanggal($tgl_awal, $tgl_akhir, $nama);
+            }
+        } else {
+            $data['nama'] = $this->M_buku->nama_buku();
+            $data['buku'] = $this->M_buku->lihat();
+        }
         // $data['aset'] = $this->M_masteraset->lihat();
 
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -131,12 +146,27 @@ class Buku extends CI_Controller
     {
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
+        $nama_barang = $this->input->get('nama_barang');
+
+
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
-
-        $data['buku'] = $this->M_buku->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
-        $data['tgl_awal'] = $tgl_awalcetak;
-        $data['tgl_akhir'] = $tgl_akhircetak;
+        if ($tgl_awalcetak) {
+            if ($nama_barang) {
+                $data['buku'] = $this->M_buku->filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_barang);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['nama'] = $nama_barang;
+            } else {
+                $data['buku'] = $this->M_buku->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+            }
+        } else {
+            $data['buku'] = $this->M_buku->lihat();
+            $data['tgl_awal'] = null;
+            $data['tgl_akhir'] = null;
+        }
         $this->load->view('admin/buku/laporan', $data);
 
         // title dari pdf

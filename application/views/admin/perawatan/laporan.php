@@ -70,6 +70,16 @@
     <p align="center">
         <strong>LAPORAN PEMELIHARAAN ASET PERALATAN & MESIN</strong>
     </p>
+    <?php if ($this->session->userdata('hak_akses') == 1) : ?>
+        <?php if ($tgl_awal) : ?>
+            <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
+            <?php if ($nama_barang) : ?>
+                <p>Filter By Nama Barang : <?= $nama_barang; ?></p>
+            <?php endif ?>
+        <?php else : ?>
+            <p>Tanggal : Semua Data</p>
+        <?php endif ?>
+    <?php endif ?>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>

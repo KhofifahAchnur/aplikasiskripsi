@@ -112,12 +112,14 @@ class MasterAset extends CI_Controller
                 $data['aset'] = $this->M_masteraset->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
                 $data['tgl_awal'] = $tgl_awalcetak;
                 $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['nama'] = $nama_barang;
             }
         } else {
             // Cetak Semua Data
             $data['aset'] = $this->M_masteraset->lihat();
             $data['tgl_awal'] = null;
             $data['tgl_akhir'] = null;
+            $data['nama'] = null;
         }
 
         // die($tgl_awal);

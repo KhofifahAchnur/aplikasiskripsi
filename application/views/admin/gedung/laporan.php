@@ -70,7 +70,14 @@
     <p align="center">
         <strong>LAPORAN ASET GEDUNG & BANGUNAN</strong>
     </p>
-    <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
+    <?php if ($tgl_awal) : ?>
+        <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
+    <?php if ($nama_gedung) : ?>
+            <p>Filter By Nama Gedung : <?= $nama_gedung; ?></p>
+        <?php endif ?>
+    <?php else : ?>
+        <p>Tanggal : Semua Data</p>
+    <?php endif ?>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>

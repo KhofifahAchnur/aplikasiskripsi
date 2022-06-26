@@ -54,10 +54,7 @@
                                     foreach ($buku as $brg) : ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
-                                            <td>
-                                                <a href="<?= base_url(); ?>admin/hbuku/index/<?= $brg['id_buku']; ?>"><i><?= $brg['nama_buku'] ?></i></a>
-                                            </td>
-                                            <!-- <td><?= $brg['nama_buku'] ?></td> -->
+                                            <td><?= $brg['nama_buku'] ?></td>
                                             <td><?= $brg['kode_buku'] ?></td>
                                             <td><?= $brg['register'] ?></td>
                                             <td><?= $brg['judul'] ?></td>
@@ -70,7 +67,6 @@
                                             <td style="width: 100px;" class="text-center">
                                                 <a href= "<?= base_url(); ?>admin/buku/edit/<?= $brg['id_buku']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>admin/buku/hapus/<?= $brg['id_buku']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
-                                                <a href="<?= base_url(); ?>admin/kondisi_buku/tambah/<?= $brg['id_buku']; ?>" class="badge badge-pill badge-primary">UBAH KONDISI</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

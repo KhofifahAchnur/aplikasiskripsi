@@ -611,6 +611,22 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="<?= base_url('admin/pbaru/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Pengajuan Aset Baru</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/perpindahan/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Pindah Aset Baru</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
                             <a href="<?= base_url('admin/buku/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Aset Perpustakaan</p>

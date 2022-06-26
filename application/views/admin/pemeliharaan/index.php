@@ -28,7 +28,7 @@
                             <!-- <h3 class="card-title">
                                 Daftar Data Pemeliharaan Aset Gedung & Bangunan
                             </h3> -->
-                            <a href="<?= base_url('admin/pemeliharaan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                            <a href="<?= base_url('admin/pemeliharaan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                             <a href="<?= base_url('admin/pemeliharaan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->
@@ -37,8 +37,8 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Barang</th>
-                                        <th>Kode Barang</th>
+                                        <th>Nama Gedung</th>
+                                        <th>Kode Gedung</th>
                                         <th>Register</th>
                                         <th>Lokasi</th>
                                         <th>Penanggung Jawab</th>

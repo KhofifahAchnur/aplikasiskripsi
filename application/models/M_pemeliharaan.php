@@ -78,4 +78,74 @@ class M_pemeliharaan extends CI_model
         $this->db->where('id_pemeliharaan', $id);
         $this->db->delete('pemeliharaan');
 }
+
+public function nama_gedung()
+    {
+        $this->db->select('nama_gedung');
+        $this->db->from('pemeliharaan');
+        $this->db->join('gedung', 'gedung.id_gedung = pemeliharaan.gedung_id ');
+        $this->db->group_by('nama_gedung');
+        return $this->db->get()->result_array();
+    }
+
+    public function nama_tanggal($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('nama_gedung');
+        $this->db->from('pemeliharaan');
+        $this->db->join('gedung', 'gedung.id_gedung = pemeliharaan.gedung_id ');
+        $this->db->where("tgl_pemeliharaan >=", "$tgl_awal");
+        $this->db->where("tgl_pemeliharaan <=", "$tgl_akhir");
+        $this->db->group_by('nama_gedung');
+        return $this->db->get()->result_array();
+    }
+
+    public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
+    {
+        $this->db->select('pemeliharaan.id_pemeliharaan, gedung.nama_gedung, gedung.kode_gedung, gedung.register, gedung.lokasi, penanggung_jawab.nama, pemeliharaan.jenis, pemeliharaan.biaya, pemeliharaan.tgl_pemeliharaan, pemeliharaan.tgl_selesai');
+        $this->db->from('pemeliharaan');
+        $this->db->join('gedung', 'gedung.id_gedung = pemeliharaan.gedung_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pemeliharaan.penanggung_jawab_id');
+        $this->db->order_by('pemeliharaan.id_pemeliharaan', 'DESC');
+        $this->db->where("tgl_pemeliharaan >=", "$tgl_awalcetak");
+        $this->db->where("tgl_pemeliharaan <=", "$tgl_akhircetak");
+        return $this->db->get()->result_array();
+    }
+
+    public function databytanggal($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('pemeliharaan.id_pemeliharaan, gedung.nama_gedung, gedung.kode_gedung, gedung.register, gedung.lokasi, penanggung_jawab.nama, pemeliharaan.jenis, pemeliharaan.biaya, pemeliharaan.tgl_pemeliharaan, pemeliharaan.tgl_selesai');
+        $this->db->from('pemeliharaan');
+        $this->db->join('gedung', 'gedung.id_gedung = pemeliharaan.gedung_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pemeliharaan.penanggung_jawab_id');
+        $this->db->order_by('pemeliharaan.id_pemeliharaan', 'DESC');
+        $this->db->where("tgl_pemeliharaan >=", "$tgl_awal");
+        $this->db->where("tgl_pemeliharaan <=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
+
+    public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_gedung)
+    {
+        $this->db->select('pemeliharaan.id_pemeliharaan, gedung.nama_gedung, gedung.kode_gedung, gedung.register, gedung.lokasi, penanggung_jawab.nama, pemeliharaan.jenis, pemeliharaan.biaya, pemeliharaan.tgl_pemeliharaan, pemeliharaan.tgl_selesai');
+        $this->db->from('pemeliharaan');
+        $this->db->join('gedung', 'gedung.id_gedung = pemeliharaan.gedung_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pemeliharaan.penanggung_jawab_id');
+        $this->db->order_by('pemeliharaan.id_pemeliharaan', 'DESC');
+        $this->db->where("gedung.nama_gedung", "$nama_gedung");
+        $this->db->where("tgl_pemeliharaan >=", "$tgl_awalcetak");
+        $this->db->where("tgl_pemeliharaan <=", "$tgl_akhircetak");
+        return $this->db->get()->result_array();
+    }
+
+    public function databynama($tgl_awal, $tgl_akhir, $nama_gedung)
+    {
+        $this->db->select('pemeliharaan.id_pemeliharaan, gedung.nama_gedung, gedung.kode_gedung, gedung.register, gedung.lokasi, penanggung_jawab.nama, pemeliharaan.jenis, pemeliharaan.biaya, pemeliharaan.tgl_pemeliharaan, pemeliharaan.tgl_selesai');
+        $this->db->from('pemeliharaan');
+        $this->db->join('gedung', 'gedung.id_gedung = pemeliharaan.gedung_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pemeliharaan.penanggung_jawab_id');
+        $this->db->order_by('pemeliharaan.id_pemeliharaan', 'DESC');
+        $this->db->where("gedung.nama_gedung", "$nama_gedung");
+        $this->db->where("tgl_pemeliharaan >=", "$tgl_awal");
+        $this->db->where("tgl_pemeliharaan <=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
 }

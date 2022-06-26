@@ -86,4 +86,78 @@ class M_perawatan extends CI_model
         $this->db->where('id_rawat', $id);
         $this->db->delete('perawatan');
     }
+
+    public function nama_barang()
+    {
+        $this->db->select('nama_barang');
+        $this->db->from('perawatan');
+        $this->db->join('aset', 'aset.id = perawatan.aset_id ');
+        $this->db->group_by('nama_barang');
+        return $this->db->get()->result_array();
+    }
+
+    public function nama_tanggal($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('nama_barang');
+        $this->db->from('perawatan');
+        $this->db->join('aset', 'aset.id = perawatan.aset_id ');
+        $this->db->where("tgl_rawat >=", "$tgl_awal");
+        $this->db->where("tgl_rawat <=", "$tgl_akhir");
+        $this->db->group_by('nama_barang');
+        return $this->db->get()->result_array();
+    }
+
+    public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
+    {
+        $this->db->select('perawatan.id_rawat, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, perawatan.jenis, perawatan.biaya, perawatan.tgl_rawat, perawatan.tgl_selesai');
+        $this->db->from('perawatan');
+        $this->db->join('aset', 'aset.id = perawatan.aset_id ');
+        $this->db->join('lokasi', 'lokasi.id = perawatan.lokasi_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = perawatan.penanggung_jawab_id');
+        $this->db->order_by('perawatan.id_rawat', 'DESC');
+        $this->db->where("tgl_rawat >=", "$tgl_awalcetak");
+        $this->db->where("tgl_rawat <=", "$tgl_akhircetak");
+        return $this->db->get()->result_array();
+    }
+
+    public function databytanggal($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('perawatan.id_rawat, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, perawatan.jenis, perawatan.biaya, perawatan.tgl_rawat, perawatan.tgl_selesai');
+        $this->db->from('perawatan');
+        $this->db->join('aset', 'aset.id = perawatan.aset_id ');
+        $this->db->join('lokasi', 'lokasi.id = perawatan.lokasi_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = perawatan.penanggung_jawab_id');
+        $this->db->order_by('perawatan.id_rawat', 'DESC');
+        $this->db->where("tgl_rawat >=", "$tgl_awal");
+        $this->db->where("tgl_rawat <=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
+
+    public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_barang)
+    {
+        $this->db->select('perawatan.id_rawat, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, perawatan.jenis, perawatan.biaya, perawatan.tgl_rawat, perawatan.tgl_selesai');
+        $this->db->from('perawatan');
+        $this->db->join('aset', 'aset.id = perawatan.aset_id ');
+        $this->db->join('lokasi', 'lokasi.id = perawatan.lokasi_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = perawatan.penanggung_jawab_id');
+        $this->db->order_by('perawatan.id_rawat', 'DESC');
+        $this->db->where("aset.nama_barang", "$nama_barang");
+        $this->db->where("tgl_rawat >=", "$tgl_awalcetak");
+        $this->db->where("tgl_rawat <=", "$tgl_akhircetak");
+        return $this->db->get()->result_array();
+    }
+
+    public function databynama($tgl_awal, $tgl_akhir, $nama_barang)
+    {
+        $this->db->select('perawatan.id_rawat, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, perawatan.jenis, perawatan.biaya, perawatan.tgl_rawat, perawatan.tgl_selesai');
+        $this->db->from('perawatan');
+        $this->db->join('aset', 'aset.id = perawatan.aset_id ');
+        $this->db->join('lokasi', 'lokasi.id = perawatan.lokasi_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = perawatan.penanggung_jawab_id');
+        $this->db->order_by('perawatan.id_rawat', 'DESC');
+        $this->db->where("aset.nama_barang", "$nama_barang");
+        $this->db->where("tgl_rawat >=", "$tgl_awal");
+        $this->db->where("tgl_rawat <=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
 }

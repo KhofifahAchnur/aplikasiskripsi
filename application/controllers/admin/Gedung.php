@@ -111,12 +111,27 @@ class Gedung extends CI_Controller
     {
         $tgl_awal = $this->input->get('tgl_awal');
         $tgl_akhir = $this->input->get('tgl_akhir');
+        $nama_gedung = $this->input->get('nama_gedung');
 
         $data['judul'] = 'Filter Laporan';
-        // $data['aset'] = $this->M_masteraset->lihat();
-        $data['gedung'] = $this->M_gedung->databytanggal($tgl_awal, $tgl_akhir);
-        $data['tgl_awal'] = $tgl_awal;
-        $data['tgl_akhir'] = $tgl_akhir;
+        if (isset($_GET['filter'])) {
+            if (isset($_GET['nama_gedung'])) {
+                $data['gedung'] = $this->M_gedung->databynama($tgl_awal, $tgl_akhir, $nama_gedung);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['nm_gedung'] = $nama_gedung;
+                $data['nama_gedung'] = $this->M_gedung->nama_tanggal($tgl_awal, $tgl_akhir, $nama_gedung);
+            } else {
+
+                $data['gedung'] = $this->M_gedung->databytanggal($tgl_awal, $tgl_akhir);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['nama_gedung'] = $this->M_gedung->nama_tanggal($tgl_awal, $tgl_akhir, $nama_gedung);
+            }
+        } else {
+            $data['nama_gedung'] = $this->M_gedung->nama_gedung();
+            $data['gedung'] = $this->M_gedung->lihat();
+        }
         // $data['aset'] = $this->M_masteraset->lihat();
 
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -133,12 +148,29 @@ class Gedung extends CI_Controller
     {
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
+        $nama_gedung = $this->input->get('nama_gedung');
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
+        if ($tgl_awalcetak) {
 
-        $data['gedung'] = $this->M_gedung->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
-        $data['tgl_awal'] = $tgl_awalcetak;
-        $data['tgl_akhir'] = $tgl_akhircetak;
+            if ($nama_gedung) {
+                $data['gedung'] = $this->M_gedung->filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_gedung);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['nama_gedung'] = $nama_gedung;
+            } else {
+
+            $data['gedung'] = $this->M_gedung->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+            $data['tgl_awal'] = $tgl_awalcetak;
+            $data['tgl_akhir'] = $tgl_akhircetak;
+            $data['nama_gedung'] = $nama_gedung;
+            }
+        } else {
+            $data['gedung'] = $this->M_gedung->lihat();
+            $data['tgl_awal'] = null;
+            $data['tgl_akhir'] = null;
+            $data['nama_gedung'] = null;
+        }
         $this->load->view('admin/gedung/laporan', $data);
 
         // title dari pdf

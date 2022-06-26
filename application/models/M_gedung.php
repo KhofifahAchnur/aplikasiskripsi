@@ -74,6 +74,24 @@ class M_gedung extends CI_model
         $this->db->delete('gedung');
     }
 
+    public function nama_gedung()
+    {
+        $this->db->select('nama_gedung');
+        $this->db->from('gedung');
+        $this->db->group_by('nama_gedung');
+        return $this->db->get()->result_array();
+    }
+
+    public function nama_tanggal($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('nama_gedung');
+        $this->db->from('gedung');
+        $this->db->where("tanggal_masuk >=", "$tgl_awal");
+        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
+        $this->db->group_by('nama_gedung');
+        return $this->db->get()->result_array();
+    }
+
     public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
     {
         $this->db->from('gedung');
@@ -87,6 +105,24 @@ class M_gedung extends CI_model
         $this->db->from('gedung');
         $this->db->where("tanggal_masuk >=", "$tgl_awal");
         $this->db->where("tanggal_masuk <=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
+
+    public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_gedung)
+    {
+        $this->db->from('gedung');
+        $this->db->where("tanggal_masuk >=", "$tgl_awalcetak");
+        $this->db->where("tanggal_masuk <=", "$tgl_akhircetak");
+        $this->db->where("nama_gedung", "$nama_gedung" );
+        return $this->db->get()->result_array();
+    }
+
+    public function databynama($tgl_awal, $tgl_akhir, $nama_gedung)
+    {
+        $this->db->from('gedung');
+        $this->db->where("tanggal_masuk >=", "$tgl_awal");
+        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
+        $this->db->where("nama_gedung", "$nama_gedung" );
         return $this->db->get()->result_array();
     }
 
