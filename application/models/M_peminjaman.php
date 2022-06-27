@@ -83,4 +83,78 @@ class M_peminjaman extends CI_model
         $this->db->where('id_pinjam', $id);
         $this->db->delete('peminjaman');
     }
+
+    public function nama_barang()
+    {
+        $this->db->select('nama_barang');
+        $this->db->from('peminjaman');
+        $this->db->join('aset', 'aset.id = peminjaman.aset_id ');
+        $this->db->group_by('nama_barang');
+        return $this->db->get()->result_array();
+    }
+
+    public function nama_tanggal($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('nama_barang');
+        $this->db->from('peminjaman');
+        $this->db->join('aset', 'aset.id = peminjaman.aset_id ');
+        $this->db->where("tgl_pinjam >=", "$tgl_awal");
+        $this->db->where("tgl_pinjam <=", "$tgl_akhir");
+        $this->db->group_by('nama_barang');
+        return $this->db->get()->result_array();
+    }
+
+    public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
+    {
+        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, peminjaman.keperluan, penanggung_jawab.nama, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
+        $this->db->from('peminjaman');
+        $this->db->join('aset', 'aset.id = peminjaman.aset_id');
+        $this->db->join('lokasi', 'lokasi.id = peminjaman.lokasi_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = peminjaman.penanggung_jawab_id');
+        $this->db->order_by('peminjaman.id_pinjam', 'DESC');
+        $this->db->where("tgl_pinjam >=", "$tgl_awalcetak");
+        $this->db->where("tgl_pinjam <=", "$tgl_akhircetak");
+        return $this->db->get()->result_array();
+    }
+
+    public function databytanggal($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, peminjaman.keperluan, penanggung_jawab.nama, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
+        $this->db->from('peminjaman');
+        $this->db->join('aset', 'aset.id = peminjaman.aset_id');
+        $this->db->join('lokasi', 'lokasi.id = peminjaman.lokasi_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = peminjaman.penanggung_jawab_id');
+        $this->db->order_by('peminjaman.id_pinjam', 'DESC');
+        $this->db->where("tgl_pinjam >=", "$tgl_awal");
+        $this->db->where("tgl_pinjam <=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
+
+    public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_barang)
+    {
+        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, peminjaman.keperluan, penanggung_jawab.nama, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
+        $this->db->from('peminjaman');
+        $this->db->join('aset', 'aset.id = peminjaman.aset_id');
+        $this->db->join('lokasi', 'lokasi.id = peminjaman.lokasi_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = peminjaman.penanggung_jawab_id');
+        $this->db->order_by('peminjaman.id_pinjam', 'DESC');
+        $this->db->where("aset.nama_barang", "$nama_barang");
+        $this->db->where("tgl_pinjam >=", "$tgl_awalcetak");
+        $this->db->where("tgl_pinjam <=", "$tgl_akhircetak");
+        return $this->db->get()->result_array();
+    }
+
+    public function databynama($tgl_awal, $tgl_akhir, $nama_barang)
+    {
+        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, peminjaman.keperluan, penanggung_jawab.nama, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
+        $this->db->from('peminjaman');
+        $this->db->join('aset', 'aset.id = peminjaman.aset_id');
+        $this->db->join('lokasi', 'lokasi.id = peminjaman.lokasi_id');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = peminjaman.penanggung_jawab_id');
+        $this->db->order_by('peminjaman.id_pinjam', 'DESC');
+        $this->db->where("aset.nama_barang", "$nama_barang");
+        $this->db->where("tgl_pinjam >=", "$tgl_awal");
+        $this->db->where("tgl_pinjam <=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
 }

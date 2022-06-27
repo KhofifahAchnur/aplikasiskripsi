@@ -73,7 +73,7 @@
     <?php if ($tgl_awal) : ?>
         <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
     <?php if ($aset) : ?>
-            <p>Filter By Nama Aset : <?= $aset; ?></p>
+            <p>Filter By Nama : <?= $aset; ?></p>
         <?php endif ?>
     <?php else : ?>
         <p>Tanggal : Semua Data</p>

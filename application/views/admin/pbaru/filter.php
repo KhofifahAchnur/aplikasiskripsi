@@ -32,7 +32,7 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="<?= base_url(); ?>/admin/pbaru/filter">
+                            <form action="<?= base_url(); ?>/admin/Pbaru/filter">
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
@@ -72,7 +72,7 @@
                                     <!-- Cetak Filter Tanggal & Nama -->
                                 <?php if (isset($_GET['aset'])) : ?>
                                     <form action="<?= base_url('admin/Pbaru/laporan'); ?>" target="_blank">
-                                        <p>Nama Aset : <?= $baru; ?></p>
+                                        <p>Nama aset : <?= $nm_aset; ?></p>
                                         <input type="hidden" id="tgl_awalcetak" name="tgl_awalcetak" value="<?= @$_GET['tgl_awal'] ?>">
                                         <input type="hidden" id="tgl_akhircetak" name="tgl_akhircetak" value="<?= @$_GET['tgl_akhir'] ?>">
                                         <input type="hidden" id="aset" name="aset" value="<?= @$_GET['aset'] ?>">
@@ -90,7 +90,7 @@
 
                                 <!-- Cetak Semua Data -->
                                 <p>Cetak Semua Data</p>
-                                <form action="<?= base_url('admin/pbaru/laporan'); ?>" target="_blank">
+                                <form action="<?= base_url('admin/Pbaru/laporan'); ?>" target="_blank">
                                     <button type="submit" value="true" class="btn btn-success">Cetak</button>
                                 </form>
                             <?php endif ?>
@@ -101,7 +101,7 @@
                                     <thead>
                                         <tr>
                                         <th>No</th>
-                                        <th>Nama Aset</th>
+                                        <th>Nama</th>
                                         <th>Deskripsi</th>
                                         <th>Lokasi</th>
                                         <th>Penanggung Jawab</th>

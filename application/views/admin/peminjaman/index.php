@@ -28,7 +28,7 @@
                             <!-- <h3 class="card-title">
                                 Daftar Data Peminjaman Aset Peralatan & Mesin
                             </h3> -->
-                            <a href="<?= base_url('admin/peminjaman/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                            <a href="<?= base_url('admin/peminjaman/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                             <a href="<?= base_url('admin/peminjaman/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->

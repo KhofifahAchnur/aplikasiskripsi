@@ -82,8 +82,6 @@ class M_pbaru extends CI_model
     {
         $this->db->select('aset');
         $this->db->from('pengajuan');
-        $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
-        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
         $this->db->where_in('jenis',array('Aset Baru'));
         $this->db->group_by('aset');
         return $this->db->get()->result_array();
@@ -93,62 +91,65 @@ class M_pbaru extends CI_model
     {
         $this->db->select('aset');
         $this->db->from('pengajuan');
-        $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
-        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
         $this->db->where_in('jenis',array('Aset Baru'));
-        $this->db->where("tanggal_masuk >=", "$tgl_awal");
-        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
+        $this->db->where("tanggal>=", "$tgl_awal");
+        $this->db->where("tanggal<=", "$tgl_akhir");
         $this->db->group_by('aset');
         return $this->db->get()->result_array();
     }
 
+
     public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
     {
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
-        $this->db->order_by('pengajuan.id', 'DESC');
-        $this->db->where("tanggal_masuk >=", "$tgl_awalcetak");
-        $this->db->where("tanggal_masuk <=", "$tgl_akhircetak");
         $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->order_by('pengajuan.id', 'DESC');
+        $this->db->where("tanggal>=", "$tgl_awalcetak");
+        $this->db->where("tanggal<=", "$tgl_akhircetak");
         return $this->db->get()->result_array();
     }
 
     public function databytanggal($tgl_awal, $tgl_akhir)
     {
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
-        $this->db->order_by('pengajuan.id', 'DESC');
-        $this->db->where("tanggal_masuk >=", "$tgl_awal");
-        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
         $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->order_by('pengajuan.id', 'DESC');
+        $this->db->where("tanggal>=", "$tgl_awal");
+        $this->db->where("tanggal<=", "$tgl_akhir");
         return $this->db->get()->result_array();
     }
 
     public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $aset)
     {
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
-        $this->db->order_by('pengajuan.id', 'DESC');
-        $this->db->where("pengajuan.aset", "$aset" );
-        $this->db->where("tanggal_masuk >=", "$tgl_awalcetak");
-        $this->db->where("tanggal_masuk <=", "$tgl_akhircetak");
         $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->order_by('pengajuan.id', 'DESC');
+        $this->db->where("pengajuan.aset", "$aset");
+        $this->db->where("tanggal>=", "$tgl_awalcetak");
+        $this->db->where("tanggal<=", "$tgl_akhircetak");
         return $this->db->get()->result_array();
     }
 
     public function databynama($tgl_awal, $tgl_akhir, $aset)
     {
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
-        $this->db->order_by('pengajuan.id', 'DESC');
-        $this->db->where("pengajuan.aset", "$aset" );
-        $this->db->where("tanggal_masuk >=", "$tgl_awal");
-        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
         $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->order_by('pengajuan.id', 'DESC');
+        $this->db->where("pengajuan.aset", "$aset");
+        $this->db->where("tanggal>=", "$tgl_awal");
+        $this->db->where("tanggal<=", "$tgl_akhir");
         return $this->db->get()->result_array();
     }
 

@@ -76,23 +76,23 @@ class Perpindahan extends CI_Controller
 
             // Data Filter Berdasarkan Tanggal & Nama
             if (isset($_GET['nama_barang'])) {
-                $data['barang'] = $this->M_perpindahan->databynama($tgl_awal, $tgl_akhir, $nama_barang);
+                $data['nama_barang'] = $this->M_perpindahan->databynama($tgl_awal, $tgl_akhir, $nama_barang);
                 $data['tgl_awal'] = $tgl_awal;
                 $data['tgl_akhir'] = $tgl_akhir;
                 $data['nm_barang'] = $nama_barang;
-                $data['nama_barang'] = $this->M_perpindahan->nama_tanggal($tgl_awal, $tgl_akhir, $nama_barang);
+                $data['nama'] = $this->M_perpindahan->nama_tanggal($tgl_awal, $tgl_akhir, $nama_barang);
             } else {
 
                 // Data Filter Berdasarkan Tanggal
-                $data['barang'] = $this->M_perpindahan->databytanggal($tgl_awal, $tgl_akhir);
+                $data['nama_barang'] = $this->M_perpindahan->databytanggal($tgl_awal, $tgl_akhir);
                 $data['tgl_awal'] = $tgl_awal;
                 $data['tgl_akhir'] = $tgl_akhir;
-                $data['nama_barang'] = $this->M_perpindahan->nama_tanggal($tgl_awal, $tgl_akhir);
+                $data['nama'] = $this->M_perpindahan->nama_tanggal($tgl_awal, $tgl_akhir);
             }
         } else {
 
             // Proses Semua data tanpa filter
-            $data['nama_barang'] = $this->M_perpindahan->nama_barang();
+            $data['nama'] = $this->M_perpindahan->nama_barang();
             $data['nama_barang'] = $this->M_perpindahan->lihat();
         }
 
@@ -121,20 +121,20 @@ class Perpindahan extends CI_Controller
 
             // Cetak Filter Berdasarkan Tanggal & Nama
             if ($nama_barang) {
-                $data['barang'] = $this->M_perpindahan->filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_barang);
+                $data['nama_barang'] = $this->M_perpindahan->filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_barang);
                 $data['tgl_awal'] = $tgl_awalcetak;
                 $data['tgl_akhir'] = $tgl_akhircetak;
-                $data['nama_barang'] = $nama_barang;
+                $data['nama'] = $nama_barang;
             } else {
 
                 // Cetak Filter Berdasarkan Tanggal
-                $data['barang'] = $this->M_perpindahan->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+                $data['nama_barang'] = $this->M_perpindahan->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
                 $data['tgl_awal'] = $tgl_awalcetak;
                 $data['tgl_akhir'] = $tgl_akhircetak;
             }
         } else {
             // Cetak Semua Data
-            $data['barang'] = $this->M_perpindahan->lihat();
+            $data['nama_barang'] = $this->M_perpindahan->lihat();
             $data['tgl_awal'] = null;
             $data['tgl_akhir'] = null;
         }

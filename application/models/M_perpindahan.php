@@ -128,7 +128,7 @@ class M_perpindahan extends CI_model
         $this->db->join('lokasi', 'lokasi.id = history_perpindahan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = lokasi.penanggung_jawab_id');
         $this->db->order_by('history_perpindahan.id', 'DESC');
-        $this->db->where("history_perpindahan.aset_id", "$nama_barang");
+        $this->db->where("aset.nama_barang", "$nama_barang");
         $this->db->where("tanggal>=", "$tgl_awalcetak");
         $this->db->where("tanggal<=", "$tgl_akhircetak");
         return $this->db->get()->result_array();
@@ -143,7 +143,7 @@ class M_perpindahan extends CI_model
         $this->db->join('lokasi', 'lokasi.id = history_perpindahan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = lokasi.penanggung_jawab_id');
         $this->db->order_by('history_perpindahan.id', 'DESC');
-        $this->db->where("history_perpindahan.aset_id", "$nama_barang");
+        $this->db->where("aset.nama_barang", "$nama_barang");
         $this->db->where("tanggal>=", "$tgl_awal");
         $this->db->where("tanggal<=", "$tgl_akhir");
         return $this->db->get()->result_array();

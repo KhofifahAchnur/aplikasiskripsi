@@ -114,30 +114,38 @@ class Pbaru extends CI_Controller
 
     public function filter()
     {
+        // Mendapatkan nilai input
         $tgl_awal = $this->input->get('tgl_awal');
         $tgl_akhir = $this->input->get('tgl_akhir');
-        $paset = $this->input->get('paset');
+        $aset = $this->input->get('aset');
 
         $data['judul'] = 'Filter Laporan';
+
+        // Proses Filter
         if (isset($_GET['filter'])) {
+
+            // Data Filter Berdasarkan Tanggal & Nama
             if (isset($_GET['aset'])) {
-                $data['pbaru'] = $this->M_pbaru->databynama($tgl_awal, $tgl_akhir, $paset);
+                $data['pbaru'] = $this->M_pbaru->databynama($tgl_awal, $tgl_akhir, $aset);
                 $data['tgl_awal'] = $tgl_awal;
                 $data['tgl_akhir'] = $tgl_akhir;
-                $data['baru'] = $paset;
-                $data['paset'] = $this->M_pbaru->nama_tanggal($tgl_awal, $tgl_akhir, $paset);
+                $data['nm_aset'] = $aset;
+                $data['aset'] = $this->M_pbaru->nama_tanggal($tgl_awal, $tgl_akhir, $aset);
             } else {
 
+                // Data Filter Berdasarkan Tanggal
+                // die($data['pbaru'] = $this->M_pbaru->databytanggal($tgl_awal, $tgl_akhir));
                 $data['pbaru'] = $this->M_pbaru->databytanggal($tgl_awal, $tgl_akhir);
                 $data['tgl_awal'] = $tgl_awal;
                 $data['tgl_akhir'] = $tgl_akhir;
-                $data['paset'] = $this->M_pbaru->nama_tanggal($tgl_awal, $tgl_akhir, $paset);
+                $data['lokasi'] = $this->M_pbaru->nama_tanggal($tgl_awal, $tgl_akhir);
             }
         } else {
+
+            // Proses Semua data tanpa filter
             $data['aset'] = $this->M_pbaru->aset();
             $data['pbaru'] = $this->M_pbaru->lihat();
         }
-        // $data['aset'] = $this->M_masteraset->lihat();
 
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -151,13 +159,18 @@ class Pbaru extends CI_Controller
 
     public function laporan()
     {
+        // Mendapatkan nilai input
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
         $aset = $this->input->get('aset');
+
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
+
+        // Proses Cetak Filter
         if ($tgl_awalcetak) {
 
+            // Cetak Filter Berdasarkan Tanggal & Nama
             if ($aset) {
                 $data['pbaru'] = $this->M_pbaru->filterbynama($tgl_awalcetak, $tgl_akhircetak, $aset);
                 $data['tgl_awal'] = $tgl_awalcetak;
@@ -165,22 +178,27 @@ class Pbaru extends CI_Controller
                 $data['aset'] = $aset;
             } else {
 
-            $data['pbaru'] = $this->M_pbaru->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
-            $data['tgl_awal'] = $tgl_awalcetak;
-            $data['tgl_akhir'] = $tgl_akhircetak;
+                // Cetak Filter Berdasarkan Tanggal
+                $data['pbaru'] = $this->M_pbaru->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['aset'] = $aset;
             }
         } else {
+            // Cetak Semua Data
             $data['pbaru'] = $this->M_pbaru->lihat();
             $data['tgl_awal'] = null;
             $data['tgl_akhir'] = null;
+            $data['aset'] = null;
         }
-        $this->load->view('admin/pbaru/laporan', $data);
 
+        // die($tgl_awal);
+        $this->load->view('admin/pbaru/laporan', $data);
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Pengajuan Aset Baru';
+        $this->data['title_pdf'] = 'Laporan pbaru';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'Laporan Pengajuan Aset Baru';
+        $file_pdf = 'laporan pbaru';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape
@@ -192,13 +210,15 @@ class Pbaru extends CI_Controller
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     }
 
+    
+
 
     // public function laporan()
     // {
     //     // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
     //     $this->load->library('pdfgenerator');
 
-    //     $data['barang'] = $this->M_lokasi->lihat();
+    //     $data['barang'] = $this->M_aset->lihat();
     //     $this->load->view('admin/lokasi/laporan', $data);
 
     //     // title dari pdf

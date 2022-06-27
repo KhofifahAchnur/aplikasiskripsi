@@ -73,8 +73,8 @@
     <?php if ($this->session->userdata('hak_akses') == 1) : ?>
         <?php if ($tgl_awal) : ?>
             <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
-            <?php if ($pindah) : ?>
-                <p>Filter By Nama Barang : <?= $pindah; ?></p>
+            <?php if ($nama) : ?>
+                <p>Filter By Nama Barang : <?= $nama; ?></p>
             <?php endif ?>
         <?php else : ?>
             <p>Tanggal : Semua Data</p>
