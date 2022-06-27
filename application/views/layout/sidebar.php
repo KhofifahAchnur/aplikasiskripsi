@@ -289,7 +289,7 @@
                             </a>
                     </ul>
                     <hr color="white">
-                <!-- <li class="nav-item">
+                    <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
                         <p>
@@ -553,22 +553,119 @@
                             </a>
                         </li>
                     </ul>
-                    <!-- <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/aset/laporan') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Laporan Data aset</p>
-                            </a>
-                        </li>
-                    </ul> -->
-                    <!-- <ul class="nav nav-treeview">
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/lokasi/laporan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Data Lokasi Aset</p>
                             </a>
                         </li>
-                    </ul> -->
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/perpindahan/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Perpindahan Aset</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kondisi/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Kondisi Aset Peralatan & Mesin</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kgedung/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Kondisi Gedung & Bangunan</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kbuku/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Kondisi Buku</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/perawatan/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Pemeliharaan Mesin</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/pemeliharaan/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Pemeliharaan Gedung</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/pbaru/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Pengajuan Aset Baru</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/pengajuan/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Pengajuan Pemeliharaan Mesin</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/pgedung/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Pengajuan Pemeliharaan Gedung</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kbaru/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Konfirmasi Pengajuan Aset Baru</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/konfirmasi/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Konfirmasi Pengajuan Pemeliharaan Mesin</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kgedung/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Konfirmasi Pengajuan Pemeliharaan Gedung</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/peminjaman/filter') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Peminjaman Peralatan & Mesin</p>
+                            </a>
+                        </li>
+                    </ul>
+
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/perbaikan/laporan') ?>" class="nav-link">
@@ -593,23 +690,23 @@
                             </a>
                         </li>
                     </ul> -->
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/tanah/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Aset Tanah</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
+                    </ul> -->
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/gedung/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Aset Gedung</p>
                             </a>
                         </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
+                    </ul> -->
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/pbaru/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -617,14 +714,7 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/perpindahan/filter') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Laporan Pindah Aset Baru</p>
-                            </a>
-                        </li>
-                    </ul>
+
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/buku/filter') ?>" class="nav-link">
@@ -640,7 +730,7 @@
                                 <p>Laporan Aset Jalan , Irigasi & Jaringan</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- <hr color="white"> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">

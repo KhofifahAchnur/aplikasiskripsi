@@ -70,6 +70,14 @@
     <p align="center">
         <strong>LAPORAN KONFIRMASI PENGAJUAN ASET BARU</strong>
     </p>
+    <?php if ($tgl_awal) : ?>
+        <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
+    <?php if ($aset) : ?>
+            <p>Filter By Nama : <?= $aset; ?></p>
+        <?php endif ?>
+    <?php else : ?>
+        <p>Tanggal : Semua Data</p>
+    <?php endif ?>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>

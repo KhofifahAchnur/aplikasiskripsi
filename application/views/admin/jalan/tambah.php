@@ -31,32 +31,32 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Nama Aset</label>
-                                    <input type="text" class="form-control" id="nama_aset" placeholder="Masukkan Nama" name="nama_aset">
+                                    <input type="text" class="form-control" id="nama_aset" placeholder="Masukkan Nama Jalan / irigasi / Jaringan" name="nama_aset">
                                     <div class="form-text text-danger"><?= form_error('nama_aset'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Kode aset</label>
-                                    <input type="text" class="form-control" id="kode_aset" placeholder="Masukkan Kode" name="kode_aset" value="<?= $kode ?>" readonly>
+                                    <input type="text" class="form-control" id="kode_aset" placeholder="Masukkan Kode Jalan / irigasi / Jaringan" name="kode_aset" value="<?= $kode ?>" readonly>
                                     <div class="form-text text-danger"><?= form_error('kode_aset'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Register</label>
-                                    <input type="text" class="form-control" id="register" placeholder="Masukkan Kode Register" name="register">
+                                    <input type="text" class="form-control" id="register" placeholder="Masukkan Kode Register Jalan / irigasi / Jaringan" name="register">
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Konstruksi</label>
-                                    <input type="text" class="form-control" id="konstruksi" placeholder="Masukkan Konstruksi" name="konstruksi">
+                                    <input type="text" class="form-control" id="konstruksi" placeholder="Masukkan Konstruksi Jalan / irigasi / Jaringan" name="konstruksi">
                                     <div class="form-text text-danger"><?= form_error('konstruksi'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Luas</label>
-                                    <input type="text" class="form-control" id="luas" placeholder="Masukkan Luas" name="luas">
+                                    <input type="text" class="form-control" id="luas" placeholder="Masukkan Luas Jalan / irigasi / Jaringan" name="luas">
                                     <div class="form-text text-danger"><?= form_error('luas'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Tahun</label>
-                                    <input type="text" class="form-control" id="tahun" placeholder="Masukkan tahun" name="tahun">
+                                    <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun Jalan / irigasi / Jaringan" name="tahun">
                                     <div class="form-text text-danger"><?= form_error('tahun'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -71,17 +71,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <input type="text" class="form-control" id="status" placeholder="Masukkan Status" name="status">
+                                    <input type="text" class="form-control" id="status" placeholder="Masukkan Status Jalan / irigasi / Jaringan" name="status">
                                     <div class="form-text text-danger"><?= form_error('status'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Asal-Usul</label>
-                                    <input type="text" class="form-control" id="asal_usul" placeholder="Masukkan Asal-usul" name="asal_usul">
+                                    <input type="text" class="form-control" id="asal_usul" placeholder="Masukkan Asal-usul Jalan / irigasi / Jaringan" name="asal_usul">
                                     <div class="form-text text-danger"><?= form_error('asal_usul'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Harga</label>
-                                    <input type="text" class="form-control" id="harga" placeholder="Masukkan Harga" name="harga">
+                                    <input type="text" class="form-control" id="harga" placeholder="Masukkan Harga Jalan / irigasi / Jaringan" name="harga">
                                     <div class="form-text text-danger"><?= form_error('harga'); ?></div>
                                 </div>
                                 <div class="text-right">

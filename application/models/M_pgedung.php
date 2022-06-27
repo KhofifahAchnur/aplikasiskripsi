@@ -6,7 +6,6 @@ class M_pgedung extends CI_model
     {
         $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
         $this->db->from('pengajuan');
-        // $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
         $this->db->order_by('pengajuan.id', 'DESC');
         $this->db->where_in('jenis',array('Pemeliharaan Bangunan'));
@@ -65,6 +64,76 @@ class M_pgedung extends CI_model
     {
         return $this->db->get('lokasi')->num_rows();
     }
+
+    public function aset()
+    {
+        $this->db->select('aset');
+        $this->db->from('pengajuan');
+        $this->db->where_in('jenis',array('Pemeliharaan Bangunan'));
+        $this->db->group_by('aset');
+        return $this->db->get()->result_array();
+    }
+
+    public function nama_tanggal($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select('aset');
+        $this->db->from('pengajuan');
+        $this->db->where_in('jenis',array('Pemeliharaan Bangunan'));
+        $this->db->where("tanggal>=", "$tgl_awal");
+        $this->db->where("tanggal<=", "$tgl_akhir");
+        $this->db->group_by('aset');
+        return $this->db->get()->result_array();
+    }
+
+
+    public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
+    {$this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
+        $this->db->from('pengajuan');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
+        $this->db->where_in('jenis',array('Pemeliharaan Bangunan'));
+        $this->db->order_by('pengajuan.id', 'DESC');
+        $this->db->where("tanggal>=", "$tgl_awalcetak");
+        $this->db->where("tanggal<=", "$tgl_akhircetak");
+        return $this->db->get()->result_array();
+    }
+
+    public function databytanggal($tgl_awal, $tgl_akhir)
+    {$this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
+        $this->db->from('pengajuan');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
+        $this->db->where_in('jenis',array('Pemeliharaan Bangunan'));
+        $this->db->order_by('pengajuan.id', 'DESC');
+        $this->db->where("tanggal>=", "$tgl_awal");
+        $this->db->where("tanggal<=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
+
+    public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $aset)
+    {
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
+        $this->db->from('pengajuan');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
+        $this->db->where_in('jenis',array('Pemeliharaan Bangunan'));
+        $this->db->order_by('pengajuan.id', 'DESC');
+        $this->db->where("pengajuan.aset", "$aset");
+        $this->db->where("tanggal>=", "$tgl_awalcetak");
+        $this->db->where("tanggal<=", "$tgl_akhircetak");
+        return $this->db->get()->result_array();
+    }
+
+    public function databynama($tgl_awal, $tgl_akhir, $aset)
+    {
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
+        $this->db->from('pengajuan');
+        $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
+        $this->db->where_in('jenis',array('Pemeliharaan Bangunan'));
+        $this->db->order_by('pengajuan.id', 'DESC');
+        $this->db->where("pengajuan.aset", "$aset");
+        $this->db->where("tanggal>=", "$tgl_awal");
+        $this->db->where("tanggal<=", "$tgl_akhir");
+        return $this->db->get()->result_array();
+    }
+
 
     // public function jumlah()
     //     {

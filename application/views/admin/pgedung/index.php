@@ -25,7 +25,7 @@
                     <!-- /.card-header -->
                     <div class="card">
                         <div class="card-header">
-                        <a href="<?= base_url('admin/pgedung/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                        <a href="<?= base_url('admin/pgedung/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                             <!-- <h3 class="card-title">
                                 Daftar Data Pengajuan Aset Gedung & Bangunan
                             </h3> -->

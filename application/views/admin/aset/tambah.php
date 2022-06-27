@@ -31,37 +31,37 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Nama Barang</label>
-                                    <input type="text" class="form-control" id="nama_barang" placeholder="Masukkan Nama Barang" name="nama_barang">
+                                    <input type="text" class="form-control" id="nama_barang" placeholder="Masukkan Nama Peralatan / Mesin" name="nama_barang">
                                     <div class="form-text text-danger"><?= form_error('nama_barang'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Kode Barang</label>
-                                    <input type="text" class="form-control" id="kode_barang" placeholder="Masukkan Kode Barang" name="kode_barang" value="<?= $kode ?>" readonly>
+                                    <input type="text" class="form-control" id="kode_barang" placeholder="Masukkan Kode Peralatan / Mesin" name="kode_barang" value="<?= $kode ?>" readonly>
                                     <div class="form-text text-danger"><?= form_error('kode_barang'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Register</label>
-                                    <input type="text" class="form-control" id="register" placeholder="Masukkan Kode Register" name="register">
+                                    <input type="text" class="form-control" id="register" placeholder="Masukkan Kode Register Peralatan / Mesin" name="register">
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Merk</label>
-                                    <input type="text" class="form-control" id="merk" placeholder="Masukkan Merk" name="merk">
+                                    <input type="text" class="form-control" id="merk" placeholder="Masukkan Merk Peralatan / Mesin" name="merk">
                                     <div class="form-text text-danger"><?= form_error('merk'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Ukuran</label>
-                                    <input type="text" class="form-control" id="ukuran" placeholder="Masukkan Ukuran" name="ukuran">
+                                    <input type="text" class="form-control" id="ukuran" placeholder="Masukkan Ukuran Peralatan / Mesin" name="ukuran">
                                     <div class="form-text text-danger"><?= form_error('ukuran'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Bahan</label>
-                                    <input type="text" class="form-control" id="bahan" placeholder="Masukkan Bahan" name="bahan">
+                                    <input type="text" class="form-control" id="bahan" placeholder="Masukkan Bahan Peralatan / Mesin" name="bahan">
                                     <div class="form-text text-danger"><?= form_error('bahan'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Tahun Peroleh</label>
-                                    <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun Peroleh" name="tahun">
+                                    <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun Peroleh Peralatan / Mesin" name="tahun">
                                     <div class="form-text text-danger"><?= form_error('tahun'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -76,12 +76,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Asal-Usul</label>
-                                    <input type="text" class="form-control" id="asal_usul" placeholder="Masukkan Asal-usul" name="asal_usul">
+                                    <input type="text" class="form-control" id="asal_usul" placeholder="Masukkan Asal-Usul Peralatan / Mesin" name="asal_usul">
                                     <div class="form-text text-danger"><?= form_error('asal_usul'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Harga Barang</label>
-                                    <input type="text" class="form-control" id="harga_brg" placeholder="Masukkan Harga Barang" name="harga_brg">
+                                    <input type="text" class="form-control" id="harga_brg" placeholder="Masukkan Harga Barang Peralatan / Mesin" name="harga_brg">
                                     <div class="form-text text-danger"><?= form_error('harga_brg'); ?></div>
                                 </div>
                                 <div class="text-right">

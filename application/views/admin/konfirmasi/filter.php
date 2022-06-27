@@ -1,3 +1,4 @@
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -5,12 +6,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Laporan Pengajuan Aset Baru</h1>
+                    <h1>Laporan Konfirmasi Pengajuan Aset Baru</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Laporan Pengajuan Aset Baru</li>
+                        <li class="breadcrumb-item active">Laporan Konfirmasi Pengajuan Aset Baru</li>
                     </ol>
                 </div>
             </div>
@@ -32,7 +33,7 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="<?= base_url(); ?>/admin/Pbaru/filter">
+                            <form action="<?= base_url(); ?>/admin/Konfirmasi/filter">
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
@@ -62,7 +63,7 @@
                                 </div>
                                 <button type="submit" name="filter" value="true" class="btn btn-primary">TAMPILKAN</button>
                                 <?php if (isset($_GET['filter'])) : ?>
-                                    <a href="<?= base_url('admin/pbaru/filter'); ?>" class="btn btn-default">RESET</a>
+                                    <a href="<?= base_url('admin/konfirmasi/filter'); ?>" class="btn btn-default">RESET</a>
                                 <?php endif; ?>
                             </form>
                             <br>
@@ -71,7 +72,7 @@
 
                                     <!-- Cetak Filter Tanggal & Nama -->
                                 <?php if (isset($_GET['aset'])) : ?>
-                                    <form action="<?= base_url('admin/Pbaru/laporan'); ?>" target="_blank">
+                                    <form action="<?= base_url('admin/Konfirmasi/laporan'); ?>" target="_blank">
                                         <p>Nama aset : <?= $nm_aset; ?></p>
                                         <input type="hidden" id="tgl_awalcetak" name="tgl_awalcetak" value="<?= @$_GET['tgl_awal'] ?>">
                                         <input type="hidden" id="tgl_akhircetak" name="tgl_akhircetak" value="<?= @$_GET['tgl_akhir'] ?>">
@@ -80,7 +81,7 @@
                                     </form>
                                 <?php else : ?>
                                 
-                                <form action="<?= base_url('admin/pbaru/laporan'); ?>" target="_blank">
+                                <form action="<?= base_url('admin/konfirmasi/laporan'); ?>" target="_blank">
                                     <button type="submit" value="true" class="btn btn-success">Cetak</button>
                                     <input type="hidden" id="tgl_awalcetak" name="tgl_awalcetak" value="<?= @$_GET['tgl_awal'] ?>">
                                     <input type="hidden" id="tgl_akhircetak" name="tgl_akhircetak" value="<?= @$_GET['tgl_akhir'] ?>">
@@ -90,7 +91,7 @@
 
                                 <!-- Cetak Semua Data -->
                                 <p>Cetak Semua Data</p>
-                                <form action="<?= base_url('admin/Pbaru/laporan'); ?>" target="_blank">
+                                <form action="<?= base_url('admin/Konfirmasi/laporan'); ?>" target="_blank">
                                     <button type="submit" value="true" class="btn btn-success">Cetak</button>
                                 </form>
                             <?php endif ?>
@@ -101,33 +102,23 @@
                                     <thead>
                                         <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
+                                        <th>Nama Aset</th>
                                         <th>Deskripsi</th>
-                                        <th>Lokasi</th>
-                                        <th>Penanggung Jawab</th>
                                         <th>Jenis Pengajuan</th>
                                         <th>Status</th>
-                                        <th>Tanggal Pengajuan</th>
-                                        <th class="text-center">Aksi</th>
+                                        <th>Tanggal Konfirmasi</th>
                                     </thead>
                                     </thead>
                                     <tbody>
                                     <?php $i = 1;
-                                    foreach ($pbaru as $brg) : ?>
+                                    foreach ($konfir as $kfr) : ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
-                                            <td><?= $brg['aset'] ?></td>
-                                            <td><?= $brg['des'] ?></td>
-                                            <td><?= $brg['lokasi'] ?></td>
-                                            <td><?= $brg['nama'] ?></td>
-                                            <td><?= $brg['jenis'] ?></td>
-                                            <td><?= $brg['status'] ?></td>
-                                            <td><?= $brg['tanggal'] ?></td>
-                                            <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/pbaru/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/pbaru/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
-                                                <a href="<?= base_url(); ?>admin/kbaru/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-primary">UBAH KONFIRMASI</a>
-                                            </td>
+                                            <td><?= $kfr['aset'] ?></td>
+                                            <td><?= $kfr['des'] ?></td>
+                                            <td><?= $kfr['jenis'] ?></td>
+                                            <td><?= $kfr['status'] ?></td>
+                                            <td><?= $kfr['tgl_konfir'] ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

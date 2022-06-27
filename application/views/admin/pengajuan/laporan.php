@@ -70,6 +70,14 @@
     <p align="center">
         <strong>LAPORAN  PENGAJUAN PEMELIHARAAN ASET PERALATAN & MESIN</strong>
     </p>
+    <?php if ($tgl_awal) : ?>
+        <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
+    <?php if ($aset) : ?>
+            <p>Filter By Nama : <?= $aset; ?></p>
+        <?php endif ?>
+    <?php else : ?>
+        <p>Tanggal : Semua Data</p>
+    <?php endif ?>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
@@ -85,7 +93,7 @@
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($baru as $brg) : ?>
+            foreach ($pengajuan as $brg) : ?>
                 <tr>
                     <td><?= $i++; ?></td>
                     <td><?= $brg['aset'] ?></td>

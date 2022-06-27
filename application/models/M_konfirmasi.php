@@ -54,6 +54,84 @@ class M_konfirmasi extends CI_model
 		return $this->db->get_where('history_kondisi', ['id' => $id])->row_array();
 	}
 
+	public function aset()
+	{
+		$this->db->select('aset');
+		$this->db->from('history_konfirmasi');
+		$this->db->join('pengajuan', 'pengajuan.id = history_konfirmasi.pengajuan_id');
+		$this->db->where_in('jenis', array('Pemeliharaan Mesin'));
+		$this->db->group_by('aset');
+		return $this->db->get()->result_array();
+	}
+
+	public function nama_tanggal($tgl_awal, $tgl_akhir)
+	{
+		$this->db->select('aset');
+		$this->db->from('history_konfirmasi');
+		$this->db->join('pengajuan', 'pengajuan.id = history_konfirmasi.pengajuan_id');
+		$this->db->where_in('jenis', array('Pemeliharaan Mesin'));
+		$this->db->where("tanggal>=", "$tgl_awal");
+		$this->db->where("tanggal<=", "$tgl_akhir");
+		$this->db->group_by('aset');
+		return $this->db->get()->result_array();
+	}
+
+
+	public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
+	{
+		$this->db->select('history_konfirmasi.id_konfir, pengajuan.aset, 
+		pengajuan.des, pengajuan.jenis, history_konfirmasi.status, history_konfirmasi.tgl_konfir');
+		$this->db->from('history_konfirmasi');
+		$this->db->join('pengajuan', 'pengajuan.id = history_konfirmasi.pengajuan_id');
+		$this->db->where_in('jenis', array('Pemeliharaan Mesin'));
+		$this->db->order_by('history_konfirmasi.id_konfir', 'DESC');
+		$this->db->where("tanggal>=", "$tgl_awalcetak");
+		$this->db->where("tanggal<=", "$tgl_akhircetak");
+		return $this->db->get()->result_array();
+	}
+
+	public function databytanggal($tgl_awal, $tgl_akhir)
+	{
+		$this->db->select('history_konfirmasi.id_konfir, pengajuan.aset, 
+		pengajuan.des, pengajuan.jenis, history_konfirmasi.status, history_konfirmasi.tgl_konfir');
+		$this->db->from('history_konfirmasi');
+		$this->db->join('pengajuan', 'pengajuan.id = history_konfirmasi.pengajuan_id');
+		$this->db->where_in('jenis', array('Pemeliharaan Mesin'));
+		$this->db->order_by('history_konfirmasi.id_konfir', 'DESC');
+		$this->db->where("tanggal>=", "$tgl_awal");
+		$this->db->where("tanggal<=", "$tgl_akhir");
+		return $this->db->get()->result_array();
+	}
+
+	public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $aset)
+	{
+		$this->db->select('history_konfirmasi.id_konfir, pengajuan.aset, 
+		pengajuan.des, pengajuan.jenis, history_konfirmasi.status, history_konfirmasi.tgl_konfir');
+		$this->db->from('history_konfirmasi');
+		$this->db->join('pengajuan', 'pengajuan.id = history_konfirmasi.pengajuan_id');
+		$this->db->where_in('jenis', array('Pemeliharaan Mesin'));
+		$this->db->order_by('history_konfirmasi.id_konfir', 'DESC');
+		$this->db->where("pengajuan.aset", "$aset");
+		$this->db->where("tanggal>=", "$tgl_awalcetak");
+		$this->db->where("tanggal<=", "$tgl_akhircetak");
+		return $this->db->get()->result_array();
+	}
+
+	public function databynama($tgl_awal, $tgl_akhir, $aset)
+	{
+		$this->db->select('history_konfirmasi.id_konfir, pengajuan.aset, 
+		pengajuan.des, pengajuan.jenis, history_konfirmasi.status, history_konfirmasi.tgl_konfir');
+		$this->db->from('history_konfirmasi');
+		$this->db->join('pengajuan', 'pengajuan.id = history_konfirmasi.pengajuan_id');
+		$this->db->where_in('jenis', array('Pemeliharaan Mesin'));
+		$this->db->order_by('history_konfirmasi.id_konfir', 'DESC');
+		$this->db->where("pengajuan.aset", "$aset");
+		$this->db->where("tanggal>=", "$tgl_awal");
+		$this->db->where("tanggal<=", "$tgl_akhir");
+		return $this->db->get()->result_array();
+	}
+
+
 	// public function jumlah()
 	// {
 	//     return $this->db->get('history_kondisi')->num_rows();

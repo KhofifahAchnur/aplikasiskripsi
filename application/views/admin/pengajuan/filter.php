@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Laporan Pengajuan Aset Baru</h1>
+                    <h1>Laporan Pengajuan Pemeliharaan Aset Peralatan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Laporan Pengajuan Aset Baru</li>
+                        <li class="breadcrumb-item active">Laporan Pengajuan Pemeliharaan Aset Peralatan & Mesin</li>
                     </ol>
                 </div>
             </div>
@@ -32,7 +32,7 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="<?= base_url(); ?>/admin/Pbaru/filter">
+                            <form action="<?= base_url(); ?>/admin/Pengajuan/filter">
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
@@ -62,7 +62,7 @@
                                 </div>
                                 <button type="submit" name="filter" value="true" class="btn btn-primary">TAMPILKAN</button>
                                 <?php if (isset($_GET['filter'])) : ?>
-                                    <a href="<?= base_url('admin/pbaru/filter'); ?>" class="btn btn-default">RESET</a>
+                                    <a href="<?= base_url('admin/pengajuan/filter'); ?>" class="btn btn-default">RESET</a>
                                 <?php endif; ?>
                             </form>
                             <br>
@@ -71,7 +71,7 @@
 
                                     <!-- Cetak Filter Tanggal & Nama -->
                                 <?php if (isset($_GET['aset'])) : ?>
-                                    <form action="<?= base_url('admin/Pbaru/laporan'); ?>" target="_blank">
+                                    <form action="<?= base_url('admin/Pengajuan/laporan'); ?>" target="_blank">
                                         <p>Nama aset : <?= $nm_aset; ?></p>
                                         <input type="hidden" id="tgl_awalcetak" name="tgl_awalcetak" value="<?= @$_GET['tgl_awal'] ?>">
                                         <input type="hidden" id="tgl_akhircetak" name="tgl_akhircetak" value="<?= @$_GET['tgl_akhir'] ?>">
@@ -80,7 +80,7 @@
                                     </form>
                                 <?php else : ?>
                                 
-                                <form action="<?= base_url('admin/pbaru/laporan'); ?>" target="_blank">
+                                <form action="<?= base_url('admin/pengajuan/laporan'); ?>" target="_blank">
                                     <button type="submit" value="true" class="btn btn-success">Cetak</button>
                                     <input type="hidden" id="tgl_awalcetak" name="tgl_awalcetak" value="<?= @$_GET['tgl_awal'] ?>">
                                     <input type="hidden" id="tgl_akhircetak" name="tgl_akhircetak" value="<?= @$_GET['tgl_akhir'] ?>">
@@ -90,7 +90,7 @@
 
                                 <!-- Cetak Semua Data -->
                                 <p>Cetak Semua Data</p>
-                                <form action="<?= base_url('admin/Pbaru/laporan'); ?>" target="_blank">
+                                <form action="<?= base_url('admin/Pengajuan/laporan'); ?>" target="_blank">
                                     <button type="submit" value="true" class="btn btn-success">Cetak</button>
                                 </form>
                             <?php endif ?>
@@ -101,7 +101,7 @@
                                     <thead>
                                         <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
+                                        <th>Nama Aset</th>
                                         <th>Deskripsi</th>
                                         <th>Lokasi</th>
                                         <th>Penanggung Jawab</th>
@@ -113,7 +113,7 @@
                                     </thead>
                                     <tbody>
                                     <?php $i = 1;
-                                    foreach ($pbaru as $brg) : ?>
+                                    foreach ($pengajuan as $brg) : ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $brg['aset'] ?></td>
@@ -124,9 +124,9 @@
                                             <td><?= $brg['status'] ?></td>
                                             <td><?= $brg['tanggal'] ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/pbaru/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/pbaru/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
-                                                <a href="<?= base_url(); ?>admin/kbaru/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-primary">UBAH KONFIRMASI</a>
+                                                <a href="<?= base_url(); ?>admin/pengajuan/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/pengajuan/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="<?= base_url(); ?>admin/konfirmasi/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-primary">UBAH KONFIRMASI</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

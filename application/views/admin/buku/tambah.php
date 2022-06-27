@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Register</label>
-                                    <input type="text" class="form-control" id="register" placeholder="Masukkan Kode Register" name="register">
+                                    <input type="text" class="form-control" id="register" placeholder="Masukkan Kode Register Buku" name="register">
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -56,12 +56,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Asal-Usul</label>
-                                    <input type="text" class="form-control" id="asal_usul" placeholder="Masukkan Asal-usul" name="asal_usul">
+                                    <input type="text" class="form-control" id="asal_usul" placeholder="Masukkan Asal-Usul Buku" name="asal_usul">
                                     <div class="form-text text-danger"><?= form_error('asal_usul'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Tahun Peroleh</label>
-                                    <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun Peroleh" name="tahun">
+                                    <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun Peroleh Buku" name="tahun">
                                     <div class="form-text text-danger"><?= form_error('tahun'); ?></div>
                                 </div>
                                 <div class="form-group">

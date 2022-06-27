@@ -25,7 +25,7 @@
                     <!-- /.card-header -->
                     <div class="card">
                         <div class="card-header">
-                        <a href="<?= base_url('admin/pengajuan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                        <a href="<?= base_url('admin/pengajuan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                             <a href="<?= base_url('admin/pengajuan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->

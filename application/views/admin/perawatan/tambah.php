@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/perawatan/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -61,17 +61,17 @@
                                 
                                 <div class="form-group">
                                     <label>Jenis Perawatan</label>
-                                    <input type="text" class="form-control" id="jenis" placeholder="Masukkan Jenis Perawatan" name="jenis">
+                                    <input type="text" class="form-control" id="jenis" placeholder="Masukkan Jenis Pemeliharaan" name="jenis">
                                     <div class="form-text text-danger"><?= form_error('jenis'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Biaya</label>
-                                    <input type="text" class="form-control" id="biaya" placeholder="Masukkan Biaya Perawatan" name="biaya">
+                                    <input type="text" class="form-control" id="biaya" placeholder="Masukkan Biaya Pemeliharaan" name="biaya">
                                     <div class="form-text text-danger"><?= form_error('biaya'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Tanggal Perawatan</label>
-                                    <input type="date" class="form-control" id="tgl_rawat" placeholder="Masukkan Tanggal Perawatan" name="tgl_rawat">
+                                    <input type="date" class="form-control" id="tgl_rawat" placeholder="Masukkan Tanggal Pemeliharaan" name="tgl_rawat">
                                     <div class="form-text text-danger"><?= form_error('tgl_rawat'); ?></div>
                                 </div>
                                 <div class="form-group">

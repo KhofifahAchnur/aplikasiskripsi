@@ -97,19 +97,93 @@ class Konfirmasi extends CI_Controller
         redirect('admin/lokasi');
     }
 
+    public function filter()
+    {
+        // Mendapatkan nilai input
+        $tgl_awal = $this->input->get('tgl_awal');
+        $tgl_akhir = $this->input->get('tgl_akhir');
+        $aset = $this->input->get('aset');
+
+        $data['judul'] = 'Filter Laporan';
+
+        // Proses Filter
+        if (isset($_GET['filter'])) {
+
+            // Data Filter Berdasarkan Tanggal & Nama
+            if (isset($_GET['aset'])) {
+                $data['konfir'] = $this->M_konfirmasi->databynama($tgl_awal, $tgl_akhir, $aset);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['nm_aset'] = $aset;
+                $data['aset'] = $this->M_konfirmasi->nama_tanggal($tgl_awal, $tgl_akhir, $aset);
+            } else {
+
+                // Data Filter Berdasarkan Tanggal
+                // die($data['konfirmasi'] = $this->M_konfirmasi->databytanggal($tgl_awal, $tgl_akhir));
+                $data['konfir'] = $this->M_konfirmasi->databytanggal($tgl_awal, $tgl_akhir);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['aset'] = $this->M_konfirmasi->nama_tanggal($tgl_awal, $tgl_akhir);
+            }
+        } else {
+
+            // Proses Semua data tanpa filter
+            $data['aset'] = $this->M_konfirmasi->aset();
+            $data['konfir'] = $this->M_konfirmasi->lihat();
+        }
+
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/topbar');
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/konfirmasi/filter');
+        $this->load->view('layout/footer');
+    }
+
     public function laporan()
     {
+        // Mendapatkan nilai input
+        $tgl_awalcetak = $this->input->get('tgl_awalcetak');
+        $tgl_akhircetak = $this->input->get('tgl_akhircetak');
+        $aset = $this->input->get('aset');
+
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['konfir'] = $this->M_konfirmasi->lihat();
-        $this->load->view('admin/konfirmasi/laporan', $data);
+        // Proses Cetak Filter
+        if ($tgl_awalcetak) {
 
+            // Cetak Filter Berdasarkan Tanggal & Nama
+            if ($aset) {
+                $data['konfir'] = $this->M_konfirmasi->filterbynama($tgl_awalcetak, $tgl_akhircetak, $aset);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['aset'] = $aset;
+            } else {
+
+                // Cetak Filter Berdasarkan Tanggal
+                $data['konfir'] = $this->M_konfirmasi->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['aset'] = $aset;
+            }
+        } else {
+            // Cetak Semua Data
+            $data['konfir'] = $this->M_konfirmasi->lihat();
+            $data['tgl_awal'] = null;
+            $data['tgl_akhir'] = null;
+            $data['aset'] = null;
+        }
+
+        // die($tgl_awal);
+        $this->load->view('admin/konfirmasi/laporan', $data);
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
+        $this->data['title_pdf'] = 'Laporan konfirmasi';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'Laporan Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
+        $file_pdf = 'laporan konfirmasi';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape
@@ -120,4 +194,27 @@ class Konfirmasi extends CI_Controller
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     }
+    // public function laporan()
+    // {
+    //     // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+    //     $this->load->library('pdfgenerator');
+
+    //     $data['konfir'] = $this->M_konfirmasi->lihat();
+    //     $this->load->view('admin/konfirmasi/laporan', $data);
+
+    //     // title dari pdf
+    //     $this->data['title_pdf'] = 'Laporan Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
+
+    //     // filename dari pdf ketika didownload
+    //     $file_pdf = 'Laporan Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
+    //     // setting paper
+    //     $paper = 'A4';
+    //     //orientasi paper potrait / landscape
+    //     $orientation = "landscape";
+
+    //     $html = $this->load->view('admin/konfirmasi/laporan', $this->data, true);
+
+    //     // run dompdf
+    //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    // }
 }

@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <a href="<?= base_url('admin/pgedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a> ||
-                        <a href="<?= base_url('admin/kgedung/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                        <a href="<?= base_url('admin/kgedung/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -34,8 +34,6 @@
                                         <th>Nama Aset</th>
                                         <th>Deskripsi</th>
                                         <th>Jenis Pengajuan</th>
-                                        <!-- <th>Lokasi</th>
-                                        <th>Penanggung Jawab</th> -->
                                         <th>Status</th>
                                         <th>Tanggal Konfirmasi</th>
                                 </thead>
@@ -47,8 +45,6 @@
                                             <td><?= $i++; ?></td>
                                             <td><?= $kfr['aset'] ?></td>
                                             <td><?= $kfr['des'] ?></td>
-                                            <!-- <td><?= $kfr['lokasi'] ?></td> -->
-                                            <!-- <td><?= $kfr['nama'] ?></td> -->
                                             <td><?= $kfr['jenis'] ?></td>
                                             <td><?= $kfr['status'] ?></td>
                                             <td><?= $kfr['tgl_konfir'] ?></td>

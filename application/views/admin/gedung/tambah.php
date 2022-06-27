@@ -31,17 +31,17 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Nama Gedung</label>
-                                    <input type="text" class="form-control" id="nama_gedung" placeholder="Masukkan Nama Gedung" name="nama_gedung">
+                                    <input type="text" class="form-control" id="nama_gedung" placeholder="Masukkan Nama Gedung / Bangunan" name="nama_gedung">
                                     <div class="form-text text-danger"><?= form_error('nama_gedung'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Kode Gedung</label>
-                                    <input type="text" class="form-control" id="kode_gedung" placeholder="Masukkan Kode Gedung" name="kode_gedung" value="<?= $kode ?>" readonly>
+                                    <input type="text" class="form-control" id="kode_gedung" placeholder="Masukkan Kode Gedung / Bangunan" name="kode_gedung" value="<?= $kode ?>" readonly>
                                     <div class="form-text text-danger"><?= form_error('kode_gedung'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Register</label>
-                                    <input type="text" class="form-control" id="register" placeholder="Masukkan Kode Register" name="register">
+                                    <input type="text" class="form-control" id="register" placeholder="Masukkan Kode Register Gedung / Bangunan" name="register">
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -64,17 +64,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Luas</label>
-                                    <input type="text" class="form-control" id="luas" placeholder="Masukkan Luas" name="luas">
+                                    <input type="text" class="form-control" id="luas" placeholder="Masukkan Luas Gedung / Bangunan" name="luas">
                                     <div class="form-text text-danger"><?= form_error('luas'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Lokasi</label>
-                                    <input type="text" class="form-control" id="lokasi" placeholder="Masukkan Lokasi" name="lokasi">
+                                    <input type="text" class="form-control" id="lokasi" placeholder="Masukkan Lokasi Gedung / Bangunan" name="lokasi">
                                     <div class="form-text text-danger"><?= form_error('lokasi'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Tahun Peroleh</label>
-                                    <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun Peroleh" name="tahun">
+                                    <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun Peroleh Gedung / Bangunan" name="tahun">
                                     <div class="form-text text-danger"><?= form_error('tahun'); ?></div>
                                 </div>
                                 <div class="form-group">
@@ -89,17 +89,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <input type="text" class="form-control" id="status" placeholder="Masukkan status Peroleh" name="status">
+                                    <input type="text" class="form-control" id="status" placeholder="Masukkan Status Peroleh Gedung / Bangunan" name="status">
                                     <div class="form-text text-danger"><?= form_error('status'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Asal-Usul</label>
-                                    <input type="text" class="form-control" id="asal_usul" placeholder="Masukkan Asal-usul" name="asal_usul">
+                                    <input type="text" class="form-control" id="asal_usul" placeholder="Masukkan Asal-Usul Gedung / Bangunan" name="asal_usul">
                                     <div class="form-text text-danger"><?= form_error('asal_usul'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Harga Gedung</label>
-                                    <input type="text" class="form-control" id="harga" placeholder="Masukkan Harga Gedung" name="harga">
+                                    <input type="text" class="form-control" id="harga" placeholder="Masukkan Harga Gedung / Bangunan" name="harga">
                                     <div class="form-text text-danger"><?= form_error('harga'); ?></div>
                                 </div>
                                 <div class="text-right">
