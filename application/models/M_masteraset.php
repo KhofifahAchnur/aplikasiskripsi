@@ -35,6 +35,25 @@ class M_masteraset extends CI_model
         return $this->db->get()->result_array();
     }
 
+    public function totalkas_tgl($tgl_awal, $tgl_akhir)
+    {
+        $this->db->select_sum('harga_brg');
+        $this->db->from('aset');
+        $this->db->where("tanggal_masuk >=", "$tgl_awal");
+        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
+        return $this->db->get()->result()[0]->harga_brg;
+    }
+
+    public function totalkas_nama($tgl_awal, $tgl_akhir, $nama_barang)
+    {
+        $this->db->select_sum('harga_brg');
+        $this->db->from('aset');
+        $this->db->where("tanggal_masuk >=", "$tgl_awal");
+        $this->db->where("tanggal_masuk <=", "$tgl_akhir");
+        $this->db->where("nama_barang", "$nama_barang");
+        return $this->db->get()->result()[0]->harga_brg;
+    }
+
     public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
     {
         $this->db->select('aset.id, lokasi.lokasi, aset.nama_barang, aset.kode_barang, aset.register, aset.merk, aset.ukuran, aset.bahan, aset.tahun, aset.kondisi, aset.asal_usul, aset.harga_brg, aset.tanggal_masuk');
@@ -60,7 +79,7 @@ class M_masteraset extends CI_model
         $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS'));
         return $this->db->get()->result_array();
     }
-    
+
     public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama)
     {
         $this->db->select('aset.id, lokasi.lokasi, aset.nama_barang, aset.kode_barang, aset.register, aset.merk, aset.ukuran, aset.bahan, aset.tahun, aset.kondisi, aset.asal_usul, aset.harga_brg, aset.tanggal_masuk');
@@ -104,6 +123,10 @@ class M_masteraset extends CI_model
     public function getKondisiById($id)
     {
         return $this->db->get_where('aset', ['id' => $id])->row_array();
+    }
+    public function totalKas()
+    {
+        return $this->db->select_sum('harga_brg')->from('aset')->get()->result()[0]->harga_brg;
     }
 
     // public function lihatBykondisi($id)

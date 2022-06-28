@@ -90,9 +90,9 @@
                 <th>Lokasi</th>
                 <th>Penanggung Jawab</th>
                 <th>Jenis Pemeliharaan</th>
-                <th>Biaya</th>
                 <th>Tanggal Perawatan</th>
                 <th>Tanggal Selesai </th>
+                <th>Biaya</th>
         </thead>
         </thead>
         <tbody>
@@ -106,12 +106,19 @@
                     <td align="center"><?= $rwt['lokasi'] ?></td>
                     <td align="center"><?= $rwt['nama'] ?></td>
                     <td align="center"><?= $rwt['jenis'] ?></td>
-                    <td align="center"><?= $rwt['biaya'] ?></td>
                     <td align="center"><?= $rwt['tgl_rawat'] ?></td>
                     <td align="center"><?= $rwt['tgl_selesai'] ?></td>
+                    <td align="center"><?= $rwt['biaya'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="9" class="text-center">Total Kas Masuk</th>
+                <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                <th></th>
+            </tr>
+        </tfoot>
     </table>
     <table width="50%" align="right" border="0" style="margin-top: 20px;">
         <tr>

@@ -8,9 +8,21 @@
     <title><?= $title_pdf; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
+        @page {
+            margin: 0cm 0cm;
+        }
+
+        body {
+            margin-top: 2cm;
+            margin-left: 1cm;
+            margin-right: 1cm;
+            margin-bottom: 2cm;
+        }
+
         table tr td,
         table tr th {
             font-size: 12pt;
+            /* white-space: ; */
         }
     </style>
 
@@ -57,7 +69,7 @@
     <img src="<?= base_url() ?>adminlte/dist/img/logo.png" style="position: absolute; width: 125px; height: 130px;">
     <br>
     <br>
-    <table style="width: 103%;">
+    <table style="width: 110%;">
         <tr>
             <td align="center">
                 <p>
@@ -93,9 +105,9 @@
                 <th>Tahun Peroleh</th>
                 <th>Kondisi</th>
                 <th>Asal-Usul</th>
-                <th>Harga Barang</th>
                 <th>Lokasi</th>
                 <th>Tanggal Masuk</th>
+                <th>Harga </th>
             </tr>
         </thead>
         <tbody>
@@ -112,12 +124,18 @@
                     <td align="center"><?= $brg['tahun'] ?></td>
                     <td align="center"><?= $brg['kondisi'] ?></td>
                     <td align="center"><?= $brg['asal_usul'] ?></td>
-                    <td align="center"><?= $brg['harga_brg'] ?></td>
                     <td align="center"><?= $brg['lokasi'] ?></td>
                     <td align="center"><?= $brg['tanggal_masuk'] ?></td>
+                    <td align="center"><?= "Rp." . number_format($brg['harga_brg'], 2, ",", "."); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="12" class="text-center">Total Harga Aset</th>
+                <th colspan="2"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+            </tr>
+        </tfoot>
     </table>
     <table width="50%" align="right" border="0" style="margin-top: 20px;">
         <tr>

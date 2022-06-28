@@ -19,6 +19,7 @@ class Gedung extends CI_Controller
 
         $data['judul'] = 'Halaman Data Aset Gedung & Bangunan';
         $data['gedung'] = $this->M_gedung->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_gedung->totalkas();
         // $data['barang'] = $this->M_aset->getBrgById($id);
         // // $data['barang'] = $this->M_aset->lihat();
         // $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);
@@ -114,6 +115,7 @@ class Gedung extends CI_Controller
         $nama_gedung = $this->input->get('nama_gedung');
 
         $data['judul'] = 'Filter Laporan';
+        $data['jumlah_kasmasuk'] = $this->M_gedung->totalkas();
         if (isset($_GET['filter'])) {
             if (isset($_GET['nama_gedung'])) {
                 $data['gedung'] = $this->M_gedung->databynama($tgl_awal, $tgl_akhir, $nama_gedung);
@@ -140,7 +142,7 @@ class Gedung extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
-        $this->load->view('admin/gedung/filter');
+        $this->load->view('admin/gedung/filter', $data);
         $this->load->view('layout/footer');
     }
 
@@ -149,6 +151,7 @@ class Gedung extends CI_Controller
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
         $nama_gedung = $this->input->get('nama_gedung');
+        $data['jumlah_kasmasuk'] = $this->M_gedung->totalkas();
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
         if ($tgl_awalcetak) {

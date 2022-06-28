@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Laporan Aset  Pemeliharaan Peralatan & Mesin</li>
+                        <li class="breadcrumb-item active">Laporan Aset Pemeliharaan Peralatan & Mesin</li>
                     </ol>
                 </div>
             </div>
@@ -116,33 +116,40 @@
                                             <th>Lokasi</th>
                                             <th>Penanggung Jawab</th>
                                             <th>Jenis Pemeliharaan</th>
-                                            <th>Biaya</th>
                                             <th>Tanggal Perawatan</th>
                                             <th>Tanggal Selesai </th>
+                                            <th>Biaya</th>
                                             <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php $i = 1;
-                                    foreach ($rawat as $rwt) : ?>
+                                        <?php $i = 1;
+                                        foreach ($rawat as $rwt) : ?>
+                                            <tr>
+                                                <td><?= $i++; ?></td>
+                                                <td><?= $rwt['nama_barang'] ?></td>
+                                                <td><?= $rwt['kode_barang'] ?></td>
+                                                <td><?= $rwt['register'] ?></td>
+                                                <td><?= $rwt['lokasi'] ?></td>
+                                                <td><?= $rwt['nama'] ?></td>
+                                                <td><?= $rwt['jenis'] ?></td>
+                                                <td><?= $rwt['tgl_rawat'] ?></td>
+                                                <td><?= $rwt['tgl_selesai'] ?></td>
+                                                <td><?= $rwt['biaya'] ?></td>
+                                                <td style="width: 100px;" class="text-center">
+                                                    <a href="<?= base_url(); ?>admin/perawatan/edit/<?= $rwt['id_rawat']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                    <a href="<?= base_url(); ?>admin/perawatan/hapus/<?= $rwt['id_rawat']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                    <tfoot>
                                         <tr>
-                                            <td><?= $i++; ?></td>
-                                            <td><?= $rwt['nama_barang'] ?></td>
-                                            <td><?= $rwt['kode_barang'] ?></td>
-                                            <td><?= $rwt['register'] ?></td>
-                                            <td><?= $rwt['lokasi'] ?></td>
-                                            <td><?= $rwt['nama'] ?></td>
-                                            <td><?= $rwt['jenis'] ?></td>
-                                            <td><?= $rwt['biaya'] ?></td>
-                                            <td><?= $rwt['tgl_rawat'] ?></td>
-                                            <td><?= $rwt['tgl_selesai'] ?></td>
-                                            <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/perawatan/edit/<?= $rwt['id_rawat']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/perawatan/hapus/<?= $rwt['id_rawat']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
-                                            </td>
+                                            <th colspan="9" class="text-center">Total Kas Masuk</th>
+                                            <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                                            <th></th>
                                         </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
+                                    </tfoot>
                                 </table>
                             </div>
                         </div>

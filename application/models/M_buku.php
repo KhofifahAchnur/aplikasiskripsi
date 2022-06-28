@@ -130,4 +130,9 @@ class M_buku extends CI_model
         $kodetampil = "2.4.9." . $batas;
         return $kodetampil;
     }
+
+    public function totalKas()
+    {
+        return $this->db->select_sum('harga')->from('buku')->get()->result()[0]->harga;
+    }
 }

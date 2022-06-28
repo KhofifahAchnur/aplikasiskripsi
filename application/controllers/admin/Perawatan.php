@@ -21,6 +21,7 @@ class Perawatan extends CI_Controller
     {
         $data['judul'] = 'Halaman Data Pemeliharaan Aset Peralatan & Mesin';
         $data['rawat'] = $this->M_perawatan->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_perawatan->totalkas();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -108,7 +109,7 @@ class Perawatan extends CI_Controller
         $nama_barang = $this->input->get('nama_barang');
 
         $data['judul'] = 'Filter Laporan';
-
+        $data['jumlah_kasmasuk'] = $this->M_perawatan->totalkas();
         // Proses Filter
         if (isset($_GET['filter'])) {
 
@@ -141,7 +142,7 @@ class Perawatan extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
-        $this->load->view('admin/perawatan/filter');
+        $this->load->view('admin/perawatan/filter', $data);
         $this->load->view('layout/footer');
     }
 
@@ -151,6 +152,7 @@ class Perawatan extends CI_Controller
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
         $nama_barang = $this->input->get('nama_barang');
+        $data['jumlah_kasmasuk'] = $this->M_masteraset->totalkas();
 
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');

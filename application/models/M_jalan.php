@@ -26,6 +26,11 @@ class M_jalan extends CI_model
         $this->db->insert('jalan', $data);
     }
 
+    public function totalKas()
+    {
+        return $this->db->select_sum('harga')->from('jalan')->get()->result()[0]->harga;
+    }
+
     public function getBrgById($id)
     {
         return $this->db->get_where('jalan', ['id_jalan' => $id])->row_array();

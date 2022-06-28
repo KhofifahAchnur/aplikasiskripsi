@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <a href="<?= base_url('member/aset/index') ?>" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
-                        <!-- <a href="<?= base_url('member/history/laporan/') . $barang['id'] ?>" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
+                        <!-- <a href="<?= base_url('member/history/laporan/') . $barang['id'] ?>" class="btn waves-effect waves-light btn-info" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                     </ol>
                 </div>
             </div>
@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-12 ml-12 mr-12">
                     <!-- /.card-header -->
-                    <div class="card card-primary">
+                    <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title">Identitas Barang</h3>
                         </div>
@@ -59,8 +59,8 @@
                                 <div class="text-center">
 
                                     <!-- <a href="<?= base_url('member/perpindahan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Perpindahan</a> -->
-                                    <a href="<?= base_url('member/perawatan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Pemeliharaan</a>
-                                    <a href="<?= base_url('member/peminjaman/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Peminjaman</a>
+                                    <a href="<?= base_url('member/perawatan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-secondary"></button> &nbsp;&nbsp;Pemeliharaan</a>
+                                    <a href="<?= base_url('member/peminjaman/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-dark"></button> &nbsp;&nbsp;Peminjaman</a>
                                 </div>
                             </div>
                         </form>
@@ -71,7 +71,7 @@
         </div>
         <!-- /.card -->
 
-        <div class="card card-primary">
+        <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">Perpindahan Aset Peralatan & Mesin</h3>
             </div>
@@ -110,7 +110,7 @@
             <!-- /.card-body -->
         </div>
         <!-- /.card-body -->
-        <div class="card card-primary">
+        <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">History Pemeliharaan Aset Peralatan & Mesin</h3>
             </div>
@@ -151,7 +151,7 @@
             </div>
         </div>
         <!-- /.card-header -->
-        <div class="card card-primary">
+        <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">History Kondisi Aset Peralatan & Mesin</h3>
             </div>
@@ -185,7 +185,7 @@
         </div>
         <!-- /.card-body -->
 
-        <div class="card card-primary">
+        <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">History Peminjaman Aset Peralatan & Mesin</h3>
             </div>

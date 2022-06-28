@@ -28,7 +28,7 @@
                             <h3 class="card-title">
                                 Daftar Data Aset Peratan & Mesin
                             </h3>
-                            <a href="<?= base_url('admin/aset/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <a href="<?= base_url('admin/aset/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                             
                         </div>
                         <!-- /.card-header -->
@@ -46,9 +46,9 @@
                                         <th>Tahun Peroleh</th>
                                         <th>Kondisi</th>
                                         <th>Asal-Usul</th>
-                                        <th>Harga Barang</th>
                                         <th>Lokasi</th>
                                         <th>Tanggal Masuk</th>
+                                        <th>Harga Barang</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
@@ -69,15 +69,23 @@
                                             <td><?= $brg['kondisi'] ?></td>
                                             <td><?= $brg['asal_usul'] ?></td>
                                             <!-- <td><?= $brg['harga_brg'] ?></td> -->
-                                            <td><?= "Rp." . number_format($brg['harga_brg'], 2, ",", "."); ?></td>
+                                            <!-- <td><?= "Rp." . number_format($brg['harga_brg'], 2, ",", "."); ?></td> -->
                                             <td><?= $brg['lokasi'] ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>
+                                            <td><?= "Rp." . number_format($brg['harga_brg'], 2, ",", "."); ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href= "<?= base_url(); ?>admin/aset/edit/<?= $brg['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/aset/hapus/<?= $brg['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href= "<?= base_url(); ?>admin/aset/edit/<?= $brg['id']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/aset/hapus/<?= $brg['id']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
+                                    <tfoot>
+                                    <tr>
+                                        <th colspan="12" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
                                 </tbody>
                             </table>
                         </div>

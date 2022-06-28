@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-12 ml-12 mr-12">
                     <!-- /.card-header -->
-                    <div class="card card-primary">
+                    <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title">Identitas Barang</h3>
                         </div>
@@ -59,8 +59,9 @@
                                 <div class="text-center">
 
                                     <a href="<?= base_url('admin/perpindahan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Perpindahan</a>
-                                    <a href="<?= base_url('admin/perawatan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Pemeliharaan</a>
-                                    <a href="<?= base_url('admin/peminjaman/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Peminjaman</a>
+                                    <a href="<?= base_url('admin/perawatan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-success"></button> &nbsp;&nbsp;Pemeliharaan</a>
+                                    <a href="<?= base_url('admin/peminjaman/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-info"></button> &nbsp;&nbsp;Peminjaman</a>
+                                    <a href="<?= base_url('admin/penghapusan/tambah/') . $barang['id'] ?>" button type="button" class="btn btn-secondary"></button> &nbsp;&nbsp;Penghapusan</a>
                                 </div>
                             </div>
                         </form>
@@ -71,7 +72,7 @@
         </div>
         <!-- /.card -->
 
-        <div class="card card-primary">
+        <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">Perpindahan Aset Peralatan & Mesin</h3>
             </div>
@@ -110,7 +111,7 @@
             <!-- /.card-body -->
         </div>
         <!-- /.card-body -->
-        <div class="card card-primary">
+        <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">History Pemeliharaan Aset Peralatan & Mesin</h3>
             </div>
@@ -151,7 +152,7 @@
             </div>
         </div>
         <!-- /.card-header -->
-        <div class="card card-primary">
+        <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">History Kondisi Aset Peralatan & Mesin</h3>
             </div>
@@ -185,7 +186,7 @@
         </div>
         <!-- /.card-body -->
 
-        <div class="card card-primary">
+        <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">History Peminjaman Aset Peralatan & Mesin</h3>
             </div>

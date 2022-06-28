@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/pengajuan/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/pbaru/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-12">
                     <!-- /.card-header -->
-                    <div class="card card-primary">
+                    <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title">Edit Pengajuan Barang</h3>
                         </div>
@@ -56,7 +56,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Status</label>
                                     <select name="status" class="form-control" id="status">
                                         <option value="<?= $pbaru['status']; ?>"><?= $pbaru['status']; ?></option>
@@ -64,9 +64,20 @@
                                         <option value="Disetujui"> Disetujui </option>
                                         <option value="Tersedia"> Tersedia </option>
                                     </select>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <input readonly type="text" class="form-control" id="status" placeholder="Masukkan Kode Barang" name="status" value="<?= $pbaru['status']; ?>">
+                                    <div class="form-text text-danger"><?= form_error('status'); ?></div>
                                 </div>
+                                <!-- <div class="form-group">
+                                    <label>Status</label>
+                                    <input hidden type="text" class="form-control" id="status" name="status" value="<?= $pbaru['id'] ?>">
+                                    <input readonly type="text" class="form-control" id="" name="" value="<?= $pbaru['status'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('status'); ?></div>
+                                </div> -->
                                 <div class="text-right">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <button type="submit" class="btn btn-info">Simpan</button>
                                 </div>
                             </div>
                         </form>

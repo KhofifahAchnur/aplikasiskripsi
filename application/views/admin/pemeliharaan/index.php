@@ -28,8 +28,8 @@
                             <!-- <h3 class="card-title">
                                 Daftar Data Pemeliharaan Aset Gedung & Bangunan
                             </h3> -->
-                            <a href="<?= base_url('admin/pemeliharaan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
-                            <a href="<?= base_url('admin/pemeliharaan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <a href="<?= base_url('admin/pemeliharaan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                            <a href="<?= base_url('admin/pemeliharaan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -43,9 +43,9 @@
                                         <th>Lokasi</th>
                                         <th>Penanggung Jawab</th>
                                         <th>Jenis Pemeliharaan</th>
-                                        <th>Biaya</th>
                                         <th>Tanggal Pemeliharaan</th>
                                         <th>Tanggal Selesai </th>
+                                        <th>Biaya</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
@@ -60,16 +60,23 @@
                                             <td><?= $pln['lokasi'] ?></td>
                                             <td><?= $pln['nama'] ?></td>
                                             <td><?= $pln['jenis'] ?></td>
-                                            <td><?= $pln['biaya'] ?></td>
                                             <td><?= $pln['tgl_pemeliharaan'] ?></td>
                                             <td><?= $pln['tgl_selesai'] ?></td>
+                                            <td><?= "Rp." . number_format($pln['biaya'], 2, ",", "."); ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/pemeliharaan/edit/<?= $pln['id_pemeliharaan']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/pemeliharaan/hapus/<?= $pln['id_pemeliharaan']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="<?= base_url(); ?>admin/pemeliharaan/edit/<?= $pln['id_pemeliharaan']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/pemeliharaan/hapus/<?= $pln['id_pemeliharaan']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="9" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

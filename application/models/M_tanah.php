@@ -25,6 +25,10 @@ class M_tanah extends CI_model
 
         $this->db->insert('tanah', $data);
     }
+    public function totalKas()
+    {
+        return $this->db->select_sum('harga')->from('tanah')->get()->result()[0]->harga;
+    }
 
     public function getBrgById($id)
     {

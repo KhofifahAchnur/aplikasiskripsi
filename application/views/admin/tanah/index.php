@@ -28,7 +28,7 @@
                             <h3 class="card-title">
                                 Daftar Data Aset Tanah
                             </h3>
-                            <a href="<?= base_url('admin/tanah/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <a href="<?= base_url('admin/tanah/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -45,8 +45,8 @@
                                         <th>Hak</th>
                                         <th>Nomer</th>
                                         <th>Asal-Usul</th>
-                                        <th>Harga Barang</th>
                                         <th>Tanggal Peroleh</th>
+                                        <th>Harga Barang</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
@@ -64,15 +64,22 @@
                                             <td><?= $brg['hak'] ?></td>
                                             <td><?= $brg['nomer'] ?></td>
                                             <td><?= $brg['asal_usul'] ?></td>
-                                            <td><?= "Rp." . number_format($brg['harga'], 2, ",", "."); ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>
+                                            <td><?= "Rp." . number_format($brg['harga'], 2, ",", "."); ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href= "<?= base_url(); ?>admin/tanah/edit/<?= $brg['id_tanah']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/tanah/hapus/<?= $brg['id_tanah']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href= "<?= base_url(); ?>admin/tanah/edit/<?= $brg['id_tanah']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/tanah/hapus/<?= $brg['id_tanah']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="11" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

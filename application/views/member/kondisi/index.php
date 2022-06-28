@@ -22,7 +22,7 @@
             <div class="row">
             <div class="col-lg-12">
                         <!-- /.card-header -->
-                        <div class="card card-primary">
+                        <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title"> Data History Kondisi Aset Peralatan & Mesin</h3>
                         </div>

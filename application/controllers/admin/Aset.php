@@ -18,6 +18,7 @@ class Aset extends CI_Controller
     {
         $data['judul'] = 'Halaman Aset Peralatan & Mesin';
         $data['barang'] = $this->M_aset->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_aset->totalkas();
         
 
         $this->load->view('layout/header', $data);
@@ -99,6 +100,11 @@ class Aset extends CI_Controller
         $this->M_aset->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
         redirect('admin/aset');
+    }
+
+    public function totalKas()
+    {
+        return $this->db->select_sum('nilai')->from('aset')->get()->result()[0]->nilai;
     }
 
     public function laporan()

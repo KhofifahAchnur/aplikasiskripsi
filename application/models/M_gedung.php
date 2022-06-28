@@ -27,6 +27,10 @@ class M_gedung extends CI_model
 
         $this->db->insert('gedung', $data);
     }
+    public function totalKas()
+    {
+        return $this->db->select_sum('harga')->from('gedung')->get()->result()[0]->harga;
+    }
 
     public function tampilgedung()
     {

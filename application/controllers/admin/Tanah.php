@@ -19,6 +19,7 @@ class Tanah extends CI_Controller
 
         $data['judul'] = 'Halaman Data Aset Tanah';
         $data['tanah'] = $this->M_tanah->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_tanah->totalkas();
         // $data['barang'] = $this->M_aset->getBrgById($id);
         // // $data['barang'] = $this->M_aset->lihat();
         // $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);
@@ -107,8 +108,10 @@ class Tanah extends CI_Controller
     {
         $tgl_awal = $this->input->get('tgl_awal');
         $tgl_akhir = $this->input->get('tgl_akhir');
+       
 
         $data['judul'] = 'Filter Laporan';
+        $data['jumlah_kasmasuk'] = $this->M_tanah->totalkas();
         // $data['aset'] = $this->M_masteraset->lihat();
         $data['tanah'] = $this->M_tanah->databytanggal($tgl_awal, $tgl_akhir);
         $data['tgl_awal'] = $tgl_awal;
@@ -121,7 +124,7 @@ class Tanah extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
-        $this->load->view('admin/tanah/filter');
+        $this->load->view('admin/tanah/filter', $data);
         $this->load->view('layout/footer');
     }
 
@@ -129,6 +132,7 @@ class Tanah extends CI_Controller
     {
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
+        $data['jumlah_kasmasuk'] = $this->M_tanah->totalkas();
 
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');

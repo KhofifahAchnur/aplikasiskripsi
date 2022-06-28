@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-12 ml-12 mr-12">
                     <!-- /.card-header -->
-                    <div class="card card-primary">
+                    <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title">Identitas Buku</h3>
                         </div>
@@ -76,7 +76,7 @@
             </div> -->
 
 
-        <div class="card card-primary">
+        <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">History Kondisi</h3>
             </div>

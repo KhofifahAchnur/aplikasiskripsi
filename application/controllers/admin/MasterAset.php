@@ -19,6 +19,7 @@ class MasterAset extends CI_Controller
         $data['judul'] = 'Halaman Data Barang';
         // $data['aset'] = $this->M_masteraset->tampillokasi();
         $data['aset'] = $this->M_masteraset->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_masteraset->totalKas();
 
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -38,6 +39,7 @@ class MasterAset extends CI_Controller
         $nama = $this->input->get('nama');
 
         $data['judul'] = 'Filter Laporan';
+        $data['jumlah_kasmasuk'] = $this->M_masteraset->totalkas();
 
         // Proses Filter
         if (isset($_GET['filter'])) {
@@ -70,7 +72,7 @@ class MasterAset extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
-        $this->load->view('admin/masteraset/filter');
+        $this->load->view('admin/masteraset/filter', $data);
         $this->load->view('layout/footer');
     }
 
@@ -93,6 +95,7 @@ class MasterAset extends CI_Controller
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
         $nama_barang = $this->input->get('nama_barang');
+        $data['jumlah_kasmasuk'] = $this->M_masteraset->totalkas();
 
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
@@ -130,9 +133,9 @@ class MasterAset extends CI_Controller
         // filename dari pdf ketika didownload
         $file_pdf = 'laporan Masteraset';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A2';
         //orientasi paper potrait / landscape
-        $orientation = "landscape";
+        $orientation = "potrait";
 
         $html = $this->load->view('admin/masteraset/laporan', $this->data, true);
 

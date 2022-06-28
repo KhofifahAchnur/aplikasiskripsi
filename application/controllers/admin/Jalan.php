@@ -19,6 +19,7 @@ class Jalan extends CI_Controller
 
         $data['judul'] = 'Halaman Data Aset Jalan , Irigasi & Jaringan';
         $data['jalan'] = $this->M_jalan->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_jalan->totalkas();
         // $data['barang'] = $this->M_aset->getBrgById($id);
         // // $data['barang'] = $this->M_aset->lihat();
         // $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);
@@ -112,6 +113,7 @@ class Jalan extends CI_Controller
         $tgl_akhir = $this->input->get('tgl_akhir');
 
         $data['judul'] = 'Filter Laporan';
+        $data['jumlah_kasmasuk'] = $this->M_jalan->totalkas();
         // $data['aset'] = $this->M_masteraset->lihat();
         $data['jalan'] = $this->M_jalan->databytanggal($tgl_awal, $tgl_akhir);
         $data['tgl_awal'] = $tgl_awal;
@@ -124,7 +126,7 @@ class Jalan extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
-        $this->load->view('admin/jalan/filter');
+        $this->load->view('admin/jalan/filter', $data);
         $this->load->view('layout/footer');
     }
 
@@ -132,6 +134,7 @@ class Jalan extends CI_Controller
     {
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
+        $data['jumlah_kasmasuk'] = $this->M_jalan->totalkas();
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 

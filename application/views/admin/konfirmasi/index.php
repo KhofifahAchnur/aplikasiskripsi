@@ -23,7 +23,7 @@
             <div class="row">
             <div class="col-lg-12">
                         <!-- /.card-header -->
-                        <div class="card card-primary">
+                        <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title">History Konfirmasi Aset</h3>
                         </div>

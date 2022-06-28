@@ -137,12 +137,19 @@
                                             <td><?= $pln['tgl_pemeliharaan'] ?></td>
                                             <td><?= $pln['tgl_selesai'] ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/pemeliharaan/edit/<?= $pln['id_pemeliharaan']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/pemeliharaan/hapus/<?= $pln['id_pemeliharaan']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="<?= base_url(); ?>admin/pemeliharaan/edit/<?= $pln['id_pemeliharaan']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/pemeliharaan/hapus/<?= $pln['id_pemeliharaan']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="9" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
                                 </table>
                             </div>
                         </div>

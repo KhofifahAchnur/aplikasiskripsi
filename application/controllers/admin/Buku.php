@@ -19,6 +19,7 @@ class Buku extends CI_Controller
 
         $data['judul'] = 'Halaman Data Aset Perpustakaan';
         $data['buku'] = $this->M_buku->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_buku->totalkas();
         // $data['barang'] = $this->M_aset->getBrgById($id);
         // // $data['barang'] = $this->M_aset->lihat();
         // $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);
@@ -113,6 +114,8 @@ class Buku extends CI_Controller
 
         // die($nama);
         $data['judul'] = 'Filter Laporan';
+        $data['jumlah_kasmasuk'] = $this->M_buku->totalkas();
+
         if (isset($_GET['filter'])) {
             if (isset($_GET['nama'])) {
                 $data['buku'] = $this->M_buku->databynama($tgl_awal, $tgl_akhir, $nama);
@@ -138,7 +141,7 @@ class Buku extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
-        $this->load->view('admin/buku/filter');
+        $this->load->view('admin/buku/filter', $data);
         $this->load->view('layout/footer');
     }
 
@@ -147,6 +150,7 @@ class Buku extends CI_Controller
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
         $nama_barang = $this->input->get('nama_barang');
+        $data['jumlah_kasmasuk'] = $this->M_buku->totalkas();
 
 
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator

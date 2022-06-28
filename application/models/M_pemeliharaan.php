@@ -38,6 +38,12 @@ class M_pemeliharaan extends CI_model
         ];
         $this->db->insert('pemeliharaan', $data);
     }
+
+    public function totalKas()
+    {
+        return $this->db->select_sum('biaya')->from('pemeliharaan')->get()->result()[0]->biaya;
+    }
+
     public function getpemeliharaanById($id)
     {
         return $this->db->get_where('pemeliharaan', ['id_pemeliharaan' => $id])->row_array();

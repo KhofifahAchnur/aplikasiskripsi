@@ -112,6 +112,13 @@
                 </tr>
             <?php endforeach; ?>
         </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="9" class="text-center">Total Kas Masuk</th>
+                <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                <th></th>
+            </tr>
+        </tfoot>
     </table>
     <table width="20%" align="right" border="0" style="margin-top: 10px;">
         <tr>

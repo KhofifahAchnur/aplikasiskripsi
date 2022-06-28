@@ -28,8 +28,8 @@
                             <!-- <h3 class="card-title">
                                 Daftar Data Peminjaman Aset Peralatan & Mesin
                             </h3> -->
-                            <a href="<?= base_url('admin/peminjaman/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
-                            <a href="<?= base_url('admin/peminjaman/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <a href="<?= base_url('admin/peminjaman/filter') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                            <a href="<?= base_url('admin/peminjaman/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -62,8 +62,8 @@
                                             <td><?= $pjm['tgl_pinjam'] ?></td>
                                             <td><?= $pjm['tgl_kembali'] ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/peminjaman/edit/<?= $pjm['id_pinjam']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/peminjaman/hapus/<?= $pjm['id_pinjam']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="<?= base_url(); ?>admin/peminjaman/edit/<?= $pjm['id_pinjam']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/peminjaman/hapus/<?= $pjm['id_pinjam']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

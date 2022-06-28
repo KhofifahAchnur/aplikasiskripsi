@@ -46,8 +46,8 @@
                                             <th>Tahun Peroleh</th>
                                             <th>Kondisi</th>
                                             <th>Asal-Usul</th>
-                                            <th>Harga Barang</th>
                                             <th>Lokasi</th>
+                                            <th>Harga Barang</th>
                                             <th>Tanggal Masuk</th>
                                             <th class="text-center">Aksi</th>
                                         </tr>
@@ -65,15 +65,23 @@
                                                 <td><?= $brg['tahun'] ?></td>
                                                 <td><?= $brg['kondisi'] ?></td>
                                                 <td><?= $brg['asal_usul'] ?></td>
-                                                <td><?= $brg['harga_brg'] ?></td>
+                                                <!-- <td><?= $brg['harga_brg'] ?></td> -->
                                                 <td><?= $brg['lokasi'] ?></td>
+                                                <td><?= "Rp." . number_format($brg['harga_brg'], 2, ",", "."); ?></td>
                                                 <td><?= $brg['tanggal_masuk'] ?></td>
                                                 <td>
                                                     <!-- <a href="<?= base_url('admin/kondisi/tambah'); ?>" class="badge badge-pill badge-success">UBAH KONDISI</a> -->
-                                                    <a href="<?= base_url(); ?>admin/kondisi/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-success">UBAH KONDISI</a>
+                                                    <a href="<?= base_url(); ?>admin/kondisi/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-info">UBAH KONDISI</a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="11" class="text-center">Total Kas Masuk</th>
+                                            <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
                                     </tbody>
                                 </table>
                             </div>

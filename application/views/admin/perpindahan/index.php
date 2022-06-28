@@ -11,7 +11,7 @@
                 die; ?> -->
                 <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                <a href="<?= base_url('admin/perpindahan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                <!-- <a href="<?= base_url('admin/perpindahan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                 </ol>
             </div>
             </div>
@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <!-- /.card-header -->
-                    <div class="card card-primary">
+                    <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title">Perpindahan Aset Peralatan & Mesin</h3>
                         </div>

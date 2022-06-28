@@ -39,6 +39,10 @@ class M_perawatan extends CI_model
         ];
         $this->db->insert('perawatan', $data);
     }
+    public function totalKas()
+    {
+        return $this->db->select_sum('biaya')->from('perawatan')->get()->result()[0]->biaya;
+    }
 
     public function getRwtById($id)
     {

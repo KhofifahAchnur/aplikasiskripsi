@@ -132,6 +132,11 @@ class M_aset extends CI_model
         return $kodetampil;
     }
 
+    public function totalKas()
+    {
+        return $this->db->select_sum('harga_brg')->from('aset')->get()->result()[0]->harga_brg;
+    }
+
 //     public function jumlah()
 //     {
 //         return $this->db->get('aset')->num_rows();

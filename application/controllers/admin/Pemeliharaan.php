@@ -20,6 +20,7 @@ class Pemeliharaan extends CI_Controller
     {
         $data['judul'] = 'Halaman Data Pemeliharaan Aset Gedung & Bangunan';
         $data['pemeliharaan'] = $this->M_pemeliharaan->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_pemeliharaan->totalkas();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -103,7 +104,7 @@ class Pemeliharaan extends CI_Controller
         $nama_gedung = $this->input->get('nama_gedung');
 
         $data['judul'] = 'Filter Laporan';
-
+        $data['jumlah_kasmasuk'] = $this->M_pemeliharaan->totalkas();
         // Proses Filter
         if (isset($_GET['filter'])) {
 
@@ -136,7 +137,7 @@ class Pemeliharaan extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
-        $this->load->view('admin/pemeliharaan/filter');
+        $this->load->view('admin/pemeliharaan/filter', $data);
         $this->load->view('layout/footer');
     }
 
@@ -146,6 +147,7 @@ class Pemeliharaan extends CI_Controller
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
         $nama_gedung = $this->input->get('nama_gedung');
+        $data['jumlah_kasmasuk'] = $this->M_pemeliharaan->totalkas();
 
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');

@@ -28,8 +28,8 @@
                             <!-- <h3 class="card-title">
                                 Daftar Data Pemeliharaan Aset
                             </h3> -->
-                            <a href="<?= base_url('admin/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
-                            <a href="<?= base_url('admin/perawatan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                            <a href="<?= base_url('admin/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <a href="<?= base_url('admin/perawatan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -43,9 +43,9 @@
                                         <th>Lokasi</th>
                                         <th>Penanggung Jawab</th>
                                         <th>Jenis Pemeliharaan</th>
-                                        <th>Biaya</th>
                                         <th>Tanggal Perawatan</th>
                                         <th>Tanggal Selesai </th>
+                                        <th>Biaya</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
@@ -60,16 +60,23 @@
                                             <td><?= $rwt['lokasi'] ?></td>
                                             <td><?= $rwt['nama'] ?></td>
                                             <td><?= $rwt['jenis'] ?></td>
-                                            <td><?= $rwt['biaya'] ?></td>
                                             <td><?= $rwt['tgl_rawat'] ?></td>
                                             <td><?= $rwt['tgl_selesai'] ?></td>
+                                            <td><?= "Rp." . number_format($rwt['biaya'], 2, ",", "."); ?></td>
                                             <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>admin/perawatan/edit/<?= $rwt['id_rawat']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/perawatan/hapus/<?= $rwt['id_rawat']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="<?= base_url(); ?>admin/perawatan/edit/<?= $rwt['id_rawat']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/perawatan/hapus/<?= $rwt['id_rawat']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="9" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->
