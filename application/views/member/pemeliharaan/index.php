@@ -62,7 +62,7 @@
                                             <td><?= $pln['jenis'] ?></td>
                                             <td><?= $pln['tgl_pemeliharaan'] ?></td>
                                             <td><?= $pln['tgl_selesai'] ?></td>
-                                            <td><?= "Rp." . number_format($brg['biaya'], 2, ",", "."); ?></td>
+                                            <td><?= "Rp." . number_format($pln['biaya'], 2, ",", "."); ?></td>
                                             <!-- <td><?= $pln['biaya'] ?></td> -->
                                             <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>member/pemeliharaan/edit/<?= $pln['id_pemeliharaan']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |

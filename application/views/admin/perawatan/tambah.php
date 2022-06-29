@@ -60,7 +60,7 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label>Jenis Perawatan</label>
+                                    <label>Jenis Pemeliharaan</label>
                                     <input type="text" class="form-control" id="jenis" placeholder="Masukkan Jenis Pemeliharaan" name="jenis">
                                     <div class="form-text text-danger"><?= form_error('jenis'); ?></div>
                                 </div>
@@ -70,7 +70,7 @@
                                     <div class="form-text text-danger"><?= form_error('biaya'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tanggal Perawatan</label>
+                                    <label>Tanggal Pemeliharaan</label>
                                     <input type="date" class="form-control" id="tgl_rawat" placeholder="Masukkan Tanggal Pemeliharaan" name="tgl_rawat">
                                     <div class="form-text text-danger"><?= form_error('tgl_rawat'); ?></div>
                                 </div>

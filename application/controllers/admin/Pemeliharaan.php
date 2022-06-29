@@ -8,7 +8,6 @@ class Pemeliharaan extends CI_Controller
         parent::__construct();
         $this->load->model('M_pemeliharaan');
         $this->load->model('M_gedung');
-        $this->load->model('M_penanggung_jawab');
         if ($this->session->userdata('hak_akses') != '1') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
@@ -39,7 +38,6 @@ class Pemeliharaan extends CI_Controller
         // $data['aset'] = $this->M_aset->tampilaset();
         // $data['pemeliharaan'] = $this->M_pemeliharaan->lihat();
         $data['gedung'] = $this->M_gedung->getGdgById($id);
-        $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -67,7 +65,6 @@ class Pemeliharaan extends CI_Controller
         $data['judul'] = 'Halaman Edit Data  Pemeliharaan Aset Gedung & Bangunan';
         $data['pemeliharaan'] = $this->M_pemeliharaan->getpemeliharaanById($id);
         $data['gedung'] = $this->M_gedung->getGdgById($data['pemeliharaan']['gedung_id']);
-        $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 

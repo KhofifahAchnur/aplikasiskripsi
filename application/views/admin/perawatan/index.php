@@ -43,7 +43,7 @@
                                         <th>Lokasi</th>
                                         <th>Penanggung Jawab</th>
                                         <th>Jenis Pemeliharaan</th>
-                                        <th>Tanggal Perawatan</th>
+                                        <th>Tanggal Pemeliharaan</th>
                                         <th>Tanggal Selesai </th>
                                         <th>Biaya</th>
                                         <th class="text-center">Aksi</th>

@@ -9,7 +9,7 @@ class M_masteraset extends CI_model
         // $this->db->join('history_perpindahan', 'history_perpindahan.id = aset.perpindahan_id');
         $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
         $this->db->order_by('aset.id', 'DESC');
-        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS'));
+        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
         return $this->db->get()->result_array();
     }
 
@@ -18,7 +18,7 @@ class M_masteraset extends CI_model
         $this->db->select('nama_barang');
         $this->db->from('aset');
         $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
-        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS'));
+        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
         $this->db->group_by('nama_barang');
         return $this->db->get()->result_array();
     }
@@ -28,7 +28,7 @@ class M_masteraset extends CI_model
         $this->db->select('nama_barang');
         $this->db->from('aset');
         $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
-        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS'));
+        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
         $this->db->where("tanggal_masuk >=", "$tgl_awal");
         $this->db->where("tanggal_masuk <=", "$tgl_akhir");
         $this->db->group_by('nama_barang');
@@ -63,7 +63,7 @@ class M_masteraset extends CI_model
         $this->db->order_by('aset.id', 'DESC');
         $this->db->where("tanggal_masuk >=", "$tgl_awalcetak");
         $this->db->where("tanggal_masuk <=", "$tgl_akhircetak");
-        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS'));
+        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
         return $this->db->get()->result_array();
     }
 
@@ -76,7 +76,7 @@ class M_masteraset extends CI_model
         $this->db->order_by('aset.id', 'DESC');
         $this->db->where("tanggal_masuk >=", "$tgl_awal");
         $this->db->where("tanggal_masuk <=", "$tgl_akhir");
-        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS'));
+        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
         return $this->db->get()->result_array();
     }
 
@@ -90,7 +90,7 @@ class M_masteraset extends CI_model
         $this->db->where("aset.nama_barang", "$nama");
         $this->db->where("tanggal_masuk >=", "$tgl_awalcetak");
         $this->db->where("tanggal_masuk <=", "$tgl_akhircetak");
-        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS'));
+        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
         return $this->db->get()->result_array();
     }
 
@@ -104,7 +104,7 @@ class M_masteraset extends CI_model
         $this->db->where("aset.nama_barang", "$nama");
         $this->db->where("tanggal_masuk >=", "$tgl_awal");
         $this->db->where("tanggal_masuk <=", "$tgl_akhir");
-        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS'));
+        $this->db->where_in('lokasi', array('Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
         return $this->db->get()->result_array();
         // die($this->db->get()->result_array());
     }

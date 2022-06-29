@@ -47,12 +47,9 @@
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                <label>Penanggung Jawab</label>
-                                    <select name="nama" class="form-control" id="nama">
-                                        <?php foreach($penanggung_jawab as $index => $pj): ?>
-                                        <option value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <label>Penanggung Jawab</label>
+                                    <input type="text" class="form-control" id="nama" placeholder="Masukkan Kode Barang" name="nama" value="<?= $pemeliharaan['nama']; ?>">
+                                    <div class="form-text text-danger"><?= form_error('nama'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Pemeliharaan</label>
