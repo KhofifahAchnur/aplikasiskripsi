@@ -19,6 +19,7 @@ class Buku extends CI_Controller
 
         $data['judul'] = 'Halaman Data Aset Perpustakaan';
         $data['buku'] = $this->M_buku->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_buku->totalkas();
         // $data['barang'] = $this->M_aset->getBrgById($id);
         // // $data['barang'] = $this->M_aset->lihat();
         // $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);

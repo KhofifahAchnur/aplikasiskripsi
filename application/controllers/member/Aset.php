@@ -18,6 +18,7 @@ class Aset extends CI_Controller
     {
         $data['judul'] = 'Halaman Aset Peralatan & Mesin';
         $data['barang'] = $this->M_aset->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_aset->totalkas();
         
 
         $this->load->view('layoutmember/header', $data);

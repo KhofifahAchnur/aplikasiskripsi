@@ -19,6 +19,7 @@ class Tanah extends CI_Controller
 
         $data['judul'] = 'Halaman Data Aset Tanah';
         $data['tanah'] = $this->M_tanah->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_tanah->totalkas();
         // $data['barang'] = $this->M_aset->getBrgById($id);
         // // $data['barang'] = $this->M_aset->lihat();
         // $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);

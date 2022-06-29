@@ -43,9 +43,9 @@
                                         <th>Lokasi</th>
                                         <th>Penanggung Jawab</th>
                                         <th>Jenis Pemeliharaan</th>
-                                        <th>Biaya</th>
                                         <th>Tanggal Perawatan</th>
                                         <th>Tanggal Selesai </th>
+                                        <th>Biaya</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
@@ -60,9 +60,9 @@
                                             <td><?= $rwt['lokasi'] ?></td>
                                             <td><?= $rwt['nama'] ?></td>
                                             <td><?= $rwt['jenis'] ?></td>
-                                            <td><?= $rwt['biaya'] ?></td>
                                             <td><?= $rwt['tgl_rawat'] ?></td>
                                             <td><?= $rwt['tgl_selesai'] ?></td>
+                                            <td><?= "Rp." . number_format($brg['biaya'], 2, ",", "."); ?></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>member/perawatan/edit/<?= $rwt['id_rawat']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>member/perawatan/hapus/<?= $rwt['id_rawat']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
@@ -70,6 +70,13 @@
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="9" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

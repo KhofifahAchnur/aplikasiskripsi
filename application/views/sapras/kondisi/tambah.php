@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-12">
                     <!-- /.card-header -->
-                    <div class="card card-primary">
+                    <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title">Ubah Kondisi Barang</h3>
                         </div>
@@ -63,7 +63,7 @@
                                     <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>
                                     <div class="text-right">
-                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                        <button type="submit" class="btn btn-info">Simpan</button>
                                     </div>
                                 </div>
                         </form>

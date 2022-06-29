@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <a href="<?= base_url('member/buku/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
-                        <!-- <a href="<?= base_url('member/hbuku/laporan/') . $buku['id_buku'] ?>" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
+                        <!-- <a href="<?= base_url('member/hbuku/laporan/') . $buku['id_buku'] ?>" class="btn waves-effect waves-light btn-info" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                     </ol>
                 </div>
             </div>
@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-12 ml-12 mr-12">
                     <!-- /.card-header -->
-                    <div class="card card-primary">
+                    <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title">Identitas Buku</h3>
                         </div>
@@ -58,8 +58,8 @@
                                 </div>
                                 <!-- <div class="text-center">
 
-                                     <a href="<?= base_url('member/perpindahan/tambah/') . $kgedung['id_gedung'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Perpindahan</a> -->
-                                    <!-- <a href="<?= base_url('member/pemeliharaan/tambah/') . $gedung['id_gedung'] ?>" button type="button" class="btn btn-primary"></button> &nbsp;&nbsp;Pemeliharaan</a>
+                                     <a href="<?= base_url('member/perpindahan/tambah/') . $kgedung['id_gedung'] ?>" button type="button" class="btn btn-info"></button> &nbsp;&nbsp;Perpindahan</a> -->
+                                    <!-- <a href="<?= base_url('member/pemeliharaan/tambah/') . $gedung['id_gedung'] ?>" button type="button" class="btn btn-info"></button> &nbsp;&nbsp;Pemeliharaan</a>
                                 </div> -->
                             </div>
                         </form>
@@ -70,13 +70,13 @@
         </div>
         <!-- /.card -->
 
-        <!-- <div class="card card-primary">
+        <!-- <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">Perpindahan Barang</h3>
             </div> -->
 
 
-        <div class="card card-primary">
+        <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">History Kondisi</h3>
             </div>

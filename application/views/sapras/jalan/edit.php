@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-12">
                     <!-- /.card-header -->
-                    <div class="card card-primary">
+                    <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title">Edit Data Aset Jalan , Irigasi & Jaringan</h3>
                         </div>
@@ -82,7 +82,7 @@
                                 </div>
                                 
                                 <div class="text-right">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <button type="submit" class="btn btn-info">Simpan</button>
                                 </div>
                             </div>
                         </form>

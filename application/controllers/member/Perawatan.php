@@ -21,6 +21,7 @@ class Perawatan extends CI_Controller
     {
         $data['judul'] = 'Halaman Data Pemeliharaan Aset Peralatan & Mesin';
         $data['rawat'] = $this->M_perawatan->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_perawatan->totalkas();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 

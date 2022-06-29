@@ -73,10 +73,10 @@ class M_pbaru extends CI_model
         $this->db->delete('pengajuan');
     }
 
-    public function jumlah()
-    {
-        return $this->db->get('lokasi')->num_rows();
-    }
+    // public function jumlah()
+    // {
+    //     return $this->db->get('lokasi')->num_rows();
+    // }
 
     public function aset()
     {
@@ -153,10 +153,10 @@ class M_pbaru extends CI_model
         return $this->db->get()->result_array();
     }
 
-    // public function jumlah()
-    //     {
-    //         return $this->db->get('barang')->num_rows();
-    //     }
+    public function jumlah()
+        {
+            return $this->db->get('pengajuan')->num_rows();
+        }
 
     
 }

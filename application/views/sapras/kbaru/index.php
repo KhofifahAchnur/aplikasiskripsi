@@ -6,12 +6,12 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1> Data Konfirmasi Pengajuan Aset Baru</h1>
-                    <!-- <a href="<?= base_url('sapras/pbaru/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
+                    <!-- <a href="<?= base_url('sapras/pbaru/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-info" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <a href="<?= base_url('sapras/pbaru/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
-                        <!-- <a href="<?= base_url('sapras/kbaru/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
+                        <!-- <a href="<?= base_url('sapras/kbaru/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-info" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <!-- /.card-header -->
-                    <div class="card card-primary">
+                    <div class="card card-info">
                         <div class="card-header">
                             <h3 class="card-title">Data Konfirmasi  Pengajuan Aset Baru</h3>
                         </div>

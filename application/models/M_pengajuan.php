@@ -63,7 +63,7 @@ class M_pengajuan extends CI_model
 
     public function jumlah()
     {
-        return $this->db->get('lokasi')->num_rows();
+        return $this->db->get('pengajuan')->num_rows();
     }
 
     public function aset()

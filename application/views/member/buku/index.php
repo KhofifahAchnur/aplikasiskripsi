@@ -44,8 +44,8 @@
                                         <th>Asal-Usul</th>
                                         <th>Tahun Peroleh</th>
                                         <th>Kondisi</th>
-                                        <th>Harga Buku</th>
                                         <th>Tanggal Peroleh</th>
+                                        <th>Harga Buku</th>
                                         <!-- <th class="text-center">Aksi</th> -->
                                 </thead>
                                 </thead>
@@ -65,8 +65,8 @@
                                             <td><?= $brg['asal_usul'] ?></td>
                                             <td><?= $brg['tahun'] ?></td>
                                             <td><?= $brg['kondisi'] ?></td>
-                                            <td><?= "Rp." . number_format($brg['harga'], 2, ",", "."); ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>
+                                            <td><?= "Rp." . number_format($brg['harga'], 2, ",", "."); ?></td>
                                             <!-- <td style="width: 100px;" class="text-center">
                                                 <a href= "<?= base_url(); ?>member/buku/edit/<?= $brg['id_buku']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>member/buku/hapus/<?= $brg['id_buku']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
@@ -75,6 +75,12 @@
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="10" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

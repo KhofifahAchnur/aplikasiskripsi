@@ -19,6 +19,7 @@ class Gedung extends CI_Controller
 
         $data['judul'] = 'Halaman Data Aset Gedung & Bangunan';
         $data['gedung'] = $this->M_gedung->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_gedung->totalkas();
         // $data['barang'] = $this->M_aset->getBrgById($id);
         // // $data['barang'] = $this->M_aset->lihat();
         // $data['pindah'] = $this->M_perpindahan->lihatperpindahanbyid($id);
