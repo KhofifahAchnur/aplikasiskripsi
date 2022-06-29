@@ -116,9 +116,9 @@
                                         <th>Lokasi</th>
                                         <th>Penanggung Jawab</th>
                                         <th>Jenis Pemeliharaan</th>
-                                        <th>Biaya</th>
                                         <th>Tanggal Pemeliharaan</th>
                                         <th>Tanggal Selesai </th>
+                                        <th>Biaya</th>
                                         <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
@@ -133,9 +133,9 @@
                                             <td><?= $pln['lokasi'] ?></td>
                                             <td><?= $pln['nama'] ?></td>
                                             <td><?= $pln['jenis'] ?></td>
-                                            <td><?= $pln['biaya'] ?></td>
                                             <td><?= $pln['tgl_pemeliharaan'] ?></td>
                                             <td><?= $pln['tgl_selesai'] ?></td>
+                                            <td><?= "Rp." . number_format($pln['biaya'], 2, ",", "."); ?></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>admin/pemeliharaan/edit/<?= $pln['id_pemeliharaan']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>admin/pemeliharaan/hapus/<?= $pln['id_pemeliharaan']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>

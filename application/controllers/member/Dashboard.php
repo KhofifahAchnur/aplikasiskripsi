@@ -8,18 +8,16 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_lokasi');
-        $this->load->model('M_pbaru');
-        $this->load->model('M_pengajuan');
-        $this->load->model('M_pgedung');
+        $this->load->model('M_perawatan');
+        $this->load->model('M_pemeliharaan');
     }
 
     public function index()
     {
         $data['judul'] = 'Halaman Dashboard';
         $data['jumlah_lokasi'] = $this->M_lokasi->jumlah();
-        $data['jumlah_pbaru'] = $this->M_pbaru->jumlah();
-        $data['jumlah_pengajuan'] = $this->M_pengajuan->jumlah();
-        $data['jumlah_pgedung'] = $this->M_pgedung->jumlah();
+        $data['jumlah_perawatan'] = $this->M_perawatan->jumlah();
+        $data['jumlah_pemeliharaan'] = $this->M_pemeliharaan->jumlah();
         $this->load->view('layoutmember/header', $data);
         $this->load->view('layoutmember/topbar');
         $this->load->view('layoutmember/sidebar');

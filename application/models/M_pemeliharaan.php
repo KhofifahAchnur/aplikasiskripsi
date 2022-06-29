@@ -74,7 +74,7 @@ class M_pemeliharaan extends CI_model
 
     public function jumlah()
     {
-        return $this->db->get('history_perpindahan')->num_rows();
+        return $this->db->get('pemeliharaan')->num_rows();
     }
 
     public function hapusData($id)

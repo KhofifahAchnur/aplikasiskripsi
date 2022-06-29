@@ -108,7 +108,7 @@
                     <td align="center"><?= $rwt['jenis'] ?></td>
                     <td align="center"><?= $rwt['tgl_rawat'] ?></td>
                     <td align="center"><?= $rwt['tgl_selesai'] ?></td>
-                    <td align="center"><?= $rwt['biaya'] ?></td>
+                    <td align="center"><?= "Rp." . number_format($rwt['biaya'], 2, ",", "."); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -116,7 +116,6 @@
             <tr>
                 <th colspan="9" class="text-center">Total Kas Masuk</th>
                 <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
-                <th></th>
             </tr>
         </tfoot>
     </table>

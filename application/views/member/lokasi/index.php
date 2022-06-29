@@ -22,16 +22,16 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <!-- /.card-header -->
+                    
                     <div class="card">
                         <div class="card-header">
-                            <!-- <h3 class="card-title">
+                            <h3 class="card-title">
                                 Daftar Data Lokasi Barang
-                            </h3> -->
-                            <!-- <a href="<?= base_url('member/lokasi/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            </h3>
+                             <!-- <a href="<?= base_url('member/lokasi/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                             <a href="<?= base_url('member/penanggung_jawab/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                         </div>
-                        <!-- /.card-header -->
+                    
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>

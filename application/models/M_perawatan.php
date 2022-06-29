@@ -80,10 +80,6 @@ class M_perawatan extends CI_model
         return $this->db->get_where('history_perpindahan', ['id' => $id])->row_array();
     }
 
-    public function jumlah()
-    {
-        return $this->db->get('history_perpindahan')->num_rows();
-    }
 
     public function hapusData($id)
     {
@@ -164,4 +160,9 @@ class M_perawatan extends CI_model
         $this->db->where("tgl_rawat <=", "$tgl_akhir");
         return $this->db->get()->result_array();
     }
+
+    public function jumlah()
+        {
+            return $this->db->get('perawatan')->num_rows();
+        }
 }

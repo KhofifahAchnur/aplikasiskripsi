@@ -92,4 +92,9 @@ class M_tanah extends CI_model
         $kodetampil = "2.3.7." . $batas;
         return $kodetampil;
     }
+
+    public function jumlah()
+    {
+        return $this->db->get('tanah')->num_rows();
+    }
 }

@@ -90,6 +90,7 @@
                 <th>Lokasi</th>
                 <th>Status</th>
                 <th>Tanggal Penghapusan</th>
+                <th>Harga</th>
             </tr>
         </thead>
         <tbody>
@@ -103,6 +104,7 @@
                     <td align="center"><?= $hps['lokasi'] ?></td>
                     <td align="center"><?= $hps['status'] ?></td>
                     <td align="center"><?= $hps['tgl_hapus'] ?></td>
+                    <td align="center"><?= "Rp." . number_format($hps['harga_brg'], 2, ",", "."); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

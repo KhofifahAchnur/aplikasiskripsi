@@ -7,19 +7,21 @@ class Dashboard extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('M_tanah');
         $this->load->model('M_masteraset');
-        $this->load->model('M_perpindahan');
-        $this->load->model('M_penanggung_jawab');
-        $this->load->model('M_lokasi');
+        $this->load->model('M_gedung');
+        $this->load->model('M_buku');
+        $this->load->model('M_jalan');
     }
 
     public function index()
     {
         $data['judul'] = 'Halaman Dashboard';
+        $data['jumlah_tanah'] = $this->M_tanah->jumlah();
         $data['jumlah_aset'] = $this->M_masteraset->jumlah();
-        $data['jumlah_pindah'] = $this->M_perpindahan->jumlah();
-        $data['jumlah_penanggungjwb'] = $this->M_penanggung_jawab->jumlah();
-        $data['jumlah_lokasi'] = $this->M_lokasi->jumlah();
+        $data['jumlah_gedung'] = $this->M_gedung->jumlah();
+        $data['jumlah_buku'] = $this->M_buku->jumlah();
+        $data['jumlah_jalan'] = $this->M_jalan->jumlah();
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');

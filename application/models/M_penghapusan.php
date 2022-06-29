@@ -4,7 +4,7 @@ class M_penghapusan extends CI_model
 {
     public function lihat()
     {
-        $this->db->select('penghapusan.id, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penghapusan.status, penghapusan.tgl_hapus');
+        $this->db->select('penghapusan.id, aset.nama_barang, aset.kode_barang, aset.register, aset.harga_brg, lokasi.lokasi, penghapusan.status, penghapusan.tgl_hapus');
         $this->db->from('penghapusan');
         $this->db->join('aset', 'aset.id = penghapusan.aset_id ');
         $this->db->join('lokasi', 'lokasi.id = penghapusan.lokasi_id');
@@ -87,7 +87,7 @@ class M_penghapusan extends CI_model
 
     public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
     {
-        $this->db->select('penghapusan.id, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penghapusan.status, penghapusan.tgl_hapus');
+        $this->db->select('penghapusan.id, aset.nama_barang, aset.kode_barang, aset.register, aset.harga_brg, lokasi.lokasi, penghapusan.status, penghapusan.tgl_hapus');
         $this->db->from('penghapusan');
         $this->db->join('aset', 'aset.id = penghapusan.aset_id ');
         $this->db->join('lokasi', 'lokasi.id = penghapusan.lokasi_id');
@@ -100,7 +100,7 @@ class M_penghapusan extends CI_model
 
     public function databytanggal($tgl_awal, $tgl_akhir)
     {
-        $this->db->select('penghapusan.id, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penghapusan.status, penghapusan.tgl_hapus');
+        $this->db->select('penghapusan.id, aset.nama_barang, aset.kode_barang, aset.register, aset.harga_brg, lokasi.lokasi, penghapusan.status, penghapusan.tgl_hapus');
         $this->db->from('penghapusan');
         $this->db->join('aset', 'aset.id = penghapusan.aset_id ');
         $this->db->join('lokasi', 'lokasi.id = penghapusan.lokasi_id');
@@ -113,7 +113,7 @@ class M_penghapusan extends CI_model
 
     public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_barang)
     {
-        $this->db->select('penghapusan.id, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penghapusan.status, penghapusan.tgl_hapus');
+        $this->db->select('penghapusan.id, aset.nama_barang, aset.kode_barang, aset.register, aset.harga_brg, lokasi.lokasi, penghapusan.status, penghapusan.tgl_hapus');
         $this->db->from('penghapusan');
         $this->db->join('aset', 'aset.id = penghapusan.aset_id ');
         $this->db->join('lokasi', 'lokasi.id = penghapusan.lokasi_id');
@@ -127,7 +127,7 @@ class M_penghapusan extends CI_model
 
     public function databynama($tgl_awal, $tgl_akhir, $nama_barang)
     {
-        $this->db->select('penghapusan.id, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penghapusan.status, penghapusan.tgl_hapus');
+        $this->db->select('penghapusan.id, aset.nama_barang, aset.kode_barang, aset.register, aset.harga_brg lokasi.lokasi, penghapusan.status, penghapusan.tgl_hapus');
         $this->db->from('penghapusan');
         $this->db->join('aset', 'aset.id = penghapusan.aset_id ');
         $this->db->join('lokasi', 'lokasi.id = penghapusan.lokasi_id');

@@ -90,9 +90,9 @@
                 <th>Lokasi</th>
                 <th>Penanggung Jawab</th>
                 <th>Jenis Pemeliharaan</th>
-                <th>Biaya</th>
                 <th>Tanggal Pemeliharaan</th>
                 <th>Tanggal Selesai </th>
+                <th>Biaya</th>
             </tr>
         </thead>
         <tbody>
@@ -106,9 +106,9 @@
                     <td align="center"><?= $pln['lokasi'] ?></td>
                     <td align="center"><?= $pln['nama'] ?></td>
                     <td align="center"><?= $pln['jenis'] ?></td>
-                    <td align="center"><?= $pln['biaya'] ?></td>
                     <td align="center"><?= $pln['tgl_pemeliharaan'] ?></td>
                     <td align="center"><?= $pln['tgl_selesai'] ?></td>
+                    <td align="center"><?= "Rp." . number_format($pln['biaya'], 2, ",", "."); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -116,7 +116,6 @@
             <tr>
                 <th colspan="9" class="text-center">Total Kas Masuk</th>
                 <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
-                <th></th>
             </tr>
         </tfoot>
     </table>

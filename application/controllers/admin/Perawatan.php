@@ -152,7 +152,7 @@ class Perawatan extends CI_Controller
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
         $nama_barang = $this->input->get('nama_barang');
-        $data['jumlah_kasmasuk'] = $this->M_masteraset->totalkas();
+        $data['jumlah_kasmasuk'] = $this->M_perawatan->totalkas();
 
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');

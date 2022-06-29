@@ -135,7 +135,7 @@
                                                 <td><?= $rwt['jenis'] ?></td>
                                                 <td><?= $rwt['tgl_rawat'] ?></td>
                                                 <td><?= $rwt['tgl_selesai'] ?></td>
-                                                <td><?= $rwt['biaya'] ?></td>
+                                                <td><?= "Rp." . number_format($rwt['biaya'], 2, ",", "."); ?></td>
                                                 <td style="width: 100px;" class="text-center">
                                                     <a href="<?= base_url(); ?>admin/perawatan/edit/<?= $rwt['id_rawat']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                     <a href="<?= base_url(); ?>admin/perawatan/hapus/<?= $rwt['id_rawat']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>

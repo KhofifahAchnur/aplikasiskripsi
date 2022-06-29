@@ -116,6 +116,7 @@
                                         <th>Lokasi</th>
                                         <th>Status</th>
                                         <th>Tanggal Penghapusan</th>
+                                        <th>Harga</th>
                                         <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
@@ -130,6 +131,7 @@
                                             <td><?= $hps['lokasi'] ?></td>
                                             <td><?= $hps['status'] ?></td>
                                             <td><?= $hps['tgl_hapus'] ?></td>
+                                            <td><?= "Rp." . number_format($hps['harga_brg'], 2, ",", "."); ?></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <!-- <a href="<?= base_url(); ?>admin/perawatan/edit/<?= $hps['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> | -->
                                                 <a href="<?= base_url(); ?>admin/penghapusan/hapus/<?= $hps['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>

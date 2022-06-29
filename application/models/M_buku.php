@@ -24,7 +24,10 @@ class M_buku extends CI_model
         $this->db->group_by('nama_buku');
         return $this->db->get()->result_array();
     }
-
+    public function jumlah()
+    {
+        return $this->db->get('buku')->num_rows();
+    }
     public function proses_tambah()
     {
         $data = [

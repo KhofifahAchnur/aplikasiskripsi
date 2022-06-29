@@ -36,31 +36,18 @@
                         <a href="<?= base_url('member/lokasi') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-12">
-                    <!-- small box -->
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            <h3><?= $jumlah_pbaru ?></h3>
-                            <h4><strong> Data Penganjuan Aset Baru</strong></h4>
-                        </div>
-                        <div class="icon">
-                            <i class="far fa-folder-open"></i>
-                        </div>
-                        <a href="<?= base_url('member/pbaru') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
                 <!-- ./col -->
                 <div class="col-lg-4 col-9">
                     <!-- small box -->
                     <div class="small-box bg-secondary">
                         <div class="inner">
-                            <h3><?= $jumlah_pengajuan ?></h3>
-                            <h4><strong>Data Pengajuan Pemeliharaan Peralatan & Mesin</strong></h4>
+                            <h3><?= $jumlah_perawatan ?></h3>
+                            <h4><strong>Data Pemeliharaan Peralatan & Mesin</strong></h4>
                         </div>
                         <div class="icon">
                             <i class="far fa-folder-open"></i>
                         </div>
-                        <a href="<?= base_url('member/pengajuan') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('member/perawatan') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -68,13 +55,13 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3><?= $jumlah_pgedung?></h3>
-                            <h4><strong>Data Pengajuan Pemeliharaan Gedung & Bangunan Aset </strong></h4>
+                            <h3><?= $jumlah_pemeliharaan?></h3>
+                            <h4><strong>Data Pemeliharaan Gedung & Bangunan Aset </strong></h4>
                         </div>
                         <div class="icon">
                             <i class="far fa-folder-open"></i>
                         </div>
-                        <a href="<?= base_url('member/pgedung') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('member/pemeliharaan') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
