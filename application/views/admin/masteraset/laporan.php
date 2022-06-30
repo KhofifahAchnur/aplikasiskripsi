@@ -112,7 +112,10 @@
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($aset as $brg) : ?>
+            $jumlah_kasmasuk = 0;
+            foreach ($aset as $brg) :
+                $jumlah_kasmasuk = $jumlah_kasmasuk + $brg['harga_brg'];
+            ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
                     <td align="center"><?= $brg['nama_barang'] ?></td>

@@ -96,10 +96,13 @@
             </tr>
         </thead>
         <tbody>
-            <?php $i = 1;
-            foreach ($pemeliharaan as $pln) : ?>
+            <?php
+            $jumlah_kasmasuk = 0;
+            foreach ($pemeliharaan as $index => $pln) :
+                $jumlah_kasmasuk = $jumlah_kasmasuk + $pln['biaya'];
+            ?>
                 <tr>
-                    <td align="center"><?= $i++; ?></td>
+                    <td align="center"><?= $index; ?></td>
                     <td align="center"><?= $pln['nama_gedung'] ?></td>
                     <td align="center"><?= $pln['kode_gedung'] ?></td>
                     <td align="center"><?= $pln['register'] ?></td>

@@ -123,10 +123,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php $i = 1;
-                                    foreach ($pemeliharaan as $pln) : ?>
+                                    <?php
+                                        $jumlah_kasmasuk = 0;
+                                        foreach ($pemeliharaan as $index => $pln) :
+                                            $jumlah_kasmasuk = $jumlah_kasmasuk + $pln['biaya'];
+                                        ?>
                                         <tr>
-                                            <td><?= $i++; ?></td>
+                                        <td><?= ++$index; ?></td>
                                             <td><?= $pln['nama_gedung'] ?></td>
                                             <td><?= $pln['kode_gedung'] ?></td>
                                             <td><?= $pln['register'] ?></td>

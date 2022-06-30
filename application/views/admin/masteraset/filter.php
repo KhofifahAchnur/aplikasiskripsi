@@ -50,7 +50,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
                                 <!-- Filter Berdasarkan Nama -->
                                 <div class="form-group row">
@@ -106,7 +106,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="example1" class="table table-hover table-bordered table-striped">
+                                <table id="example1" class="table table-hover table-bordered table-striped table-responsive">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -126,7 +126,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($aset as $index => $brg) : ?>
+                                        <?php
+                                        $jumlah_kasmasuk = 0;
+                                        foreach ($aset as $index => $brg) :
+                                            $jumlah_kasmasuk = $jumlah_kasmasuk + $brg['harga_brg'];
+                                        ?>
                                             <tr>
                                                 <td><?= ++$index; ?></td>
                                                 <td><?= $brg['nama_barang'] ?></td>
@@ -147,13 +151,13 @@
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
-                                        <tfoot>
-                                    <tr>
-                                        <th colspan="12" class="text-center">Total Kas Masuk</th>
-                                        <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
-                                        <th></th>
-                                    </tr>
-                                </tfoot>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="12" class="text-center">Total Kas Masuk</th>
+                                            <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
                                     </tbody>
 
                                 </table>

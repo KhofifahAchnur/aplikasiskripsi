@@ -50,10 +50,9 @@
                                 </thead>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1;
-                                    foreach ($rawat as $rwt) : ?>
+                                <?php foreach ($aset as $index => $brg) : ?>
                                         <tr>
-                                            <td><?= $i++; ?></td>
+                                        <td><?= ++$index; ?></td>
                                             <td><?= $rwt['nama_barang'] ?></td>
                                             <td><?= $rwt['kode_barang'] ?></td>
                                             <td><?= $rwt['register'] ?></td>

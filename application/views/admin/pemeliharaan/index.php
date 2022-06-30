@@ -50,10 +50,9 @@
                                 </thead>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1;
-                                    foreach ($pemeliharaan as $pln) : ?>
+                                <?php foreach ($pemeliharaan as $index => $pln) : ?>
                                         <tr>
-                                            <td><?= $i++; ?></td>
+                                        <td><?= ++$index; ?></td>
                                             <td><?= $pln['nama_gedung'] ?></td>
                                             <td><?= $pln['kode_gedung'] ?></td>
                                             <td><?= $pln['register'] ?></td>

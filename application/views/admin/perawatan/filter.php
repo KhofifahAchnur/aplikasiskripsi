@@ -123,10 +123,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $i = 1;
-                                        foreach ($rawat as $rwt) : ?>
+                                    <?php
+                                        $jumlah_kasmasuk = 0;
+                                        foreach ($rawat as $index => $rwt) :
+                                            $jumlah_kasmasuk = $jumlah_kasmasuk + $rwt['biaya'];
+                                        ?>
                                             <tr>
-                                                <td><?= $i++; ?></td>
+                                            <td><?= ++$index; ?></td>
                                                 <td><?= $rwt['nama_barang'] ?></td>
                                                 <td><?= $rwt['kode_barang'] ?></td>
                                                 <td><?= $rwt['register'] ?></td>
