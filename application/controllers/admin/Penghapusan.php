@@ -20,6 +20,7 @@ class Penghapusan extends CI_Controller
     {
         $data['judul'] = 'Halaman Data Pengajuan Pemeliharaan Aset Peralatan & Mesin';
         $data['hapus'] = $this->M_penghapusan->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_penghapusan->totalkas();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -117,6 +118,7 @@ class Penghapusan extends CI_Controller
         $nama_barang = $this->input->get('nama_barang');
 
         $data['judul'] = 'Filter Laporan';
+        $data['jumlah_kasmasuk'] = $this->M_penghapusan->totalkas();
 
         // Proses Filter
         if (isset($_GET['filter'])) {
@@ -150,7 +152,7 @@ class Penghapusan extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
-        $this->load->view('admin/penghapusan/filter');
+        $this->load->view('admin/penghapusan/filter', $data);
         $this->load->view('layout/footer');
     }
 
@@ -160,6 +162,7 @@ class Penghapusan extends CI_Controller
         $tgl_awalcetak = $this->input->get('tgl_awalcetak');
         $tgl_akhircetak = $this->input->get('tgl_akhircetak');
         $nama_barang = $this->input->get('nama_barang');
+        $data['jumlah_kasmasuk'] = $this->M_penghapusan->totalkas();
 
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
@@ -197,9 +200,9 @@ class Penghapusan extends CI_Controller
         // filename dari pdf ketika didownload
         $file_pdf = 'laporan penghapusan';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
-        $orientation = "potrait";
+        $orientation = "landscape";
 
         $html = $this->load->view('admin/penghapusan/laporan', $this->data, true);
 

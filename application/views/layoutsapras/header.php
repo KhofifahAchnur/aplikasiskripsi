@@ -24,7 +24,7 @@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="<?= base_url('adminlte/'); ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="<?= base_url('adminlte/'); ?>plugins/daterangepicker/daterangepicker.css">
+    <!-- <link rel="stylesheet" href="<?= base_url('adminlte/'); ?>plugins/daterangepicker/daterangepicker.css"> -->
     <!-- summernote -->
     <link rel="stylesheet" href="<?= base_url('adminlte/'); ?>plugins/summernote/summernote-bs4.min.css">
 
@@ -36,6 +36,12 @@
     <link rel="stylesheet" href="<?= base_url('adminlte/'); ?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('adminlte/'); ?>dist/css/adminlte.min.css">
+    <!-- <link rel="stylesheet" href="<?= base_url('adminlte/'); ?>plugins/daterangepicker-master/daterangepicker.css"> -->
+    <script src="<?= base_url('adminlte/'); ?>plugins/jquery/jquery.min.js"></script>
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="<?= base_url('adminlte/'); ?>plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="<?= base_url('adminlte/'); ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

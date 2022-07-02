@@ -40,6 +40,7 @@
                                         <th>Nama Barang</th>
                                         <th>Kode Barang</th>
                                         <th>Register</th>
+                                        <th>Kondisi</th>
                                         <th>Lokasi</th>
                                         <th>Status</th>
                                         <th>Tanggal Penghapusan</th>
@@ -48,13 +49,13 @@
                                 </thead>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1;
-                                    foreach ($hapus as $hps) : ?>
+                                    <?php foreach ($hapus as $index => $hps) : ?>
                                         <tr>
-                                            <td><?= $i++; ?></td>
+                                            <td><?= ++$index; ?></td>
                                             <td><?= $hps['nama_barang'] ?></td>
                                             <td><?= $hps['kode_barang'] ?></td>
                                             <td><?= $hps['register'] ?></td>
+                                            <td><?= $hps['kondisi'] ?></td>
                                             <td><?= $hps['lokasi'] ?></td>
                                             <td><?= $hps['status'] ?></td>
                                             <td><?= $hps['tgl_hapus'] ?></td>
@@ -66,6 +67,13 @@
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="8" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

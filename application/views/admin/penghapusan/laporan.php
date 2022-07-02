@@ -47,7 +47,7 @@
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: center;
-            background-color: #4CAF50;
+            background-color: #008b8b;
             color: white;
         }
     </style>
@@ -87,6 +87,7 @@
                 <th>Nama Barang</th>
                 <th>Kode Barang</th>
                 <th>Register</th>
+                <th>Kondisi</th>
                 <th>Lokasi</th>
                 <th>Status</th>
                 <th>Tanggal Penghapusan</th>
@@ -94,13 +95,17 @@
             </tr>
         </thead>
         <tbody>
-            <?php $i = 1;
-            foreach ($hapus as $hps) : ?>
+            <?php
+            $jumlah_kasmasuk = 0;
+            foreach ($hapus as $index => $hps) :
+                $jumlah_kasmasuk = $jumlah_kasmasuk + $hps['harga_brg'];
+            ?>
                 <tr>
-                    <td align="center"><?= $i++; ?></td>
+                    <td align="center"><?= ++$index; ?></td>
                     <td align="center"><?= $hps['nama_barang'] ?></td>
                     <td align="center"><?= $hps['kode_barang'] ?></td>
                     <td align="center"><?= $hps['register'] ?></td>
+                    <td align="center"><?= $hps['kondisi'] ?></td>
                     <td align="center"><?= $hps['lokasi'] ?></td>
                     <td align="center"><?= $hps['status'] ?></td>
                     <td align="center"><?= $hps['tgl_hapus'] ?></td>
@@ -108,6 +113,12 @@
                 </tr>
             <?php endforeach; ?>
         </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="8" class="text-center">Total Kas Masuk</th>
+                <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+            </tr>
+        </tfoot>
     </table>
     <table width="50%" align="right" border="0" style="margin-top: 20px;">
         <tr>

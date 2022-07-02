@@ -70,7 +70,16 @@
     <p align="center">
         <strong>LAPORAN PENGHAPUSAN ASET PERALATAN & MESIN</strong>
     </p>
-    <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
+    <?php if ($this->session->userdata('hak_akses') == 1) : ?>
+        <?php if ($tgl_awal) : ?>
+            <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
+            <?php if ($nama_barang) : ?>
+                <p>Filter By Nama Barang : <?= $nama_barang; ?></p>
+            <?php endif ?>
+        <?php else : ?>
+            <p>Tanggal : Semua Data</p>
+        <?php endif ?>
+    <?php endif ?>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
@@ -78,25 +87,36 @@
                 <th>Nama Barang</th>
                 <th>Kode Barang</th>
                 <th>Register</th>
-                <th>Kondisi</th>
+                <th>KOndisi</th>
                 <th>Lokasi</th>
-                <th>Tanggal Hapus</th>
+                <th>Status</th>
+                <th>Tanggal Penghapusan</th>
+                <th>Harga</th>
             </tr>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($barang as $brg) : ?>
+            foreach ($hapus as $hps) : ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
-                    <td align="center"><?= $brg['nama_barang'] ?></td>
-                    <td align="center"><?= $brg['kode_barang'] ?></td>
-                    <td align="center"><?= $brg['register'] ?></td>
-                    <td align="center"><?= $brg['kondisi'] ?></td>
-                    <td align="center"><?= $brg['lokasi'] ?></td>
-                    <td align="center"><?= $brg['tanggal_masuk'] ?></td>
+                    <td align="center"><?= $hps['nama_barang'] ?></td>
+                    <td align="center"><?= $hps['kode_barang'] ?></td>
+                    <td align="center"><?= $hps['register'] ?></td>
+                    <td align="center"><?= $hps['kondisi'] ?></td>
+                    <td align="center"><?= $hps['lokasi'] ?></td>
+                    <td align="center"><?= $hps['status'] ?></td>
+                    <td align="center"><?= $hps['tgl_hapus'] ?></td>
+                    <td align="center"><?= "Rp." . number_format($hps['harga_brg'], 2, ",", "."); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
+        <!-- <tfoot>
+                                    <tr>
+                                        <th colspan="9" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot> -->
     </table>
     <table width="50%" align="right" border="0" style="margin-top: 20px;">
         <tr>

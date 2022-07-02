@@ -59,7 +59,7 @@
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: center;
-            background-color: #4CAF50;
+            background-color: #008b8b;
             color: white;
         }
     </style>

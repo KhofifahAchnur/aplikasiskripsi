@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Laporan Aset  Pemeliharaan Peralatan & Mesin</li>
+                        <li class="breadcrumb-item active">Laporan Aset Pemeliharaan Peralatan & Mesin</li>
                     </ol>
                 </div>
             </div>
@@ -109,36 +109,47 @@
                                 <table id="example1" class="table table-hover table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                        <th>No</th>
-                                        <th>Nama Barang</th>
-                                        <th>Kode Barang</th>
-                                        <th>Register</th>
-                                        <th>Lokasi</th>
-                                        <th>Status</th>
-                                        <th>Tanggal Penghapusan</th>
-                                        <th>Harga</th>
-                                        <th class="text-center">Aksi</th>
+                                            <th>No</th>
+                                            <th>Nama Barang</th>
+                                            <th>Kode Barang</th>
+                                            <th>Register</th>
+                                            <th>Kondisi</th>
+                                            <th>Lokasi</th>
+                                            <th>Status</th>
+                                            <th>Tanggal Penghapusan</th>
+                                            <th>Harga</th>
+                                            <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php $i = 1;
-                                    foreach ($hapus as $hps) : ?>
+                                        <?php
+                                        $jumlah_kasmasuk = 0;
+                                        foreach ($hapus as $index => $hps) :
+                                            $jumlah_kasmasuk = $jumlah_kasmasuk + $hps['harga_brg'];
+                                        ?>
+                                            <tr>
+                                                <td><?= ++$index; ?></td>
+                                                <td><?= $hps['nama_barang'] ?></td>
+                                                <td><?= $hps['kode_barang'] ?></td>
+                                                <td><?= $hps['register'] ?></td>
+                                                <td><?= $hps['kondisi'] ?></td>
+                                                <td><?= $hps['lokasi'] ?></td>
+                                                <td><?= $hps['status'] ?></td>
+                                                <td><?= $hps['tgl_hapus'] ?></td>
+                                                <td><?= "Rp." . number_format($hps['harga_brg'], 2, ",", "."); ?></td>
+                                                <td style="width: 100px;" class="text-center">
+                                                    <!-- <a href="<?= base_url(); ?>admin/perawatan/edit/<?= $hps['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> | -->
+                                                    <a href="<?= base_url(); ?>admin/penghapusan/hapus/<?= $hps['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                    <tfoot>
                                         <tr>
-                                            <td><?= $i++; ?></td>
-                                            <td><?= $hps['nama_barang'] ?></td>
-                                            <td><?= $hps['kode_barang'] ?></td>
-                                            <td><?= $hps['register'] ?></td>
-                                            <td><?= $hps['lokasi'] ?></td>
-                                            <td><?= $hps['status'] ?></td>
-                                            <td><?= $hps['tgl_hapus'] ?></td>
-                                            <td><?= "Rp." . number_format($hps['harga_brg'], 2, ",", "."); ?></td>
-                                            <td style="width: 100px;" class="text-center">
-                                                <!-- <a href="<?= base_url(); ?>admin/perawatan/edit/<?= $hps['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> | -->
-                                                <a href="<?= base_url(); ?>admin/penghapusan/hapus/<?= $hps['id']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
-                                            </td>
+                                            <th colspan="9" class="text-center">Total Kas Masuk</th>
+                                            <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
                                         </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
+                                    </tfoot>
                                 </table>
                             </div>
                         </div>

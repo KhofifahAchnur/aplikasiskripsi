@@ -191,7 +191,7 @@ class Peminjaman extends CI_Controller
         // filename dari pdf ketika didownload
         $file_pdf = 'laporan peminjaman';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
