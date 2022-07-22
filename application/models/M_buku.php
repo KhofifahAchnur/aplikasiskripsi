@@ -4,6 +4,9 @@ class M_buku extends CI_model
 {
     public function lihat()
     {
+        // return $this->db->get('buku')->result_array();
+        $this->db->select('*');
+        $this->db->order_by('buku.id_buku', 'DESC');
         return $this->db->get('buku')->result_array();
     }
 

@@ -4,6 +4,9 @@ class M_gedung extends CI_model
 {
     public function lihat()
     {
+        // return $this->db->get('gedung')->result_array();
+        $this->db->select('*');
+        $this->db->order_by('gedung.id_gedung', 'DESC');
         return $this->db->get('gedung')->result_array();
     }
 

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Data Aset Perpustakaan</h1>
+                    <h1>Data Data Aset Buku / Kepustakaan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -21,10 +21,18 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                <?php if ($this->session->flashdata('flash')) : ?>
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span arial-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Edit Data Aset Perpustakaan</h3>
+                            <h3 class="card-title">Edit Data Aset Buku / Kepustakaan</h3>
                         </div>
                         <!-- form start -->
                         <form action = "" method = "post">
@@ -65,10 +73,19 @@
                                     <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun buku" name="tahun" value="<?= $buku['tahun']; ?>">
                                     <div class="form-text text-danger"><?= form_error('tahun'); ?></div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Kondisi</label>
                                     <input type="text" class="form-control" id="kondisi" placeholder="Masukkan Kondisi buku" name="kondisi" value="<?= $buku['kondisi']; ?>">
                                     <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Kondisi</label>
+                                    <select name="kondisi" class="form-control" id="kondisi">
+                                        <option value="<?= $buku['kondisi']; ?>"><?= $buku['kondisi']; ?></option>
+                                        <option value="Baik"> Baik </option>
+                                        <option value="Kurang Baik"> Kurang Baik </option>
+                                        <option value="Rusak Berat"> Rusak Berat </option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Harga</label>

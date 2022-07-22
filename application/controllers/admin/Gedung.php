@@ -96,7 +96,7 @@ class Gedung extends CI_Controller
             $this->load->view('layout/footer');
         } else {
             $this->M_gedung->edit_gedung($id);
-            $this->session->set_flashdata('flash', 'Ditambahkan');
+            $this->session->set_flashdata('flash', 'Diedit');
             redirect('admin/gedung');
         }
     }

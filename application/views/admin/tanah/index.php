@@ -22,6 +22,14 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                <?php if ($this->session->flashdata('flash')) : ?>
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span arial-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card">
                         <div class="card-header">
@@ -65,6 +73,7 @@
                                             <td><?= $brg['nomer'] ?></td>
                                             <td><?= $brg['asal_usul'] ?></td>
                                             <td><?= $brg['tanggal_masuk'] ?></td>
+                                            <!-- <td><?= "Rp." . number_format($brg['harga'], 2, ",", "."); ?></td> -->
                                             <td><?= "Rp." . number_format($brg['harga'], 2, ",", "."); ?></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href= "<?= base_url(); ?>admin/tanah/edit/<?= $brg['id_tanah']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |

@@ -96,13 +96,13 @@
         </thead>
         </thead>
         <tbody>
-            <?php
+            <?php $i = 1;
             $jumlah_kasmasuk = 0;
-            foreach ($rawat as $index => $rwt) :
+            foreach ($rawat as $brg) :
                 $jumlah_kasmasuk = $jumlah_kasmasuk + $rwt['biaya'];
             ?>
                 <tr>
-                    <td><?= ++$index; ?></td>
+                    <td align="center"><?= $i++; ?></td>
                     <td align="center"><?= $rwt['nama_barang'] ?></td>
                     <td align="center"><?= $rwt['kode_barang'] ?></td>
                     <td align="center"><?= $rwt['register'] ?></td>

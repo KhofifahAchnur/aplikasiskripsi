@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN IDENTITAS ASET PERPUSTAKAAN </strong>
+        <strong>LAPORAN IDENTITAS ASET BUKU / KEPUSTAKAAN </strong>
     </p>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>

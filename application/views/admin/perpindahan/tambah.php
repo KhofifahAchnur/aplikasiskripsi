@@ -56,6 +56,14 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <!-- <div class="form-group">
+                                    <label>Lokasi</label>
+                                    <select name="lokasi" class="form-control" id="lokasi">
+                                        <?php foreach ($lokasi as $index => $lk) : ?>
+                                            <option <?= ($perpindahan['lokasi_id'] == $lk['id']) ? 'selected' : ''; ?> value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div> -->
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-info">Simpan</button>
                                 </div>

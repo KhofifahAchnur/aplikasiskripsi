@@ -4,6 +4,9 @@ class M_penanggung_jawab extends CI_model
 {
     public function lihat()
     {
+        // return $this->db->get('penanggung_jawab')->result_array();
+        $this->db->select('*');
+        $this->db->order_by('penanggung_jawab.id', 'DESC');
         return $this->db->get('penanggung_jawab')->result_array();
     }
 
@@ -35,6 +38,7 @@ class M_penanggung_jawab extends CI_model
         $data = [
             "nama" => $this->input->post('nama', true),
             "nip" => $this->input->post('nip', true),
+            "hak_akses" => $this->input->post('hak_akses', true)
         ];
 
         $this->db->where('id', $id);

@@ -95,7 +95,7 @@ class Jalan extends CI_Controller
             $this->load->view('layout/footer');
         } else {
             $this->M_jalan->edit_jalan($id);
-            $this->session->set_flashdata('flash', 'Ditambahkan');
+            $this->session->set_flashdata('flash', 'Diedit');
             redirect('admin/jalan');
         }
     }

@@ -56,7 +56,7 @@ class Kgedung extends CI_Controller
         } else {
             $this->M_kgedung->updatestatus($id);
             $this->M_kgedung->proses_tambah();
-            $this->session->set_flashdata('flash', 'Ditambahkan');
+            $this->session->set_flashdata('flash', ' , Konfirmasi Sudah Diubah');
             redirect('admin/pgedung');
         }
     }

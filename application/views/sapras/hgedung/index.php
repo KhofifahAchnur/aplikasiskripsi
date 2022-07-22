@@ -25,7 +25,7 @@
                     <!-- /.card-header -->
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Identitas Barang</h3>
+                            <h3 class="card-title">Identitas Gedung</h3>
                         </div>
                         <!-- form start -->
                         <form action="" method="post">

@@ -40,7 +40,7 @@
                                     <input type="text" class="form-control" id="des" placeholder="Masukkan Deskripsi" name="des" value="<?= $pengajuan['des']; ?>">
                                     <div class="form-text text-danger"><?= form_error('des'); ?></div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Lokasi</label>
                                     <select name="lokasi" class="form-control" id="lokasi">
                                         <?php foreach ($lokasi as $index => $lk) : ?>
@@ -53,6 +53,22 @@
                                     <select name="nama" class="form-control" id="nama">
                                         <?php foreach ($penanggung_jawab as $index => $pj) : ?>
                                             <option value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Lokasi</label>
+                                    <select name="lokasi" class="form-control" id="lokasi">
+                                        <?php foreach ($lokasi as $index => $lk) : ?>
+                                            <option <?= ($pengajuan['lokasi_id'] == $lk['id']) ? 'selected' : ''; ?> value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Penanggung Jawab</label>
+                                    <select name="nama" class="form-control" id="nama">
+                                        <?php foreach ($penanggung_jawab as $index => $pj) : ?>
+                                            <option <?= ($pengajuan['penanggung_jawab_id'] == $pj['id']) ? 'selected' : ''; ?> value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

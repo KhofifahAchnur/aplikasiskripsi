@@ -86,7 +86,7 @@ class Pbaru extends CI_Controller
             $this->load->view('layout/footer');
         } else {
             $this->M_pbaru->edit_barang($id);
-            $this->session->set_flashdata('flash', 'Ditambahkan');
+            $this->session->set_flashdata('flash', 'Diedit');
             redirect('admin/pbaru');
         }
     }
@@ -210,7 +210,7 @@ class Pbaru extends CI_Controller
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     }
 
-    
+
 
 
     // public function laporan()

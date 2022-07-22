@@ -73,7 +73,7 @@ class Penanggung_jawab extends CI_Controller
             $this->load->view('layout/footer');
         } else {
             $this->M_penanggung_jawab->edit_barang($id);
-            $this->session->set_flashdata('flash', 'Ditambahkan');
+            $this->session->set_flashdata('flash', 'Diedit');
             redirect('admin/penanggung_jawab');
         }
     }

@@ -4,7 +4,11 @@ class M_tanah extends CI_model
 {
     public function lihat()
     {
+        // return $this->db->get('tanah')->result_array();
+        $this->db->select('*');
+        $this->db->order_by('tanah.id_tanah', 'DESC');
         return $this->db->get('tanah')->result_array();
+        
     }
 
     public function proses_tambah()

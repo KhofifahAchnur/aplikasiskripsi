@@ -21,6 +21,14 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                <?php if ($this->session->flashdata('flash')) : ?>
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span arial-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card card-info">
                         <div class="card-header">
@@ -40,7 +48,7 @@
                                     <input type="text" class="form-control" id="des" placeholder="Masukkan Deskripsi" name="des" value="<?= $pengajuan['des']; ?>">
                                     <div class="form-text text-danger"><?= form_error('des'); ?></div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Lokasi</label>
                                     <select name="lokasi" class="form-control" id="lokasi">
                                         <?php foreach ($lokasi as $index => $lk) : ?>
@@ -53,6 +61,22 @@
                                     <select name="nama" class="form-control" id="nama">
                                         <?php foreach ($penanggung_jawab as $index => $pj) : ?>
                                             <option value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Lokasi</label>
+                                    <select name="lokasi" class="form-control" id="lokasi">
+                                        <?php foreach ($lokasi as $index => $lk) : ?>
+                                            <option <?= ($pengajuan['lokasi_id'] == $lk['id']) ? 'selected' : ''; ?> value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Penanggung Jawab</label>
+                                    <select name="nama" class="form-control" id="nama">
+                                        <?php foreach ($penanggung_jawab as $index => $pj) : ?>
+                                            <option <?= ($pengajuan['penanggung_jawab_id'] == $pj['id']) ? 'selected' : ''; ?> value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

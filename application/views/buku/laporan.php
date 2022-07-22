@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN ASET PERPUSTAKAAN</strong>
+        <strong>LAPORAN ASET BUKU / KEPUSTAKAAN</strong>
     </p>
     <?php if ($tgl_awal) : ?>
         <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>

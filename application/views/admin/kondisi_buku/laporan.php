@@ -68,7 +68,7 @@
     </table><br>
     <hr class="line-title">
     <p align="center">
-        <strong>LAPORAN KONDISI ASET PERPUSTAKAAN</strong>
+        <strong>LAPORAN KONDISI ASET BUKU / KEPUSTAKAAN</strong>
     </p>
     <?php if ($this->session->userdata('hak_akses') == 1) : ?>
     <?php if ($tgl_awal) : ?>

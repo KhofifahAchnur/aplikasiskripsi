@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Data Aset Perpustakaan</h1>
+                    <h1>Data Data Aset Buku / Kepustakaan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -24,7 +24,7 @@
                     <!-- /.card-header -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Edit Data Aset Perpustakaan</h3>
+                            <h3 class="card-title">Edit Data Aset Buku / Kepustakaan</h3>
                         </div>
                         <!-- form start -->
                         <form action = "" method = "post">

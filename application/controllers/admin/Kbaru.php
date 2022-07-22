@@ -56,7 +56,7 @@ class Kbaru extends CI_Controller
         } else {
             $this->M_kbaru->updatestatus($id);
             $this->M_kbaru->proses_tambah();
-            $this->session->set_flashdata('flash', 'Ditambahkan');
+            $this->session->set_flashdata('flash', ' , Konfirmasi Sudah Diubah');
             redirect('admin/pbaru');
         }
     }

@@ -23,8 +23,8 @@ class Perpindahan extends CI_Controller
         $data['barang'] = $this->M_perpindahan->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-        
-        
+
+
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
@@ -57,7 +57,7 @@ class Perpindahan extends CI_Controller
         } else {
             $this->M_perpindahan->tambahlokasi($id);
             $this->M_perpindahan->proses_tambah();
-            $this->session->set_flashdata('flash', 'Ditambahkan');
+            $this->session->set_flashdata('flash', ' , Aset Sudah Dipindahkan');
             redirect('admin/aset');
         }
     }
@@ -158,28 +158,28 @@ class Perpindahan extends CI_Controller
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     }
 
-//     public function laporan()
-//     {
-//         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
-//         $this->load->library('pdfgenerator');
+    //     public function laporan()
+    //     {
+    //         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+    //         $this->load->library('pdfgenerator');
 
-//         $data['nama_barang'] = $this->M_perpindahan->lihat();
-//         $this->load->view('admin/perpindahan/laporan', $data);
+    //         $data['nama_barang'] = $this->M_perpindahan->lihat();
+    //         $this->load->view('admin/perpindahan/laporan', $data);
 
-//         // title dari pdf
-//         $this->data['title_pdf'] = 'Laporan Perpindahan Aset Peralatan & Mesin';
+    //         // title dari pdf
+    //         $this->data['title_pdf'] = 'Laporan Perpindahan Aset Peralatan & Mesin';
 
-//         // filename dari pdf ketika didownload
-//         $file_pdf = 'Laporan Perpindahan Aset Peralatan & Mesin';
-//         // setting paper
-//         $paper = 'A4';
-//         //orientasi paper potrait / landscape
-//         $orientation = "landscape";
+    //         // filename dari pdf ketika didownload
+    //         $file_pdf = 'Laporan Perpindahan Aset Peralatan & Mesin';
+    //         // setting paper
+    //         $paper = 'A4';
+    //         //orientasi paper potrait / landscape
+    //         $orientation = "landscape";
 
-//         $html = $this->load->view('admin/perpindahan/laporan', $this->data, true);
+    //         $html = $this->load->view('admin/perpindahan/laporan', $this->data, true);
 
-//         // run dompdf
-//         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    //         // run dompdf
+    //         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
 
-// }
+    // }
 }

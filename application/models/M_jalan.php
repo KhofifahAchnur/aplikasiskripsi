@@ -4,6 +4,9 @@ class M_jalan extends CI_model
 {
     public function lihat()
     {
+        // return $this->db->get('jalan')->result_array();
+        $this->db->select('*');
+        $this->db->order_by('jalan.id_jalan', 'DESC');
         return $this->db->get('jalan')->result_array();
     }
 
