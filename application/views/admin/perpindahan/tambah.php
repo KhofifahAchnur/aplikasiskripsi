@@ -29,7 +29,7 @@
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
-                            <!-- <input type="hidden" name="id" value="<?= $pindah['id']; ?>"> -->
+                            <!-- <input type="hidden" name="id" value="<?= $barang['id']; ?>"> -->
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Nama Barang</label>
@@ -48,22 +48,22 @@
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Lokasi Barang</label>
                                     <select name="lokasi" class="form-control" id="lokasi">
                                         <?php foreach ($lokasi as $index => $lks) : ?>
                                             <option value="<?= $lks['id']; ?>"><?= $lks['lokasi']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                </div>
-                                <!-- <div class="form-group">
+                                </div> -->
+                                <div class="form-group">
                                     <label>Lokasi</label>
                                     <select name="lokasi" class="form-control" id="lokasi">
                                         <?php foreach ($lokasi as $index => $lk) : ?>
-                                            <option <?= ($perpindahan['lokasi_id'] == $lk['id']) ? 'selected' : ''; ?> value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
+                                            <option <?= ($aset['perpindahan_id'] == $lk['id']) ? 'selected' : ''; ?> value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                </div> -->
+                                </div>
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-info">Simpan</button>
                                 </div>

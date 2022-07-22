@@ -21,6 +21,14 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
+                <?php if ($this->session->flashdata('flash')) : ?>
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span arial-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card card-info">
                         <div class="card-header">

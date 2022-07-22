@@ -8,7 +8,7 @@ class M_aset extends CI_model
         $this->db->from('aset');
         $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
         $this->db->order_by('aset.id', 'DESC');
-        $this->db->where_in('lokasi',array('Gudang', 'Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
+        $this->db->where_in('lokasi',array('Gudang', 'Ruang Bimbingan Konseling', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
         return $this->db->get()->result_array();
     }
 
@@ -18,7 +18,7 @@ class M_aset extends CI_model
         $this->db->from('aset');
         $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
         $this->db->order_by('aset.id', 'DESC');
-        $this->db->where_in('lokasi',array('Gudang', 'Ruang BK', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
+        $this->db->where_in('lokasi',array('Gudang', 'Ruang Bimbingan Konseling', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
         return $this->db->get()->result_array();
     }
 

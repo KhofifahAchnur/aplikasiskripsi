@@ -55,7 +55,7 @@ class Kondisi_buku extends CI_Controller
         } else {
             $this->M_kondisi_buku->updatekondisibuku($id);
             $this->M_kondisi_buku->proses_tambah();
-            $this->session->set_flashdata('flash', 'Ditambahkan');
+            $this->session->set_flashdata('flash', ' , Kondisi Sudah Diubah');
             redirect('admin/buku');
         }
     }

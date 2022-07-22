@@ -55,7 +55,7 @@ class Kondisi extends CI_Controller
         } else {
             $this->M_kondisi->updatekondisi($id);
             $this->M_kondisi->proses_tambah();
-            $this->session->set_flashdata('flash', 'Ditambahkan');
+            $this->session->set_flashdata('flash', ' , Kondisi Sudah Diubah');
             redirect('admin/masteraset');
         }
     }
