@@ -11,7 +11,8 @@
                 die; ?> -->
                 <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                <!-- <a href="<?= base_url('admin/perpindahan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
+                <a href="<?= base_url('admin/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a> ||
+                <a href="<?= base_url('admin/perpindahan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                 </ol>
             </div>
             </div>

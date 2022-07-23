@@ -28,6 +28,7 @@
                             <!-- <h3 class="card-title">
                                 Daftar Data Pemeliharaan Aset
                             </h3> -->
+                            <a href="<?= base_url('sapras/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary" style="float:right"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                             <!-- <a href="<?= base_url('sapras/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                             <a href="<?= base_url('sapras/perawatan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                         </div>

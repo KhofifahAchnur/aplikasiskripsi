@@ -9,7 +9,8 @@
                 </div>
                 <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                <a href="<?= base_url('member/kondisi_buku/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-info" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> 
+                <a href="<?= base_url('sapras/buku/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a> ||
+                <!-- <a href="<?= base_url('member/kondisi_buku/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-info" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>  -->
                 </ol>
                 </div>
             </div>

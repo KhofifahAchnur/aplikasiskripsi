@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Pemeliharaan Aset Peralatan & Mesin</h1>
+                    <h1>Data Penghapusan Aset Peralatan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Pemeliharaan Aset Peralatan & Mesin</li>
+                        <li class="breadcrumb-item active">Data Penghapusan Aset Peralatan & Mesin</li>
                     </ol>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="card-header">
                             <!-- <h3 class="card-title">
-                                Daftar Data Pemeliharaan Aset
+                                Daftar Data Penghapusan Aset
                             </h3> -->
                             <!-- <a href="<?= base_url('admin/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                             <a href="<?= base_url('admin/perawatan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
@@ -77,7 +77,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="8" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="8" class="text-center">Total Aset</th>
                                         <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
                                         <th></th>
                                     </tr>

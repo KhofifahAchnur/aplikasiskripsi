@@ -8,7 +8,7 @@ class M_aset extends CI_model
         $this->db->from('aset');
         $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
         $this->db->order_by('aset.id', 'DESC');
-        $this->db->where_in('lokasi',array('Gudang', 'Ruang Bimbingan Konseling', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
+        $this->db->where_in('lokasi', array('Gudang', 'Ruang Bimbingan Konseling', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
         return $this->db->get()->result_array();
     }
 
@@ -18,7 +18,7 @@ class M_aset extends CI_model
         $this->db->from('aset');
         $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
         $this->db->order_by('aset.id', 'DESC');
-        $this->db->where_in('lokasi',array('Gudang', 'Ruang Bimbingan Konseling', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
+        $this->db->where_in('lokasi', array('Gudang', 'Ruang Bimbingan Konseling', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab BAHASA', 'Ruang OSIS', 'Ruang Wakasek Kurikulum', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin'));
         return $this->db->get()->result_array();
     }
 
@@ -32,7 +32,7 @@ class M_aset extends CI_model
         return $this->db->get()->result_array();
     }
 
-   
+
 
     public function tampilaset()
     {
@@ -41,7 +41,7 @@ class M_aset extends CI_model
         $this->db->order_by('aset.id', 'DESC');
         return $this->db->get()->result_array();
     }
-    
+
     // public function tampilkondisibaik()
     // {
     //     return $this
@@ -69,8 +69,8 @@ class M_aset extends CI_model
             "harga_brg" => $this->input->post('harga_brg', true),
             "perpindahan_id" => '11',
             "tanggal_masuk" => date('Y-m-d')
-            
-           
+
+
         ];
 
         $this->db->insert('aset', $data);
@@ -81,11 +81,13 @@ class M_aset extends CI_model
         return $this->db->get_where('aset', ['id' => $id])->row_array();
     }
 
-    public function getBrgByIdCetak($id) {
+    public function getBrgByIdCetak($id)
+    {
         return $this->db->get_where('aset', ['id' => $id])->result_array();
     }
 
-    public function getBrg() {
+    public function getBrg()
+    {
         return $this->db->get('aset')->result_array();
     }
 
@@ -102,7 +104,7 @@ class M_aset extends CI_model
             "kondisi" => $this->input->post('kondisi', true),
             "asal_usul" => $this->input->post('asal_usul', true),
             "harga_brg" => $this->input->post('harga_brg', true),
-           
+
         ];
 
         $this->db->where('id', $id);
@@ -137,8 +139,8 @@ class M_aset extends CI_model
         return $this->db->select_sum('harga_brg')->from('aset')->get()->result()[0]->harga_brg;
     }
 
-//     public function jumlah()
-//     {
-//         return $this->db->get('aset')->num_rows();
-//     }
+    //     public function jumlah()
+    //     {
+    //         return $this->db->get('aset')->num_rows();
+    //     }
 }

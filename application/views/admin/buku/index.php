@@ -85,7 +85,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="10" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="10" class="text-center">Total Aset</th>
                                         <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
                                         <th></th>
                                     </tr>

@@ -9,6 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
+                    <!-- <a href="<?= base_url('admin/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="float:right"></i>&nbsp;&nbsp;Kembali</a> || -->
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
                         <li class="breadcrumb-item active">Data Pemeliharaan Aset Gedung & Bangunan</li>
                     </ol>
@@ -37,7 +38,7 @@
                                 Daftar Data Pemeliharaan Aset Gedung & Bangunan
                             </h3> -->
                             <a href="<?= base_url('admin/pemeliharaan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
-                            <a href="<?= base_url('admin/pemeliharaan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <a href="<?= base_url('admin/gedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary" style="float:right"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -79,7 +80,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="9" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="9" class="text-center">Total Aset</th>
                                         <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
                                         <th></th>
                                     </tr>

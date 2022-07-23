@@ -123,13 +123,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php
+                                        <?php
                                         $jumlah_kasmasuk = 0;
                                         foreach ($rawat as $index => $rwt) :
                                             $jumlah_kasmasuk = $jumlah_kasmasuk + $rwt['biaya'];
                                         ?>
                                             <tr>
-                                            <td><?= ++$index; ?></td>
+                                                <td><?= ++$index; ?></td>
                                                 <td><?= $rwt['nama_barang'] ?></td>
                                                 <td><?= $rwt['kode_barang'] ?></td>
                                                 <td><?= $rwt['register'] ?></td>
@@ -148,7 +148,7 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th colspan="9" class="text-center">Total Kas Masuk</th>
+                                            <th colspan="9" class="text-center">Total Aset</th>
                                             <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
                                             <th></th>
                                         </tr>
