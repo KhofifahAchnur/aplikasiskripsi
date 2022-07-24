@@ -82,12 +82,12 @@ class History extends CI_Controller
         $this->load->view('admin/history/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan history Aset';
+        $this->data['title_pdf'] = 'Laporan Gabungan History Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan history Aset';
+        $file_pdf = 'Laporan Gabungan History Aset Peralatan & Mesin';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 

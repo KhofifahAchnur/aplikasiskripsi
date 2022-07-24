@@ -185,10 +185,10 @@ class Perawatan extends CI_Controller
         // die($tgl_awal);
         $this->load->view('admin/perawatan/laporan', $data);
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan perawatan';
+        $this->data['title_pdf'] = 'Laporan Pemeliharaan Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan perawatan';
+        $file_pdf = 'Laporan Pemeliharaan Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A3';
         //orientasi paper potrait / landscape

@@ -245,12 +245,12 @@ public function filter()
         // die($tgl_awal);
         $this->load->view('admin/pengajuan/laporan', $data);
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan pengajuan';
+        $this->data['title_pdf'] = 'Laporan Pengajuan Pemeliharaan Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan pengajuan';
+        $file_pdf = 'Laporan Pengajuan Pemeliharaan Aset Peralatan & Mesin';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 

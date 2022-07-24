@@ -180,12 +180,12 @@ class Konfirmasi extends CI_Controller
         // die($tgl_awal);
         $this->load->view('admin/konfirmasi/laporan', $data);
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan konfirmasi';
+        $this->data['title_pdf'] = 'Laporan Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan konfirmasi';
+        $file_pdf = 'Laporan Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 

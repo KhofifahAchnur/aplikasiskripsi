@@ -171,12 +171,12 @@ class Kondisi_gedung extends CI_Controller
         $this->load->view('admin/kondisi_gedung/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Kondisi_gedung Aset Peralatan & Mesin';
+        $this->data['title_pdf'] = 'Laporan Kondisi Gedung Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'Laporan Kondisi_gedung Aset Peralatan & Mesin';
+        $file_pdf = 'Laporan Kondisi Gedung Aset Peralatan & Mesin';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 

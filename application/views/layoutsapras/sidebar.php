@@ -170,15 +170,6 @@
                                 </p>
                             </a>
                     </ul>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= base_url('sapras/kondisi') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>
-                                    History Kondisi Aset
-                                </p>
-                            </a>
-                    </ul>
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('sapras/perbaikan') ?>" class="nav-link">
@@ -194,6 +185,15 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     History Pemeliharaan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('sapras/kondisi') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Kondisi Aset
                                 </p>
                             </a>
                     </ul>

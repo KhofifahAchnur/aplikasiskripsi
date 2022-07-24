@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Konfirmasi Aset</h1>
+                    <h1>Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -33,7 +33,7 @@
                         <!-- /.card-header -->
                         <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">History Konfirmasi Aset</h3>
+                            <h3 class="card-title">History Konfirmasi Pengajuan Pemeliharaan Aset Peralatan & Mesin</h3>
                         </div>
                         <!-- <a href="<?= base_url(); ?>admin/konfir/laporan/<?= $kfr['id_konfir']; ?>" class="btn-danger  btn-sm" title="print"><i class="fas fa-print"></i></a> -->
                         <div class="card-body">

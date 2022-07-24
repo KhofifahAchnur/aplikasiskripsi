@@ -77,12 +77,12 @@ class Hgedung extends CI_Controller
         $this->load->view('admin/hgedung/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan history Aset';
+        $this->data['title_pdf'] = 'Laporan Gabungan History Aset Gedung & Bangunan';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan history Aset';
+        $file_pdf = 'Laporan Gabungan History Aset Gedung & Bangunan';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 

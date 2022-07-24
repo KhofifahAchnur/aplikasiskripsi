@@ -177,10 +177,10 @@ class Pemeliharaan extends CI_Controller
         // die($tgl_awal);
         $this->load->view('admin/pemeliharaan/laporan', $data);
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan pemeliharaan';
+        $this->data['title_pdf'] = 'Laporan Pemeliharaan Aset Gedung & Bangunan';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan pemeliharaan';
+        $file_pdf = 'Laporan Pemeliharaan Aset Gedung & Bangunan';
         // setting paper
         $paper = 'A3';
         //orientasi paper potrait / landscape

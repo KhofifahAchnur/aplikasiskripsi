@@ -78,7 +78,7 @@
                                     <div class="form-text text-danger"><?= form_error('biaya'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tanggal Perawatan</label>
+                                    <label>Tanggal Pemeliharaan</label>
                                     <input type="date" class="form-control" id="tgl_rawat" placeholder="Masukkan Kode Barang" name="tgl_rawat" value="<?= $rawat['tgl_rawat']; ?>">
                                     <div class="form-text text-danger"><?= form_error('tgl_rawat'); ?></div>
                                 </div>

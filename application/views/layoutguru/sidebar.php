@@ -14,14 +14,14 @@
                 <!-- Add icons to the links using the .nav-icmon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                     <hr color="white"> 
+                    <hr color="white">
                     <a href="<?= base_url('guru/dashboard') ?>" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
-                    <hr color="white"> 
+                    <hr color="white">
                     <a href="<?= base_url('guru/penanggung_jawab') ?>" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
 
@@ -54,7 +54,7 @@
                         </p>
                     </a> -->
                     <hr color="white">
-                    <li class="nav-item">
+                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
                         <p>
@@ -170,15 +170,6 @@
                                 </p>
                             </a>
                     </ul>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= base_url('guru/kondisi') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>
-                                    History Kondisi Aset
-                                </p>
-                            </a>
-                    </ul>
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('guru/perbaikan') ?>" class="nav-link">
@@ -194,6 +185,15 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     History Pemeliharaan Aset
+                                </p>
+                            </a>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('guru/kondisi') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Kondisi Aset
                                 </p>
                             </a>
                     </ul>
@@ -369,7 +369,7 @@
                             </a>
                     </ul> -->
                     <hr color="white">
-                <!-- <li class="nav-header">DATA HISTORY</li>
+                    <!-- <li class="nav-header">DATA HISTORY</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-random"></i>
@@ -463,7 +463,7 @@
                     </a> -->
                     <!-- <hr color="white"> -->
 
-                <!-- <li class="nav-header">LAPORAN</li>
+                    <!-- <li class="nav-header">LAPORAN</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-print"></i>

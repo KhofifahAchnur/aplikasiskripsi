@@ -180,12 +180,12 @@ class Kbaru extends CI_Controller
         // die($tgl_awal);
         $this->load->view('admin/kbaru/laporan', $data);
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan kbaru';
+        $this->data['title_pdf'] = 'Laporan Konfirmasi Pengajuan Aset Baru';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan kbaru';
+        $file_pdf = 'Laporan Konfirmasi Pengajuan Aset Baru';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 

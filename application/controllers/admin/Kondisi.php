@@ -175,7 +175,7 @@ class Kondisi extends CI_Controller
         // filename dari pdf ketika didownload
         $file_pdf = 'Laporan Kondisi Aset Peralatan & Mesin';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 

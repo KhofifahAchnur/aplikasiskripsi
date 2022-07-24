@@ -170,15 +170,6 @@
                                 </p>
                             </a>
                     </ul>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/kondisi') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>
-                                    History Kondisi Aset
-                                </p>
-                            </a>
-                    </ul>
                     <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/perbaikan') ?>" class="nav-link">
@@ -197,7 +188,15 @@
                                 </p>
                             </a>
                     </ul>
-
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/kondisi') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    History Kondisi Aset
+                                </p>
+                            </a>
+                    </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/pengajuan/index') ?>" class="nav-link">
@@ -579,7 +578,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/kgedung/filter') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/kondisi_gedung/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Kondisi Gedung & Bangunan</p>
                             </a>
@@ -587,7 +586,7 @@
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/kbuku/filter') ?>" class="nav-link">
+                            <a href="<?= base_url('admin/kondisi_buku/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Kondisi Buku</p>
                             </a>

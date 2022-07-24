@@ -75,12 +75,12 @@ class Hbuku extends CI_Controller
         $this->load->view('admin/hbuku/laporan', $data);
 
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan history Aset';
+        $this->data['title_pdf'] = 'Laporan Gabungan History Aset Buku / Kepustakaan';
 
         // filename dari pdf ketika didownload
         $file_pdf = 'laporan history Aset';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 

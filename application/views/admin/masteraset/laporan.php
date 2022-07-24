@@ -140,14 +140,56 @@
             </tr>
         </tfoot>
     </table>
+    <br>
+
+    <!-- <div style="text-align: right;">Banjarmasin,<?php echo date('d/m/Y'); ?></div> -->
     <table width="50%" align="right" border="0" style="margin-top: 20px;">
+        <tr>
+        <tr>
+            <td width="70%"></td>
+            <td align="center">Banjarmasin,<?php echo date('d/m/Y'); ?>
+        </tr>
+        </tr>
+    </table>
+    <table width="100%">
+        <td width="85%" align="left">
+            <table>
+                <tr>
+                <tr>
+
+                    <td align="center">Kepala Sekolah</small><br><br><br><br>Arbainah, M.Pd<br>NIP. 19660824 198902 2 001<br></td>
+                </tr>
+                </tr>
+            </table>
+        </td>
+        
+        <td width="14%" align="right">
+            <table>
+                <tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td align="center">Pengurus Barang Pembantu</small><br><br><br><br>Hj. Netta Herawati, S.AP<br>NIP. 19650808 198602 2 004<br></td>
+                </tr>
+                </tr>
+            </table>
+        </td>
+    </table>
+    <!-- <br>
+    <div style="text-align: right;">Banjarmasin,<?php echo date('d/m/Y'); ?></div>
+    <table width="100%">
+        <td width="70%" align="left">
+            <table>
+                <tr>
+                <tr>
+                   
+    <!-- <table width="50%" align="right" border="0" style="margin-top: 20px;">
         <tr>
         <tr>
             <td width="50%"></td>
             <td align="center">Banjarmasin,<?php echo date('d/m/Y'); ?><br>Mengetahui</small><br><br><br><br>Hj. Netta Herawati<br>______<br><strong>Kepala Tata Usaha</strong></td>
         </tr>
         </tr>
-    </table>
+    </table> -->
     <!-- <table>
         <tr>
             <td colspan="3">

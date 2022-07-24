@@ -116,7 +116,7 @@ class Lokasi extends CI_Controller
         // filename dari pdf ketika didownload
         $file_pdf = 'laporan Lokasi Aset';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
@@ -141,7 +141,7 @@ public function laporanruangan($id)
         // filename dari pdf ketika didownload
         $file_pdf = 'laporan Lokasi Aset';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 

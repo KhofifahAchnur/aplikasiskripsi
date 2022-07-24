@@ -186,10 +186,10 @@ class Peminjaman extends CI_Controller
         // die($tgl_awal);
         $this->load->view('admin/peminjaman/laporan', $data);
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan peminjaman';
+        $this->data['title_pdf'] = 'Laporan Peminjaman Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan peminjaman';
+        $file_pdf = 'Laporan Peminjaman Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A3';
         //orientasi paper potrait / landscape
