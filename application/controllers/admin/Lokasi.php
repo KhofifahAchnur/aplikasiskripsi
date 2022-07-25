@@ -41,7 +41,7 @@ class Lokasi extends CI_Controller
 
         $this->form_validation->set_rules('lokasi', 'Lokasi barang', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
-    
+
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
@@ -102,32 +102,34 @@ class Lokasi extends CI_Controller
         $this->load->view('layout/footer');
     }
 
-    public function laporan()
-    {
-        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
-        $this->load->library('pdfgenerator');
 
-        $data['barang'] = $this->M_lokasi->lihat();
-        $this->load->view('admin/lokasi/laporan', $data);
 
-        // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Lokasi Aset';
+    //     `public function laporan()
+    //     {
+    //         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+    //         $this->load->library('pdfgenerator');
 
-        // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Lokasi Aset';
-        // setting paper
-        $paper = 'A3';
-        //orientasi paper potrait / landscape
-        $orientation = "landscape";
+    //         $data['barang'] = $this->M_lokasi->lihat();
+    //         $this->load->view('admin/lokasi/laporan', $data);
 
-        $html = $this->load->view('admin/lokasi/laporan', $this->data, true);
+    //         // title dari pdf
+    //         $this->data['title_pdf'] = 'Laporan Lokasi Aset';
 
-        // run dompdf
-        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    //         // filename dari pdf ketika didownload
+    //         $file_pdf = 'laporan Lokasi Aset';
+    //         // setting paper
+    //         $paper = 'A3';
+    //         //orientasi paper potrait / landscape
+    //         $orientation = "landscape";
 
-}
+    //         $html = $this->load->view('admin/lokasi/laporan', $this->data, true);
 
-public function laporanruangan($id)
+    //         // run dompdf
+    //         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+
+    // }`
+
+    public function laporanruangan($id)
     {
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
@@ -149,8 +151,5 @@ public function laporanruangan($id)
 
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
-
-}
-
-
+    }
 }

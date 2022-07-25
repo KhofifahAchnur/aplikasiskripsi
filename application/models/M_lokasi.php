@@ -40,9 +40,37 @@ class M_lokasi extends CI_model
     public function hapusData($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('lokasi');
-   
-        
+        $this->db->delete('lokasi');    
+}
+
+    public function lokasi()
+{
+    $this->db->select('lokasi');
+    $this->db->from('lokasi');
+    $this->db->join('penanggung_jawab', 'penanggung_jawab.id = lokasi.penanggung_jawab_id');
+    $this->db->group_by('lokasi');
+    return $this->db->get()->result_array();
+}
+
+
+public function filterbynama( $lokasi)
+{
+    $this->db->select('lokasi.id, lokasi.lokasi, penanggung_jawab.nama');
+    $this->db->from('lokasi');
+    $this->db->join('penanggung_jawab', 'penanggung_jawab.id = lokasi.penanggung_jawab_id');
+    $this->db->order_by('lokasi.id', 'DESC');
+    $this->db->where("lokasi.lokasi", "$lokasi");
+    return $this->db->get()->result_array();
+}
+
+public function databynama( $lokasi)
+{
+    $this->db->select('lokasi.id, lokasi.lokasi, penanggung_jawab.nama');
+    $this->db->from('lokasi');
+    $this->db->join('penanggung_jawab', 'penanggung_jawab.id = lokasi.penanggung_jawab_id');
+    $this->db->order_by('lokasi.id', 'DESC');
+    $this->db->where("lokasi.lokasi", "$lokasi");
+    return $this->db->get()->result_array();
 }
 
 public function jumlah()
