@@ -83,7 +83,7 @@ class Gedung extends CI_Controller
         $this->form_validation->set_rules('luas', 'Luas', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
         $this->form_validation->set_rules('tahun', 'Tahun', 'required');
-        $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
+        $this->form_validation->set_rules('kondisi1', 'Kondisi', 'required');
         $this->form_validation->set_rules('status', 'Status', 'required');
         $this->form_validation->set_rules('asal_usul', 'Asal-Usul', 'required');
         $this->form_validation->set_rules('harga', 'Harga', 'required');
@@ -96,7 +96,7 @@ class Gedung extends CI_Controller
             $this->load->view('layout/footer');
         } else {
             $this->M_gedung->edit_gedung($id);
-            $this->session->set_flashdata('flash', 'Diedit');
+            $this->session->set_flashdata('flash', 'Diubah');
             redirect('admin/gedung');
         }
     }
@@ -163,10 +163,10 @@ class Gedung extends CI_Controller
                 $data['nama_gedung'] = $nama_gedung;
             } else {
 
-            $data['gedung'] = $this->M_gedung->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
-            $data['tgl_awal'] = $tgl_awalcetak;
-            $data['tgl_akhir'] = $tgl_akhircetak;
-            $data['nama_gedung'] = $nama_gedung;
+                $data['gedung'] = $this->M_gedung->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['nama_gedung'] = $nama_gedung;
             }
         } else {
             $data['gedung'] = $this->M_gedung->lihat();

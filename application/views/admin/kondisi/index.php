@@ -46,6 +46,7 @@
                                         <!-- <th>Lokasi</th> -->
                                         <th>Kondisi</th>
                                         <th>Tanggal Masuk</th>
+                                        <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
                                 <tbody>
@@ -59,6 +60,10 @@
                                             <!-- <td><?= $kds['lokasi'] ?></td> -->
                                             <td><?= $kds['kondisi'] ?></td>
                                             <td><?= $kds['tanggal'] ?></td>
+                                            <td>
+                                                <a href="<?= base_url('admin/kondisi/ubahkondisi/') . $kds['id']; ?>" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a>
+                                                <a href="<?= base_url('admin/kondisi/hapus/') . $kds['id']; ?>" onclick="return confirm('Yakin ingin menghapus data?');" class="btn btn-info btn-sm"><i class="fas fa-trash"></i></a>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

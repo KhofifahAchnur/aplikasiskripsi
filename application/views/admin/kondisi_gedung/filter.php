@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Laporan Aset Peralatan & Mesin</h1>
+                    <h1>Laporan Aset gedung / Kepustakaan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Laporan Aset Peralatan & Mesin</li>
+                        <li class="breadcrumb-item active">Laporan Aset gedung / Kepustakaan</li>
                     </ol>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                                         <select name="nama_gedung" id="nama_gedung" class="form-control select2">
                                             <option value="" selected disabled></option>
                                             <?php foreach ($nama_gedung as $a) : ?>
-                                                <option value="<?= $a['nama_gedung']; ?>" <?= (@$_GET['nama_gedung'] == $a['nama_gedung']) ? 'Selected' : ''; ?>><?= $a['nama_gedung ']; ?></option>
+                                                <option value="<?= $a['nama_gedung']; ?>" <?= (@$_GET['nama_gedung'] == $a['nama_gedung']) ? 'Selected' : ''; ?>><?= $a['nama_gedung']; ?></option>
                                             <?php endforeach ?>
                                         </select>
                                     </div>
@@ -79,7 +79,7 @@
                                 <!-- Cetak Filter Tanggal & Nama -->
                                 <?php if (isset($_GET['nama_gedung'])) : ?>
                                     <form action="<?= base_url('admin/Kondisi_gedung/laporan'); ?>" target="_blank">
-                                        <p>Nama Barang : <?= $nm_gedung; ?></p>
+                                        <p>Nama gedung : <?= $nm_gedung; ?></p>
                                         <input type="hidden" id="tgl_awalcetak" name="tgl_awalcetak" value="<?= @$_GET['tgl_awal'] ?>">
                                         <input type="hidden" id="tgl_akhircetak" name="tgl_akhircetak" value="<?= @$_GET['tgl_akhir'] ?>">
                                         <input type="hidden" id="nama_gedung" name="nama_gedung" value="<?= @$_GET['nama_gedung'] ?>">
@@ -107,18 +107,20 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="example1" class="table table-hover table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                    <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Kode</th>
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Gedung</th>
+                                        <th>Kode Gedung</th>
                                         <th>Bertingkat</th>
                                         <th>Beton</th>
                                         <th>Luas</th>
                                         <th>Kondisi</th>
                                         <th>Tanggal Masuk</th>
-                                    </thead>
-                                    <tbody>
+                                        <th class="text-center">Aksi</th>
+                                </thead>
+                                </thead>
+                                <tbody>
                                     <?php $i = 1;
                                     foreach ($kondisi_gedung as $kdg) : ?>
                                         <tr>
@@ -130,6 +132,10 @@
                                             <td><?= $kdg['luas'] ?></td>
                                             <td><?= $kdg['kondisi'] ?></td>
                                             <td><?= $kdg['tanggal'] ?></td>
+                                            <td>
+                                                <a href="<?= base_url('admin/kondisi_gedung/ubahkondisi/') . $kdg['id']; ?>" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a>
+                                                <a href="<?= base_url('admin/kondisi_gedung/hapus/') . $kdg['id']; ?>" onclick="return confirm('Yakin ingin menghapus data?');" class="btn btn-info btn-sm"><i class="fas fa-trash"></i></a>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

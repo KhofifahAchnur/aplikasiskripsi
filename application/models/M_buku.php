@@ -54,6 +54,11 @@ class M_buku extends CI_model
         return $this->db->get_where('buku', ['id_buku' => $id])->row_array();
     }
 
+    public function getBrgByIdCetak($id)
+    {
+        return $this->db->get_where('buku', ['id_buku' => $id])->result_array();
+    }
+
     public function tampilbuku()
     {
         $this->db->select('*');

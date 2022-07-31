@@ -76,7 +76,7 @@ class Lokasi extends CI_Controller
             $this->load->view('layout/footer');
         } else {
             $this->M_lokasi->edit_barang($id);
-            $this->session->set_flashdata('flash', 'Diedit');
+            $this->session->set_flashdata('flash', 'Diubah');
             redirect('admin/lokasi');
         }
     }
@@ -103,7 +103,75 @@ class Lokasi extends CI_Controller
     }
 
 
+    public function filter()
+    {
+        // Mendapatkan nilai input
+        $lokasi = $this->input->get('lokasi');
 
+        $data['judul'] = 'Filter Laporan';
+
+        // Proses Filter
+        if (isset($_GET['filter'])) {
+
+            // Data Filter Berdasarkan Tanggal & Nama
+            if (isset($_GET['lokasi'])) {
+                $data['barang'] = $this->M_lokasi->databynama($lokasi);
+                $data['lks'] = $lokasi;
+                $data['lokasi'] = $this->M_lokasi->lokasi();
+            }
+        } else {
+
+            // Proses Semua data tanpa filter
+            $data['lokasi'] = $this->M_lokasi->lokasi();
+            $data['barang'] = $this->M_lokasi->lihat();
+        }
+
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/topbar', $data);
+        $this->load->view('layout/sidebar');
+        $this->load->view('admin/lokasi/filter');
+        $this->load->view('layout/footer');
+    }
+
+
+    public function laporan()
+    {
+        // Mendapatkan nilai input
+        $lokasi = $this->input->get('lokasi');
+
+        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+        $this->load->library('pdfgenerator');
+
+        // Proses Cetak Filter
+        // if ($tgl_awalcetak) {
+
+        // Cetak Filter Berdasarkan Tanggal & Nama
+        if ($lokasi) {
+            $data['barang'] = $this->M_lokasi->filterbynama($lokasi);
+            $data['lokasi'] = $lokasi;
+        } else {
+            // Cetak Semua Data
+            $data['barang'] = $this->M_lokasi->lihat();
+            $data['lokasi'] = null;
+        }
+
+        $this->load->view('admin/lokasi/laporan', $data);
+        // title dari pdf
+        $this->data['judul'] = 'Laporan Lokasi Aset';
+
+        // filename dari pdf ketika didownload
+        $file_pdf = 'laporan lokasi aset';
+        // setting paper
+        $paper = 'A4';
+        //orientasi paper potrait / landscape
+        $orientation = "landscape";
+
+        $html = $this->load->view('admin/lokasi/laporan', $this->data, true);
+
+        // run dompdf
+        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    }
     //     `public function laporan()
     //     {
     //         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator

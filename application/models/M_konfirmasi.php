@@ -48,6 +48,15 @@ class M_konfirmasi extends CI_model
 		$this->db->update('pengajuan', $data);
 	}
 
+	public function updatestaus2($id)
+	{
+		$data = [
+			"status" => $this->input->post('status', true)
+		];
+		$this->db->where('id', $id);
+		$this->db->update('history_konfirmasi', $data);
+	}
+
 
 	public function getKondisiById($id)
 	{
@@ -130,7 +139,11 @@ class M_konfirmasi extends CI_model
 		$this->db->where("tanggal<=", "$tgl_akhir");
 		return $this->db->get()->result_array();
 	}
-
+	public function hapusData($id)
+    {
+        $this->db->where('id_konfir', $id);
+        $this->db->delete('history_konfirmasi');
+}
 
 	// public function jumlah()
 	// {

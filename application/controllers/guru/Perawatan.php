@@ -89,7 +89,7 @@ class Perawatan extends CI_Controller
             $this->load->view('layoutguru/footer');
         } else {
             $this->M_perawatan->edit_barang($id);
-            $this->session->set_flashdata('flash', 'Diedit');
+            $this->session->set_flashdata('flash', 'Diubah');
             redirect('guru/perawatan');
         }
     }

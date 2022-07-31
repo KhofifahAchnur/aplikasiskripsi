@@ -45,7 +45,7 @@ class Kgedung extends CI_Controller
 
         $this->form_validation->set_rules('aset', 'Nama Aset', 'required');
         $this->form_validation->set_rules('des', 'Deskripsi Aset', 'required');
-        $this->form_validation->set_rules('status', 'Status', 'required');
+        $this->form_validation->set_rules('status1', 'Status', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);

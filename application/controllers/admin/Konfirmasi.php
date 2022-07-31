@@ -61,6 +61,32 @@ class Konfirmasi extends CI_Controller
         }
     }
 
+    public function ubahkonfirmasi($id)
+    {
+        $data['judul'] = 'Halaman Tambah Data';
+        $data['pengajuan'] = $this->M_pengajuan->lihat();
+        $data['aset'] = $this->M_pengajuan->tampilstatus();
+        $data['status'] = $this->M_pengajuan->getStsById($id);
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('aset', 'Nama Aset', 'required');
+        $this->form_validation->set_rules('des', 'Deskripsi Aset', 'required');
+        $this->form_validation->set_rules('status', 'Status', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('layout/header', $data);
+            $this->load->view('layout/topbar');
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/konfirmasi/tambah', $data);
+            $this->load->view('layout/footer');
+        } else {
+            $this->M_konfirmasi->updatestatus2($id);
+            $this->session->set_flashdata('flash', 'Diubah');
+            redirect('admin/konfirmasi');
+        }
+    }
+
     // public function ubahkondisi($id)
     // {
     //     $data['judul'] = 'Halaman Tambah Data';
@@ -90,11 +116,11 @@ class Konfirmasi extends CI_Controller
 
 
 
-    public function hapus($id)
+    public function hapus($id_konfir)
     {
-        $this->M_lokasi->hapusData($id);
+        $this->M_konfirmasi->hapusData($id_konfir);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/lokasi');
+        redirect('admin/konfirmasi');
     }
 
     public function filter()

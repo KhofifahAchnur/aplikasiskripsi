@@ -23,8 +23,8 @@ class Perpindahan extends CI_Controller
         $data['barang'] = $this->M_perpindahan->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-        
-        
+
+
         $this->load->view('layout/header', $data);
         $this->load->view('layout/topbar');
         $this->load->view('layout/sidebar');
@@ -60,6 +60,47 @@ class Perpindahan extends CI_Controller
             redirect('admin/aset');
         }
     }
+
+    public function edit($id)
+    {
+        $data['judul'] = 'Halaman Edit Data  Pemeliharaan Aset Peralatan & Mesin';
+        $data['barang'] = $this->M_perpindahan->getKondisiById($id);
+        $data['aset'] = $this->M_aset->getBrgById($data['barang']['aset_id']);
+        $data['lokasi'] = $this->M_lokasi->lihat();
+        $data['nama'] = $this->M_penanggung_jawab->getBrgById($id);
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
+        $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required');
+        $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('layout/header', $data);
+            $this->load->view('layout/topbar');
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/perpindahan/edit', $data);
+            $this->load->view('layout/footer');
+        } else {
+            $this->M_perpindahan->tambahlokasi($id);
+            $this->M_perpindahan->edit_barang($id);
+            $this->session->set_flashdata('flash', 'Diubah');
+            redirect('admin/perpindahan');
+        }
+    }
+    public function hapus($id)
+    {
+        $this->M_perpindahan->hapusData($id);
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('admin/perpindahan');
+    }
+
+
+    // public function hapusData($id)
+    // {
+    //     $this->db->where('id', $id);
+    //     $this->db->delete('perpindahan');
+    // }
 
     public function filter()
     {
@@ -142,10 +183,10 @@ class Perpindahan extends CI_Controller
         // die($tgl_awal);
         $this->load->view('admin/perpindahan/laporan', $data);
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Masteraset';
+        $this->data['title_pdf'] = 'Laporan History Perpindahan Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan Masteraset';
+        $file_pdf = 'Laporan History Perpindahan Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A3';
         //orientasi paper potrait / landscape

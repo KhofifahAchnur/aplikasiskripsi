@@ -61,6 +61,32 @@ class Kbaru extends CI_Controller
         }
     }
 
+    public function edit($id)
+    {
+        $data['judul'] = 'Halaman Edit Data  Pemeliharaan Aset Peralatan & Mesin';
+        $data['kbaru'] = $this->M_kbaru->getKbaruById($id);
+        $data['status'] = $this->M_pbaru->getStsById($data['kbaru']['pengajuan_id']);
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('aset', 'Nama Aset', 'required');
+        $this->form_validation->set_rules('des', 'Deskripsi Aset', 'required');
+        $this->form_validation->set_rules('status', 'Status', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('layout/header', $data);
+            $this->load->view('layout/topbar');
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/kbaru/edit', $data);
+            $this->load->view('layout/footer');
+        } else {
+            $this->M_kbaru->edit_barang($id);
+            $this->M_kbaru->updatestatus($id);
+            $this->session->set_flashdata('flash', 'Diubah');
+            redirect('admin/kbaru');
+        }
+    }
+
     // public function ubahkondisi($id)
     // {
     //     $data['judul'] = 'Halaman Tambah Data';

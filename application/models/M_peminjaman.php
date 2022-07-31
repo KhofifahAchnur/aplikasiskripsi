@@ -39,6 +39,15 @@ class M_peminjaman extends CI_model
         $this->db->insert('peminjaman', $data);
     }
 
+    // public function tambahlok($id)
+    // {
+    //     $data = [
+    //         "perpindahan_id" => $this->input->post('lokasi', true)
+    //     ];
+    //     $this->db->where('id', $id);
+    //     $this->db->update('aset', $data);
+    // }
+
     public function edit_barang($id)
     {
         $data = [

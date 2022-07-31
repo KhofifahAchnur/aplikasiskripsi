@@ -84,7 +84,7 @@ class Penghapusan extends CI_Controller
             $this->load->view('layout/footer');
         } else {
             $this->M_pengajuan->edit_barang($id);
-            $this->session->set_flashdata('flash', 'Ditambahkan');
+            $this->session->set_flashdata('flash', 'Diubah');
             redirect('admin/pengajuan');
         }
     }

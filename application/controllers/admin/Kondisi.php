@@ -53,10 +53,64 @@ class Kondisi extends CI_Controller
             $this->load->view('admin/kondisi/tambah', $data);
             $this->load->view('layout/footer');
         } else {
-            $this->M_kondisi->updatekondisi($id);
+            $this->M_kondisi->updatekondisimesin($id);
             $this->M_kondisi->proses_tambah();
             $this->session->set_flashdata('flash', ' , Kondisi Sudah Diubah');
             redirect('admin/masteraset');
+        }
+    }
+    // public function edit($id)
+    // {
+    //     $data['judul'] = 'Halaman Edit Data  Pemeliharaan Aset Peralatan & Mesin';
+    //     $data['kondisi'] = $this->M_aset->getBrgById($id);
+    //     $data['kondisi'] = $this->M_kondisi->getBrgById($id);
+
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+
+    //     $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
+    //     $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
+    //     $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
+    //     $this->form_validation->set_rules('jenis', 'Jenis', 'required');
+    //     $this->form_validation->set_rules('biaya', 'Biaya', 'required');
+
+    //     if ($this->form_validation->run() == false) {
+    //         $this->load->view('layout/header', $data);
+    //         $this->load->view('layout/topbar');
+    //         $this->load->view('layout/sidebar');
+    //         $this->load->view('admin/perawatan/edit', $data);
+    //         $this->load->view('layout/footer');
+    //     } else {
+    //         $this->M_perawatan->edit_barang($id);
+    //         $this->session->set_flashdata('flash', 'Diubah');
+    //         redirect('admin/perawatan');
+    //     }
+    // }
+
+    public function ubahkondisi($id)
+    {
+        $data['judul'] = 'Halaman Tambah Data';
+        $data['barang'] = $this->M_aset->lihat();
+        $data['aset'] = $this->M_aset->tampilaset();
+        $data['kondisi'] = $this->M_aset->getBrgById($id);
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
+        $this->form_validation->set_rules('kode_barang', 'Kode Barang', 'required');
+        $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('layout/header', $data);
+            $this->load->view('layout/topbar');
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/kondisi/tambah', $data);
+            $this->load->view('layout/footer');
+        } else {
+            $this->M_kondisi->updatekondisi($id);
+            $this->M_kondisi->updatekondisimesin($id);
+            $this->session->set_flashdata('flash', 'Diubah');
+            redirect('admin/kondisi');
         }
     }
 
@@ -91,9 +145,9 @@ class Kondisi extends CI_Controller
 
     public function hapus($id)
     {
-        $this->M_lokasi->hapusData($id);
+        $this->M_kondisi->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/lokasi');
+        redirect('admin/kondisi');
     }
 
     public function filter()

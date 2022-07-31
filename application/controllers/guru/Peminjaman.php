@@ -90,7 +90,7 @@ class Peminjaman extends CI_Controller
             // $this->M_perpindahan->tambahlokasi($id);
             // $this->M_perpindahan->proses_tambah();
             $this->M_peminjaman->edit_barang($id);
-            $this->session->set_flashdata('flash', 'Diedit');
+            $this->session->set_flashdata('flash', 'Diubah');
             redirect('guru/peminjaman');
         }
     }

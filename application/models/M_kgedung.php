@@ -132,8 +132,8 @@ class M_kgedung extends CI_model
 	}
 
 
-	// public function jumlah()
-	// {
-	//     return $this->db->get('history_kondisi')->num_rows();
-	// }
+	public function jumlah()
+	{
+	    return $this->db->get('history_kondisi')->num_rows();
+	}
 }

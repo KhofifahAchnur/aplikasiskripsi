@@ -34,13 +34,22 @@ class M_kondisi extends CI_model
 		$this->db->insert('history_kondisi', $data);
 	}
 
-	public function updatekondisi($id)
+	public function updatekondisimesin($id)
 	{
 		$data = [
 			"kondisi" => $this->input->post('kondisi', true)
 		];
 		$this->db->where('id', $id);
 		$this->db->update('aset', $data);
+	}
+
+	public function updatekondisi($id)
+	{
+		$data = [
+			"kondisi" => $this->input->post('kondisi', true)
+		];
+		$this->db->where('id', $id);
+		$this->db->update('history_kondisi', $data);
 	}
 
 
@@ -120,6 +129,12 @@ class M_kondisi extends CI_model
         return $this->db->get()->result_array();
         // die($this->db->get()->result_array());
     }
+
+	public function hapusData($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('history_kondisi');
+}
 	// public function jumlah()
 	// {
 	//     return $this->db->get('history_kondisi')->num_rows();

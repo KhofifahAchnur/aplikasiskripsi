@@ -50,6 +50,7 @@
                                         <th>lokasi</th>
                                         <th>Nama Penanggung Jawab</th>
                                         <th>Tanggal Perpindahan</th>
+                                        <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -62,7 +63,10 @@
                                             <td><?= $brg['lokasi'] ?></td>
                                             <td><?= $brg['nama'] ?></td>
                                             <td><?= $brg['tanggal'] ?></td>
-
+                                            <td style="width: 100px;" class="text-center">
+                                                <a href="<?= base_url(); ?>admin/perpindahan/edit/<?= $brg['id']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>admin/perpindahan/hapus/<?= $brg['id']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                            </td>
 
                                         </tr>
                                     <?php endforeach; ?>

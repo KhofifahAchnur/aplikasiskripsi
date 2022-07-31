@@ -43,7 +43,7 @@ class M_lokasi extends CI_model
         $this->db->delete('lokasi');    
 }
 
-    public function lokasi()
+public function lokasi()
 {
     $this->db->select('lokasi');
     $this->db->from('lokasi');
@@ -72,7 +72,6 @@ public function databynama( $lokasi)
     $this->db->where("lokasi.lokasi", "$lokasi");
     return $this->db->get()->result_array();
 }
-
 public function jumlah()
     {
         return $this->db->get('lokasi')->num_rows();

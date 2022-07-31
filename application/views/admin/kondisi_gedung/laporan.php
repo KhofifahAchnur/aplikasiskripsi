@@ -114,7 +114,7 @@
     <table width="50%" align="right" border="0" style="margin-top: 20px;">
         <tr>
         <tr>
-            <td width="70%"></td>
+            <td width="48%"></td>
             <td align="center">Banjarmasin,<?php echo date('d/m/Y'); ?>
         </tr>
         </tr>
@@ -131,7 +131,7 @@
             </table>
         </td>
         
-        <td width="14%" align="right">
+        <td width="25%" align="right">
             <table>
                 <tr>
                 <tr>

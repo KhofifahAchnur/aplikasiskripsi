@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="<?= base_url() ?>assets/img/logo.png">
-    <title><?= $title_pdf; ?></title>
+    <title><?= $judul; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
         table tr td,
@@ -111,7 +111,7 @@
                 </tr>
             </table>
         </td>
-        
+
         <td width="14%" align="right">
             <table>
                 <tr>
@@ -127,7 +127,7 @@
         <tr>
         <tr>
             <td width="50%"></td>
-            <td align="center">Banjarmasin,<?php echo date('d/m/Y'); ?><br>Mengetahui</small><br><br><br><br>Hj. Netta Herawati<br>______<br><strong>Kepala Tata Usaha</strong></td>
+            <td align="center">Banjarmasin,<?php echo date('d/m/Y'); ?><br>Mengetahui</small><br><br><br><br>Hj. Netta Herawati<br>__<br><strong>Kepala Tata Usaha</strong></td>
         </tr>
         </tr>
     </table> -->

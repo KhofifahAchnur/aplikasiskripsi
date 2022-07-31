@@ -94,7 +94,7 @@ class Buku extends CI_Controller
             $this->load->view('layout/footer');
         } else {
             $this->M_buku->edit_buku($id);
-            $this->session->set_flashdata('flash', 'Diedit');
+            $this->session->set_flashdata('flash', 'Diubah');
             redirect('admin/buku');
         }
     }

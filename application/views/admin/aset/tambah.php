@@ -64,12 +64,22 @@
                                     <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun Peroleh Peralatan / Mesin" name="tahun">
                                     <div class="form-text text-danger"><?= form_error('tahun'); ?></div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Kondisi</label>
                                     <select name="kondisi" class="form-control" id="kondisi">
                                         <option>- Pilih Kondisi -</option>
                                         <option value="Baik"> Baik </option>
                                         <option value="Kurang Baik"> Kurang Baik </option>
+                                        <option value="Rusak Berat"> Rusak Berat </option>
+                                    </select>
+                                    <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Kondisi</label>
+                                    <select name="kondisi" class="form-control">
+                                        <option value="">- Pilih Kondisi -</option>
+                                        <option value="Baik">Baik </option>
+                                        <option value="Kurang Baik"> Kurang Baik</option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
                                     </select>
                                     <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>

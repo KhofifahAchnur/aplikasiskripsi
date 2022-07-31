@@ -41,6 +41,11 @@
                                     <div class="form-text text-danger"><?= form_error('kode_gedung'); ?></div>
                                 </div>
                                 <div class="form-group">
+                                    <label>Register</label>
+                                    <input readonly type="text" class="form-control" id="register" name="register" value="<?= $kondisi_gedung['register'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('register'); ?></div>
+                                </div>
+                                <div class="form-group">
                                     <label>Bertingkat</label>
                                     <input readonly type="text" class="form-control" id="tingkat" name="tingkat" value="<?= $kondisi_gedung['tingkat'] ?>">
                                     <div class="form-text text-danger"><?= form_error('tingkat'); ?></div>
@@ -74,12 +79,22 @@
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div> -->
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Kondisi</label>
                                     <select name="kondisi" class="form-control" id="kondisi">
                                         <option value="<?= $kondisi_gedung['kondisi']; ?>"><?= $kondisi_gedung['kondisi']; ?></option>
                                         <option value="Baik"> Baik </option>
                                         <option value="Kurang Baik"> Kurang Baik </option>
+                                        <option value="Rusak Berat"> Rusak Berat </option>
+                                    </select>
+                                    <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Kondisi</label>
+                                    <select name="kondisi" class="form-control">
+                                        <option value="">- Pilih Kondisi -</option>
+                                        <option value="Baik">Baik </option>
+                                        <option value="Kurang Baik"> Kurang Baik</option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
                                     </select>
                                     <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>

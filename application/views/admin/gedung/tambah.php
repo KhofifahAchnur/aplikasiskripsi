@@ -44,19 +44,37 @@
                                     <input type="text" class="form-control" id="register" placeholder="Masukkan Kode Register Gedung / Bangunan" name="register">
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Bertingkat</label>
                                     <select name="tingkat" class="form-control" id="tingkat">
                                         <option>- Pilih Konstruksi -</option>
                                         <option value="Bertingkat"> Bertingkat </option>
                                         <option value="Tidak Bertingkat"> Tidak Bertingkat </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('tingkatt1'); ?></div>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Bertingkat</label>
+                                    <select name="tingkat" class="form-control">
+                                        <option value="">- Pilih Konstruksi -</option>
+                                        <option value="Bertingkat"> Bertingkat </option>
+                                        <option value="Tidak Bertingkat"> Tidak Bertingkat </option>
+                                    </select>
                                     <div class="form-text text-danger"><?= form_error('tingkat'); ?></div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Beton</label>
                                     <select name="beton" class="form-control" id="beton">
                                         <option>- Pilih Konstruksi -</option>
+                                        <option value="Beton"> Beton </option>
+                                        <option value="Tidak Beton"> Tidak Beton </option>
+                                    </select>
+                                    <div class="form-text text-danger"><?= form_error('beton1'); ?></div>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Beton</label>
+                                    <select name="beton" class="form-control">
+                                        <option value="">- Pilih Konstruksi -</option>
                                         <option value="Beton"> Beton </option>
                                         <option value="Tidak Beton"> Tidak Beton </option>
                                     </select>
@@ -77,16 +95,36 @@
                                     <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun Peroleh Gedung / Bangunan" name="tahun">
                                     <div class="form-text text-danger"><?= form_error('tahun'); ?></div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Kondisi</label>
                                     <select name="kondisi" class="form-control" id="kondisi">
-                                        <option>- Pilih Kondisi -</option>
+                                        <option value="">- Pilih Kondisi -</option>
                                         <option value="Baik"> Baik </option>
                                         <option value="Kurang Baik"> Kurang Baik </option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('kondisi1'); ?></div>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Kondisi</label>
+                                    <select name="kondisi" class="form-control">
+                                        <option value="">- Pilih Kondisi -</option>
+                                        <option value="Baik">Baik </option>
+                                        <option value="Kurang Baik"> Kurang Baik</option>
+                                        <option value="Rusak"> Rusak </option>
+                                    </select>
                                     <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>
+                                <!-- <div class="form-group">
+                                    <label>Channel</label>
+                                    <select name="channel" class="form-control">
+                                        <option value="">- Pilih Channel -</option>
+                                        <option value="IWS-PCMO">IWS-PCMO </option>
+                                        <option value="IWS-MCO"> IWS-MCO </option>
+                                        <option value="HUB"> HUB </option>
+                                    </select>
+                                    <div class="form-text text-danger"><?= form_error('channel'); ?></div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Status</label>
                                     <input type="text" class="form-control" id="status" placeholder="Masukkan Status Peroleh Gedung / Bangunan" name="status">

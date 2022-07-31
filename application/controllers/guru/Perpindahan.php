@@ -61,6 +61,41 @@ class Perpindahan extends CI_Controller
             redirect('guru/aset');
         }
     }
+    public function edit($id)
+    {
+        $data['judul'] = 'Halaman Edit Data  Pemeliharaan Aset Peralatan & Mesin';
+        $data['rawat'] = $this->M_perawatan->getRwtById($id);
+        $data['aset'] = $this->M_aset->getBrgById($data['rawat']['aset_id']);
+        $data['lokasi'] = $this->M_lokasi->getBrgById($data['rawat']['lokasi_id']);
+        $data['nama'] = $this->M_penanggung_jawab->getBrgById($data['rawat']['penanggung_jawab_id']);
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
+        $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
+        $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
+        $this->form_validation->set_rules('jenis', 'Jenis', 'required');
+        $this->form_validation->set_rules('biaya', 'Biaya', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('layoutguru/header', $data);
+            $this->load->view('layoutguru/topbar');
+            $this->load->view('layoutguru/sidebar');
+            $this->load->view('guru/perawatan/edit', $data);
+            $this->load->view('layoutguru/footer');
+        } else {
+            $this->M_perawatan->edit_barang($id);
+            $this->session->set_flashdata('flash', 'Diubah');
+            redirect('guru/perawatan');
+        }
+    }
+
+    public function hapus($id)
+    {
+        $this->M_perpindahan->hapusData($id);
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('guru/perpindahan');
+    }
 
     public function laporan()
     {

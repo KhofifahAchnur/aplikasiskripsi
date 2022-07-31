@@ -81,7 +81,7 @@ class Pemeliharaan extends CI_Controller
             $this->load->view('layoutguru/footer');
         } else {
             $this->M_pemeliharaan->edit_barang($id);
-            $this->session->set_flashdata('flash', 'Diedit');
+            $this->session->set_flashdata('flash', 'Diubah');
             redirect('guru/pemeliharaan');
         }
     }

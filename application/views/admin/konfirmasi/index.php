@@ -48,6 +48,7 @@
                                         <th>Penanggung Jawab</th> -->
                                         <th>Status</th>
                                         <th>Tanggal Konfirmasi</th>
+                                        <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
                                 <tbody>
@@ -62,6 +63,10 @@
                                             <td><?= $kfr['jenis'] ?></td>
                                             <td><?= $kfr['status'] ?></td>
                                             <td><?= $kfr['tgl_konfir'] ?></td>
+                                            <td>
+                                                <a href="<?= base_url('admin/konfirmasi/ubahkonfirmasi/') . $kfr['id_konfir']; ?>" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a>
+                                                <a href="<?= base_url('admin/konfirmasi/hapus/') . $kfr['id_konfir']; ?>" onclick="return confirm('Yakin ingin menghapus data?');" class="btn btn-info btn-sm"><i class="fas fa-trash"></i></a>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
