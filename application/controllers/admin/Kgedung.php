@@ -45,7 +45,7 @@ class Kgedung extends CI_Controller
 
         $this->form_validation->set_rules('aset', 'Nama Aset', 'required');
         $this->form_validation->set_rules('des', 'Deskripsi Aset', 'required');
-        $this->form_validation->set_rules('status1', 'Status', 'required');
+        $this->form_validation->set_rules('status', 'Status', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
@@ -60,7 +60,31 @@ class Kgedung extends CI_Controller
             redirect('admin/pgedung');
         }
     }
+    public function edit($id)
+    {
+        $data['judul'] = 'Halaman Edit Data  Pemeliharaan Aset Peralatan & Mesin';
+        $data['kgedung'] = $this->M_kgedung->getKgedungById($id);
+        $data['status'] = $this->M_pgedung->getStsById($data['kgedung']['pengajuan_id']);
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
 
+        $this->form_validation->set_rules('aset', 'Nama Aset', 'required');
+        $this->form_validation->set_rules('des', 'Deskripsi Aset', 'required');
+        $this->form_validation->set_rules('status', 'Status', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('layout/header', $data);
+            $this->load->view('layout/topbar');
+            $this->load->view('layout/sidebar');
+            $this->load->view('admin/kgedung/edit', $data);
+            $this->load->view('layout/footer');
+        } else {
+            $this->M_kgedung->edit_barang($id);
+            $this->M_kgedung->updatestatus($id);
+            $this->session->set_flashdata('flash', 'Diubah');
+            redirect('admin/kgedung');
+        }
+    }
     // public function ubahkondisi($id)
     // {
     //     $data['judul'] = 'Halaman Tambah Data';
@@ -92,7 +116,7 @@ class Kgedung extends CI_Controller
 
     public function hapus($id)
     {
-        $this->M_pgedung->hapusData($id);
+        $this->M_kgedung->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
         redirect('admin/lokasi');
     }

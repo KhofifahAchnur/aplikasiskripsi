@@ -47,11 +47,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Lokasi</label>
-                                    <select name="lokasi" class="form-control" id="lokasi">
+                                    <select name="lokasi" class="form-control select2" style="width: 100%;">
+                                    <option value="" selected>--Silahkan Pilih Lokasi--</option>
                                         <?php foreach ($lokasi as $index => $lk) : ?>
                                             <option value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('lokasi'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Keperluan</label>
@@ -60,11 +62,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Penanggung Jawab</label>
-                                    <select name="nama" class="form-control" id="nama">
+                                    <select name="nama" class="form-control select2" style="width: 100%;">
+                                    <option value="" selected>--Silahkan Pilih Penanggung Jawab--</option>
                                         <?php foreach ($penanggung_jawab as $index => $pj) : ?>
                                             <option value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
+                                    <div class="form-text text-danger"><?= form_error('nama'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Tanggal Peminjaman</label>

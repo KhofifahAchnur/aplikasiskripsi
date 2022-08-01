@@ -552,14 +552,14 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/lokasi/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Data Lokasi Aset</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/perpindahan/filter') ?>" class="nav-link">
@@ -632,7 +632,7 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="nav nav-treeview">
+                    <!-- <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/kbaru/filter') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -655,7 +655,7 @@
                                 <p>Laporan Konfirmasi Pengajuan Pemeliharaan Gedung</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('admin/peminjaman/filter') ?>" class="nav-link">

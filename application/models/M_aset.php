@@ -67,7 +67,7 @@ class M_aset extends CI_model
             "kondisi" => $this->input->post('kondisi', true),
             "asal_usul" => $this->input->post('asal_usul', true),
             "harga_brg" => $this->input->post('harga_brg', true),
-            "perpindahan_id" => '11',
+            "perpindahan_id" => '1',
             "tanggal_masuk" => date('Y-m-d')
 
 

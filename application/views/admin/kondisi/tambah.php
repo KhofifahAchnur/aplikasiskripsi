@@ -1,4 +1,3 @@
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -29,9 +28,10 @@
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
-                                <div class="card-body">
+                            <div class="card-body">
                                 <div class="form-group">
                                     <label>Nama Barang</label>
+                                    <input hidden type="text" class="form-control" id="id" name="id" value="<?= $kondisi['id'] ?>">
                                     <input hidden type="text" class="form-control" id="nama_barang" name="nama_barang" value="<?= $kondisi['id'] ?>">
                                     <input readonly type="text" class="form-control" id="" name="" value="<?= $kondisi['nama_barang'] ?>">
                                     <div class="form-text text-danger"><?= form_error('nama_barang'); ?></div>
@@ -51,8 +51,8 @@
                                     <input readonly type="text" class="form-control" id="perpindahan_id" name="perpindahan_id" value="<?= $kondisi['perpindahan_id'] ?>">
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div> -->
-                                
-                                <!-- <div class="form-group">
+
+                                <div class="form-group">
                                     <label>Kondisi</label>
                                     <select name="kondisi" class="form-control" id="kondisi">
                                         <option value="<?= $kondisi['kondisi']; ?>"><?= $kondisi['kondisi']; ?></option>
@@ -61,22 +61,11 @@
                                         <option value="Rusak Berat"> Rusak Berat </option>
                                     </select>
                                     <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
-                                </div> -->
-
-                                <div class="form-group">
-                                    <label>Kondisi</label>
-                                    <select name="kondisi" class="form-control">
-                                        <option value="">- Pilih Kondisi -</option>
-                                        <option value="Baik">Baik </option>
-                                        <option value="Kurang Baik"> Kurang Baik</option>
-                                        <option value="Rusak Berat"> Rusak Berat </option>
-                                    </select>
-                                    <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>
-                                    <div class="text-right">
-                                        <button type="submit" class="btn btn-info">Simpan</button>
-                                    </div>
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-info">Simpan</button>
                                 </div>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -42,13 +42,45 @@ class M_kondisi_gedung extends CI_model
         $this->db->update('gedung', $data);
     }
 
-    public function updatekondisi($id)
+    // public function updatekondisi($id)
+	// {
+	// 	$data = [
+	// 		"kondisi" => $this->input->post('kondisi', true)
+	// 	];
+	// 	$this->db->where('id', $id);
+	// 	$this->db->update('kondisi_gedung', $data);
+	// }
+
+    public function edit_barang($id)
 	{
 		$data = [
-			"kondisi" => $this->input->post('kondisi_buku', true)
+
+			"gedung_id" => $this->input->post('nama_gedung', true),
+            "tanggal" => date('Y-m-d'),
+            "kondisi" => $this->input->post('kondisi', true)
+
 		];
+
 		$this->db->where('id', $id);
-		$this->db->update('kondisi_buku', $data);
+		$this->db->update('kondisi_gedung', $data);
+	}
+
+	public function updatestatus($id)
+	{
+		$data = [
+			"kondisi" => $this->input->post('kondisi', true)
+		];
+		$this->db->where('id_gedung', $id);
+		$this->db->update('gedung', $data);
+	}
+
+    public function updateaset($id)
+	{
+		$data = [
+			"kondisi" => $this->input->post('kondisi', true)
+		];
+		$this->db->where('id_gedung', $id);
+		$this->db->update('gedung', $data);
 	}
 
 

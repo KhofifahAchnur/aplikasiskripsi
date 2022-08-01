@@ -16,11 +16,57 @@ class Kondisi_buku extends CI_Controller
         }
     }
 
+    // public function index()
+    // {
+    //     $data['judul'] = 'Halaman Data Kondisi Aset Perpustakaan';
+    //     $data['kondisi_buku'] = $this->M_kondisi_buku->lihat();
+    //     $data['kobuku'] = $this->M_buku->tampilbuku();
+    //     // $data['lokasi'] = $this->M_lokasi->lihat();
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+
+    //     $this->load->view('layout/header', $data);
+    //     $this->load->view('layout/topbar');
+    //     $this->load->view('layout/sidebar');
+    //     $this->load->view('admin/kondisi_buku/index', $data);
+    //     $this->load->view('layout/footer');
+    // }
+
+    // public function tambah($id)
+    // {
+    //     $data['judul'] = 'Halaman Tambah Data Kondisi Aset Perpustakaan';
+    //     $data['kondisi_buku'] = $this->M_buku->getBrgById($id);
+    //     // $data['lokasi'] = $this->M_lokasi->lihat();
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+
+    //     $this->form_validation->set_rules('nama_buku', 'Nama buku', 'required');
+    //     $this->form_validation->set_rules('kode_buku', 'Kode buku', 'required');
+    //     $this->form_validation->set_rules('register', 'Register', 'required');
+    //     $this->form_validation->set_rules('judul', 'Judul', 'required');
+    //     $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
+
+    //     if ($this->form_validation->run() == false) {
+    //         $this->load->view('layout/header', $data);
+    //         $this->load->view('layout/topbar');
+    //         $this->load->view('layout/sidebar');
+    //         $this->load->view('admin/kondisi_buku/tambah', $data);
+    //         $this->load->view('layout/footer');
+    //     } else {
+    //         $this->M_kondisi_buku->updatekondisi($id);
+    //         $this->M_kondisi_buku->proses_tambah();
+    //         $this->session->set_flashdata('flash', ' , Kondisi Sudah Diubah');
+    //         redirect('admin/buku');
+    //     }
+    // }
+
+    
+
     public function index()
     {
-        $data['judul'] = 'Halaman Data Kondisi Aset Perpustakaan';
-        $data['kondisi_buku'] = $this->M_kondisi_buku->lihat();
-        $data['kobuku'] = $this->M_buku->tampilbuku();
+        $data['judul'] = 'Halaman Data Kondisi Aset Peralatan & Mesin';
+        $data['kondbuk'] = $this->M_kondisi_buku->lihat();
+        $data['buku'] = $this->M_buku->tampilbuku();
         // $data['lokasi'] = $this->M_lokasi->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
@@ -34,7 +80,7 @@ class Kondisi_buku extends CI_Controller
 
     public function tambah($id)
     {
-        $data['judul'] = 'Halaman Tambah Data Kondisi Aset Perpustakaan';
+        $data['judul'] = 'Halaman Tambah Data';
         $data['kondisi_buku'] = $this->M_buku->getBrgById($id);
         // $data['lokasi'] = $this->M_lokasi->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -53,19 +99,18 @@ class Kondisi_buku extends CI_Controller
             $this->load->view('admin/kondisi_buku/tambah', $data);
             $this->load->view('layout/footer');
         } else {
-            $this->M_kondisi_buku->updatekondisi($id);
+            $this->M_kondisi_buku->updatekondisibuku($id);
             $this->M_kondisi_buku->proses_tambah();
             $this->session->set_flashdata('flash', ' , Kondisi Sudah Diubah');
             redirect('admin/buku');
         }
     }
 
-    public function ubahkondisi($id)
+    public function edit($id)
     {
-        $data['judul'] = 'Halaman Tambah Data';
-        $data['buku'] = $this->M_buku->lihat();
-        $data['aset'] = $this->M_buku->tampilbuku();
-        $data['kondisi_buku'] = $this->M_buku->getBrgById($id);
+        $data['judul'] = 'Halaman Edit Data  Pemeliharaan Aset Peralatan & Mesin';
+        $data['kondbuk'] = $this->M_kondisi_buku->getKondisiById($id);
+        $data['kondisi_buku'] = $this->M_buku->getBrgById($data['kondbuk']['buku_id']);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -79,14 +124,73 @@ class Kondisi_buku extends CI_Controller
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
             $this->load->view('layout/sidebar');
-            $this->load->view('admin/kondisi_buku/tambah', $data);
+            $this->load->view('admin/kondisi_buku/edit', $data);
             $this->load->view('layout/footer');
         } else {
-            $this->M_kondisi_buku->updatekondisi($id);
+            $this->M_kondisi_buku->edit_barang($id);
+            $this->M_kondisi_buku->updateaset($id);
             $this->session->set_flashdata('flash', 'Diubah');
             redirect('admin/kondisi_buku');
         }
     }
+
+
+    // public function ubahkondisi($id)
+    // {
+    //     $data['judul'] = 'Halaman Tambah Data';
+    //     $data['buku'] = $this->M_buku->lihat();
+    //     $data['aset'] = $this->M_buku->tampilbuku();
+    //     $data['kondisi_buku'] = $this->M_buku->getBrgById($id);
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+
+    //     $this->form_validation->set_rules('nama_buku', 'Nama buku', 'required');
+    //     $this->form_validation->set_rules('kode_buku', 'Kode buku', 'required');
+    //     $this->form_validation->set_rules('register', 'Register', 'required');
+    //     $this->form_validation->set_rules('judul', 'Judul', 'required');
+    //     $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
+
+    //     if ($this->form_validation->run() == false) {
+    //         $this->load->view('layout/header', $data);
+    //         $this->load->view('layout/topbar');
+    //         $this->load->view('layout/sidebar');
+    //         $this->load->view('admin/kondisi_buku/tambah', $data);
+    //         $this->load->view('layout/footer');
+    //     } else {
+    //         $this->M_kondisi_buku->updatekondisi($id);
+    //         $this->session->set_flashdata('flash', 'Diubah');
+    //         redirect('admin/kondisi_buku');
+    //     }
+    // }
+    //
+    // public function ubahkondisi($id)
+    // {
+    //     $data['judul'] = 'Halaman Tambah Data';
+    //     $data['buku'] = $this->M_buku->lihat();
+    //     $data['aset'] = $this->M_buku->tampilbuku();
+    //     $data['kondisi_buku'] = $this->M_buku->getBrgById($id);
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+
+    //    $this->form_validation->set_rules('nama_buku', 'Nama buku', 'required');
+    // //     $this->form_validation->set_rules('kode_buku', 'Kode buku', 'required');
+    // //     $this->form_validation->set_rules('register', 'Register', 'required');
+    // //     $this->form_validation->set_rules('judul', 'Judul', 'required');
+    // //     $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
+
+    //     if ($this->form_validation->run() == false) {
+    //         $this->load->view('layout/header', $data);
+    //         $this->load->view('layout/topbar');
+    //         $this->load->view('layout/sidebar');
+    //         $this->load->view('admin/kondisi/tambah', $data);
+    //         $this->load->view('layout/footer');
+    //     } else {
+    //         $this->M_kondisi->updatekondisi($id);
+    //         $this->M_kondisi->updatekondisimesin($id);
+    //         $this->session->set_flashdata('flash', 'Diubah');
+    //         redirect('admin/kondisi');
+    //     }
+    // }
 
 
     // public function ubahkondisi($id)

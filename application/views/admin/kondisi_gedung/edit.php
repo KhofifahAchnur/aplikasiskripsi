@@ -5,11 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Kondisi Aset Gedung & Bangunan</h1>
+                    <h1>Data Pemeliharaan Aset Peralatan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/gedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/pbaru/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -21,15 +21,24 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                    <?php if ($this->session->flashdata('flash')) : ?>
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span arial-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Ubah Data Kondisi Aset Gedung & Bangunan</h3>
+                            <h3 class="card-title">Edit Data Pemeliharaan Aset Peralatan & Mesin</h3>
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
+                            <input type="hidden" name="id" value="<?= $kondisi_gedung['id_gedung']; ?>">
                             <div class="card-body">
-                                <div class="form-group">
+                            <div class="form-group">
                                     <label>Nama Gedung</label>
                                     <input hidden type="text" class="form-control" id="id_gedung" name="id_gedung" value="<?= $kondisi_gedung['id_gedung'] ?>">
                                     <input hidden type="text" class="form-control" id="nama_gedung" name="nama_gedung" value="<?= $kondisi_gedung['id_gedung'] ?>">
@@ -71,6 +80,7 @@
                                     </select>
                                     <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>
+
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-info">Simpan</button>
                                 </div>

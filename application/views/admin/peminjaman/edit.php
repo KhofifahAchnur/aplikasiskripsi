@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                <?php if ($this->session->flashdata('flash')) : ?>
+                    <?php if ($this->session->flashdata('flash')) : ?>
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                             Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -35,10 +35,10 @@
                             <h3 class="card-title">Edit Data Peminjaman Aset Peralatan & Mesin</h3>
                         </div>
                         <!-- form start -->
-                        <form action="" method = "post">
-                        <input type="hidden" name="id" value="<?= $pinjam['id_pinjam']; ?>">
+                        <form action="" method="post">
+                            <input type="hidden" name="id" value="<?= $pinjam['id_pinjam']; ?>">
                             <div class="card-body">
-                            <div class="form-group">
+                                <div class="form-group">
                                     <label>Nama Barang</label>
                                     <input hidden type="text" class="form-control" id="nama_barang" name="nama_barang" value="<?= $aset['id'] ?>">
                                     <input readonly type="text" class="form-control" id="" name="" value="<?= $aset['nama_barang'] ?>">
@@ -55,10 +55,10 @@
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                <label>Lokasi</label>
+                                    <label>Lokasi</label>
                                     <select name="lokasi" class="form-control" id="lokasi">
-                                        <?php foreach($lokasi as $index => $lk): ?>
-                                        <option value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
+                                        <?php foreach ($lokasi as $index => $lk) : ?>
+                                            <option value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -68,14 +68,14 @@
                                     <div class="form-text text-danger"><?= form_error('keperluan'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                <label>Penanggung Jawab</label>
+                                    <label>Penanggung Jawab</label>
                                     <select name="nama" class="form-control" id="nama">
-                                        <?php foreach($penanggung_jawab as $index => $pj): ?>
-                                        <option value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
+                                        <?php foreach ($penanggung_jawab as $index => $pj) : ?>
+                                            <option value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                              
+
                                 <div class="form-group">
                                     <label>Tanggal Peminjaman</label>
                                     <input type="date" class="form-control" id="tgl_pinjam" placeholder="Masukkan Tanggal Pinjam" name="tgl_pinjam" value="<?= $pinjam['tgl_pinjam']; ?>">
@@ -86,7 +86,7 @@
                                     <input type="date" class="form-control" id="tgl_kembali" placeholder="Masukkan Tanggal Kembali " name="tgl_kembali" value="<?= $pinjam['tgl_kembali']; ?>">
                                     <div class="form-text text-danger"><?= form_error('tgl_kembali'); ?></div>
                                 </div>
-                                
+
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-info">Simpan</button>
                                 </div>

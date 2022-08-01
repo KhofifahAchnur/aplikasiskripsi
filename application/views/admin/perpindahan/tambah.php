@@ -56,11 +56,22 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div> -->
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Lokasi</label>
                                     <select name="lokasi" class="form-control" id="lokasi">
                                         <?php foreach ($lokasi as $index => $lk) : ?>
                                             <option <?= ($aset['perpindahan_id'] == $lk['id']) ? 'selected' : ''; ?> value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <div class="form-text text-danger"><?= form_error('lokasi'); ?></div>
+                                </div> -->
+
+                                <div class="form-group">
+                                    <label>Lokasi</label>
+                                    <select name="lokasi" class="form-control select2" style="width: 100%;">
+                                    <option value="" selected>--Silahkan Pilih Lokasi--</option>
+                                        <?php foreach ($lokasi as $index => $lk) : ?>
+                                            <option value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <div class="form-text text-danger"><?= form_error('lokasi'); ?></div>

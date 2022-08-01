@@ -49,6 +49,8 @@ class Peminjaman extends CI_Controller
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
         $this->form_validation->set_rules('keperluan', 'Keperluan', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
+        $this->form_validation->set_rules('tgl_pinjam', 'Tanggal Pinjam', 'required');
+        $this->form_validation->set_rules('tgl_kembali', 'Tanggal Kembali', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);

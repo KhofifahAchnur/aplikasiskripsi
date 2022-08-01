@@ -53,7 +53,7 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1;
-                                    foreach ($kondisi_gedung as $kdg) : ?>
+                                    foreach ($kondgung as $kdg) : ?>
                                         <tr>
                                             <td><?= $i++; ?></td>
                                             <td><?= $kdg['nama_gedung'] ?></td>
@@ -65,7 +65,7 @@
                                             <td><?= $kdg['kondisi'] ?></td>
                                             <td><?= $kdg['tanggal'] ?></td>
                                             <td>
-                                                <a href="<?= base_url('admin/kondisi_gedung/ubahkondisi/') . $kdg['id']; ?>" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a>
+                                                <a href="<?= base_url('admin/kondisi_gedung/edit/') . $kdg['id']; ?>" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a>
                                                 <a href="<?= base_url('admin/kondisi_gedung/hapus/') . $kdg['id']; ?>" onclick="return confirm('Yakin ingin menghapus data?');" class="btn btn-info btn-sm"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>

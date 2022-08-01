@@ -38,20 +38,20 @@ class M_kbaru extends CI_model
 	}
 
 	public function edit_barang($id)
-    {
-        $data = [
+	{
+		$data = [
 
 			"pengajuan_id" => $this->input->post('aset', true),
 			// "lokasi_id" => $this->input->post('lokasi', true),
 			// "penanggung_jawab_id" => $this->input->post('nama', true),
 			"status" => $this->input->post('status', true),
 			"tgl_konfir" => date('Y-m-d')
-            
-        ];
 
-        $this->db->where('id_konfir', $id);
-        $this->db->update('history_konfirmasi', $data);
-    }
+		];
+
+		$this->db->where('id_konfir', $id);
+		$this->db->update('history_konfirmasi', $data);
+	}
 
 	public function updatestatus($id)
 	{

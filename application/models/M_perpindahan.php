@@ -59,7 +59,9 @@ class M_perpindahan extends CI_model
     public function edit_barang($id)
     {
         $data = [
-            "lokasi_id" => $this->input->post('lokasi', true)
+            "aset_id" => $this->input->post('nama_barang', true),
+            "lokasi_id" => $this->input->post('lokasi', true),
+            "tanggal" => date('Y-m-d')
         ];
         $this->db->where('id', $id);
         $this->db->update('history_perpindahan', $data);
@@ -74,6 +76,15 @@ class M_perpindahan extends CI_model
         $this->db->where('id', $id);
         $this->db->update('aset', $data);
     }
+
+    public function updatestatus($id)
+	{
+		$data = [
+			"perpindahan_id" => $this->input->post('lokasi', true)
+		];
+		$this->db->where('id', $id);
+		$this->db->update('aset', $data);
+	}
 
     public function getKondisiById($id)
     {

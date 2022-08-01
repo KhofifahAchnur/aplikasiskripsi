@@ -39,6 +39,22 @@ class M_konfirmasi extends CI_model
 		$this->db->insert('history_konfirmasi', $data);
 	}
 
+	public function edit_barang($id)
+	{
+		$data = [
+
+			"pengajuan_id" => $this->input->post('aset', true),
+			// "lokasi_id" => $this->input->post('lokasi', true),
+			// "penanggung_jawab_id" => $this->input->post('nama', true),
+			"status" => $this->input->post('status', true),
+			"tgl_konfir" => date('Y-m-d')
+
+		];
+
+		$this->db->where('id_konfir', $id);
+		$this->db->update('history_konfirmasi', $data);
+	}
+
 	public function updatestatus($id)
 	{
 		$data = [
@@ -48,20 +64,32 @@ class M_konfirmasi extends CI_model
 		$this->db->update('pengajuan', $data);
 	}
 
-	public function updatestaus2($id)
-	{
-		$data = [
-			"status" => $this->input->post('status', true)
-		];
-		$this->db->where('id', $id);
-		$this->db->update('history_konfirmasi', $data);
-	}
+	// public function updatestatus($id)
+	// {
+	// 	$data = [
+	// 		"status" => $this->input->post('status', true)
+	// 	];
+	// 	$this->db->where('id', $id);
+	// 	$this->db->update('pengajuan', $data);
+	// }
+
+	// public function updatestatus2($id)
+	// {
+	// 	$data = [
+	// 		"status" => $this->input->post('status', true)
+	// 	];
+	// 	$this->db->where('id', $id);
+	// 	$this->db->update('history_konfirmasi', $data);
+	// }
 
 
-	public function getKondisiById($id)
+
+
+	public function getKonfirmasiById($id)
 	{
-		return $this->db->get_where('history_kondisi', ['id' => $id])->row_array();
+		return $this->db->get_where('history_konfirmasi', ['id_konfir' => $id])->row_array();
 	}
+
 
 	public function aset()
 	{

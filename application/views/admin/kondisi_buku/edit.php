@@ -5,11 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Kondisi Aset Buku / Kepustakaan</h1>
+                    <h1>Data Pemeliharaan Aset Peralatan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/buku/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/pbaru/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -21,16 +21,26 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                    <?php if ($this->session->flashdata('flash')) : ?>
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span arial-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Ubah Data Kondisi Aset Buku / Kepustakaan</h3>
+                            <h3 class="card-title">Edit Data Pemeliharaan Aset Peralatan & Mesin</h3>
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
+                            <input type="hidden" name="id" value="<?= $kondisi_buku['id_buku']; ?>">
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label>Nama Buku</label>
+                            <div class="form-group">
+                                    <label>Nama buku</label>
+                                    <input hidden type="text" class="form-control" id="id_buku" name="id_buku" value="<?= $kondisi_buku['id_buku'] ?>">
                                     <input hidden type="text" class="form-control" id="nama_buku" name="nama_buku" value="<?= $kondisi_buku['id_buku'] ?>">
                                     <input readonly type="text" class="form-control" id="" name="" value="<?= $kondisi_buku['nama_buku'] ?>">
                                     <div class="form-text text-danger"><?= form_error('nama_buku'); ?></div>
@@ -50,35 +60,6 @@
                                     <input readonly type="text" class="form-control" id="judul" name="judul" value="<?= $kondisi_buku['judul'] ?>">
                                     <div class="form-text text-danger"><?= form_error('judul'); ?></div>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <label>Bertingkat</label>
-                                    <select name="tingkat" class="form-control" id="tingkat">
-                                        <option>- Pilih Konstruksi -</option>
-                                        <option value="Bertingkat"> Bertingkat </option>
-                                        <option value="Tidak Bertingkat"> Tidak Bertingkat </option>
-                                    </select>
-                                </div> -->
-                                <!-- <div class="form-group">
-                                    <label>Register</label>
-                                    <input readonly type="text" class="form-control" id="register" name="register" value="<?= $kondisi_gedung['register'] ?>">
-                                    <div class="form-text text-danger"><?= form_error('register'); ?></div>
-                                </div> -->
-                                <!-- <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <input readonly type="text" class="form-control" id="perpindahan_id" name="perpindahan_id" value="<?= $kondisi_gedung['perpindahan_id'] ?>">
-                                    <div class="form-text text-danger"><?= form_error('register'); ?></div>
-                                </div> -->
-
-                                <!-- <div class="form-group">
-                                    <label>Kondisi</label>
-                                    <select name="kondisi" class="form-control" id="kondisi">
-                                        <option value="<?= $kondisi_buku['kondisi']; ?>"><?= $kondisi_buku['kondisi']; ?></option>
-                                        <option value="Baik"> Baik </option>
-                                        <option value="Kurang Baik"> Kurang Baik </option>
-                                        <option value="Rusak Berat"> Rusak Berat </option>
-                                    </select>
-                                    <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
-                                </div> -->
                                 <div class="form-group">
                                     <label>Kondisi</label>
                                     <select name="kondisi" class="form-control">
@@ -89,6 +70,7 @@
                                     </select>
                                     <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>
+
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-info">Simpan</button>
                                 </div>

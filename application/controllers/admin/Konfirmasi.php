@@ -61,12 +61,11 @@ class Konfirmasi extends CI_Controller
         }
     }
 
-    public function ubahkonfirmasi($id)
+    public function edit($id)
     {
-        $data['judul'] = 'Halaman Tambah Data';
-        $data['pengajuan'] = $this->M_pengajuan->lihat();
-        $data['aset'] = $this->M_pengajuan->tampilstatus();
-        $data['status'] = $this->M_pengajuan->getStsById($id);
+        $data['judul'] = 'Halaman Edit Data  Pemeliharaan Aset Peralatan & Mesin';
+        $data['konfirmasi'] = $this->M_konfirmasi->getKonfirmasiById($id);
+        $data['status'] = $this->M_pengajuan->getStsById($data['konfirmasi']['pengajuan_id']);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -78,14 +77,41 @@ class Konfirmasi extends CI_Controller
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
             $this->load->view('layout/sidebar');
-            $this->load->view('admin/konfirmasi/tambah', $data);
+            $this->load->view('admin/konfirmasi/edit', $data);
             $this->load->view('layout/footer');
         } else {
-            $this->M_konfirmasi->updatestatus2($id);
+            $this->M_konfirmasi->edit_barang($id);
+            $this->M_konfirmasi->updatestatus($id);
             $this->session->set_flashdata('flash', 'Diubah');
             redirect('admin/konfirmasi');
         }
     }
+
+    // public function ubahkonfirmasi($id)
+    // {
+    //     $data['judul'] = 'Halaman Tambah Data';
+    //     $data['pengajuan'] = $this->M_pengajuan->lihat();
+    //     $data['aset'] = $this->M_pengajuan->tampilstatus();
+    //     $data['status'] = $this->M_pengajuan->getStsById($id);
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+
+    //     $this->form_validation->set_rules('aset', 'Nama Aset', 'required');
+    //     $this->form_validation->set_rules('des', 'Deskripsi Aset', 'required');
+    //     $this->form_validation->set_rules('status', 'Status', 'required');
+
+    //     if ($this->form_validation->run() == false) {
+    //         $this->load->view('layout/header', $data);
+    //         $this->load->view('layout/topbar');
+    //         $this->load->view('layout/sidebar');
+    //         $this->load->view('admin/konfirmasi/tambah', $data);
+    //         $this->load->view('layout/footer');
+    //     } else {
+    //         $this->M_konfirmasi->updatestatus2($id);
+    //         $this->session->set_flashdata('flash', 'Diubah');
+    //         redirect('admin/konfirmasi');
+    //     }
+    // }
 
     // public function ubahkondisi($id)
     // {
