@@ -61,6 +61,32 @@ class Kbaru extends CI_Controller
         }
     }
 
+    public function edit($id)
+    {
+        $data['judul'] = 'Halaman Edit Data  Pemeliharaan Aset Peralatan & Mesin';
+        $data['kbaru'] = $this->M_kbaru->getKbaruById($id);
+        $data['status'] = $this->M_pbaru->getStsById($data['kbaru']['pengajuan_id']);
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('aset', 'Nama Aset', 'required');
+        $this->form_validation->set_rules('des', 'Deskripsi Aset', 'required');
+        $this->form_validation->set_rules('status', 'Status', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('layoutsapras/header', $data);
+            $this->load->view('layoutsapras/topbar');
+            $this->load->view('layoutsapras/sidebar');
+            $this->load->view('sapras/kbaru/edit', $data);
+            $this->load->view('layoutsapras/footer');
+        } else {
+            $this->M_kbaru->edit_barang($id);
+            $this->M_kbaru->updatestatus($id);
+            $this->session->set_flashdata('flash', 'Diubah');
+            redirect('sapras/kbaru');
+        }
+    }
+
     // public function ubahkondisi($id)
     // {
     //     $data['judul'] = 'Halaman Tambah Data';
@@ -92,9 +118,107 @@ class Kbaru extends CI_Controller
 
     public function hapus($id)
     {
-        $this->M_lokasi->hapusData($id);
+        $this->M_kbaru->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('sapras/lokasi');
+        redirect('sapras/kbaru');
+    }
+
+    public function filter()
+    {
+        // Mendapatkan nilai input
+        $tgl_awal = $this->input->get('tgl_awal');
+        $tgl_akhir = $this->input->get('tgl_akhir');
+        $aset = $this->input->get('aset');
+
+        $data['judul'] = 'Filter Laporan';
+
+        // Proses Filter
+        if (isset($_GET['filter'])) {
+
+            // Data Filter Berdasarkan Tanggal & Nama
+            if (isset($_GET['aset'])) {
+                $data['kbaru'] = $this->M_kbaru->databynama($tgl_awal, $tgl_akhir, $aset);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['nm_aset'] = $aset;
+                $data['aset'] = $this->M_kbaru->nama_tanggal($tgl_awal, $tgl_akhir, $aset);
+            } else {
+
+                // Data Filter Berdasarkan Tanggal
+                // die($data['kbaru'] = $this->M_kbaru->databytanggal($tgl_awal, $tgl_akhir));
+                $data['kbaru'] = $this->M_kbaru->databytanggal($tgl_awal, $tgl_akhir);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['aset'] = $this->M_kbaru->nama_tanggal($tgl_awal, $tgl_akhir);
+            }
+        } else {
+
+            // Proses Semua data tanpa filter
+            $data['aset'] = $this->M_kbaru->aset();
+            $data['kbaru'] = $this->M_kbaru->lihat();
+        }
+
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('layoutsapras/header', $data);
+        $this->load->view('layoutsapras/topbar');
+        $this->load->view('layoutsapras/sidebar');
+        $this->load->view('sapras/kbaru/filter');
+        $this->load->view('layoutsapras/footer');
+    }
+
+    public function laporan()
+    {
+        // Mendapatkan nilai input
+        $tgl_awalcetak = $this->input->get('tgl_awalcetak');
+        $tgl_akhircetak = $this->input->get('tgl_akhircetak');
+        $aset = $this->input->get('aset');
+
+        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+        $this->load->library('pdfgenerator');
+
+        // Proses Cetak Filter
+        if ($tgl_awalcetak) {
+
+            // Cetak Filter Berdasarkan Tanggal & Nama
+            if ($aset) {
+                $data['kbaru'] = $this->M_kbaru->filterbynama($tgl_awalcetak, $tgl_akhircetak, $aset);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['aset'] = $aset;
+            } else {
+
+                // Cetak Filter Berdasarkan Tanggal
+                $data['kbaru'] = $this->M_kbaru->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['aset'] = $aset;
+            }
+        } else {
+            // Cetak Semua Data
+            $data['kbaru'] = $this->M_kbaru->lihat();
+            $data['tgl_awal'] = null;
+            $data['tgl_akhir'] = null;
+            $data['aset'] = null;
+        }
+
+        // die($tgl_awal);
+        $this->load->view('sapras/kbaru/laporan', $data);
+        // title dari pdf
+        $this->data['title_pdf'] = 'Laporan Konfirmasi Pengajuan Aset Baru';
+
+        // filename dari pdf ketika didownload
+        $file_pdf = 'Laporan Konfirmasi Pengajuan Aset Baru';
+        // setting paper
+        $paper = 'A3';
+        //orientasi paper potrait / landscape
+        $orientation = "landscape";
+
+        $html = $this->load->view('sapras/kbaru/laporan', $this->data, true);
+
+        // run dompdf
+        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     }
 
     // public function laporan()
@@ -121,27 +245,27 @@ class Kbaru extends CI_Controller
     //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     // }
 
-    public function laporan()
-    {
-        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
-        $this->load->library('pdfgenerator');
+    // public function laporan()
+    // {
+    //     // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+    //     $this->load->library('pdfgenerator');
 
-        $data['kbaru'] = $this->M_kbaru->lihat();
-        $this->load->view('sapras/kbaru/laporan', $data);
+    //     $data['kbaru'] = $this->M_kbaru->lihat();
+    //     $this->load->view('sapras/kbaru/laporan', $data);
 
-        // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Konfirmasi  Pengajuan Aset Baru';
+    //     // title dari pdf
+    //     $this->data['title_pdf'] = 'Laporan Konfirmasi  Pengajuan Aset Baru';
 
-        // filename dari pdf ketika didownload
-        $file_pdf = 'Laporan Konfirmasi Pengajuan Aset Baru';
-        // setting paper
-        $paper = 'A4';
-        //orientasi paper potrait / landscape
-        $orientation = "landscape";
+    //     // filename dari pdf ketika didownload
+    //     $file_pdf = 'Laporan Konfirmasi Pengajuan Aset Baru';
+    //     // setting paper
+    //     $paper = 'A4';
+    //     //orientasi paper potrait / landscape
+    //     $orientation = "landscape";
 
-        $html = $this->load->view('sapras/kbaru/laporan', $this->data, true);
+    //     $html = $this->load->view('sapras/kbaru/laporan', $this->data, true);
 
-        // run dompdf
-        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
-    }
+    //     // run dompdf
+    //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    // }
 }

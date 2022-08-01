@@ -9,6 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
+                    <!-- <a href="<?= base_url('guru/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="float:right"></i>&nbsp;&nbsp;Kembali</a> || -->
                         <li class="breadcrumb-item"><a href="<?= base_url('guru/dashboard') ?>">Home</a></li>
                         <li class="breadcrumb-item active">Data Pemeliharaan Aset Gedung & Bangunan</li>
                     </ol>
@@ -36,9 +37,8 @@
                             <!-- <h3 class="card-title">
                                 Daftar Data Pemeliharaan Aset Gedung & Bangunan
                             </h3> -->
+                            <!-- <a href="<?= base_url('guru/pemeliharaan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                             <a href="<?= base_url('guru/gedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary" style="float:right"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
-                            <!-- <a href="<?= base_url('guru/pemeliharaan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
-                            <!-- <a href="<?= base_url('guru/pemeliharaan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -46,8 +46,8 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Barang</th>
-                                        <th>Kode Barang</th>
+                                        <th>Nama Gedung</th>
+                                        <th>Kode Gedung</th>
                                         <th>Register</th>
                                         <th>Lokasi</th>
                                         <th>Penanggung Jawab</th>
@@ -59,9 +59,9 @@
                                 </thead>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($pemeliharaan as $index => $pln) : ?>
+                                <?php foreach ($pemeliharaan as $index => $pln) : ?>
                                         <tr>
-                                            <td><?= ++$index; ?></td>
+                                        <td><?= ++$index; ?></td>
                                             <td><?= $pln['nama_gedung'] ?></td>
                                             <td><?= $pln['kode_gedung'] ?></td>
                                             <td><?= $pln['register'] ?></td>
@@ -71,17 +71,16 @@
                                             <td><?= $pln['tgl_pemeliharaan'] ?></td>
                                             <td><?= $pln['tgl_selesai'] ?></td>
                                             <td><?= "Rp." . number_format($pln['biaya'], 2, ",", "."); ?></td>
-                                            <!-- <td><?= $pln['biaya'] ?></td> -->
                                             <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>guru/pemeliharaan/edit/<?= $pln['id_pemeliharaan']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>guru/pemeliharaan/hapus/<?= $pln['id_pemeliharaan']; ?>" class="btn-danger  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="<?= base_url(); ?>guru/pemeliharaan/edit/<?= $pln['id_pemeliharaan']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>guru/pemeliharaan/hapus/<?= $pln['id_pemeliharaan']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="9" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="9" class="text-center">Total Aset</th>
                                         <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
                                         <th></th>
                                     </tr>

@@ -118,9 +118,9 @@ class Kbaru extends CI_Controller
 
     public function hapus($id)
     {
-        $this->M_lokasi->hapusData($id);
+        $this->M_kbaru->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/lokasi');
+        redirect('admin/kbaru');
     }
 
     public function filter()

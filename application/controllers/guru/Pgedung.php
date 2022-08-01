@@ -160,21 +160,97 @@ class Pgedung extends CI_Controller
     //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     // }
 
+    // 
+    
+    public function filter()
+    {
+        // Mendapatkan nilai input
+        $tgl_awal = $this->input->get('tgl_awal');
+        $tgl_akhir = $this->input->get('tgl_akhir');
+        $aset = $this->input->get('aset');
+
+        $data['judul'] = 'Filter Laporan';
+
+        // Proses Filter
+        if (isset($_GET['filter'])) {
+
+            // Data Filter Berdasarkan Tanggal & Nama
+            if (isset($_GET['aset'])) {
+                $data['pgedung'] = $this->M_pgedung->databynama($tgl_awal, $tgl_akhir, $aset);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['nm_aset'] = $aset;
+                $data['aset'] = $this->M_pgedung->nama_tanggal($tgl_awal, $tgl_akhir, $aset);
+            } else {
+
+                // Data Filter Berdasarkan Tanggal
+                // die($data['pgedung'] = $this->M_pgedung->databytanggal($tgl_awal, $tgl_akhir));
+                $data['pgedung'] = $this->M_pgedung->databytanggal($tgl_awal, $tgl_akhir);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['lokasi'] = $this->M_pgedung->nama_tanggal($tgl_awal, $tgl_akhir);
+            }
+        } else {
+
+            // Proses Semua data tanpa filter
+            $data['aset'] = $this->M_pgedung->aset();
+            $data['pgedung'] = $this->M_pgedung->lihat();
+        }
+
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('layoutguru/header', $data);
+        $this->load->view('layoutguru/topbar');
+        $this->load->view('layoutguru/sidebar');
+        $this->load->view('guru/pgedung/filter');
+        $this->load->view('layoutguru/footer');
+    }
+
     public function laporan()
     {
+        // Mendapatkan nilai input
+        $tgl_awalcetak = $this->input->get('tgl_awalcetak');
+        $tgl_akhircetak = $this->input->get('tgl_akhircetak');
+        $aset = $this->input->get('aset');
+
         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
         $this->load->library('pdfgenerator');
 
-        $data['pgedung'] = $this->M_pgedung->lihat();
-        $this->load->view('guru/pgedung/laporan', $data);
+        // Proses Cetak Filter
+        if ($tgl_awalcetak) {
 
+            // Cetak Filter Berdasarkan Tanggal & Nama
+            if ($aset) {
+                $data['pgedung'] = $this->M_pgedung->filterbynama($tgl_awalcetak, $tgl_akhircetak, $aset);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['aset'] = $aset;
+            } else {
+
+                // Cetak Filter Berdasarkan Tanggal
+                $data['pgedung'] = $this->M_pgedung->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['aset'] = $aset;
+            }
+        } else {
+            // Cetak Semua Data
+            $data['pgedung'] = $this->M_pgedung->lihat();
+            $data['tgl_awal'] = null;
+            $data['tgl_akhir'] = null;
+            $data['aset'] = null;
+        }
+
+        // die($tgl_awal);
+        $this->load->view('guru/pgedung/laporan', $data);
         // title dari pdf
         $this->data['title_pdf'] = 'Laporan Pengajuan Pemeliharaan Aset Gedung & Bangunan';
 
         // filename dari pdf ketika didownload
         $file_pdf = 'Laporan Pengajuan Pemeliharaan Aset Gedung & Bangunan';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 

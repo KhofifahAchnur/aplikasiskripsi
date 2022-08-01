@@ -50,6 +50,8 @@ class Perawatan extends CI_Controller
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
         $this->form_validation->set_rules('jenis', 'Jenis', 'required');
         $this->form_validation->set_rules('biaya', 'Biaya', 'required');
+        $this->form_validation->set_rules('tgl_rawat', 'Tanggal Pemeliharaan', 'required');
+        $this->form_validation->set_rules('tgl_selesai', 'Tanggal Selesai', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);

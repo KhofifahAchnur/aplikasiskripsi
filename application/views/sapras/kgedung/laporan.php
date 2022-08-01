@@ -47,7 +47,7 @@
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: center;
-            background-color: #4CAF50;
+            background-color: #008b8b;
             color: white;
         }
     </style>
@@ -70,6 +70,14 @@
     <p align="center">
         <strong>LAPORAN KONFIRMASI PENGAJUAN PEMELIHARAAN ASET GEDUNG & BANGUNAN</strong>
     </p>
+    <?php if ($tgl_awal) : ?>
+        <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
+    <?php if ($aset) : ?>
+            <p>Filter By Nama : <?= $aset; ?></p>
+        <?php endif ?>
+    <?php else : ?>
+        <p>Tanggal : Semua Data</p>
+    <?php endif ?>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
@@ -95,14 +103,48 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    <br>
+
+    <!-- <div style="text-align: right;">Banjarmasin,<?php echo date('d/m/Y'); ?></div> -->
     <table width="50%" align="right" border="0" style="margin-top: 20px;">
+        <tr>
+        <tr>
+            <td width="70%"></td>
+            <td align="center">Banjarmasin,<?php echo date('d/m/Y'); ?>
+        </tr>
+        </tr>
+    </table>
+    <table width="100%">
+        <td width="85%" align="left">
+            <table>
+                <tr>
+                <tr>
+
+                    <td align="center">Kepala Sekolah</small><br><br><br><br>Arbainah, M.Pd<br>NIP. 19660824 198902 2 001<br></td>
+                </tr>
+                </tr>
+            </table>
+        </td>
+        
+        <td width="14%" align="right">
+            <table>
+                <tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td align="center">Pengurus Barang Pembantu</small><br><br><br><br>Hj. Netta Herawati, S.AP<br>NIP. 19650808 198602 2 004<br></td>
+                </tr>
+                </tr>
+            </table>
+        </td>
+    </table>
+    <!-- <table width="50%" align="right" border="0" style="margin-top: 20px;">
         <tr>
         <tr>
             <td width="50%"></td>
             <td align="center">Banjarmasin,<?php echo date('d/m/Y'); ?><br>Mengetahui</small><br><br><br><br>Hj. Netta Herawati<br>______<br><strong>Kepala Tata Usaha</strong></td>
         </tr>
         </tr>
-    </table>
+    </table> -->
     <!-- <table>
         <tr>
             <td colspan="3">

@@ -67,6 +67,14 @@ class M_perpindahan extends CI_model
         $this->db->update('history_perpindahan', $data);
     }
 
+    public function tambahperpindahan($id)
+    {
+        $data = [
+            "lokasi_id" => $this->input->post('lokasi', true)
+        ];
+        $this->db->where('id', $id);
+        $this->db->update('history_perpindahan', $data);
+    }
 
     public function tambahlokasi($id)
     {

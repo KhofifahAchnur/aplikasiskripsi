@@ -60,7 +60,7 @@
                                             <td><?= $kfr['tgl_konfir'] ?></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>admin/kbaru/edit/<?= $kfr['id_konfir']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
-                                                <a href="<?= base_url(); ?>admin/kbary/hapus/<?= $kfr['id_konfir']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="<?= base_url(); ?>admin/kbaru/hapus/<?= $kfr['id_konfir']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -83,7 +83,7 @@ class Perpindahan extends CI_Controller
             $this->load->view('layout/footer');
         } else {
             $this->M_perpindahan->edit_barang($id);
-            $this->M_perpindahan->updatestatus($id);
+            $this->M_aset->edit_barang($id);
             $this->session->set_flashdata('flash', 'Diubah');
             redirect('admin/perpindahan');
         }

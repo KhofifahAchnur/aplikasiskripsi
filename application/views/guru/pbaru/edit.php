@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('guru/pengajuan/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('guru/pbaru/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -21,14 +21,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                <?php if ($this->session->flashdata('flash')) : ?>
-                        <div class="alert alert-info alert-dismissible fade show" role="alert">
-                            Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span arial-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card card-info">
                         <div class="card-header">
@@ -48,22 +40,6 @@
                                     <input type="text" class="form-control" id="des" placeholder="Masukkan Deskripsi" name="des" value="<?= $pbaru['des']; ?>">
                                     <div class="form-text text-danger"><?= form_error('des'); ?></div>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <select name="lokasi" class="form-control" id="lokasi">
-                                        <?php foreach ($lokasi as $index => $lk) : ?>
-                                            <option value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Penanggung Jawab</label>
-                                    <select name="nama" class="form-control" id="nama">
-                                        <?php foreach ($penanggung_jawab as $index => $pj) : ?>
-                                            <option value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div> -->
                                 <div class="form-group">
                                     <label>Lokasi</label>
                                     <select name="lokasi" class="form-control" id="lokasi">
@@ -80,6 +56,34 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <!-- <div class="form-group">
+                                    <label>Kode Petugas</label>
+                                    <select name="kdpetugas" class="form-control" id="kdpetugas">
+                                        <?php foreach ($petugas as $index => $ptg) : ?>
+                                            <option <?= ($masuk['id_petugas'] == $ptg['id']) ? 'selected' : ''; ?> value="<?= $ptg['id']; ?>"><?= $ptg['kd_petugas']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div> -->
+                                <!-- <div class="form-group">
+                                    <label>Status</label>
+                                    <select name="status" class="form-control" id="status">
+                                        <option value="<?= $pbaru['status']; ?>"><?= $pbaru['status']; ?></option>
+                                        <option value="Diproses"> Diproses </option>
+                                        <option value="Disetujui"> Disetujui </option>
+                                        <option value="Tersedia"> Tersedia </option>
+                                    </select>
+                                </div> -->
+                                <!-- <div class="form-group">
+                                    <label>Status</label>
+                                    <input readonly type="text" class="form-control" id="status" placeholder="Masukkan Kode Barang" name="status" value="<?= $pbaru['status']; ?>">
+                                    <div class="form-text text-danger"><?= form_error('status'); ?></div>
+                                </div> -->
+                                <!-- <div class="form-group">
+                                    <label>Status</label>
+                                    <input hidden type="text" class="form-control" id="status" name="status" value="<?= $pbaru['id'] ?>">
+                                    <input readonly type="text" class="form-control" id="" name="" value="<?= $pbaru['status'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('status'); ?></div>
+                                </div> -->
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select name="status" class="form-control" id="status">

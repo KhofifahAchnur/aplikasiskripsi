@@ -36,9 +36,9 @@
                             <!-- <h3 class="card-title">
                                 Daftar Data Pemeliharaan Aset
                             </h3> -->
+                            <!-- <a href="<?= base_url('guru/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a> -->
+                            <!-- <a href="<?= base_url('guru/perawatan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                             <a href="<?= base_url('guru/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary" style="float:right"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
-                            <!-- <a href="<?= base_url('guru/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
-                            <a href="<?= base_url('guru/perawatan/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -52,17 +52,16 @@
                                         <th>Lokasi</th>
                                         <th>Penanggung Jawab</th>
                                         <th>Jenis Pemeliharaan</th>
-                                        <th>Tanggal Perawatan</th>
+                                        <th>Tanggal Pemeliharaan</th>
                                         <th>Tanggal Selesai </th>
                                         <th>Biaya</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1;
-                                    foreach ($rawat as $rwt) : ?>
+                                <?php foreach ($rawat as $index => $rwt) : ?>
                                         <tr>
-                                            <td><?= $i++; ?></td>
+                                        <td><?= ++$index; ?></td>
                                             <td><?= $rwt['nama_barang'] ?></td>
                                             <td><?= $rwt['kode_barang'] ?></td>
                                             <td><?= $rwt['register'] ?></td>
@@ -81,7 +80,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="9" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="9" class="text-center">Total Aset</th>
                                         <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
                                         <th></th>
                                     </tr>

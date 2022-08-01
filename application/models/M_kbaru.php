@@ -145,6 +145,12 @@ class M_kbaru extends CI_model
 		return $this->db->get()->result_array();
 	}
 
+	public function hapusData($id)
+    {
+        $this->db->where('id_konfir', $id);
+        $this->db->delete('history_konfirmasi');
+}
+
 	// public function jumlah()
 	// {
 	//     return $this->db->get('history_kondisi')->num_rows();

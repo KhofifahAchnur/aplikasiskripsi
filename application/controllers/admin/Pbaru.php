@@ -43,7 +43,7 @@ class Pbaru extends CI_Controller
 
         $this->form_validation->set_rules('aset', 'Nama Aset', 'required');
         $this->form_validation->set_rules('des', 'Deskripsi Aset', 'required');
-        $this->form_validation->set_rules('lokasi', 'Lokasi barang', 'required');
+        $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
         // $this->form_validation->set_rules('jenis', 'Jenis Pengajuan', 'required');
         // $this->form_validation->set_rules('status', 'Status', 'required');

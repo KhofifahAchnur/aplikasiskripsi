@@ -143,6 +143,7 @@ class Kondisi extends CI_Controller
 
 
 
+
     public function hapus($id)
     {
         $this->M_kondisi->hapusData($id);

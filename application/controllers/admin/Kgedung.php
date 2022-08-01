@@ -118,7 +118,7 @@ class Kgedung extends CI_Controller
     {
         $this->M_kgedung->hapusData($id);
         $this->session->set_flashdata('flash', 'Dihapus');
-        redirect('admin/lokasi');
+        redirect('admin/kgedung');
     }
 
     public function filter()

@@ -75,7 +75,7 @@
         //Initialize Select2 Elements
         $('.select2').select2({
             // dropdownParent: $('#modaledit'),
-            placeholder: 'Pilih Nama Aset',
+            placeholder: 'Silahkan Pilih',
             allowClear: true,
             width: '100%',
             theme: 'default'

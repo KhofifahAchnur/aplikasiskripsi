@@ -47,8 +47,8 @@ class Peminjaman extends CI_Controller
 
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
-        $this->form_validation->set_rules('keperluan', 'Keperluan', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
+        $this->form_validation->set_rules('keperluan', 'Keperluan', 'required');
         $this->form_validation->set_rules('tgl_pinjam', 'Tanggal Pinjam', 'required');
         $this->form_validation->set_rules('tgl_kembali', 'Tanggal Kembali', 'required');
 
@@ -72,15 +72,16 @@ class Peminjaman extends CI_Controller
         $data['judul'] = 'Halaman Edit Data Peminjaman Aset Peralatan & Mesin';
         $data['pinjam'] = $this->M_peminjaman->getpeminjamanById($id);
         $data['aset'] = $this->M_aset->getBrgById($data['pinjam']['aset_id']);
-        $data['lokasi'] = $this->M_lokasi->lihat();
-        $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
+        $data['lokasi'] = $this->M_lokasi->getBrgById($data['aset']['perpindahan_id']);
+        $data['nama'] = $this->M_penanggung_jawab->getBrgById($data['lokasi']['penanggung_jawab_id']);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->form_validation->set_rules('nama_barang', 'Nama barang', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
-        $this->form_validation->set_rules('keperluan', 'Keperluan', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
+        $this->form_validation->set_rules('keperluan', 'Keperluan', 'required');
+        
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
@@ -89,8 +90,8 @@ class Peminjaman extends CI_Controller
             $this->load->view('admin/peminjaman/edit', $data);
             $this->load->view('layout/footer');
         } else {
-            $this->M_peminjaman->tambahlokasi($id);
-            $this->M_perpindahan->proses_tambah();
+            // $this->M_peminjaman->tambahlokasi($id);
+            // $this->M_perpindahan->proses_tambah();
             $this->M_peminjaman->edit_barang($id);
             $this->session->set_flashdata('flash', 'Diubah');
             redirect('admin/peminjaman');

@@ -155,7 +155,11 @@ class M_kgedung extends CI_model
 		$this->db->where("tanggal<=", "$tgl_akhir");
 		return $this->db->get()->result_array();
 	}
-
+	public function hapusData($id)
+    {
+        $this->db->where('id_konfir', $id);
+        $this->db->delete('history_konfirmasi');
+}
 
 	public function jumlah()
 	{

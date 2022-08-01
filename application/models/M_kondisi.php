@@ -130,11 +130,13 @@ class M_kondisi extends CI_model
 		// die($this->db->get()->result_array());
 	}
 
+
+
 	public function hapusData($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete('history_kondisi');
-	}
+    {
+        $this->db->where('aset_id', $id);
+        $this->db->delete('history_kondisi');
+}
 	// public function jumlah()
 	// {
 	//     return $this->db->get('history_kondisi')->num_rows();

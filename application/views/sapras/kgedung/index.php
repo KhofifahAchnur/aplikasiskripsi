@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('sapras/pgedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('sapras/pgedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a> ||
                         <!-- <a href="<?= base_url('sapras/kgedung/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                 </div>
             </div>
@@ -44,6 +44,7 @@
                                         <th>Jenis Pengajuan</th>
                                         <th>Status</th>
                                         <th>Tanggal Konfirmasi</th>
+                                        <th>Aksi</th>
                                 </thead>
                                 </thead>
                                 <tbody>
@@ -56,6 +57,10 @@
                                             <td><?= $kfr['jenis'] ?></td>
                                             <td><?= $kfr['status'] ?></td>
                                             <td><?= $kfr['tgl_konfir'] ?></td>
+                                            <td style="width: 100px;" class="text-center">
+                                                <a href="<?= base_url(); ?>sapras/kgedung/edit/<?= $kfr['id_konfir']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
+                                                <a href="<?= base_url(); ?>sapras/kgedung/hapus/<?= $kfr['id_konfir']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

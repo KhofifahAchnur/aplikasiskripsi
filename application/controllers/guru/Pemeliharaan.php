@@ -45,6 +45,8 @@ class Pemeliharaan extends CI_Controller
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
         $this->form_validation->set_rules('jenis', 'Jenis', 'required');
         $this->form_validation->set_rules('biaya', 'Biaya', 'required');
+        $this->form_validation->set_rules('tgl_pemeliharaan', 'Tanggal Pemeliharaan', 'required');
+        $this->form_validation->set_rules('tgl_selesai', 'Tanggal Selesai', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layoutguru/header', $data);
@@ -177,12 +179,12 @@ class Pemeliharaan extends CI_Controller
         // die($tgl_awal);
         $this->load->view('guru/pemeliharaan/laporan', $data);
         // title dari pdf
-        $this->data['title_pdf'] = 'Laporan pemeliharaan';
+        $this->data['title_pdf'] = 'Laporan Pemeliharaan Aset Gedung & Bangunan';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'laporan pemeliharaan';
+        $file_pdf = 'Laporan Pemeliharaan Aset Gedung & Bangunan';
         // setting paper
-        $paper = 'A4';
+        $paper = 'A3';
         //orientasi paper potrait / landscape
         $orientation = "landscape";
 
@@ -210,7 +212,7 @@ class Pemeliharaan extends CI_Controller
     //     //orientasi paper potrait / landscape
     //     $orientation = "landscape";
 
-    //     $html = $this->load->view('admin/pemeliharaan/laporan', $this->data, true);
+    //     $html = $this->load->view('guru/pemeliharaan/laporan', $this->data, true);
 
     //     // run dompdf
     //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);

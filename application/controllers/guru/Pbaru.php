@@ -43,7 +43,7 @@ class Pbaru extends CI_Controller
 
         $this->form_validation->set_rules('aset', 'Nama Aset', 'required');
         $this->form_validation->set_rules('des', 'Deskripsi Aset', 'required');
-        $this->form_validation->set_rules('lokasi', 'Lokasi barang', 'required');
+        $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
         // $this->form_validation->set_rules('jenis', 'Jenis Pengajuan', 'required');
         // $this->form_validation->set_rules('status', 'Status', 'required');
@@ -112,12 +112,113 @@ class Pbaru extends CI_Controller
         $this->load->view('layoutguru/footer');
     }
 
+    public function filter()
+    {
+        // Mendapatkan nilai input
+        $tgl_awal = $this->input->get('tgl_awal');
+        $tgl_akhir = $this->input->get('tgl_akhir');
+        $aset = $this->input->get('aset');
+
+        $data['judul'] = 'Filter Laporan';
+
+        // Proses Filter
+        if (isset($_GET['filter'])) {
+
+            // Data Filter Berdasarkan Tanggal & Nama
+            if (isset($_GET['aset'])) {
+                $data['pbaru'] = $this->M_pbaru->databynama($tgl_awal, $tgl_akhir, $aset);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['nm_aset'] = $aset;
+                $data['aset'] = $this->M_pbaru->nama_tanggal($tgl_awal, $tgl_akhir, $aset);
+            } else {
+
+                // Data Filter Berdasarkan Tanggal
+                // die($data['pbaru'] = $this->M_pbaru->databytanggal($tgl_awal, $tgl_akhir));
+                $data['pbaru'] = $this->M_pbaru->databytanggal($tgl_awal, $tgl_akhir);
+                $data['tgl_awal'] = $tgl_awal;
+                $data['tgl_akhir'] = $tgl_akhir;
+                $data['lokasi'] = $this->M_pbaru->nama_tanggal($tgl_awal, $tgl_akhir);
+            }
+        } else {
+
+            // Proses Semua data tanpa filter
+            $data['aset'] = $this->M_pbaru->aset();
+            $data['pbaru'] = $this->M_pbaru->lihat();
+        }
+
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('layoutguru/header', $data);
+        $this->load->view('layoutguru/topbar');
+        $this->load->view('layoutguru/sidebar');
+        $this->load->view('guru/pbaru/filter');
+        $this->load->view('layoutguru/footer');
+    }
+
+    public function laporan()
+    {
+        // Mendapatkan nilai input
+        $tgl_awalcetak = $this->input->get('tgl_awalcetak');
+        $tgl_akhircetak = $this->input->get('tgl_akhircetak');
+        $aset = $this->input->get('aset');
+
+        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+        $this->load->library('pdfgenerator');
+
+        // Proses Cetak Filter
+        if ($tgl_awalcetak) {
+
+            // Cetak Filter Berdasarkan Tanggal & Nama
+            if ($aset) {
+                $data['pbaru'] = $this->M_pbaru->filterbynama($tgl_awalcetak, $tgl_akhircetak, $aset);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['aset'] = $aset;
+            } else {
+
+                // Cetak Filter Berdasarkan Tanggal
+                $data['pbaru'] = $this->M_pbaru->filterbytanggal($tgl_awalcetak, $tgl_akhircetak);
+                $data['tgl_awal'] = $tgl_awalcetak;
+                $data['tgl_akhir'] = $tgl_akhircetak;
+                $data['aset'] = $aset;
+            }
+        } else {
+            // Cetak Semua Data
+            $data['pbaru'] = $this->M_pbaru->lihat();
+            $data['tgl_awal'] = null;
+            $data['tgl_akhir'] = null;
+            $data['aset'] = null;
+        }
+
+        // die($tgl_awal);
+        $this->load->view('guru/pbaru/laporan', $data);
+        // title dari pdf
+        $this->data['title_pdf'] = 'Laporan Pengajuan Aset Baru';
+
+        // filename dari pdf ketika didownload
+        $file_pdf = 'Laporan Pengajuan Aset Baru';
+        // setting paper
+        $paper = 'A3';
+        //orientasi paper potrait / landscape
+        $orientation = "landscape";
+
+        $html = $this->load->view('guru/pbaru/laporan', $this->data, true);
+
+        // run dompdf
+        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    }
+
+
+
+
     // public function laporan()
     // {
     //     // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
     //     $this->load->library('pdfgenerator');
 
-    //     $data['barang'] = $this->M_lokasi->lihat();
+    //     $data['barang'] = $this->M_aset->lihat();
     //     $this->load->view('guru/lokasi/laporan', $data);
 
     //     // title dari pdf
@@ -160,27 +261,27 @@ class Pbaru extends CI_Controller
     //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     // }
 
-    public function laporan()
-    {
-        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
-        $this->load->library('pdfgenerator');
+    // public function laporan()
+    // {
+    //     // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+    //     $this->load->library('pdfgenerator');
 
-        $data['pbaru'] = $this->M_pbaru->lihat();
-        $this->load->view('guru/pbaru/laporan', $data);
+    //     $data['pbaru'] = $this->M_pbaru->lihat();
+    //     $this->load->view('guru/pbaru/laporan', $data);
 
-        // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Pengajuan Aset Baru';
+    //     // title dari pdf
+    //     $this->data['title_pdf'] = 'Laporan Pengajuan Aset Baru';
 
-        // filename dari pdf ketika didownload
-        $file_pdf = 'Laporan Pengajuan Aset Baru';
-        // setting paper
-        $paper = 'A4';
-        //orientasi paper potrait / landscape
-        $orientation = "landscape";
+    //     // filename dari pdf ketika didownload
+    //     $file_pdf = 'Laporan Pengajuan Aset Baru';
+    //     // setting paper
+    //     $paper = 'A4';
+    //     //orientasi paper potrait / landscape
+    //     $orientation = "landscape";
 
-        $html = $this->load->view('guru/pbaru/laporan', $this->data, true);
+    //     $html = $this->load->view('guru/pbaru/laporan', $this->data, true);
 
-        // run dompdf
-        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
-    }
+    //     // run dompdf
+    //     $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    // }
 }

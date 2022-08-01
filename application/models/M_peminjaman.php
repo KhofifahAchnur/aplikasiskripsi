@@ -4,7 +4,7 @@ class M_peminjaman extends CI_model
 {
     public function lihat()
     {
-        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, peminjaman.keperluan, penanggung_jawab.nama, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
+        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, peminjaman.keperluan, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
         $this->db->from('peminjaman');
         $this->db->join('aset', 'aset.id = peminjaman.aset_id');
         $this->db->join('lokasi', 'lokasi.id = peminjaman.lokasi_id');
@@ -15,7 +15,7 @@ class M_peminjaman extends CI_model
 
     public function lihatpeminjamanbyid($id)
     {
-        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, peminjaman.keperluan, penanggung_jawab.nama, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
+        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, peminjaman.keperluan, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
         $this->db->from('peminjaman');
         $this->db->join('aset', 'aset.id = peminjaman.aset_id');
         $this->db->join('lokasi', 'lokasi.id = peminjaman.lokasi_id');
@@ -30,8 +30,8 @@ class M_peminjaman extends CI_model
         $data = [
             "aset_id" => $this->input->post('nama_barang', true),
             "lokasi_id" => $this->input->post('lokasi', true),
-            "keperluan" => $this->input->post('keperluan', true),
             "penanggung_jawab_id" => $this->input->post('nama', true),
+            "keperluan" => $this->input->post('keperluan', true),
             "tgl_pinjam" => $this->input->post('tgl_pinjam', true),
             "tgl_kembali" => $this->input->post('tgl_kembali', true)
 
@@ -53,8 +53,8 @@ class M_peminjaman extends CI_model
         $data = [
             "aset_id" => $this->input->post('nama_barang', true),
             "lokasi_id" => $this->input->post('lokasi', true),
-            "keperluan" => $this->input->post('keperluan', true),
             "penanggung_jawab_id" => $this->input->post('nama', true),
+            "keperluan" => $this->input->post('keperluan', true),
             "tgl_pinjam" => $this->input->post('tgl_pinjam', true),
             "tgl_kembali" => $this->input->post('tgl_kembali', true)
         ];
@@ -62,6 +62,7 @@ class M_peminjaman extends CI_model
         $this->db->where('id_pinjam', $id);
         $this->db->update('peminjaman', $data);
     }
+
 
     public function getpeminjamanById($id)
     {
@@ -115,7 +116,7 @@ class M_peminjaman extends CI_model
 
     public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
     {
-        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, peminjaman.keperluan, penanggung_jawab.nama, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
+        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, peminjaman.keperluan, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
         $this->db->from('peminjaman');
         $this->db->join('aset', 'aset.id = peminjaman.aset_id');
         $this->db->join('lokasi', 'lokasi.id = peminjaman.lokasi_id');
@@ -128,7 +129,7 @@ class M_peminjaman extends CI_model
 
     public function databytanggal($tgl_awal, $tgl_akhir)
     {
-        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, peminjaman.keperluan, penanggung_jawab.nama, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
+        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, peminjaman.keperluan, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
         $this->db->from('peminjaman');
         $this->db->join('aset', 'aset.id = peminjaman.aset_id');
         $this->db->join('lokasi', 'lokasi.id = peminjaman.lokasi_id');
@@ -141,7 +142,7 @@ class M_peminjaman extends CI_model
 
     public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_barang)
     {
-        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, peminjaman.keperluan, penanggung_jawab.nama, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
+        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, peminjaman.keperluan, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
         $this->db->from('peminjaman');
         $this->db->join('aset', 'aset.id = peminjaman.aset_id');
         $this->db->join('lokasi', 'lokasi.id = peminjaman.lokasi_id');
@@ -155,7 +156,7 @@ class M_peminjaman extends CI_model
 
     public function databynama($tgl_awal, $tgl_akhir, $nama_barang)
     {
-        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, peminjaman.keperluan, penanggung_jawab.nama, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
+        $this->db->select('peminjaman.id_pinjam, aset.nama_barang, aset.kode_barang, aset.register, lokasi.lokasi, penanggung_jawab.nama, peminjaman.keperluan, peminjaman.tgl_pinjam, peminjaman.tgl_kembali');
         $this->db->from('peminjaman');
         $this->db->join('aset', 'aset.id = peminjaman.aset_id');
         $this->db->join('lokasi', 'lokasi.id = peminjaman.lokasi_id');

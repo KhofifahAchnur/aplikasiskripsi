@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('guru/pengajuan/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('guru/pgedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -61,14 +61,6 @@
                                     <select name="nama" class="form-control" id="nama">
                                         <?php foreach ($penanggung_jawab as $index => $pj) : ?>
                                             <option value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div> -->
-                                <!-- <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <select name="lokasi" class="form-control" id="lokasi">
-                                        <?php foreach ($lokasi as $index => $lk) : ?>
-                                            <option <?= ($pgedung['lokasi_id'] == $lk['id']) ? 'selected' : ''; ?> value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div> -->

@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/gedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                         <!-- form start -->
                         <form action="" method="post">
                             <div class="card-body">
-                            <div class="form-group">
+                                <div class="form-group">
                                     <label>Nama Barang</label>
                                     <input hidden type="text" class="form-control" id="nama_barang" name="nama_barang" value="<?= $aset['id'] ?>">
                                     <input readonly type="text" class="form-control" id="" name="" value="<?= $aset['nama_barang'] ?>">
@@ -48,7 +48,7 @@
                                 <div class="form-group">
                                     <label>Lokasi</label>
                                     <select name="lokasi" class="form-control select2" style="width: 100%;">
-                                    <option value="" selected>--Silahkan Pilih Lokasi--</option>
+                                        <option value="" selected>--Silahkan Pilih Lokasi--</option>
                                         <?php foreach ($lokasi as $index => $lk) : ?>
                                             <option value="<?= $lk['id']; ?>"><?= $lk['lokasi']; ?></option>
                                         <?php endforeach; ?>
@@ -56,19 +56,19 @@
                                     <div class="form-text text-danger"><?= form_error('lokasi'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Keperluan</label>
-                                    <input type="text" class="form-control" id="keperluan" placeholder="Masukkan Keperluan Peminjaman" name="keperluan">
-                                    <div class="form-text text-danger"><?= form_error('keperluan'); ?></div>
-                                </div>
-                                <div class="form-group">
                                     <label>Penanggung Jawab</label>
                                     <select name="nama" class="form-control select2" style="width: 100%;">
-                                    <option value="" selected>--Silahkan Pilih Penanggung Jawab--</option>
+                                        <option value="" selected>--Silahkan Pilih Penanggung Jawab--</option>
                                         <?php foreach ($penanggung_jawab as $index => $pj) : ?>
                                             <option value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <div class="form-text text-danger"><?= form_error('nama'); ?></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Keperluan</label>
+                                    <input type="text" class="form-control" id="keperluan" placeholder="Masukkan Keperluan Peminjaman" name="keperluan">
+                                    <div class="form-text text-danger"><?= form_error('keperluan'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Tanggal Peminjaman</label>

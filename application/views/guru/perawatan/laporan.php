@@ -47,7 +47,7 @@
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: center;
-            background-color: #4CAF50;
+            background-color: #008b8b;
             color: white;
         }
     </style>
@@ -70,6 +70,16 @@
     <p align="center">
         <strong>LAPORAN PEMELIHARAAN ASET PERALATAN & MESIN</strong>
     </p>
+    <?php if ($this->session->userdata('hak_akses') == 1) : ?>
+        <?php if ($tgl_awal) : ?>
+            <p>Tanggal : <?= $tgl_awal; ?> sd <?= $tgl_akhir; ?></p>
+            <?php if ($nama_barang) : ?>
+                <p>Filter By Nama Barang : <?= $nama_barang; ?></p>
+            <?php endif ?>
+        <?php else : ?>
+            <p>Tanggal : Semua Data</p>
+        <?php endif ?>
+    <?php endif ?>
     <table id="customers" class="table table-bordered" style="margin-top: 20px;">
         <thead>
             <tr>
@@ -80,14 +90,17 @@
                 <th>Lokasi</th>
                 <th>Penanggung Jawab</th>
                 <th>Jenis Pemeliharaan</th>
-                <th>Biaya</th>
-                <th>Tanggal Perawatan</th>
+                <th>Tanggal Pemeliharaan</th>
                 <th>Tanggal Selesai </th>
+                <th>Biaya</th>
         </thead>
         </thead>
         <tbody>
             <?php $i = 1;
-            foreach ($rawat as $rwt) : ?>
+            $jumlah_kasmasuk = 0;
+            foreach ($rawat as $rwt) :
+                $jumlah_kasmasuk = $jumlah_kasmasuk + $rwt['biaya'];
+            ?>
                 <tr>
                     <td align="center"><?= $i++; ?></td>
                     <td align="center"><?= $rwt['nama_barang'] ?></td>
@@ -96,21 +109,61 @@
                     <td align="center"><?= $rwt['lokasi'] ?></td>
                     <td align="center"><?= $rwt['nama'] ?></td>
                     <td align="center"><?= $rwt['jenis'] ?></td>
-                    <td align="center"><?= $rwt['biaya'] ?></td>
                     <td align="center"><?= $rwt['tgl_rawat'] ?></td>
                     <td align="center"><?= $rwt['tgl_selesai'] ?></td>
+                    <td align="center"><?= "Rp." . number_format($rwt['biaya'], 2, ",", "."); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="9" class="text-center">Total Kas Masuk</th>
+                <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
+            </tr>
+        </tfoot>
     </table>
+    <br>
+
+    <!-- <div style="text-align: right;">Banjarmasin,<?php echo date('d/m/Y'); ?></div> -->
     <table width="50%" align="right" border="0" style="margin-top: 20px;">
+        <tr>
+        <tr>
+            <td width="70%"></td>
+            <td align="center">Banjarmasin,<?php echo date('d/m/Y'); ?>
+        </tr>
+        </tr>
+    </table>
+    <table width="100%">
+        <td width="85%" align="left">
+            <table>
+                <tr>
+                <tr>
+
+                    <td align="center">Kepala Sekolah</small><br><br><br><br>Arbainah, M.Pd<br>NIP. 19660824 198902 2 001<br></td>
+                </tr>
+                </tr>
+            </table>
+        </td>
+        
+        <td width="14%" align="right">
+            <table>
+                <tr>
+                <tr>
+                    <!-- <td></td> -->
+                    <td align="center">Pengurus Barang Pembantu</small><br><br><br><br>Hj. Netta Herawati, S.AP<br>NIP. 19650808 198602 2 004<br></td>
+                </tr>
+                </tr>
+            </table>
+        </td>
+    </table>
+    <!-- <table width="50%" align="right" border="0" style="margin-top: 20px;">
         <tr>
         <tr>
             <td width="50%"></td>
             <td align="center">Banjarmasin,<?php echo date('d/m/Y'); ?><br>Mengetahui</small><br><br><br><br>Hj. Netta Herawati<br>______<br><strong>Kepala Tata Usaha</strong></td>
         </tr>
         </tr>
-    </table>
+    </table> -->
 
 </body>
 

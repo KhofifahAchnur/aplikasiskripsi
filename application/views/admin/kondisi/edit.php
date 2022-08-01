@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="<?= base_url('admin/kondisi_gedung/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
+                        <a href="<?= base_url('admin/kondisi/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;Kembali</a>
                     </ol>
                 </div>
             </div>
@@ -36,39 +36,24 @@
                         </div>
                         <!-- form start -->
                         <form action="" method="post">
-                            <input type="hidden" name="id" value="<?= $kondisi_gedung['id_gedung']; ?>">
+                            <input type="hidden" name="id" value="<?= $kondisi['id']; ?>">
                             <div class="card-body">
                             <div class="form-group">
-                                    <label>Nama Gedung</label>
-                                    <input hidden type="text" class="form-control" id="id_gedung" name="id_gedung" value="<?= $kondisi_gedung['id_gedung'] ?>">
-                                    <input hidden type="text" class="form-control" id="nama_gedung" name="nama_gedung" value="<?= $kondisi_gedung['id_gedung'] ?>">
-                                    <input readonly type="text" class="form-control" id="" name="" value="<?= $kondisi_gedung['nama_gedung'] ?>">
-                                    <div class="form-text text-danger"><?= form_error('nama_gedung'); ?></div>
+                                    <label>Nama buku</label>
+                                    <input hidden type="text" class="form-control" id="id" name="id" value="<?= $kondisi['id'] ?>">
+                                    <input hidden type="text" class="form-control" id="nama_barang" name="nama_barang" value="<?= $kondisi['id'] ?>">
+                                    <input readonly type="text" class="form-control" id="" name="" value="<?= $kondisi['nama_barang'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('nama_barang'); ?></div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Kode gedung</label>
-                                    <input readonly type="text" class="form-control" id="kode_gedung" name="kode_gedung" value="<?= $kondisi_gedung['kode_gedung'] ?>">
-                                    <div class="form-text text-danger"><?= form_error('kode_gedung'); ?></div>
+                                    <label>Kode buku</label>
+                                    <input readonly type="text" class="form-control" id="kode_barang" name="kode_barang" value="<?= $kondisi['kode_barang'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('kode_barang'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Register</label>
-                                    <input readonly type="text" class="form-control" id="register" name="register" value="<?= $kondisi_gedung['register'] ?>">
+                                    <input readonly type="text" class="form-control" id="register" name="register" value="<?= $kondisi['register'] ?>">
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Bertingkat</label>
-                                    <input readonly type="text" class="form-control" id="tingkat" name="tingkat" value="<?= $kondisi_gedung['tingkat'] ?>">
-                                    <div class="form-text text-danger"><?= form_error('tingkat'); ?></div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Beton</label>
-                                    <input readonly type="text" class="form-control" id="beton" name="beton" value="<?= $kondisi_gedung['beton'] ?>">
-                                    <div class="form-text text-danger"><?= form_error('beton'); ?></div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Luas</label>
-                                    <input readonly type="text" class="form-control" id="luas" name="luas" value="<?= $kondisi_gedung['luas'] ?>">
-                                    <div class="form-text text-danger"><?= form_error('luas'); ?></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Kondisi</label>
