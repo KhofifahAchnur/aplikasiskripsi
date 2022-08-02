@@ -63,8 +63,8 @@
                                             <td><?= $kfr['jenis'] ?></td>
                                             <td><?= $kfr['status'] ?></td>
                                             <td><?= $kfr['tgl_konfir'] ?></td>
-                                            <td>
-                                                <a href="<?= base_url('admin/konfirmasi/edit/') . $kfr['id_konfir']; ?>" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a>
+                                            <td class="text-center">
+                                                <!-- <a href="<?= base_url('admin/konfirmasi/edit/') . $kfr['id_konfir']; ?>" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a> -->
                                                 <a href="<?= base_url('admin/konfirmasi/hapus/') . $kfr['id_konfir']; ?>" onclick="return confirm('Yakin ingin menghapus data?');" class="btn btn-info btn-sm"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>

@@ -60,8 +60,8 @@
                                             <td><?= $kdb['judul'] ?></td>
                                             <td><?= $kdb['kondisi'] ?></td>
                                             <td><?= $kdb['tanggal'] ?></td>
-                                            <td>
-                                                <a href="<?= base_url('admin/kondisi_buku/edit/') . $kdb['id']; ?>" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a>
+                                            <td class="text-center">
+                                                <!-- <a href="<?= base_url('admin/kondisi_buku/edit/') . $kdb['id']; ?>" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a> -->
                                                 <a href="<?= base_url('admin/kondisi_buku/hapus/') . $kdb['id']; ?>" onclick="return confirm('Yakin ingin menghapus data?');" class="btn btn-info btn-sm"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>

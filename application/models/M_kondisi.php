@@ -87,7 +87,7 @@ class M_kondisi extends CI_model
 		$this->db->order_by('history_kondisi.id', 'DESC');
 		$this->db->where("tanggal >=", "$tgl_awalcetak");
 		$this->db->where("tanggal <=", "$tgl_akhircetak");
-		$this->db->group_by('nama_barang');
+		// $this->db->group_by('nama_barang');
 		return $this->db->get()->result_array();
 	}
 

@@ -214,7 +214,7 @@ class Kondisi_gedung extends CI_Controller
         $this->data['title_pdf'] = 'Laporan Kondisi_gedung Aset Peralatan & Mesin';
 
         // filename dari pdf ketika didownload
-        $file_pdf = 'Laporan Kondisi_gedung Aset Peralatan & Mesin';
+        $file_pdf = 'Laporan Kondisi Gedung Aset Peralatan & Mesin';
         // setting paper
         $paper = 'A4';
         //orientasi paper potrait / landscape

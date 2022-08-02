@@ -44,45 +44,45 @@ class M_kondisi_gedung extends CI_model
     }
 
     // public function updatekondisi($id)
-	// {
-	// 	$data = [
-	// 		"kondisi" => $this->input->post('kondisi', true)
-	// 	];
-	// 	$this->db->where('id', $id);
-	// 	$this->db->update('kondisi_gedung', $data);
-	// }
+    // {
+    // 	$data = [
+    // 		"kondisi" => $this->input->post('kondisi', true)
+    // 	];
+    // 	$this->db->where('id', $id);
+    // 	$this->db->update('kondisi_gedung', $data);
+    // }
 
     public function edit_barang($id)
-	{
-		$data = [
+    {
+        $data = [
 
-			"gedung_id" => $this->input->post('nama_gedung', true),
+            "gedung_id" => $this->input->post('nama_gedung', true),
             "tanggal" => date('Y-m-d'),
             "kondisi" => $this->input->post('kondisi', true)
 
-		];
+        ];
 
-		$this->db->where('id', $id);
-		$this->db->update('kondisi_gedung', $data);
-	}
+        $this->db->where('id', $id);
+        $this->db->update('kondisi_gedung', $data);
+    }
 
-	public function updatestatus($id)
-	{
-		$data = [
-			"kondisi" => $this->input->post('kondisi', true)
-		];
-		$this->db->where('id_gedung', $id);
-		$this->db->update('gedung', $data);
-	}
+    public function updatestatus($id)
+    {
+        $data = [
+            "kondisi" => $this->input->post('kondisi', true)
+        ];
+        $this->db->where('id_gedung', $id);
+        $this->db->update('gedung', $data);
+    }
 
     public function updateaset($id)
-	{
-		$data = [
-			"kondisi" => $this->input->post('kondisi', true)
-		];
-		$this->db->where('id_gedung', $id);
-		$this->db->update('gedung', $data);
-	}
+    {
+        $data = [
+            "kondisi" => $this->input->post('kondisi', true)
+        ];
+        $this->db->where('id_gedung', $id);
+        $this->db->update('gedung', $data);
+    }
 
 
     public function getKondisiById($id)
@@ -98,36 +98,36 @@ class M_kondisi_gedung extends CI_model
     public function nama_gedung()
     {
         $this->db->select('nama_gedung');
-		$this->db->from('kondisi_gedung');
+        $this->db->from('kondisi_gedung');
         $this->db->join('gedung', 'gedung.id_gedung = kondisi_gedung.gedung_id');
         $this->db->group_by('nama_gedung');
         return $this->db->get()->result_array();
     }
 
-	public function nama_tanggal($tgl_awal, $tgl_akhir)
+    public function nama_tanggal($tgl_awal, $tgl_akhir)
     {
         $this->db->select('nama_gedung');
-		$this->db->from('kondisi_gedung');
+        $this->db->from('kondisi_gedung');
         $this->db->join('gedung', 'gedung.id_gedung = kondisi_gedung.gedung_id');
-		$this->db->where("tanggal >=", "$tgl_awal");
+        $this->db->where("tanggal >=", "$tgl_awal");
         $this->db->where("tanggal <=", "$tgl_akhir");
         $this->db->group_by('nama_gedung');
         return $this->db->get()->result_array();
     }
 
-	public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
+    public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
     {
         $this->db->select('kondisi_gedung.id, gedung.nama_gedung, gedung.kode_gedung, gedung.register, gedung.tingkat, gedung.beton, gedung.luas, kondisi_gedung.kondisi, kondisi_gedung.tanggal');
         $this->db->from('kondisi_gedung');
         $this->db->join('gedung', 'gedung.id_gedung = kondisi_gedung.gedung_id');
         $this->db->order_by('kondisi_gedung.id', 'DESC');
-		$this->db->where("tanggal >=", "$tgl_awalcetak");
+        $this->db->where("tanggal >=", "$tgl_awalcetak");
         $this->db->where("tanggal <=", "$tgl_akhircetak");
-        $this->db->group_by('nama_gedung');
+        // $this->db->group_by('nama_gedung');
         return $this->db->get()->result_array();
     }
 
-	public function databytanggal($tgl_awal, $tgl_akhir)
+    public function databytanggal($tgl_awal, $tgl_akhir)
     {
         $this->db->select('kondisi_gedung.id, gedung.nama_gedung, gedung.kode_gedung, gedung.register, gedung.tingkat, gedung.beton, gedung.luas, kondisi_gedung.kondisi, kondisi_gedung.tanggal');
         $this->db->from('kondisi_gedung');
@@ -137,7 +137,7 @@ class M_kondisi_gedung extends CI_model
         $this->db->where("tanggal <=", "$tgl_akhir");
         return $this->db->get()->result_array();
     }
-    
+
     public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $nama_gedung)
     {
         $this->db->select('kondisi_gedung.id, gedung.nama_gedung, gedung.kode_gedung, gedung.register, gedung.tingkat, gedung.beton, gedung.luas, kondisi_gedung.kondisi, kondisi_gedung.tanggal');
@@ -152,7 +152,7 @@ class M_kondisi_gedung extends CI_model
 
     public function databynama($tgl_awal, $tgl_akhir, $nama_gedung)
     {
-		$this->db->select('kondisi_gedung.id, gedung.nama_gedung, gedung.kode_gedung, gedung.register, gedung.tingkat, gedung.beton, gedung.luas, kondisi_gedung.kondisi, kondisi_gedung.tanggal');
+        $this->db->select('kondisi_gedung.id, gedung.nama_gedung, gedung.kode_gedung, gedung.register, gedung.tingkat, gedung.beton, gedung.luas, kondisi_gedung.kondisi, kondisi_gedung.tanggal');
         $this->db->from('kondisi_gedung');
         $this->db->join('gedung', 'gedung.id_gedung = kondisi_gedung.gedung_id');
         $this->db->order_by('kondisi_gedung.id', 'DESC');
@@ -167,5 +167,5 @@ class M_kondisi_gedung extends CI_model
     {
         $this->db->where('id', $id);
         $this->db->delete('kondisi_gedung');
-}
+    }
 }

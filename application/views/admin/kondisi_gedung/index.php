@@ -64,8 +64,8 @@
                                             <td><?= $kdg['luas'] ?></td>
                                             <td><?= $kdg['kondisi'] ?></td>
                                             <td><?= $kdg['tanggal'] ?></td>
-                                            <td>
-                                                <a href="<?= base_url('admin/kondisi_gedung/edit/') . $kdg['id']; ?>" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a>
+                                            <td class="text-center">
+                                                <!-- <a href="<?= base_url('admin/kondisi_gedung/edit/') . $kdg['id']; ?>" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i></a> -->
                                                 <a href="<?= base_url('admin/kondisi_gedung/hapus/') . $kdg['id']; ?>" onclick="return confirm('Yakin ingin menghapus data?');" class="btn btn-info btn-sm"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
