@@ -55,7 +55,7 @@ class Kondisi_gedung extends CI_Controller
             $this->load->view('admin/kondisi_gedung/tambah', $data);
             $this->load->view('layout/footer');
         } else {
-            $this->M_kondisi_gedung->updatekondisimesin($id);
+            $this->M_kondisi_gedung->updatekondisigedung($id);
             $this->M_kondisi_gedung->proses_tambah();
             $this->session->set_flashdata('flash', ' , Kondisi Sudah Diubah');
             redirect('admin/gedung');

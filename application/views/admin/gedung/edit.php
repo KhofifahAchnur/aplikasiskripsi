@@ -86,11 +86,14 @@
                                     <input type="text" class="form-control" id="tahun" placeholder="Masukkan Tahun Gedung" name="tahun" value="<?= $gedung['tahun']; ?>">
                                     <div class="form-text text-danger"><?= form_error('tahun'); ?></div>
                                 </div>
-                                
                                 <div class="form-group">
                                     <label>Kondisi</label>
-                                    <input type="text" class="form-control" id="kondisi" placeholder="Masukkan Kondisi Gedung" name="kondisi" value="<?= $gedung['kondisi']; ?>">
-                                    <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
+                                    <select name="kondisi" class="form-control" id="kondisi">
+                                        <option value="<?= $gedung['kondisi']; ?>"><?= $gedung['kondisi']; ?></option>
+                                        <option value="Baik"> Baik </option>
+                                        <option value="Kurang Baik"> Kurang Baik </option>
+                                        <option value="Rusak Berat"> Rusak Berat </option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>

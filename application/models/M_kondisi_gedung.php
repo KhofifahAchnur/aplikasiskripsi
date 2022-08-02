@@ -33,6 +33,7 @@ class M_kondisi_gedung extends CI_model
         $this->db->insert('kondisi_gedung', $data);
     }
 
+
     public function updatekondisigedung($id)
     {
         $data = [

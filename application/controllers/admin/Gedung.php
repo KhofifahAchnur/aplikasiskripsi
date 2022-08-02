@@ -83,7 +83,7 @@ class Gedung extends CI_Controller
         $this->form_validation->set_rules('luas', 'Luas', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
         $this->form_validation->set_rules('tahun', 'Tahun', 'required');
-        $this->form_validation->set_rules('kondisi1', 'Kondisi', 'required');
+        $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
         $this->form_validation->set_rules('status', 'Status', 'required');
         $this->form_validation->set_rules('asal_usul', 'Asal-Usul', 'required');
         $this->form_validation->set_rules('harga', 'Harga', 'required');

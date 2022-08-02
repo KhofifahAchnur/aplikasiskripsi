@@ -32,7 +32,7 @@
                                 <div class="form-group">
                                     <label>Nama Gedung</label>
                                     <input hidden type="text" class="form-control" id="id_gedung" name="id_gedung" value="<?= $kondisi_gedung['id_gedung'] ?>">
-                                    <input hidden type="text" class="form-control" id="nama_gedung" name="nama_gedung" value="<?= $kondisi_gedung['id'] ?>">
+                                    <input hidden type="text" class="form-control" id="nama_gedung" name="nama_gedung" value="<?= $kondisi_gedung['id_gedung'] ?>">
                                     <input readonly type="text" class="form-control" id="" name="" value="<?= $kondisi_gedung['nama_gedung'] ?>">
                                     <div class="form-text text-danger"><?= form_error('nama_gedung'); ?></div>
                                 </div>
