@@ -27,7 +27,7 @@
                             <h3 class="card-title">Tambah Data Pengajuan Aset Baru</h3>
                         </div>
                         <!-- form start -->
-                        <form action="" method="post">
+                        <form action="" method="post" enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Nama</label>
@@ -52,14 +52,24 @@
                                 <div class="form-group">
                                     <label>Penanggung Jawab</label>
                                     <select name="nama" class="form-control select2" style="width: 100%;">
-                                    <option value="" selected>--Silahkan Pilih Penanggung Jawab--</option>
+                                        <option value="" selected>--Silahkan Pilih Penanggung Jawab--</option>
                                         <?php foreach ($penanggung_jawab as $index => $pj) : ?>
                                             <option value="<?= $pj['id']; ?>"><?= $pj['nama']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <div class="form-text text-danger"><?= form_error('nama'); ?></div>
                                 </div>
-                                
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Surat</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="surat" class="custom-file-input" id="exampleInputFile">
+                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        </div>
+                                    </div>
+                                    <small><a href="<?= base_url() ?>upload/template.docx">Download Template Surat</a></small>
+                                </div>
+
                                 <!-- <div class="form-group">
                                     <label>Jenis Pengajuan</label>
                                     <select name="jenis" class="form-control" id="jenis">

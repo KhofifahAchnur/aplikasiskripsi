@@ -80,6 +80,7 @@
                                         <option value="Baik"> Baik </option>
                                         <option value="Kurang Baik"> Kurang Baik </option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
+                                        <option value="Dimusnahkan"> Dimusnahkan </option>
                                     </select>
                                 </div>
                                 <div class="form-group">

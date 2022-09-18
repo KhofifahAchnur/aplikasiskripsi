@@ -8,7 +8,7 @@ class Penghapusan extends CI_Controller
         parent::__construct();
         $this->load->model('M_penghapusan');
         $this->load->model('M_aset');
-        $this->load->model('M_lokasi');
+        // $this->load->model('M_lokasi');
         if ($this->session->userdata('hak_akses') != '1') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
@@ -16,11 +16,25 @@ class Penghapusan extends CI_Controller
         }
     }
 
+    // public function index()
+    // {
+    //     $data['judul'] = 'Halaman Data Pengajuan Pemeliharaan Aset Peralatan & Mesin';
+    //     $data['hapus'] = $this->M_penghapusan->lihat();
+    //     $data['jumlah_kasmasuk'] = $this->M_penghapusan->totalkas();
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+
+    //     $this->load->view('layout/header', $data);
+    //     $this->load->view('layout/topbar');
+    //     $this->load->view('layout/sidebar');
+    //     $this->load->view('admin/penghapusan/index', $data);
+    //     $this->load->view('layout/footer');
+    // }
+
     public function index()
     {
-        $data['judul'] = 'Halaman Data Pengajuan Pemeliharaan Aset Peralatan & Mesin';
-        $data['hapus'] = $this->M_penghapusan->lihat();
-        $data['jumlah_kasmasuk'] = $this->M_penghapusan->totalkas();
+        $data['judul'] = 'Halaman Data Perbaikan Barang';
+        $data['barang'] = $this->M_penghapusan->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -32,34 +46,64 @@ class Penghapusan extends CI_Controller
     }
 
 
+    // public function tambah($id)
+    // {
+    //     $data['judul'] = 'Halaman Tambah Data penghapusan Pemeliharaan Aset Peralatan & Mesin';
+    //     $data['aset'] = $this->M_aset->getBrgById($id);
+    //     $data['lokasi'] = $this->M_lokasi->getBrgById($data['aset']['perpindahan_id']);
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+
+
+    //     $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
+    //     $this->form_validation->set_rules('lokasi', 'Lokasi barang', 'required');
+    //     // $this->form_validation->set_rules('jenis', 'Jenis penghapusan', 'required');
+    //     // $this->form_validation->set_rules('status', 'Status', 'required');
+
+
+    //     if ($this->form_validation->run() == false) {
+    //         $this->load->view('layout/header', $data);
+    //         $this->load->view('layout/topbar');
+    //         $this->load->view('layout/sidebar');
+    //         $this->load->view('admin/penghapusan/tambah', $data);
+    //         $this->load->view('layout/footer');
+    //     } else {
+    //         $this->M_penghapusan->proses_tambah();
+    //         $this->session->set_flashdata('flash', 'Ditambahkan');
+    //         redirect('admin/penghapusan');
+    //     }
+    // }
+
+
     public function tambah($id)
     {
-        $data['judul'] = 'Halaman Tambah Data penghapusan Pemeliharaan Aset Peralatan & Mesin';
-        $data['aset'] = $this->M_aset->getBrgById($id);
-        $data['lokasi'] = $this->M_lokasi->getBrgById($data['aset']['perpindahan_id']);
+        $data['judul'] = 'Halaman Tambah Data';
+        $data['aset'] = $this->M_masteraset->getBrgById($id);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
 
+        $this->form_validation->set_rules('tanggal_masuk', 'Tanggal Masuk', 'required');
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
-        $this->form_validation->set_rules('lokasi', 'Lokasi barang', 'required');
-        // $this->form_validation->set_rules('jenis', 'Jenis penghapusan', 'required');
-        // $this->form_validation->set_rules('status', 'Status', 'required');
-    
+        $this->form_validation->set_rules('kode_barang', 'kode_barang', 'required');
+        $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
+        $this->form_validation->set_rules('kerusakan', 'Kerusakan', 'required');
+        $this->form_validation->set_rules('jenis_service', 'Jenis Service', 'required');
+        $this->form_validation->set_rules('biaya', 'Biaya', 'required');
+        
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
             $this->load->view('layout/sidebar');
-            $this->load->view('admin/penghapusan/tambah', $data);
+            $this->load->view('admin/penghapusan/tambah');
             $this->load->view('layout/footer');
         } else {
             $this->M_penghapusan->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/penghapusan');
+            redirect('admin/perbaikan');
         }
     }
-
 
     public function edit($id)
     {
@@ -210,80 +254,80 @@ class Penghapusan extends CI_Controller
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     }
 
-//     public function laporan()
-//     {
-//         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
-//         $this->load->library('pdfgenerator');
+    //     public function laporan()
+    //     {
+    //         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+    //         $this->load->library('pdfgenerator');
 
-//         $data['barang'] = $this->M_lokasi->lihat();
-//         $this->load->view('admin/lokasi/laporan', $data);
+    //         $data['barang'] = $this->M_lokasi->lihat();
+    //         $this->load->view('admin/lokasi/laporan', $data);
 
-//         // title dari pdf
-//         $this->data['title_pdf'] = 'Laporan Lokasi Aset';
+    //         // title dari pdf
+    //         $this->data['title_pdf'] = 'Laporan Lokasi Aset';
 
-//         // filename dari pdf ketika didownload
-//         $file_pdf = 'laporan Lokasi Aset';
-//         // setting paper
-//         $paper = 'A4';
-//         //orientasi paper potrait / landscape
-//         $orientation = "landscape";
+    //         // filename dari pdf ketika didownload
+    //         $file_pdf = 'laporan Lokasi Aset';
+    //         // setting paper
+    //         $paper = 'A4';
+    //         //orientasi paper potrait / landscape
+    //         $orientation = "landscape";
 
-//         $html = $this->load->view('admin/lokasi/laporan', $this->data, true);
+    //         $html = $this->load->view('admin/lokasi/laporan', $this->data, true);
 
-//         // run dompdf
-//         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    //         // run dompdf
+    //         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
 
-// }
+    // }
 
-// public function laporanruangan($id)
-//     {
-//         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
-//         $this->load->library('pdfgenerator');
+    // public function laporanruangan($id)
+    //     {
+    //         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+    //         $this->load->library('pdfgenerator');
 
-//         $data['barang'] = $this->M_aset->lihatbylokasi($id);
-//         $this->load->view('admin/ruangan/laporan', $data);
+    //         $data['barang'] = $this->M_aset->lihatbylokasi($id);
+    //         $this->load->view('admin/ruangan/laporan', $data);
 
-//         // title dari pdf
-//         $this->data['title_pdf'] = 'Laporan Lokasi Aset';
+    //         // title dari pdf
+    //         $this->data['title_pdf'] = 'Laporan Lokasi Aset';
 
-//         // filename dari pdf ketika didownload
-//         $file_pdf = 'laporan Lokasi Aset';
-//         // setting paper
-//         $paper = 'A4';
-//         //orientasi paper potrait / landscape
-//         $orientation = "landscape";
+    //         // filename dari pdf ketika didownload
+    //         $file_pdf = 'laporan Lokasi Aset';
+    //         // setting paper
+    //         $paper = 'A4';
+    //         //orientasi paper potrait / landscape
+    //         $orientation = "landscape";
 
-//         $html = $this->load->view('admin/ruangan/laporan', $this->data, true);
+    //         $html = $this->load->view('admin/ruangan/laporan', $this->data, true);
 
-//         // run dompdf
-//         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    //         // run dompdf
+    //         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
 
-// }
+    // }
 
 
-// public function laporan()
-//     {
-//         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
-//         $this->load->library('pdfgenerator');
+    // public function laporan()
+    //     {
+    //         // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+    //         $this->load->library('pdfgenerator');
 
-//         $data['baru'] = $this->M_pengajuan->lihat();
-//         $this->load->view('admin/pengajuan/laporan', $data);
+    //         $data['baru'] = $this->M_pengajuan->lihat();
+    //         $this->load->view('admin/pengajuan/laporan', $data);
 
-//         // title dari pdf
-//         $this->data['title_pdf'] = 'Laporan Pengajuan Pemeliharaan Aset Peralatan & Mesin';
+    //         // title dari pdf
+    //         $this->data['title_pdf'] = 'Laporan Pengajuan Pemeliharaan Aset Peralatan & Mesin';
 
-//         // filename dari pdf ketika didownload
-//         $file_pdf = 'Laporan Pengajuan Pemeliharaan Aset Peralatan & Mesin';
-//         // setting paper
-//         $paper = 'A4';
-//         //orientasi paper potrait / landscape
-//         $orientation = "landscape";
+    //         // filename dari pdf ketika didownload
+    //         $file_pdf = 'Laporan Pengajuan Pemeliharaan Aset Peralatan & Mesin';
+    //         // setting paper
+    //         $paper = 'A4';
+    //         //orientasi paper potrait / landscape
+    //         $orientation = "landscape";
 
-//         $html = $this->load->view('admin/pengajuan/laporan', $this->data, true);
+    //         $html = $this->load->view('admin/pengajuan/laporan', $this->data, true);
 
-//         // run dompdf
-//         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
-//     }
+    //         // run dompdf
+    //         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    //     }
 
 
 }

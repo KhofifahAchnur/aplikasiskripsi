@@ -51,6 +51,7 @@
                                         <th>Penanggung Jawab</th>
                                         <th>Jenis Pengajuan</th>
                                         <th>Status</th>
+                                        <th>Bukti Nota</th>
                                         <th>Tanggal Pengajuan</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
@@ -66,6 +67,7 @@
                                             <td><?= $brg['nama'] ?></td>
                                             <td><?= $brg['jenis'] ?></td>
                                             <td><?= $brg['status'] ?></td>
+                                            <td><?= $brg['nota'] ?></td>
                                             <td><?= $brg['tanggal'] ?></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>admin/pgedung/edit/<?= $brg['id']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |

@@ -91,6 +91,27 @@ class Pbaru extends CI_Controller
         }
     }
 
+    public function cetak($id)
+ { 
+ $pbaru = $this->M_pbaru->getStsById($id);
+ $aset = $pbaru->nama_aset;
+ $lokasi = $pbaru->lokasi;
+ // memanggil dan membaca template dokumen
+ $alamat_file = base_url('assets/lap/desain_surat.rtf');
+ //$alamat_file = base_url('assets/lap/desain_surat.rtf');
+ $document = file_get_contents($alamat_file);
+ 
+ // isi dokumen dinyatakan dalam bentuk string
+ $document = str_replace("#NAMA", $aset, $document);
+ $document = str_replace("#KELAS", $lokasi, $document);
+ 
+ // header untuk membuka file output RTF dengan MS. Word
+ header("Content-type: application/msword");
+ header("Content-disposition: inline; filename=Laporanmy.doc");
+ header("Content-length: ".strlen($document));
+ echo $document;
+ }
+
     public function hapus($id)
     {
         $this->M_pbaru->hapusData($id);

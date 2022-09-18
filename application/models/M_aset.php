@@ -8,6 +8,8 @@ class M_aset extends CI_model
         $this->db->from('aset');
         $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
         $this->db->order_by('aset.id', 'DESC');
+        $this->db->where_in('kondisi', array('Baik', 'Kurang Baik'));
+        // $this->db->where_in('kondisi', array('Baik', 'Kurang Baik', 'Rusak Berat'));
         $this->db->where_in('lokasi', array('Gudang', 'Ruang Bimbingan Konseling', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab Bahasa', 'Ruang OSIS', 'Ruang Wakasek Sapras', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin', 'Ruang Perpustakaan', 'Ruang UKS'));
         return $this->db->get()->result_array();
     }
@@ -18,6 +20,8 @@ class M_aset extends CI_model
         $this->db->from('aset');
         $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
         $this->db->order_by('aset.id', 'DESC');
+        $this->db->where_in('kondisi', array('Baik', 'Kurang Baik'));
+        // $this->db->where_in('kondisi', array('Baik', 'Kurang Baik', 'Rusak Berat'));
         $this->db->where_in('lokasi', array('Gudang', 'Ruang Bimbingan Konseling', 'Ruang Lab Komputer', 'Ruang Lab IPA', 'Ruang Lab Bahasa', 'Ruang OSIS', 'Ruang Wakasek Sapras', 'Ruang Wakasek Kesiswaan', 'Ruang Tata Usaha', 'SMPN 15 Banjarmasin', 'Ruang Perpustakaan', 'Ruang UKS'));
         return $this->db->get()->result_array();
     }

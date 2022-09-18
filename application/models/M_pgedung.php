@@ -4,7 +4,7 @@ class M_pgedung extends CI_model
 {
     public function lihat()
     {
-        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.nota, pengajuan.tanggal');
         $this->db->from('pengajuan');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
         $this->db->order_by('pengajuan.id', 'DESC');

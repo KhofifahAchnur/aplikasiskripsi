@@ -68,6 +68,7 @@
 <script src="<?= base_url('adminlte/'); ?>plugins/daterangepicker-master/moment.min"></script> -->
 
 <script src="<?= base_url(); ?>/assets/js/custom.js"></script>
+<script src="<?= base_url(); ?>/assets/vendor/@fancyapps/ui/dist/fancybox.umd.js"></script>
 <script src="<?= base_url(); ?>/assets/vendor/moment/moment.min.js"></script>
 <script src="<?= base_url(); ?>/assets/vendor/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <script>

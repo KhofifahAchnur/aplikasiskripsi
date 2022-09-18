@@ -59,6 +59,7 @@
                                         <option value="Baik"> Baik </option>
                                         <option value="Kurang Baik"> Kurang Baik </option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
+                                        <option value="Dihapus"> Dihapus </option>
                                     </select>
                                     <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
                                 </div>

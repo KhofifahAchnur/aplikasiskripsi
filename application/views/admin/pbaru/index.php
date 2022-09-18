@@ -22,7 +22,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                <?php if ($this->session->flashdata('flash')) : ?>
+                    <?php if ($this->session->flashdata('flash')) : ?>
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                             Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -33,7 +33,7 @@
                     <!-- /.card-header -->
                     <div class="card">
                         <div class="card-header">
-                        <a href="<?= base_url('admin/pbaru/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                            <a href="<?= base_url('admin/pbaru/laporan') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                             <!-- <h3 class="card-title">
                                 Daftar Data Pengajuan Aset Baru
                             </h3> -->
@@ -51,7 +51,9 @@
                                         <th>Penanggung Jawab</th>
                                         <th>Jenis Pengajuan</th>
                                         <th>Status</th>
+                                        <th>Bukti Nota</th>
                                         <th>Tanggal Pengajuan</th>
+                                        <th>Surat</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
@@ -66,16 +68,21 @@
                                             <td><?= $brg['nama'] ?></td>
                                             <td><?= $brg['jenis'] ?></td>
                                             <td><?= $brg['status'] ?></td>
+                                            <td><?= $brg['nota'] ?></td>
                                             <td><?= $brg['tanggal'] ?></td>
+                                            <td><a data-fancybox data-type="pdf" href="<?=base_url()?>upload/<?= $brg['surat']?>">
+                                                    PDF file
+                                                </a></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>admin/pbaru/edit/<?= $brg['id']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>admin/pbaru/hapus/<?= $brg['id']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
                                                 <a href="<?= base_url(); ?>admin/kbaru/tambah/<?= $brg['id']; ?>" class="badge badge-pill badge-dark">UBAH KONFIRMASI</a>
+                                                <a href="<?= base_url(); ?>admin/pbaru/cetak/<?= $brg['id']; ?>" class="btn-dark  btn-sm" title="print"><i class="fas fa-print"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
-                                
+
                             </table>
                         </div>
                         <!-- /.card-body -->

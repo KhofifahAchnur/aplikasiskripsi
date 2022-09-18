@@ -22,7 +22,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                <?php if ($this->session->flashdata('flash')) : ?>
+                    <?php if ($this->session->flashdata('flash')) : ?>
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                             Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -33,7 +33,7 @@
                     <!-- /.card-header -->
                     <div class="card">
                         <div class="card-header">
-                        <a href="<?= base_url('admin/pengajuan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
+                            <a href="<?= base_url('admin/pengajuan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a>
                             <a href="<?= base_url('admin/pengajuan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-success" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
                         </div>
                         <!-- /.card-header -->
@@ -48,6 +48,7 @@
                                         <th>Penanggung Jawab</th>
                                         <th>Jenis Pengajuan</th>
                                         <th>Status</th>
+                                        <th>Bukti Nota</th>
                                         <th>Tanggal Pengajuan</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
@@ -63,6 +64,7 @@
                                             <td><?= $brg['nama'] ?></td>
                                             <td><?= $brg['jenis'] ?></td>
                                             <td><?= $brg['status'] ?></td>
+                                            <td><?= $brg['nota'] ?></td>
                                             <td><?= $brg['tanggal'] ?></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>admin/pengajuan/edit/<?= $brg['id']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
@@ -72,7 +74,7 @@
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
-                                
+
                             </table>
                         </div>
                         <!-- /.card-body -->

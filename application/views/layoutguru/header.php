@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="<?= base_url('adminlte/'); ?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('adminlte/'); ?>dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>vendor/@fancyapps/ui/dist/fancybox.css">
     <!-- <link rel="stylesheet" href="<?= base_url('adminlte/'); ?>plugins/daterangepicker-master/daterangepicker.css"> -->
     <script src="<?= base_url('adminlte/'); ?>plugins/jquery/jquery.min.js"></script>
 
