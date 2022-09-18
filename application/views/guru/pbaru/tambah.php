@@ -67,7 +67,7 @@
                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                         </div>
                                     </div>
-                                    <small><a href="<?= base_url() ?>upload/template.docx">Download Template Surat</a></small>
+                                    <small><a href="<?= base_url() ?>upload/template1.docx">Download Template Surat</a></small>
                                 </div>
 
                                 <!-- <div class="form-group">

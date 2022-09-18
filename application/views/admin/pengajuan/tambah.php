@@ -27,7 +27,7 @@
                             <h3 class="card-title">Tambah Pengajuan Pemeliharaan Aset Peralatan & Mesin</h3>
                         </div>
                         <!-- form start -->
-                        <form action="" method="post">
+                        <form action="" method="post" enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Nama</label>
@@ -58,6 +58,16 @@
                                         <?php endforeach; ?>
                                     </select>
                                     <div class="form-text text-danger"><?= form_error('nama'); ?></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Surat</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="surat" class="custom-file-input" id="exampleInputFile">
+                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        </div>
+                                    </div>
+                                    <small><a href="<?= base_url() ?>upload/template1.docx">Download Template Surat</a></small>
                                 </div>
                                 <!-- <div class="form-group">
                                     <label>Jenis Pengajuan</label>

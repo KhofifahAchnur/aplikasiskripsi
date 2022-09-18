@@ -4,7 +4,7 @@ class M_pengajuan extends CI_model
 {
     public function lihat()
     {
-        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.nota, pengajuan.tanggal');
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal, surat');
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
@@ -23,6 +23,19 @@ class M_pengajuan extends CI_model
     }
     public function proses_tambah()
     {
+        $surat = $_FILES['surat'];
+        if ($surat = '') {
+        } else {
+            $config['upload_path'] = './upload';
+            $config['allowed_types'] = 'pdf';
+            $config['max_size']      = 2048;
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('surat')) {
+                echo "Gagal Upload";
+            } else {
+                $surat = $this->upload->data('file_name');
+            }
+        }
         $data = [
             "aset" => $this->input->post('aset', true),
             "des" => $this->input->post('des', true),
@@ -30,7 +43,8 @@ class M_pengajuan extends CI_model
             "penanggung_jawab_id" => $this->input->post('nama', true),
             "jenis" => 'Pemeliharaan Mesin',
             "status" => 'Diproses',
-            "tanggal" => date('Y-m-d')
+            "tanggal" => date('Y-m-d'),
+            "surat" => $surat
         ];
 
         $this->db->insert('pengajuan', $data);
@@ -89,7 +103,7 @@ class M_pengajuan extends CI_model
 
     public function filterbytanggal($tgl_awalcetak, $tgl_akhircetak)
     {
-        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal, surat');
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
@@ -102,7 +116,7 @@ class M_pengajuan extends CI_model
 
     public function databytanggal($tgl_awal, $tgl_akhir)
     {
-        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal, surat');
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
@@ -115,7 +129,7 @@ class M_pengajuan extends CI_model
 
     public function filterbynama($tgl_awalcetak, $tgl_akhircetak, $aset)
     {
-        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal, surat');
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
@@ -129,7 +143,7 @@ class M_pengajuan extends CI_model
 
     public function databynama($tgl_awal, $tgl_akhir, $aset)
     {
-        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal');
+        $this->db->select('pengajuan.id, pengajuan.aset, pengajuan.des, lokasi.lokasi, penanggung_jawab.nama, pengajuan.jenis, pengajuan.status, pengajuan.tanggal, surat');
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');

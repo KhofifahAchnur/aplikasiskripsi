@@ -49,6 +49,7 @@
                                         <th>Jenis Pengajuan</th>
                                         <th>Status</th>
                                         <th>Tanggal Pengajuan</th>
+                                        <th>Surat</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
@@ -64,6 +65,9 @@
                                             <td><?= $brg['jenis'] ?></td>
                                             <td><?= $brg['status'] ?></td>
                                             <td><?= $brg['tanggal'] ?></td>
+                                            <td><a data-fancybox data-type="pdf" href="<?=base_url()?>upload/<?= $brg['surat']?>">
+                                                    PDF file
+                                                </a></td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>guru/pengajuan/edit/<?= $brg['id']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>guru/pengajuan/hapus/<?= $brg['id']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
