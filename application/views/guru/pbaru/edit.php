@@ -24,11 +24,14 @@
                     <!-- /.card-header -->
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Edit Pengajuan Aset Baru</h3>
+                            <h3 class="card-title"> Pengajuan Aset Baru</h3>
                         </div>
                         <!-- form start -->
-                        <form action="" method="post">
-                            <input type="hidden" name="id" value="<?= $pbaru['id']; ?>">
+                        <!-- <form action="" method="post"> -->
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <!-- <?php echo form_open_multipart(); ?>
+                            <input type="hidden" name="suratlama" value="<?= $pbaru['surat']; ?>"> -->
+                            <!-- <input type="hidden" name="id" value="<?= $pbaru['id']; ?>"> -->
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Nama Aset</label>
@@ -56,43 +59,22 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <label>Kode Petugas</label>
-                                    <select name="kdpetugas" class="form-control" id="kdpetugas">
-                                        <?php foreach ($petugas as $index => $ptg) : ?>
-                                            <option <?= ($masuk['id_petugas'] == $ptg['id']) ? 'selected' : ''; ?> value="<?= $ptg['id']; ?>"><?= $ptg['kd_petugas']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div> -->
-                                <!-- <div class="form-group">
-                                    <label>Status</label>
-                                    <select name="status" class="form-control" id="status">
-                                        <option value="<?= $pbaru['status']; ?>"><?= $pbaru['status']; ?></option>
-                                        <option value="Diproses"> Diproses </option>
-                                        <option value="Disetujui"> Disetujui </option>
-                                        <option value="Tersedia"> Tersedia </option>
-                                    </select>
-                                </div> -->
-                                <!-- <div class="form-group">
-                                    <label>Status</label>
-                                    <input readonly type="text" class="form-control" id="status" placeholder="Masukkan Kode Barang" name="status" value="<?= $pbaru['status']; ?>">
-                                    <div class="form-text text-danger"><?= form_error('status'); ?></div>
-                                </div> -->
-                                <!-- <div class="form-group">
-                                    <label>Status</label>
-                                    <input hidden type="text" class="form-control" id="status" name="status" value="<?= $pbaru['id'] ?>">
-                                    <input readonly type="text" class="form-control" id="" name="" value="<?= $pbaru['status'] ?>">
-                                    <div class="form-text text-danger"><?= form_error('status'); ?></div>
-                                </div> -->
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <select name="status" class="form-control" id="status">
-                                        <option value="<?= $pbaru['status']; ?>"><?= $pbaru['status']; ?></option>
-                                        <option value="Diproses"> Diproses </option>
-                                        <option value="Disetujui"> Disetujui </option>
-                                        <option value="Tersedia"> Tersedia </option>
-                                    </select>
+                                    <input hidden type="text" class="form-control" id="status" name="status" value="<?= $pbaru['status'] ?>">
+                                    <input readonly type="text" class="form-control" id="" name="" value="<?= $pbaru['status'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('status'); ?></div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Surat</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="surat" class="custom-file-input" id="exampleInputFile" >
+                                            <label class="custom-file-label" for="exampleInputFile"><?= $pbaru['surat'] ?> </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-info">Simpan</button>
                                 </div>

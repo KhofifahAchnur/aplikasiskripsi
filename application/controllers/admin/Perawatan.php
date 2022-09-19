@@ -59,9 +59,60 @@ class Perawatan extends CI_Controller
             $this->load->view('layout/sidebar');
             $this->load->view('admin/perawatan/tambah', $data);
             $this->load->view('layout/footer');
+        }
+        // else {
+        //     // $this->M_perpindahan->tambahlokasi($id);
+        //     $this->M_perawatan->proses_tambah();
+        //     $this->session->set_flashdata('flash', 'Ditambahkan');
+        //     redirect('admin/perawatan');
+        // }
+    }
+
+    public function input_aksi()
+    {
+        $aset_id = $this->input->post('nama_barang');
+        $lokasi_id = $this->input->post('lokasi');
+        $penanggung_jawab_id = $this->input->post('nama');
+        $jenis = $this->input->post('jenis');
+        $biaya = $this->input->post('biaya');
+        $tgl_rawat = $this->input->post('tgl_rawat');
+        $tgl_selesai = $this->input->post('tgl_selesai');
+        $bukti = $_FILES['bukti'];
+        if ($bukti = '') {
         } else {
-            // $this->M_perpindahan->tambahlokasi($id);
-            $this->M_perawatan->proses_tambah();
+            $config['upload_path'] = './upload';
+            $config['allowed_types'] = 'jpg|png|gif|jpeg';
+            $config['max_size']      = 2048;
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('bukti')) {
+                $this->form_validation->set_rules('bukti', 'Bukti', 'required');
+                // echo "Gagal Upload";
+            } else {
+                $bukti = $this->upload->data('file_name');
+            }
+
+            $data = [
+                'aset_id' => $aset_id,
+                'lokasi_id' => $lokasi_id,
+                'penanggung_jawab_id' => $penanggung_jawab_id,
+                'jenis' => $jenis,
+                'biaya' => $biaya,
+                'tgl_rawat' => $tgl_rawat,
+                'tgl_selesai' => $tgl_selesai,
+                'bukti' => $bukti
+            ];
+
+            // $this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
+            // $this->form_validation->set_rules('ket', 'Keterangan', 'required');
+
+            if ($this->form_validation->run() == false) {
+                $this->load->view('layout/header', $data);
+                $this->load->view('layout/topbar');
+                $this->load->view('layout/sidebar');
+                $this->load->view('admin/perawatan/tambah', $data);
+                $this->load->view('layout/footer');
+            }
+            $this->M_perawatan->input_data($data, 'perawatan');
             $this->session->set_flashdata('flash', 'Ditambahkan');
             redirect('admin/perawatan');
         }
@@ -89,11 +140,61 @@ class Perawatan extends CI_Controller
             $this->load->view('layout/sidebar');
             $this->load->view('admin/perawatan/edit', $data);
             $this->load->view('layout/footer');
-        } else {
-            $this->M_perawatan->edit_barang($id);
-            $this->session->set_flashdata('flash', 'Diubah');
-            redirect('admin/perawatan');
         }
+        // else {
+        //     $this->M_perawatan->edit_barang($id);
+        //     $this->session->set_flashdata('flash', 'Diubah');
+        //     redirect('admin/perawatan');
+        // }
+    }
+
+    public function update_aksi()
+    {
+        $id_rawat = $this->input->post('id_rawat');
+        $aset_id = $this->input->post('nama_barang');
+        $lokasi_id = $this->input->post('lokasi');
+        $penanggung_jawab_id = $this->input->post('nama');
+        $jenis = $this->input->post('jenis');
+        $biaya = $this->input->post('biaya');
+        $tgl_rawat = $this->input->post('tgl_rawat');
+        $tgl_selesai = $this->input->post('tgl_selesai');
+        $bukti = $this->input->post('bukti');
+        $buktilama = $this->input->post('buktilama');
+        $bukti = $_FILES['bukti']['name'];
+
+        if (!empty($bukti)) {
+            $config['upload_path'] = './upload';
+            $config['allowed_types'] = 'jpg|png|gif|jpeg';
+            $config['max_size']      = 2048;
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('bukti')) {
+                $file = $this->upload->data('file_name');
+                $this->db->set('bukti', $file);
+            } else {
+                echo "Gagal Upload";
+            }
+        } else {
+            $file = $buktilama;
+        }
+
+        $data = array(
+            'aset_id' => $aset_id,
+            'lokasi_id' => $lokasi_id,
+            'penanggung_jawab_id' => $penanggung_jawab_id,
+            'jenis' => $jenis,
+            'biaya' => $biaya,
+            'tgl_rawat' => $tgl_rawat,
+            'tgl_selesai' => $tgl_selesai,
+            'bukti' => $file
+        );
+
+        $where = array(
+            'id_rawat' => $id_rawat
+        );
+
+        $this->M_perawatan->update_data($where, $data, 'perawatan');
+        $this->session->set_flashdata('flash', 'Diubah');
+        redirect('admin/perawatan');
     }
 
     public function hapus($id)

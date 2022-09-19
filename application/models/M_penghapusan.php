@@ -3,27 +3,27 @@
 class M_penghapusan extends CI_model
 {
 
-    public function lihat()
-    {
-        $this->db->select('aset.id, lokasi.lokasi, aset.nama_barang, aset.kode_barang, aset.register, aset.merk, aset.ukuran, aset.bahan, aset.tahun, aset.kondisi, aset.asal_usul, aset.harga_brg, aset.tanggal_masuk');
-        $this->db->from('aset');
-        $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
-        $this->db->order_by('aset.id', 'DESC');
-        $this->db->where('kondisi', 'Rusak Berat');
-        return $this->db->get()->result_array();
-    }
-
     // public function lihat()
     // {
-    //     $this->db->select('penghapusan.id, aset.nama_barang, aset.kode_barang, aset.register, aset.kondisi, aset.harga_brg, lokasi.lokasi, penghapusan.status, penghapusan.tgl_hapus');
-    //     $this->db->from('penghapusan');
-    //     $this->db->join('aset', 'aset.id = penghapusan.aset_id ');
-    //     $this->db->join('lokasi', 'lokasi.id = penghapusan.lokasi_id');
-    //     $this->db->order_by('penghapusan.id', 'DESC');
+    //     $this->db->select('aset.id, lokasi.lokasi, aset.nama_barang, aset.kode_barang, aset.register, aset.merk, aset.ukuran, aset.bahan, aset.tahun, aset.kondisi, aset.asal_usul, aset.harga_brg, aset.tanggal_masuk');
+    //     $this->db->from('aset');
+    //     $this->db->join('lokasi', 'lokasi.id = aset.perpindahan_id');
+    //     $this->db->order_by('aset.id', 'DESC');
     //     $this->db->where('kondisi', 'Rusak Berat');
-    //     $this->db->where_in('status',array('Dihapus'));
     //     return $this->db->get()->result_array();
     // }
+
+    public function lihat()
+    {
+        $this->db->select('penghapusan.id, aset.nama_barang, aset.kode_barang, aset.register, aset.kondisi, aset.harga_brg, lokasi.lokasi, penghapusan.status, penghapusan.tgl_hapus');
+        $this->db->from('penghapusan');
+        $this->db->join('aset', 'aset.id = penghapusan.aset_id ');
+        $this->db->join('lokasi', 'lokasi.id = penghapusan.lokasi_id');
+        $this->db->order_by('penghapusan.id', 'DESC');
+        // $this->db->where('kondisi', 'Dihapus');
+        $this->db->where_in('status',array('Dihapus'));
+        return $this->db->get()->result_array();
+    }
 
     public function totalKas()
     {

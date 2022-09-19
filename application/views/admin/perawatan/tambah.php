@@ -27,7 +27,8 @@
                             <h3 class="card-title">Tambah Data Pemeliharaan Aset Peralatan & Mesin</h3>
                         </div>
                         <!-- form start -->
-                        <form action="" method="post">
+                        <!-- <form action="" method="post"> -->
+                        <?php echo form_open_multipart('admin/perawatan/input_aksi'); ?>
                             <div class="card-body">
                             <div class="form-group">
                                     <label>Nama barang</label>
@@ -79,12 +80,22 @@
                                     <input type="date" class="form-control" id="tgl_selesai" placeholder="Masukkan Tanggal Selesai" name="tgl_selesai">
                                     <div class="form-text text-danger"><?= form_error('tgl_selesai'); ?></div>
                                 </div>
-
+                                <div class="form-group">
+                                <label for="exampleInputFile">Nota</label>
+                                <div class="input-group"> 
+                                    <div class="custom-file">
+                                        <input type="file" name="bukti" class="custom-file-input" id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose File</label>
+                                    </div>
+                                    <div class="form-text text-danger"><?= form_error('bukti'); ?></div>
+                                </div>
+                            </div>
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-info">Simpan</button>
                                 </div>
                             </div>
-                        </form>
+                            <?php echo form_close(); ?>
+                        <!-- </form> -->
                     </div>
                 </div>
                 <!-- /.card-body -->

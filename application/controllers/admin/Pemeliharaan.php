@@ -54,9 +54,58 @@ class Pemeliharaan extends CI_Controller
             $this->load->view('layout/sidebar');
             $this->load->view('admin/pemeliharaan/tambah', $data);
             $this->load->view('layout/footer');
+        }
+        // else {
+        //     // $this->M_perpindahan->tambahlokasi($id);
+        //     $this->M_pemeliharaan->proses_tambah();
+        //     $this->session->set_flashdata('flash', 'Ditambahkan');
+        //     redirect('admin/pemeliharaan');
+        // }
+    }
+
+    public function input_aksi()
+    {
+        $gedung_id = $this->input->post('nama_gedung');
+        $nama = $this->input->post('nama');
+        $jenis = $this->input->post('jenis');
+        $biaya = $this->input->post('biaya');
+        $tgl_pemeliharaan = $this->input->post('tgl_pemeliharaan');
+        $tgl_selesai = $this->input->post('tgl_selesai');
+        $bukti = $_FILES['bukti'];
+        if ($bukti = '') {
         } else {
-            // $this->M_perpindahan->tambahlokasi($id);
-            $this->M_pemeliharaan->proses_tambah();
+            $config['upload_path'] = './upload';
+            $config['allowed_types'] = 'jpg|png|gif|jpeg';
+            $config['max_size']      = 2048;
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('bukti')) {
+                $this->form_validation->set_rules('bukti', 'Bukti', 'required');
+                // echo "Gagal Upload";
+            } else {
+                $bukti = $this->upload->data('file_name');
+            }
+
+            $data = [
+                'gedung_id' => $gedung_id,
+                'nama' => $nama,
+                'jenis' => $jenis,
+                'biaya' => $biaya,
+                'tgl_pemeliharaan' => $tgl_pemeliharaan,
+                'tgl_selesai' => $tgl_selesai,
+                'bukti' => $bukti
+            ];
+
+            // $this->form_validation->set_rules('jumlah', 'Jumlah', 'required');
+            // $this->form_validation->set_rules('ket', 'Keterangan', 'required');
+
+            if ($this->form_validation->run() == false) {
+                $this->load->view('layout/header', $data);
+                $this->load->view('layout/topbar');
+                $this->load->view('layout/sidebar');
+                $this->load->view('admin/pemeliharaan/tambah', $data);
+                $this->load->view('layout/footer');
+            }
+            $this->M_pemeliharaan->input_data($data, 'pemeliharaan');
             $this->session->set_flashdata('flash', 'Ditambahkan');
             redirect('admin/pemeliharaan');
         }
@@ -81,11 +130,59 @@ class Pemeliharaan extends CI_Controller
             $this->load->view('layout/sidebar');
             $this->load->view('admin/pemeliharaan/edit', $data);
             $this->load->view('layout/footer');
-        } else {
-            $this->M_pemeliharaan->edit_barang($id);
-            $this->session->set_flashdata('flash', 'Diubah');
-            redirect('admin/pemeliharaan');
         }
+        // else {
+        //     $this->M_pemeliharaan->edit_barang($id);
+        //     $this->session->set_flashdata('flash', 'Diubah');
+        //     redirect('admin/pemeliharaan');
+        // }
+    }
+
+    public function update_aksi()
+    {
+        $id_pemeliharaan = $this->input->post('id_pemeliharaan');
+        $gedung_id = $this->input->post('nama_gedung');
+        $nama = $this->input->post('nama');
+        $jenis = $this->input->post('jenis');
+        $biaya = $this->input->post('biaya');
+        $tgl_pemeliharaan = $this->input->post('tgl_pemeliharaan');
+        $tgl_selesai = $this->input->post('tgl_selesai');
+        $bukti = $this->input->post('bukti');
+        $buktilama = $this->input->post('buktilama');
+        $bukti = $_FILES['bukti']['name'];
+
+        if (!empty($bukti)) {
+            $config['upload_path'] = './upload';
+            $config['allowed_types'] = 'jpg|png|gif|jpeg';
+            $config['max_size']      = 2048;
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('bukti')) {
+                $file = $this->upload->data('file_name');
+                $this->db->set('bukti', $file);
+            } else {
+                echo "Gagal Upload";
+            }
+        } else {
+            $file = $buktilama;
+        }
+
+        $data = array(
+            'gedung_id' => $gedung_id,
+            'nama' => $nama,
+            'jenis' => $jenis,
+            'biaya' => $biaya,
+            'tgl_pemeliharaan' => $tgl_pemeliharaan,
+            'tgl_selesai' => $tgl_selesai,
+            'bukti' => $file
+        );
+
+        $where = array(
+            'id_pemeliharaan' => $id_pemeliharaan
+        );
+
+        $this->M_pemeliharaan->update_data($where, $data, 'pemeliharaan');
+        $this->session->set_flashdata('flash', 'Diubah');
+        redirect('admin/pemeliharaan');
     }
 
     public function hapus($id)

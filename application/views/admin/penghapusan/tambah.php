@@ -45,28 +45,28 @@
                                     <input readonly type="text" class="form-control" id="register" name="register" value="<?= $aset['register'] ?>">
                                     <div class="form-text text-danger"><?= form_error('register'); ?></div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Kondisi</label>
                                     <input readonly type="text" class="form-control" id="kondisi" name="kondisi" value="<?= $aset['kondisi'] ?>">
                                     <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
-                                </div>
+                                </div> -->
                              <div class="form-group">
                                     <label>Lokasi</label>
                                     <input hidden type="text" class="form-control" id="lokasi" name="lokasi" value="<?= $lokasi['id'] ?>">
                                     <input readonly type="text" class="form-control" id="" name="" value="<?= $lokasi['lokasi'] ?>">
                                     <div class="form-text text-danger"><?= form_error('lokasi'); ?></div>
                                 </div>
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                     <label>Kondisi</label>
                                     <select name="kondisi" class="form-control" id="kondisi">
-                                        <option value="<?= $kondisi['kondisi']; ?>"><?= $kondisi['kondisi']; ?></option>
+                                        <option value="<?= $aset['kondisi']; ?>"><?= $aset['kondisi']; ?></option>
                                         <option value="Baik"> Baik </option>
                                         <option value="Kurang Baik"> Kurang Baik </option>
                                         <option value="Rusak Berat"> Rusak Berat </option>
                                         <option value="Dihapus"> Dihapus </option>
                                     </select>
                                     <div class="form-text text-danger"><?= form_error('kondisi'); ?></div>
-                                </div> -->
+                                </div>
                                 <!-- <div class="form-group">
                                     <label>Kondisi</label>
                                     <select name="kondisi" class="form-control">

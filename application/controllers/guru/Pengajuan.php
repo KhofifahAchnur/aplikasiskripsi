@@ -66,7 +66,7 @@ class Pengajuan extends CI_Controller
     public function edit($id)
     {
         $data['judul'] = 'Halaman Edit Data Pengajuan Pemeliharaan Aset Peralatan & Mesin';
-        $data['pengajuan'] = $this->M_pengajuan->getStsById($id);
+        $data['pgedung'] = $this->M_pgedung->getStsById($id);
         $data['lokasi'] = $this->M_lokasi->lihat();
         $data['penanggung_jawab'] = $this->M_penanggung_jawab->lihat();
         $data['user'] = $this->db->get_where('user', ['email' =>
@@ -82,12 +82,12 @@ class Pengajuan extends CI_Controller
             $this->load->view('layoutguru/header', $data);
             $this->load->view('layoutguru/topbar');
             $this->load->view('layoutguru/sidebar');
-            $this->load->view('guru/pengajuan/edit', $data);
+            $this->load->view('guru/pgedung/edit', $data);
             $this->load->view('layoutguru/footer');
         } else {
-            $this->M_pengajuan->edit_barang($id);
+            $this->M_pgedung->edit_detail($id);
             $this->session->set_flashdata('flash', 'Diubah');
-            redirect('guru/pengajuan');
+            redirect('guru/pgedung');
         }
     }
 

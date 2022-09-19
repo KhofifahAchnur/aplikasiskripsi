@@ -4,7 +4,7 @@ class M_pemeliharaan extends CI_model
 {
     public function lihat()
     {
-        $this->db->select('pemeliharaan.id_pemeliharaan, gedung.nama_gedung, gedung.kode_gedung, gedung.register, gedung.lokasi, pemeliharaan.nama, pemeliharaan.jenis, pemeliharaan.biaya, pemeliharaan.tgl_pemeliharaan, pemeliharaan.tgl_selesai');
+        $this->db->select('pemeliharaan.id_pemeliharaan, gedung.nama_gedung, gedung.kode_gedung, gedung.register, gedung.lokasi, pemeliharaan.nama, pemeliharaan.jenis, pemeliharaan.biaya, pemeliharaan.tgl_pemeliharaan, pemeliharaan.tgl_selesai, pemeliharaan.bukti');
         $this->db->from('pemeliharaan');
         $this->db->join('gedung', 'gedung.id_gedung = pemeliharaan.gedung_id');
         $this->db->order_by('pemeliharaan.id_pemeliharaan', 'DESC');
@@ -21,6 +21,17 @@ class M_pemeliharaan extends CI_model
         $this->db->order_by('pemeliharaan.id_pemeliharaan', 'DESC');
         return $this->db->get()->result_array();
 
+    }
+
+    public function input_data($data, $table)
+    {
+        $this->db->insert($table, $data);
+    }
+
+    public function update_data($where, $data, $table)
+    {
+        $this->db->where($where);
+        $this->db->update($table, $data);
     }
 
     public function proses_tambah()

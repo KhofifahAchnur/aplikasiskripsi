@@ -49,6 +49,42 @@ class M_pgedung extends CI_model
         $this->db->insert('pengajuan', $data);
     }
 
+    public function edit_detail($id)
+    {
+        $suratlama = $this->input->post('suratlama');
+        $surat = $_FILES['surat']['name'];
+        // die(var_dump($surat));
+        if (!empty($surat)) {
+            $config['upload_path'] = './upload';
+            $config['allowed_types'] = 'pdf';
+            $config['max_size']      = 2048;
+            $this->load->library('upload', $config);
+            // if($suratlama == null){
+            // }
+            if ($this->upload->do_upload('surat')) {
+                $file = $this->upload->data('file_name');
+                $this->db->set('surat', $file);
+            } else {
+                echo "Gagal Upload";
+            }
+        } else {
+            $file = $suratlama;
+        }
+        // die(var_dump($surat));
+        $data = [
+            "aset" => $this->input->post('aset', true),
+            "des" => $this->input->post('des', true),
+            "lokasi_id" => $this->input->post('lokasi', true),
+            "penanggung_jawab_id" => $this->input->post('nama', true),
+            "status" => $this->input->post('status', true),
+            "surat" => $file,
+        ];
+
+        $this->db->where('id', $id);
+        $this->db->update('pengajuan', $data);
+        
+}
+
     public function getStsById($id)
     {
         return $this->db->get_where('pengajuan', ['id' => $id])->row_array();

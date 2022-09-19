@@ -8,7 +8,8 @@ class Penghapusan extends CI_Controller
         parent::__construct();
         $this->load->model('M_penghapusan');
         $this->load->model('M_aset');
-        // $this->load->model('M_lokasi');
+        $this->load->model('M_lokasi');
+        $this->load->model('M_kondisi');
         if ($this->session->userdata('hak_akses') != '1') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
 					</button> </div>');
@@ -16,25 +17,11 @@ class Penghapusan extends CI_Controller
         }
     }
 
-    // public function index()
-    // {
-    //     $data['judul'] = 'Halaman Data Pengajuan Pemeliharaan Aset Peralatan & Mesin';
-    //     $data['hapus'] = $this->M_penghapusan->lihat();
-    //     $data['jumlah_kasmasuk'] = $this->M_penghapusan->totalkas();
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-    //     $this->load->view('layout/header', $data);
-    //     $this->load->view('layout/topbar');
-    //     $this->load->view('layout/sidebar');
-    //     $this->load->view('admin/penghapusan/index', $data);
-    //     $this->load->view('layout/footer');
-    // }
-
     public function index()
     {
-        $data['judul'] = 'Halaman Data Perbaikan Barang';
-        $data['barang'] = $this->M_penghapusan->lihat();
+        $data['judul'] = 'Halaman Data Pengajuan Pemeliharaan Aset Peralatan & Mesin';
+        $data['hapus'] = $this->M_penghapusan->lihat();
+        $data['jumlah_kasmasuk'] = $this->M_penghapusan->totalkas();
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -45,65 +32,81 @@ class Penghapusan extends CI_Controller
         $this->load->view('layout/footer');
     }
 
-
-    // public function tambah($id)
+    // public function index()
     // {
-    //     $data['judul'] = 'Halaman Tambah Data penghapusan Pemeliharaan Aset Peralatan & Mesin';
-    //     $data['aset'] = $this->M_aset->getBrgById($id);
-    //     $data['lokasi'] = $this->M_lokasi->getBrgById($data['aset']['perpindahan_id']);
+    //     $data['judul'] = 'Halaman Data Perbaikan Barang';
+    //     $data['barang'] = $this->M_penghapusan->lihat();
     //     $data['user'] = $this->db->get_where('user', ['email' =>
     //     $this->session->userdata('email')])->row_array();
 
-
-    //     $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
-    //     $this->form_validation->set_rules('lokasi', 'Lokasi barang', 'required');
-    //     // $this->form_validation->set_rules('jenis', 'Jenis penghapusan', 'required');
-    //     // $this->form_validation->set_rules('status', 'Status', 'required');
-
-
-    //     if ($this->form_validation->run() == false) {
-    //         $this->load->view('layout/header', $data);
-    //         $this->load->view('layout/topbar');
-    //         $this->load->view('layout/sidebar');
-    //         $this->load->view('admin/penghapusan/tambah', $data);
-    //         $this->load->view('layout/footer');
-    //     } else {
-    //         $this->M_penghapusan->proses_tambah();
-    //         $this->session->set_flashdata('flash', 'Ditambahkan');
-    //         redirect('admin/penghapusan');
-    //     }
+    //     $this->load->view('layout/header', $data);
+    //     $this->load->view('layout/topbar');
+    //     $this->load->view('layout/sidebar');
+    //     $this->load->view('admin/penghapusan/index', $data);
+    //     $this->load->view('layout/footer');
     // }
 
 
     public function tambah($id)
     {
-        $data['judul'] = 'Halaman Tambah Data';
-        $data['aset'] = $this->M_masteraset->getBrgById($id);
+        $data['judul'] = 'Halaman Tambah Data penghapusan Pemeliharaan Aset Peralatan & Mesin';
+        $data['aset'] = $this->M_aset->getBrgById($id);
+        $data['lokasi'] = $this->M_lokasi->getBrgById($data['aset']['perpindahan_id']);
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
 
-        $this->form_validation->set_rules('tanggal_masuk', 'Tanggal Masuk', 'required');
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
-        $this->form_validation->set_rules('kode_barang', 'kode_barang', 'required');
-        $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
-        $this->form_validation->set_rules('kerusakan', 'Kerusakan', 'required');
-        $this->form_validation->set_rules('jenis_service', 'Jenis Service', 'required');
-        $this->form_validation->set_rules('biaya', 'Biaya', 'required');
-        
+        $this->form_validation->set_rules('lokasi', 'Lokasi barang', 'required');
+        // $this->form_validation->set_rules('jenis', 'Jenis penghapusan', 'required');
+        // $this->form_validation->set_rules('status', 'Status', 'required');
+
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layout/header', $data);
             $this->load->view('layout/topbar');
             $this->load->view('layout/sidebar');
-            $this->load->view('admin/penghapusan/tambah');
+            $this->load->view('admin/penghapusan/tambah', $data);
             $this->load->view('layout/footer');
         } else {
+            $this->M_kondisi->updatekondisimesin($id);
             $this->M_penghapusan->proses_tambah();
+            $this->M_kondisi->proses_tambah();
             $this->session->set_flashdata('flash', 'Ditambahkan');
-            redirect('admin/perbaikan');
+            redirect('admin/penghapusan');
         }
     }
+
+
+    // public function tambah($id)
+    // {
+    //     $data['judul'] = 'Halaman Tambah Data';
+    //     $data['aset'] = $this->M_masteraset->getBrgById($id);
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+
+
+    //     $this->form_validation->set_rules('tanggal_masuk', 'Tanggal Masuk', 'required');
+    //     $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
+    //     $this->form_validation->set_rules('kode_barang', 'kode_barang', 'required');
+    //     $this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
+    //     $this->form_validation->set_rules('kerusakan', 'Kerusakan', 'required');
+    //     $this->form_validation->set_rules('jenis_service', 'Jenis Service', 'required');
+    //     $this->form_validation->set_rules('biaya', 'Biaya', 'required');
+        
+
+    //     if ($this->form_validation->run() == false) {
+    //         $this->load->view('layout/header', $data);
+    //         $this->load->view('layout/topbar');
+    //         $this->load->view('layout/sidebar');
+    //         $this->load->view('admin/penghapusan/tambah');
+    //         $this->load->view('layout/footer');
+    //     } else {
+    //         $this->M_penghapusan->proses_tambah();
+    //         $this->session->set_flashdata('flash', 'Ditambahkan');
+    //         redirect('admin/perbaikan');
+    //     }
+    // }
 
     public function edit($id)
     {

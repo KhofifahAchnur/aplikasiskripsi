@@ -9,7 +9,7 @@ class M_pbaru extends CI_model
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
         $this->db->order_by('pengajuan.id', 'DESC');
-        $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->where_in('jenis', array('Aset Baru'));
         return $this->db->get()->result_array();
     }
 
@@ -20,11 +20,11 @@ class M_pbaru extends CI_model
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
         $this->db->order_by('pengajuan.id', 'DESC');
-        $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->where_in('jenis', array('Aset Baru'));
         $this->db->where('penanggung_jawab.id', $id);
         return $this->db->get()->row_array();
     }
-     
+
 
     public function tampilstatus()
     {
@@ -62,6 +62,42 @@ class M_pbaru extends CI_model
         $this->db->insert('pengajuan', $data);
     }
 
+    public function edit_detail($id)
+    {
+        $suratlama = $this->input->post('suratlama');
+        $surat = $_FILES['surat']['name'];
+        // die(var_dump($surat));
+        if (!empty($surat)) {
+            $config['upload_path'] = './upload';
+            $config['allowed_types'] = 'pdf';
+            $config['max_size']      = 2048;
+            $this->load->library('upload', $config);
+            // if($suratlama == null){
+            // }
+            if ($this->upload->do_upload('surat')) {
+                $file = $this->upload->data('file_name');
+                $this->db->set('surat', $file);
+            } else {
+                echo "Gagal Upload";
+            }
+        } else {
+            $file = $suratlama;
+        }
+        // die(var_dump($surat));
+        $data = [
+            "aset" => $this->input->post('aset', true),
+            "des" => $this->input->post('des', true),
+            "lokasi_id" => $this->input->post('lokasi', true),
+            "penanggung_jawab_id" => $this->input->post('nama', true),
+            "status" => $this->input->post('status', true),
+            "surat" => $file,
+        ];
+
+        $this->db->where('id', $id);
+        $this->db->update('pengajuan', $data);
+        
+}
+
     public function getStsById($id)
     {
         return $this->db->get_where('pengajuan', ['id' => $id])->row_array();
@@ -76,6 +112,32 @@ class M_pbaru extends CI_model
             "penanggung_jawab_id" => $this->input->post('nama', true),
             "status" => $this->input->post('status', true),
         ];
+
+        $this->db->where('id', $id);
+        $this->db->update('pengajuan', $data);
+
+        // $surat = $_FILES['surat'];
+        // if ($surat = '') {
+        // } else {
+        //     $config['upload_path'] = './upload';
+        //     $config['allowed_types'] = 'pdf';
+        //     $config['max_size']      = 2048;
+        //     $this->load->library('upload', $config);
+        //     if (!$this->upload->do_upload('surat')) {
+        //         echo "Gagal Upload";
+        //     } else {
+        //         $surat = $this->upload->data('file_name');
+        //     }
+        // }
+        // $data = [
+        //     "aset" => $this->input->post('aset', true),
+        //     "des" => $this->input->post('des', true),
+        //     "lokasi_id" => $this->input->post('lokasi', true),
+        //     "penanggung_jawab_id" => $this->input->post('nama', true),
+        //     "status" => $this->input->post('status', true),
+        //     "tanggal" => date('Y-m-d'),
+        //     "surat" => $surat
+        // ];
 
         $this->db->where('id', $id);
         $this->db->update('pengajuan', $data);
@@ -96,7 +158,7 @@ class M_pbaru extends CI_model
     {
         $this->db->select('aset');
         $this->db->from('pengajuan');
-        $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->where_in('jenis', array('Aset Baru'));
         $this->db->group_by('aset');
         return $this->db->get()->result_array();
     }
@@ -105,7 +167,7 @@ class M_pbaru extends CI_model
     {
         $this->db->select('aset');
         $this->db->from('pengajuan');
-        $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->where_in('jenis', array('Aset Baru'));
         $this->db->where("tanggal>=", "$tgl_awal");
         $this->db->where("tanggal<=", "$tgl_akhir");
         $this->db->group_by('aset');
@@ -119,7 +181,7 @@ class M_pbaru extends CI_model
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
-        $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->where_in('jenis', array('Aset Baru'));
         $this->db->order_by('pengajuan.id', 'DESC');
         $this->db->where("tanggal>=", "$tgl_awalcetak");
         $this->db->where("tanggal<=", "$tgl_akhircetak");
@@ -132,7 +194,7 @@ class M_pbaru extends CI_model
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
-        $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->where_in('jenis', array('Aset Baru'));
         $this->db->order_by('pengajuan.id', 'DESC');
         $this->db->where("tanggal>=", "$tgl_awal");
         $this->db->where("tanggal<=", "$tgl_akhir");
@@ -145,7 +207,7 @@ class M_pbaru extends CI_model
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
-        $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->where_in('jenis', array('Aset Baru'));
         $this->db->order_by('pengajuan.id', 'DESC');
         $this->db->where("pengajuan.aset", "$aset");
         $this->db->where("tanggal>=", "$tgl_awalcetak");
@@ -159,7 +221,7 @@ class M_pbaru extends CI_model
         $this->db->from('pengajuan');
         $this->db->join('lokasi', 'lokasi.id = pengajuan.lokasi_id');
         $this->db->join('penanggung_jawab', 'penanggung_jawab.id = pengajuan.penanggung_jawab_id');
-        $this->db->where_in('jenis',array('Aset Baru'));
+        $this->db->where_in('jenis', array('Aset Baru'));
         $this->db->order_by('pengajuan.id', 'DESC');
         $this->db->where("pengajuan.aset", "$aset");
         $this->db->where("tanggal>=", "$tgl_awal");
@@ -168,9 +230,7 @@ class M_pbaru extends CI_model
     }
 
     public function jumlah()
-        {
-            return $this->db->get('pengajuan')->num_rows();
-        }
-
-    
+    {
+        return $this->db->get('pengajuan')->num_rows();
+    }
 }

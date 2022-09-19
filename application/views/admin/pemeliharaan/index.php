@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                    <!-- <a href="<?= base_url('admin/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="float:right"></i>&nbsp;&nbsp;Kembali</a> || -->
+                        <!-- <a href="<?= base_url('admin/aset/index') ?>" button type="button" class="btn waves-effect waves-light btn-secondary"><i class="float:right"></i>&nbsp;&nbsp;Kembali</a> || -->
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
                         <li class="breadcrumb-item active">Data Pemeliharaan Aset Gedung & Bangunan</li>
                     </ol>
@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                <?php if ($this->session->flashdata('flash')) : ?>
+                    <?php if ($this->session->flashdata('flash')) : ?>
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                             Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -55,13 +55,14 @@
                                         <th>Tanggal Pemeliharaan</th>
                                         <th>Tanggal Selesai </th>
                                         <th>Biaya</th>
+                                        <th>Nota</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
                                 <tbody>
-                                <?php foreach ($pemeliharaan as $index => $pln) : ?>
+                                    <?php foreach ($pemeliharaan as $index => $pln) : ?>
                                         <tr>
-                                        <td><?= ++$index; ?></td>
+                                            <td><?= ++$index; ?></td>
                                             <td><?= $pln['nama_gedung'] ?></td>
                                             <td><?= $pln['kode_gedung'] ?></td>
                                             <td><?= $pln['register'] ?></td>
@@ -71,6 +72,11 @@
                                             <td><?= $pln['tgl_pemeliharaan'] ?></td>
                                             <td><?= $pln['tgl_selesai'] ?></td>
                                             <td><?= "Rp." . number_format($pln['biaya'], 2, ",", "."); ?></td>
+                                            <td align="center">
+                                                <a data-fancybox data-src="<?= base_url('upload/') . $pln['bukti'] ?>" data-caption="Bukti">
+                                                    <img src="<?= base_url('upload/') . $pln['bukti'] ?>" width="100" height="100" />
+                                                </a>
+                                            </td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>admin/pemeliharaan/edit/<?= $pln['id_pemeliharaan']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>admin/pemeliharaan/hapus/<?= $pln['id_pemeliharaan']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>

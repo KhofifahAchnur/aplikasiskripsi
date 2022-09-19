@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Pemeliharaan Aset Peralatan & Mesin</h1>
+                    <h1>Data Penghapusan Aset Peralatan & Mesin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url('guru/dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Data Pemeliharaan Aset Peralatan & Mesin</li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
+                        <li class="breadcrumb-item active">Data Penghapusan Aset Peralatan & Mesin</li>
                     </ol>
                 </div>
             </div>
@@ -22,14 +22,22 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                <?php if ($this->session->flashdata('flash')) : ?>
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span arial-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
                     <!-- /.card-header -->
                     <div class="card">
                         <div class="card-header">
                             <!-- <h3 class="card-title">
-                                Daftar Data Pemeliharaan Aset
+                                Daftar Data Penghapusan Aset
                             </h3> -->
-                            <!-- <a href="<?= base_url('guru/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
-                            <a href="<?= base_url('guru/perawatan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
+                            <!-- <a href="<?= base_url('admin/perawatan/tambah') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:right"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+                            <a href="<?= base_url('admin/perawatan/filter') ?>" button type="button" class="btn waves-effect waves-light btn-primary" style="float:left"><i class="fas fas fa-print"></i>&nbsp;&nbsp;</a> -->
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -45,14 +53,14 @@
                                         <th>Status</th>
                                         <th>Tanggal Penghapusan</th>
                                         <th>Harga</th>
-                                        <!-- <th class="text-center">Aksi</th> -->
+                                        <th>Kondisi</th>
+                                        <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1;
-                                    foreach ($hapus as $hps) : ?>
+                                    <?php foreach ($hapus as $index => $hps) : ?>
                                         <tr>
-                                            <td><?= $i++; ?></td>
+                                            <td><?= ++$index; ?></td>
                                             <td><?= $hps['nama_barang'] ?></td>
                                             <td><?= $hps['kode_barang'] ?></td>
                                             <td><?= $hps['register'] ?></td>
@@ -61,20 +69,21 @@
                                             <td><?= $hps['status'] ?></td>
                                             <td><?= $hps['tgl_hapus'] ?></td>
                                             <td><?= "Rp." . number_format($hps['harga_brg'], 2, ",", "."); ?></td>
-                                        <!-- <td style="width: 100px;" class="text-center">
-                                                <a href="<?= base_url(); ?>guru/perawatan/edit/<?= $hps['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> | -->
-                                                <!-- <a href="<?= base_url(); ?>guru/penghapusan/hapus/<?= $hps['id']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a> -->
-                                            <!-- </td>  -->
-                                        </tr> 
+                                            <!-- <td><?= $hps['kondisi'] ?></td> -->
+                                            <td style="width: 100px;" class="text-center">
+                                                <!-- <a href="<?= base_url(); ?>admin/perawatan/edit/<?= $hps['id']; ?>" class="btn-success  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> | -->
+                                                <a href="<?= base_url(); ?>admin/penghapusan/hapus/<?= $hps['id']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
                                 </tbody>
-                                <!-- <tfoot>
+                                <tfoot>
                                     <tr>
-                                        <th colspan="9" class="text-center">Total Kas Masuk</th>
+                                        <th colspan="8" class="text-center">Total Aset</th>
                                         <th colspan="1"><?= "Rp." . number_format($jumlah_kasmasuk, 2, ",", "."); ?></th>
                                         <th></th>
                                     </tr>
-                                </tfoot> -->
+                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                <?php if ($this->session->flashdata('flash')) : ?>
+                    <?php if ($this->session->flashdata('flash')) : ?>
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                             Data <strong> Berhasil </strong><?= $this->session->flashdata('flash'); ?>.
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -35,7 +35,8 @@
                             <h3 class="card-title">Edit Data Pengajuan Pemeliharaan Aset Peralatan & Mesin</h3>
                         </div>
                         <!-- form start -->
-                        <form action="" method="post">
+                        <!-- <form action="" method="post"> -->
+                        <form action="" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?= $pengajuan['id']; ?>">
                             <div class="card-body">
                                 <div class="form-group">
@@ -80,7 +81,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Status</label>
                                     <select name="status" class="form-control" id="status">
                                         <option value="<?= $pengajuan['status']; ?>"><?= $pengajuan['status']; ?></option>
@@ -88,6 +89,21 @@
                                         <option value="Disetujui"> Disetujui </option>
                                         <option value="Tersedia"> Tersedia </option>
                                     </select>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <input hidden type="text" class="form-control" id="status" name="status" value="<?= $pengajuan['status'] ?>">
+                                    <input readonly type="text" class="form-control" id="" name="" value="<?= $pengajuan['status'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('status'); ?></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Surat</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="surat" class="custom-file-input" id="exampleInputFile">
+                                            <label class="custom-file-label" for="exampleInputFile"><?= $pengajuan['surat'] ?> </label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-info">Simpan</button>

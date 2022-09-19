@@ -76,7 +76,7 @@ class Pbaru extends CI_Controller
         $this->form_validation->set_rules('des', 'Deskripsi', 'required');
         $this->form_validation->set_rules('lokasi', 'Lokasi Barang', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
-        $this->form_validation->set_rules('status', 'Status', 'required');
+        // $this->form_validation->set_rules('status', 'Status', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('layoutguru/header', $data);
@@ -85,7 +85,7 @@ class Pbaru extends CI_Controller
             $this->load->view('guru/pbaru/edit', $data);
             $this->load->view('layoutguru/footer');
         } else {
-            $this->M_pbaru->edit_barang($id);
+            $this->M_pbaru->edit_detail($id);
             $this->session->set_flashdata('flash', 'Diubah');
             redirect('guru/pbaru');
         }

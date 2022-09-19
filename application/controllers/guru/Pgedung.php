@@ -7,7 +7,7 @@ class Pgedung extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_pgedung');
-        // $this->load->model('M_lokasi');
+        $this->load->model('M_lokasi');
         $this->load->model('M_penanggung_jawab');
         if ($this->session->userdata('hak_akses') != '2') {
             $this->session->set_flashdata('flash', '<div class="alert alert-danger" role="alert"> Anda Belum Login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span arial-hidden="true">&times;</span>
@@ -74,7 +74,7 @@ class Pgedung extends CI_Controller
 
         $this->form_validation->set_rules('aset', 'Nama Aset', 'required');
         $this->form_validation->set_rules('des', 'Deskripsi', 'required');
-        // $this->form_validation->set_rules('lokasi', 'Lokasi Barang', 'required');
+        $this->form_validation->set_rules('lokasi', 'Lokasi Barang', 'required');
         $this->form_validation->set_rules('nama', 'Penanggung Jawab', 'required');
         $this->form_validation->set_rules('status', 'Status', 'required');
 
@@ -85,7 +85,7 @@ class Pgedung extends CI_Controller
             $this->load->view('guru/pgedung/edit', $data);
             $this->load->view('layoutguru/footer');
         } else {
-            $this->M_pgedung->edit_barang($id);
+            $this->M_pgedung->edit_detail($id);
             $this->session->set_flashdata('flash', 'Diubah');
             redirect('guru/pgedung');
         }

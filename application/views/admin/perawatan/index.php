@@ -55,6 +55,7 @@
                                         <th>Tanggal Pemeliharaan</th>
                                         <th>Tanggal Selesai </th>
                                         <th>Biaya</th>
+                                        <th>Nota</th>
                                         <th class="text-center">Aksi</th>
                                 </thead>
                                 </thead>
@@ -71,6 +72,11 @@
                                             <td><?= $rwt['tgl_rawat'] ?></td>
                                             <td><?= $rwt['tgl_selesai'] ?></td>
                                             <td><?= "Rp." . number_format($rwt['biaya'], 2, ",", "."); ?></td>
+                                            <td align="center">
+                                                <a data-fancybox data-src="<?= base_url('upload/') . $rwt['bukti'] ?>" data-caption="Bukti">
+                                                    <img src="<?= base_url('upload/') . $rwt['bukti'] ?>" width="100" height="100" />
+                                                </a>
+                                            </td>
                                             <td style="width: 100px;" class="text-center">
                                                 <a href="<?= base_url(); ?>admin/perawatan/edit/<?= $rwt['id_rawat']; ?>" class="btn-secondary  btn-sm" title="edit"><i class="fas fa-fw fa-edit"></i></a> |
                                                 <a href="<?= base_url(); ?>admin/perawatan/hapus/<?= $rwt['id_rawat']; ?>" class="btn-info  btn-sm" title="hapus" onclick="return confirm('Yakin ingin menghapus data?');"><i class="fas fa-trash-alt"></i></a>

@@ -72,7 +72,7 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Status</label>
                                     <select name="status" class="form-control" id="status">
                                         <option value="<?= $pgedung['status']; ?>"><?= $pgedung['status']; ?></option>
@@ -80,6 +80,21 @@
                                         <option value="Disetujui"> Disetujui </option>
                                         <option value="Tersedia"> Tersedia </option>
                                     </select>
+                                </div> -->
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <input hidden type="text" class="form-control" id="status" name="status" value="<?= $pgedung['status'] ?>">
+                                    <input readonly type="text" class="form-control" id="" name="" value="<?= $pgedung['status'] ?>">
+                                    <div class="form-text text-danger"><?= form_error('status'); ?></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Surat</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="surat" class="custom-file-input" id="exampleInputFile">
+                                            <label class="custom-file-label" for="exampleInputFile"><?= $pgedung['surat'] ?> </label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-info">Simpan</button>
