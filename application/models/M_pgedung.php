@@ -74,7 +74,7 @@ class M_pgedung extends CI_model
         $data = [
             "aset" => $this->input->post('aset', true),
             "des" => $this->input->post('des', true),
-            "lokasi_id" => $this->input->post('lokasi', true),
+            // "lokasi_id" => $this->input->post('lokasi', true),
             "penanggung_jawab_id" => $this->input->post('nama', true),
             "status" => $this->input->post('status', true),
             "surat" => $file,
